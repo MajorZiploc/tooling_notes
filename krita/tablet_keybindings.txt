@@ -1,0 +1,18 @@
+huion_graphics_table_611
+  tablet buttons
+    1 ctrl-s
+    2 b -- brush
+    3 ctrl-t
+    4 4 -- meh
+    5 6 -- meh
+    6 5 -- meh
+    7 m -- mirror
+    8 ctrl-shift-a -- deselect
+    9 ctrl-shift-z -- redo
+    10 ctrl-z
+
+  pen buttons
+    top: right_mouse_click
+    bottom: space
+
+xp pen artist 13.3 pro (see ../xppen/artist_13_3_pro/PenTablet_Config_2022-10-10.pcfg for krita configs)

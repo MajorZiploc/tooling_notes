@@ -1,0 +1,12 @@
+ggVG
+:s/\(\d\+\)/\=str2nr(submatch(1)) + 1/g
+ggVG
+:s/\(\d\+\)/\=submatch(1) . " " . str2nr(submatch(1)) % 2/g
+ggVG
+:s/\(\d\+\) \(\d\+\)/\=submatch(2) == 0 ? submatch(1) : ""/g
+ggVGJ
+:%! tr " " "+"
+gg^"tD
+:let this_dir = expand('%:p:h') | let vim_fn_file =  this_dir . "/calc_expr.vim" | exec  "source " . vim_fn_file | call MyCalcNum(@t)
+:%! sed -E '/^\s*$/d'
+:wq

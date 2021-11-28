@@ -1,0 +1,3 @@
+# models are stored here:
+~/.cache/huggingface/hub/
+

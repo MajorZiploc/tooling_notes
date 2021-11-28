@@ -1,0 +1,115 @@
+# merge 2 ymls https://mikefarah.gitbook.io/yq/v/v2.x/merge
+
+## To Stdout
+Given a data1.yaml file of:
+a: simple
+b: [1, 2]
+and data2.yaml file of:
+a: other
+c:
+  test: 1
+then
+yq m data1.yaml data2.yaml
+will output:
+a: simple
+b: [1, 2]
+c:
+  test: 1
+
+## Overwrite values
+a: simple
+b: [1, 2]
+and data3.yaml file of:
+b: [3, 4]
+c:
+  test: 2
+  other: true
+d: false
+then
+yq m -x data1.yaml data3.yaml
+will output:
+a: simple
+b: [3, 4]
+c:
+  test: 2
+  other: true
+d: false
+
+
+
+## Overwrite values with arrays
+Given a data1.yaml file of:
+a: simple
+b: [1, 2]
+and data3.yaml file of:
+b: [3, 4]
+c:
+  test: 2
+  other: true
+d: false
+
+yq m -x data1.yaml data3.yaml
+will output:
+a: simple
+b: [3, 4]
+c:
+  test: 2
+  other: true
+d: false
+
+## Append values with arrays
+Given a data1.yaml file of:
+a: simple
+b: [1, 2]
+d: hi
+and data3.yaml file of:
+a: something
+b: [3, 4]
+c:
+  test: 2
+  other: true
+then
+yq m -a data1.yaml data3.yaml
+will output:
+a: simple
+b: [1, 2, 3, 4]
+c:
+  test: 2
+  other: true
+d: hi
+
+## Multiple Documents - merge into single document
+Currently yq only has multi-document support for the first document being merged into. The remaining yaml files will have their first document selected.
+Given a data1.yaml file of:
+something: else
+---
+a: simple
+b: cat
+and data3.yaml file of:
+b: dog
+then
+yq m -x -d1 data1.yaml data3.yaml
+will output:
+something: else
+---
+a: simple
+b: dog
+
+
+## Multiple Documents - merge into all documents
+Currently yq only has multi-document support for the first document being merged into. The remaining yaml files will have their first document selected.
+Given a data1.yaml file of:
+something: else
+---
+a: simple
+b: cat
+and data3.yaml file of:
+b: dog
+then
+yq m -x -d'*' data1.yaml data3.yaml
+will output:
+b: dog
+something: else
+---
+a: simple
+b: dog

@@ -1,0 +1,23 @@
+List the project references for the specified project:
+dotnet list app/app.csproj reference
+
+List the project references for the project in the current directory:
+dotnet list reference
+
+Add a project reference:
+dotnet add app/app.csproj reference lib/lib.csproj
+
+Add multiple project references to the project in the current directory:
+dotnet add reference lib1/lib1.csproj lib2/lib2.csproj
+
+Add multiple project references using a globbing pattern on Linux/Unix:
+dotnet add app/app.csproj reference **/*.csproj
+
+Remove a project reference from the specified project:
+dotnet remove app/app.csproj reference lib/lib.csproj
+
+Remove multiple project references from the project in the current directory:
+dotnet remove reference lib1/lib1.csproj lib2/lib2.csproj
+
+Remove multiple project references using a glob pattern on Unix/Linux:
+dotnet remove app/app.csproj reference **/*.csproj`

@@ -1,0 +1,20 @@
+List package references of a specific project:
+dotnet list SentimentAnalysis.csproj package
+
+List package references that have newer versions available, including prerelease versions:
+dotnet list package --outdated --include-prerelease
+
+List package references for a specific target framework:
+dotnet list package --framework netcoreapp3.0
+
+Add Newtonsoft.Json NuGet package to a project:
+dotnet add package Newtonsoft.Json
+
+Add a specific version of a package to a project:
+dotnet add ToDo.csproj package Microsoft.Azure.DocumentDB.Core -v 1.0.0
+
+Add a package using a specific NuGet source:
+dotnet add package Microsoft.AspNetCore.StaticFiles -s https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+
+Remove Newtonsoft.Json NuGet package from a project in the current directory:
+dotnet remove package Newtonsoft.Json

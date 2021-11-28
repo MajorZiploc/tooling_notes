@@ -1,0 +1,25 @@
+js lib trackdown source of issue workflow: (find the components that break our usecase in a library change)
+  Ex: target lib version 10 -- uping from version 7
+    Leads to broken test
+    in lib project: slowly up the version from 7 to 10 to find which version breaks the test; say v9 breaks the test
+      git --no-pager diff v9 v10 > diffv9tov10.git
+    find source code files that were affected in the diff
+      cat t.git | grep -E '^---.*a/.*\.tsx'
+    vim macro to trim down to the name of the files and create a search_phrase
+    in client project of lib in the directory of the component that has failing tests:
+      search_phrase='\b(Input|PercentInput|SearchableSelect|SimpleButton|Validation)\b'; ignore_patterns='(<|defaultMessage)'; gfind_in_files "$search_phrase" '.*\.tsx' | grep -Ev "$ignore_patterns" | grep -E "$search_phrase"
+    this will produce a list of mainly imports of components that were affected by the new version of the library like the below example:
+      ./DefaultLabor.tsx:3:import SearchableSelect from "@conservis/style-guide/dist/components/SearchableSelect";
+      ./DefaultLabor.tsx:4:import SimpleButton from "@conservis/style-guide/dist/components/SimpleButton";
+    From this we now know that only SearchableSelect and SimpleButton affect us
+    So we go to v8 of the lib and build the lib locally and copy the v8 components one at a time into our project to see which one fixes the test
+      NOTE: you can do this in opposite way aswell. e.g. use v8 lib in client project and copy v9 lib components one at a time to see which one breaks the test
+      copy process would look something like this from the client project root:
+      ```
+      this_dist="./node_modules/@conservis/style-guide/dist/components/SearchableSelect";
+      rm -rf "${this_dist:?}";
+      mkdir "${this_dist}";
+      cp -a /Users/mlakhotia/projects-conservis-nextgen/style-guide/dist/components/SearchableSelect/. "$this_dist";
+      ```
+    By going through this process - we will find the component that had changes that break our test
+

@@ -1,0 +1,79 @@
+# good site for finding out if your css/html/js is supported by 'x'
+https://caniuse.com/
+
+# CSS
+
+  attr() function can pull in data from the html attributes on the element using the css style
+  #NOTE: can only be used in the content field of a ::before or ::after css style
+
+  -- css code
+  .thing::before {
+    content: attr(data-count);
+  }
+
+  -- html code
+  <div data-count="8" />
+
+  # HTML
+
+  # easy tooltip
+  # 'hi' will be the hover tooltip for the paragraph
+  <p title='hi'>stuff</p>
+
+  # download
+  # easy download link
+  <a href={link} download/>
+
+  # contenteditable
+  # mkaes the paragraph editable
+  <p contenteditable='true'>Starting stuff</p>
+
+  # stock overview slider thing
+  <marquee direction='right'>I side across the screen rightwards<marquee>
+
+  # variables - var()
+
+    :root {
+      --main-bg-color: pink;
+    }
+
+    body {
+      background-color: var(--main-bg-color);
+    }
+
+    /* Fallback */
+    /* In the component's style: */
+    .component .header {
+      /* header-color isn't set, and so remains blue, the fallback value */
+      color: var(
+        --header-color,
+        blue
+      );
+    }
+
+    .component .text {
+      color: var(--text-color, black);
+    }
+
+    /* In the larger application's style: */
+    .component {
+      --text-color: #080;
+    }
+
+    # Using a custom property as a fallback
+    :root {
+      --backup-bg-color: teal;
+    }
+
+    body {
+      /* main-bg-color isn't set, it will fall back to backup-bg-color. If backup-bg-color isn't set it will fall back to white. */
+      color: var(--main-bg-color, var(--backup-bg-color, white));
+
+  # CSS tooltip / popover -- make an element hover in front of other elements
+  typically some use of position and z-index
+    z-index needs to be higher than the other element
+    position should likely be relative or fixed for the inner element and the wrapper will typically be absolute
+
+    position: absolute;
+    z-index: 1;
+

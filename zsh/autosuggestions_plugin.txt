@@ -1,0 +1,2 @@
+Looks at the $HISTFILE
+can remove or add entries their to help with what is suggested

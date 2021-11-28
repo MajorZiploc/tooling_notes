@@ -1,0 +1,8 @@
+[General]
+canvasState=OPENGL_SUCCESS
+EnableHiDPI=true
+OpenGLRenderer=auto
+EnableHiDPIFractionalScaling=false
+LogUsage=true
+rootSurfaceFormat=bt709-g22
+useWin8PointerInput=true

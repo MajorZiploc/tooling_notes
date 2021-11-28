@@ -1,0 +1,77 @@
+# Useful resources:
+https://github.com/rik2803/aws-cli-examples
+
+# if installed through brew on mac, there are a ton of example commands here:
+/opt/homebrew/share/awscli/examples
+
+# check who aws is performing operations as
+aws sts get-caller-identity
+
+# creating an ecr repo for a docker container
+aws ecr create-repository --no-paginate --repository-name <container-name>
+
+# CLOUDFORMATION BEGIN
+
+aws cloudformation list-stacks
+
+aws cloudformation describe-stacks
+
+aws cloudformation describe-stack-events
+
+# get events for a stack
+aws cloudformation describe-stack-events --stack-name <stack_name>
+
+aws cloudformation list-stack-resources --stack-name <stack_name>
+
+# CLOUDFORMATION END
+
+# CLOUDWATCH BEGIN
+
+# list services in the given namespace
+aws cloudwatch list-metrics --namespace "AWS/EC2"
+
+# CLOUDWATCH END
+
+# ECS BEGIN
+
+# Connect to a running container in aws
+aws ecs execute-command --cluster <cluster_name> --task <task_id> --container <container_name> --interactive --command "/bin/sh"
+
+# Remove a service from a cluster/stack (set desired count to 0)
+aws ecs update-service --cluster <cluster_name> --service <service_name> --desired-count 0
+
+# Restart a service
+aws ecs update-service --cluster <cluster_name> --service <service_name> --force-new-deployment
+
+# get all tasks details for a cluster (useful for getting info to remote into a task)
+aws ecs describe-tasks --task `aws ecs list-tasks --cluster <cluster_name> | egrep -i "arn:" | tr -d "," | xargs` --cluster <cluster_name>
+
+# show clusters
+aws ecs list-clusters
+
+# get the task hashes
+aws ecs list-tasks --cluster <cluster_name>
+
+# get task details
+aws ecs describe-tasks --task "ff817ab7319340b396456f69d80bfd94" --cluster <cluster_name>
+
+# get the services for a cluster
+aws ecs list-services--cluster <cluster_name>
+
+# get service details
+aws ecs describe-services --cluster <cluster_name> --services <service_name>
+
+# get task definitions
+aws ecs list-task-definitions
+
+# get task definition details
+aws ecs describe-task-definition --task-definition <task_def_name>
+
+# ECS END
+
+
+# S3 BEGIN
+
+aws-vault exec <user> -- aws s3 cp s3://source/path/file.txt ~/target/path/file.txt
+
+# S3 END

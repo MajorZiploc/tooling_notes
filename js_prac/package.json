@@ -1,0 +1,11 @@
+{
+  "name": "web_scraper_io_scripts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MajorZiploc/web_scraper_io_scripts.git",
+  "author": "Manyu Lakhotia <lakemonyew@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "json-test-utility": "^0.3.5"
+  }
+}

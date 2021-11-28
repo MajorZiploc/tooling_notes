@@ -1,0 +1,17 @@
+# vim: filetype=bash
+
+install:
+  rustup component add rustfmt
+
+format:
+  cargo fmt
+
+run:
+  RUSTFLAGS="-Awarnings" cargo run
+
+build:
+  cargo build
+
+test:
+  RUSTFLAGS="-Awarnings" cargo test
+

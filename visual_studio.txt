@@ -1,0 +1,10 @@
+# dealing with code folds/sections
+<ctrl-m> + o # will collapse all
+<ctrl-m> + l # will expand all
+<ctrl-m> + p # will expand all and disable outlining
+<ctrl-m> + m # will collapse/expand the current section
+<ctrl-m> + a # will collapse all even in html files
+
+# keyboard shortcut names
+View.NavigateBackward # assign to <ctrl>-o
+View.NavigateForward # assign to <ctrl>-i

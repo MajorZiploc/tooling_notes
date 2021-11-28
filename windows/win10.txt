@@ -1,0 +1,10 @@
+// in cmd to add johnc to the docker-users group
+net localgroup docker-users johnc /add
+// list all groups
+net localgroup
+// list users in the docker-users group
+net localgroup docker-users
+
+// Microsoft PowerToys app for key remaps
+// Using to remap PgUp and PgDn to Left and Right Array respectively
+

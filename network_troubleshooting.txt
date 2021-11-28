@@ -17,3 +17,15 @@ nc <host_name> <port_name> - netcat (linux)/ Test-NetConnection <host_name> -por
 DNS ------------------------------
 nslookup <hostname> # gives the A-record by default
 
+
+# KILLING DEAD PROCESSES
+
+first try to just kill the port
+  npx kill-port <port>
+
+
+if that doesnt work then:
+  (sudo)? netstat -vanp tcp | grep <port>
+  (sudo)? lsof -i tcp:<port>
+  (sudo)? kill (-9)? <pid>
+

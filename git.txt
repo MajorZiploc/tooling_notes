@@ -23,3 +23,56 @@ git diff A B
 git reflog expire --all --expire=now
 git gc --prune=now --aggressive
 
+# Commit prefix style
++ = Add
+- = rm = Remove
+~ = Change
+^ = Update
+rn = Rename
+mv = Move
+> = Convert
+< = Revert
+% = Refactor
+! = Fix
+# = Document
+_ = Ignore
+* = Glob/wild commit - does more than it should - hard to describe commits; these kinds of commits should be done sparingly
+| = Guard - more conditions to do a thing
+\ = Patch
+$ = risky commit, implies potental cost in doing so
+@ = ???
+` = ???
+. = ???
+' = ???
+: = end of prefixes if multiple prefixes used in commit
+  ex: !#: -> Fix and Document:
+
+# Extra commit conventions
+; - used if a commit does multiple things, like saying 'and'
+
+# Exclude files from being stashed (will only stash unstaged files)
+git add <files_to_exclude>
+git stash push --message "Message" --keep-index
+git restore --staged .
+
+# delete or drop a stash by index, where n is the index
+git stash drop stash@{n}
+
+# list files that have changed from a branch
+git diff --name-only master feature/branch
+# OR (idk which is better)
+git checkout <notMainDev>
+git diff --name-only <mainDev>
+
+# color word diffs instead of lines
+git diff --color-words=.
+git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+git diff --color-words
+
+# git grep
+# find java or markdown files that contains crop_type or parentCrop (supports --not and --and aswell)
+git --no-pager grep -Pin -e "\bcrop_type\b" --or -e "parentCrop" -- "*."{java,md}
+
+# git ls-files
+# search for java files that contain the word person in the filename
+git ls-files | grep -Ei 'person.*\.java$'

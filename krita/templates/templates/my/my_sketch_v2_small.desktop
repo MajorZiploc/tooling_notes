@@ -1,0 +1,6 @@
+[Desktop Entry]
+Icon=.icon/my_sketch_v2_small.png
+Name=my_sketch_v2_small
+Type=Link
+URL[$e]=.source/my_sketch_v2_small.kra
+X-KDE-Hidden=false

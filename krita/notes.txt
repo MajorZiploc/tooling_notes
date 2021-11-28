@@ -1,0 +1,135 @@
+# Command Search (like vscode)
+<ctrl>+<return>
+
+# Open pen settings
+F5
+
+# smoothing / stabilizing a pen (this is per brush and likely wont save after closing krita)
+  1:
+    F5 turn on anti-aliasing checkbox in basic brush settings
+  2: right side when using brush tool under Tool Options
+    should see smoothing options
+    set Brush Smoothing to Stabilizier
+    set sample count to about 15
+    turn off delay checkbox
+
+# transformations (press enter to confirm a transformations)
+
+  # redraw retangle for making various scalings easier
+    ex: need to make legs thinner, but they are at an angle
+  1. select the area you want to transform
+  2. ctrl-t and rotate the area to be straight on rather than at an angle
+  3. go to transform tool options contextual menu (upper right)
+    click the little square icon (Free) twice
+  4. your rectangle will now be angled straight on and you can scale with ease
+
+  # liquify (useful for moving pieces of a more finished piece)
+    on right side in tool options, the water droplet is the liquify tool
+
+# Darken a sketch layer or multi layers or a group or multi groups (groups is a little weirder)
+  1. copy paste the layer as many times as you need for the darkness you want
+  2. merge all layers created by the prev process
+
+  # rotate in 3d space
+    hold ctrl and use rotate tool
+
+# filters
+  https://docs.krita.org/en/reference_manual/filters/adjust.html
+
+# Color Adjustment Curves
+  Ctrl+M
+  - color pop and adjustment
+    s cure = color pop
+
+# Mirroring
+  # preview
+    M to just see the mirror horizontally, doesnt apply the mirror to the layers
+      also found in the popup_brush_pane at the bottom left
+
+  # true mirror all layers
+  Image -> Mirror Image (horizontally|vertically)
+
+# Rotating Canvas
+  4,5,6
+  popup_brush_pane -> circle around the brushes has a white dot you can drag
+
+# Fill the background color
+  paint bucket tries to be smart
+    it accounts for any closed loops in layers above the fill layer and does not color that area
+    use shift-backspace to fill in the full layer or selection
+
+# Dockers (Settings -> Dockers)
+  Overview -  like the code map thing in vscode
+
+# Locking Alphas - for painting on only pixels that already exist on the layer
+  Layer tab on the end of a layer row, the checkerbox locks alphas
+
+  Workflow for this:
+    2 layers
+      top = sketch layer
+      bottom = base color layer
+      1. lock the base color layer and paint on it
+
+  checkerbox is limited
+  use the inherit alpha tool next to the checkerbox (a looking symbol)
+  inherit alpha looks at the pixels in the base (lowest) layer of the group it said layer
+    its slightly more complex than this based on what layers in the stack of layers are inherit alpha
+      all non inherit alpha layers build up the pixels (aggregate) that the inherit alpha layers can paint on
+
+# Finding Layers
+  hold down r and press on the canvas
+    looks for the top most layer where there are pixels in that spot
+    this applies to visible(or unlocked) layers only
+
+# color picking with using filters
+  ctrl: normal color picker will pick the color after filters (filters, opacity, layer effects) is applied to the base color
+  ctrl+alt enables the layer icon on the color picker
+    this selects the base color
+
+# symmetry/mirror drawing
+  basic
+    1. top right icons, there are horizontal and vertical brush mirroring tools
+  advanced (you can move the center line or have multiple lines at which your brush strokes are duplicated)
+    multibrush tool (Q) in toolbox
+      icon description: 3 lines from point in top right and disperse pointing towards bottom left
+    go to Tool Options:
+      Scroll down. you will see Type
+        symmetry is cool
+        mirror is like what you want
+          check show origin
+          you can rotate the lines
+
+# Dragging various fill bars (such as brush size bar)
+  holding shift and dragging makes the drag much more accurate
+    WORKS IN krita 5.1+
+
+# WORKFLOW: Fake Line Art step
+  once done with all sketch layers
+    step away. copy paste and bunch and review it to make sure you arent missing anything
+  copy the r (root) of the sketch layers
+  select the Background layer and paste (so that it doesnt nest the pasted group)
+  rename to v (visual)
+  delete lines from various layers that should be hidden
+  once done merge all layers into 1 (Ctrl-e on the v group)
+  then slam the copy paste on the v layer and merge all the v's together
+  done!
+
+
+# dodge tool
+  good for adding heavy rays of light on anything
+  making metal shiny or even skin
+  as long as you have a base color and have done shading, this is good for the final touch
+  take any brush
+    F5 to get to brush settings
+    Blend mode (near top of left nav)
+      Color Dodge
+      (Normal to go back to standard brush)
+
+# soft proofing - for checking your color values while painting. it will turn images to shades fo gray
+  <ctrl-y>
+
+# Color
+
+  # Configure Krita -> Color Management -> General
+    check Assume sRGB
+

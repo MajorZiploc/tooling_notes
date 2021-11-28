@@ -1,0 +1,9 @@
+export NODE_AUTH_TOKEN='<token>';
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+# windows side home
+export HOMES='/mnt/c/Users/<user>/'
+export DOTNET_HOST_PATH="`which dotnet`"
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+
+[ -e ~/.bashrc_sensitive ] && . ~/.bashrc_sensitive
+

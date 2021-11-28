@@ -1,0 +1,373 @@
+[
+  {
+    "function": "string || string",
+    "return_type": "text",
+    "description": "String concatenation",
+    "example": "'Post' || 'greSQL'",
+    "example_result": "PostgreSQL"
+  },
+  {
+    "function": "string || non-string or non-string || string",
+    "return_type": "text",
+    "description": "String concatenation with one non-string input",
+    "example": "'Value: ' || 42",
+    "example_result": "Value: 42"
+  },
+  {
+    "function": "bit_length(string)",
+    "return_type": "int",
+    "description": "Number of bits in string",
+    "example": "bit_length('jose')",
+    "example_result": "32"
+  },
+  {
+    "function": "char_length(string) or character_length(string)",
+    "return_type": "int",
+    "description": "Number of characters in string",
+    "example": "char_length('jose')",
+    "example_result": "4"
+  },
+  {
+    "function": "lower(string)",
+    "return_type": "text",
+    "description": "Convert string to lower case",
+    "example": "lower('TOM')",
+    "example_result": "tom"
+  },
+  {
+    "function": "octet_length(string)",
+    "return_type": "int",
+    "description": "Number of bytes in string",
+    "example": "octet_length('jose')",
+    "example_result": "4"
+  },
+  {
+    "function": "overlay(string placing string from int [for int])",
+    "return_type": "text",
+    "description": "Replace substring",
+    "example": "overlay('Txxxxas' placing 'hom' from 2 for 4)",
+    "example_result": "Thomas"
+  },
+  {
+    "function": "position(substring in string)",
+    "return_type": "int",
+    "description": "Location of specified substring",
+    "example": "position('om' in 'Thomas')",
+    "example_result": "3"
+  },
+  {
+    "function": "substring(string [from int] [for int])",
+    "return_type": "text",
+    "description": "Extract substring",
+    "example": "substring('Thomas' from 2 for 3)",
+    "example_result": "hom"
+  },
+  {
+    "function": "substring(string from pattern)",
+    "return_type": "text",
+    "description": "Extract substring matching POSIX regular expression. See Section 9.7 for more information on pattern matching.",
+    "example": "substring('Thomas' from '...$')",
+    "example_result": "mas"
+  },
+  {
+    "function": "substring(string from pattern for escape)",
+    "return_type": "text",
+    "description": "Extract substring matching SQL regular expression. See Section 9.7 for more information on pattern matching.",
+    "example": "substring('Thomas' from '%#\"o_a#\"_' for '#')",
+    "example_result": "oma"
+  },
+  {
+    "function": "trim([leading | trailing | both] [characters] from string)",
+    "return_type": "text",
+    "description": "Remove the longest string containing only the characters (a space by default) from the start/end/both ends of the string",
+    "example": "trim(both 'x' from 'xTomxx')",
+    "example_result": "Tom"
+  },
+  {
+    "function": "upper(string)",
+    "return_type": "text",
+    "description": "Convert string to upper case",
+    "example": "upper('tom')",
+    "example_result": "TOM"
+  },
+  {
+    "function": "ascii(string)",
+    "return_type": "int",
+    "description": "ASCII code of the first character of the argument. For UTF8 returns the Unicode code point of the character. For other multibyte encodings, the argument must be an ASCII character.",
+    "example": "ascii('x')",
+    "example_result": "120"
+  },
+  {
+    "function": "btrim(string text [, characters text])",
+    "return_type": "text",
+    "description": "Remove the longest string consisting only of characters in characters (a space by default) from the start and end of string",
+    "example": "btrim('xyxtrimyyx', 'xy')",
+    "example_result": "trim"
+  },
+  {
+    "function": "chr(int)",
+    "return_type": "text",
+    "description": "Character with the given code. For UTF8 the argument is treated as a Unicode code point. For other multibyte encodings the argument must designate an ASCII character. The NULL (0) character is not allowed because text data types cannot store such bytes.",
+    "example": "chr(65)",
+    "example_result": "A"
+  },
+  {
+    "function": "concat(str \"any\" [, str \"any\" [, ...] ])",
+    "return_type": "text",
+    "description": "Concatenate all arguments. NULL arguments are ignored.",
+    "example": "concat('abcde', 2, NULL, 22)",
+    "example_result": "abcde222"
+  },
+  {
+    "function": "concat_ws(sep text, str \"any\" [, str \"any\" [, ...] ])",
+    "return_type": "text",
+    "description": "Concatenate all but first arguments with separators. The first parameter is used as a separator. NULL arguments are ignored.",
+    "example": "concat_ws(',', 'abcde', 2, NULL, 22)",
+    "example_result": "abcde,2,22"
+  },
+  {
+    "function": "convert(string bytea, src_encoding name, dest_encoding name)",
+    "return_type": "bytea",
+    "description": "Convert string to dest_encoding. The original encoding is specified by src_encoding. The string must be valid in this encoding. Conversions can be defined by CREATE CONVERSION. Also there are some predefined conversions. See Table 9-8 for available conversions.",
+    "example": "convert('text_in_utf8', 'UTF8', 'LATIN1')",
+    "example_result": "text_in_utf8 represented in Latin-1 encoding (ISO 8859-1)"
+  },
+  {
+    "function": "convert_from(string bytea, src_encoding name)",
+    "return_type": "text",
+    "description": "Convert string to the database encoding. The original encoding is specified by src_encoding. The string must be valid in this encoding.",
+    "example": "convert_from('text_in_utf8', 'UTF8')",
+    "example_result": "text_in_utf8 represented in the current database encoding"
+  },
+  {
+    "function": "convert_to(string text, dest_encoding name)",
+    "return_type": "bytea",
+    "description": "Convert string to dest_encoding.",
+    "example": "convert_to('some text', 'UTF8')",
+    "example_result": "some text represented in the UTF8 encoding"
+  },
+  {
+    "function": "decode(string text, format text)",
+    "return_type": "bytea",
+    "description": "Decode binary data from textual representation in string. Options for format are same as in encode.",
+    "example": "decode('MTIzAAE=', 'base64')",
+    "example_result": "\\x3132330001"
+  },
+  {
+    "function": "encode(data bytea, format text)",
+    "return_type": "text",
+    "description": "Encode binary data into a textual representation. Supported formats are: base64, hex, escape. escape converts zero bytes and high-bit-set bytes to octal sequences (\\nnn) and doubles backslashes.",
+    "example": "encode(E'123\\\\000\\\\001', 'base64')",
+    "example_result": "MTIzAAE="
+  },
+  {
+    "function": "format(formatstr text [, str \"any\" [, ...] ])",
+    "return_type": "text",
+    "description": "Format a string. This function is similar to the C function sprintf; but only the following conversion specifications are recognized: %s interpolates the corresponding argument as a string; %I escapes its argument as an SQL identifier; %L escapes its argument as an SQL literal; %% outputs a literal %. A conversion can reference an explicit parameter position by preceding the conversion specifier with n$, where n is the argument position. See also Example 39-1.",
+    "example": "format('Hello %s, %1$s', 'World')",
+    "example_result": "Hello World, World"
+  },
+  {
+    "function": "initcap(string)",
+    "return_type": "text",
+    "description": "Convert the first letter of each word to upper case and the rest to lower case. Words are sequences of alphanumeric characters separated by non-alphanumeric characters.",
+    "example": "initcap('hi THOMAS')",
+    "example_result": "Hi Thomas"
+  },
+  {
+    "function": "left(str text, n int)",
+    "return_type": "text",
+    "description": "Return first n characters in the string. When n is negative, return all but last |n| characters.",
+    "example": "left('abcde', 2)",
+    "example_result": "ab"
+  },
+  {
+    "function": "length(string)",
+    "return_type": "int",
+    "description": "Number of characters in string",
+    "example": "length('jose')",
+    "example_result": "4"
+  },
+  {
+    "function": "length(string bytea, encoding name )",
+    "return_type": "int",
+    "description": "Number of characters in string in the given encoding. The string must be valid in this encoding.",
+    "example": "length('jose', 'UTF8')",
+    "example_result": "4"
+  },
+  {
+    "function": "lpad(string text, length int [, fill text])",
+    "return_type": "text",
+    "description": "Fill up the string to length length by prepending the characters fill (a space by default). If the string is already longer than length then it is truncated (on the right).",
+    "example": "lpad('hi', 5, 'xy')",
+    "example_result": "xyxhi"
+  },
+  {
+    "function": "ltrim(string text [, characters text])",
+    "return_type": "text",
+    "description": "Remove the longest string containing only characters from characters (a space by default) from the start of string",
+    "example": "ltrim('zzzytrim', 'xyz')",
+    "example_result": "trim"
+  },
+  {
+    "function": "md5(string)",
+    "return_type": "text",
+    "description": "Calculates the MD5 hash of string, returning the result in hexadecimal",
+    "example": "md5('abc')",
+    "example_result": "900150983cd24fb0 d6963f7d28e17f72"
+  },
+  {
+    "function": "pg_client_encoding()",
+    "return_type": "name",
+    "description": "Current client encoding name",
+    "example": "pg_client_encoding()",
+    "example_result": "SQL_ASCII"
+  },
+  {
+    "function": "quote_ident(string text)",
+    "return_type": "text",
+    "description": "Return the given string suitably quoted to be used as an identifier in an SQL statement string. Quotes are added only if necessary (i.e., if the string contains non-identifier characters or would be case-folded). Embedded quotes are properly doubled. See also Example 39-1.",
+    "example": "quote_ident('Foo bar')",
+    "example_result": "\"Foo bar\""
+  },
+  {
+    "function": "quote_literal(string text)",
+    "return_type": "text",
+    "description": "Return the given string suitably quoted to be used as a string literal in an SQL statement string. Embedded single-quotes and backslashes are properly doubled. Note that quote_literal returns null on null input; if the argument might be null, quote_nullable is often more suitable. See also Example 39-1.",
+    "example": "quote_literal(E'O\\'Reilly')",
+    "example_result": "'O''Reilly'"
+  },
+  {
+    "function": "quote_literal(value anyelement)",
+    "return_type": "text",
+    "description": "Coerce the given value to text and then quote it as a literal. Embedded single-quotes and backslashes are properly doubled.",
+    "example": "quote_literal(42.5)",
+    "example_result": "'42.5'"
+  },
+  {
+    "function": "quote_nullable(string text)",
+    "return_type": "text",
+    "description": "Return the given string suitably quoted to be used as a string literal in an SQL statement string; or, if the argument is null, return NULL. Embedded single-quotes and backslashes are properly doubled. See also Example 39-1.",
+    "example": "quote_nullable(NULL)",
+    "example_result": "NULL"
+  },
+  {
+    "function": "quote_nullable(value anyelement)",
+    "return_type": "text",
+    "description": "Coerce the given value to text and then quote it as a literal; or, if the argument is null, return NULL. Embedded single-quotes and backslashes are properly doubled.",
+    "example": "quote_nullable(42.5)",
+    "example_result": "'42.5'"
+  },
+  {
+    "function": "regexp_matches(string text, pattern text [, flags text])",
+    "return_type": "setof text[]",
+    "description": "Return all captured substrings resulting from matching a POSIX regular expression against the string. See Section 9.7.3 for more information.",
+    "example": "regexp_matches('foobarbequebaz', '(bar)(beque)')",
+    "example_result": "{bar,beque}"
+  },
+  {
+    "function": "regexp_replace(string text, pattern text, replacement text [, flags text])",
+    "return_type": "text",
+    "description": "Replace substring(s) matching a POSIX regular expression. See Section 9.7.3 for more information.",
+    "example": "regexp_replace('Thomas', '.[mN]a.', 'M')",
+    "example_result": "ThM"
+  },
+  {
+    "function": "regexp_split_to_array(string text, pattern text [, flags text ])",
+    "return_type": "text[]",
+    "description": "Split string using a POSIX regular expression as the delimiter. See Section 9.7.3 for more information.",
+    "example": "regexp_split_to_array('hello world', E'\\\\s+')",
+    "example_result": "{hello,world}"
+  },
+  {
+    "function": "regexp_split_to_table(string text, pattern text [, flags text])",
+    "return_type": "setof text",
+    "description": "Split string using a POSIX regular expression as the delimiter. See Section 9.7.3 for more information.",
+    "example": "regexp_split_to_table('hello world', E'\\\\s+')",
+    "example_result": "hello world(2 rows)"
+  },
+  {
+    "function": "repeat(string text, number int)",
+    "return_type": "text",
+    "description": "Repeat string the specified number of times",
+    "example": "repeat('Pg', 4)",
+    "example_result": "PgPgPgPg"
+  },
+  {
+    "function": "replace(string text, from text, to text)",
+    "return_type": "text",
+    "description": "Replace all occurrences in string of substring from with substring to",
+    "example": "replace('abcdefabcdef', 'cd', 'XX')",
+    "example_result": "abXXefabXXef"
+  },
+  {
+    "function": "reverse(str)",
+    "return_type": "text",
+    "description": "Return reversed string.",
+    "example": "reverse('abcde')",
+    "example_result": "edcba"
+  },
+  {
+    "function": "right(str text, n int)",
+    "return_type": "text",
+    "description": "Return last n characters in the string. When n is negative, return all but first |n| characters.",
+    "example": "right('abcde', 2)",
+    "example_result": "de"
+  },
+  {
+    "function": "rpad(string text, length int [, fill text])",
+    "return_type": "text",
+    "description": "Fill up the string to length length by appending the characters fill (a space by default). If the string is already longer than length then it is truncated.",
+    "example": "rpad('hi', 5, 'xy')",
+    "example_result": "hixyx"
+  },
+  {
+    "function": "rtrim(string text [, characters text])",
+    "return_type": "text",
+    "description": "Remove the longest string containing only characters from characters (a space by default) from the end of string",
+    "example": "rtrim('trimxxxx', 'x')",
+    "example_result": "trim"
+  },
+  {
+    "function": "split_part(string text, delimiter text, field int)",
+    "return_type": "text",
+    "description": "Split string on delimiter and return the given field (counting from one)",
+    "example": "split_part('abc~@~def~@~ghi', '~@~', 2)",
+    "example_result": "def"
+  },
+  {
+    "function": "strpos(string, substring)",
+    "return_type": "int",
+    "description": "Location of specified substring (same as position(substring in string), but note the reversed argument order)",
+    "example": "strpos('high', 'ig')",
+    "example_result": "2"
+  },
+  {
+    "function": "substr(string, from [, count])",
+    "return_type": "text",
+    "description": "Extract substring (same as substring(string from from for count))",
+    "example": "substr('alphabet', 3, 2)",
+    "example_result": "ph"
+  },
+  {
+    "function": "to_ascii(string text [, encoding text])",
+    "return_type": "text",
+    "description": "Convert string to ASCII from another encoding (only supports conversion from LATIN1, LATIN2, LATIN9, and WIN1250 encodings)",
+    "example": "to_ascii('Karel')",
+    "example_result": "Karel"
+  },
+  {
+    "function": "to_hex(number int or bigint)",
+    "return_type": "text",
+    "description": "Convert number to its equivalent hexadecimal representation",
+    "example": "to_hex(2147483647)",
+    "example_result": "7fffffff"
+  },
+  {
+    "function": "translate(string text, from text, to text)",
+    "return_type": "text",
+    "description": "Any character in string that matches a character in the from set is replaced by the corresponding character in the to set. If from is longer than to, occurrences of the extra characters in from are removed.",
+    "example": "translate('12345', '143', 'ax')",
+    "example_result": "a2x5"
+  }
+]

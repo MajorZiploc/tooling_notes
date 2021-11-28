@@ -1,0 +1,3 @@
+for screen tablets:
+  to flip the screen, you have to flip it 180 degree in the xp pen software and 180 degree flip the screen on your os
+    if only 1 of the 2, then your pointer will be mirrored and unusable

@@ -1,0 +1,52 @@
+# NOTE: to get standard key action without vimium, use shift and that key
+on youtube:
+  m mutes; but in vimium it makes a mark; to mute on yt, use <shift>+m
+
+# focus the first form input, tab to cycle
+gi
+
+# edit
+E
+
+# go up the chain in domain url
+gu
+
+# go to base of domain url
+gU
+
+# search history
+go
+
+# copy current window
+yt
+
+# close window
+x
+
+# reload window
+r
+
+# down in window
+j
+
+# up in window
+k
+
+# prev tab
+J
+
+# next tab
+K
+
+# back
+H
+
+# forward
+L
+
+# make mark; lowercase is local, upper is global
+m<register>
+
+# jump to register
+` <register>
+

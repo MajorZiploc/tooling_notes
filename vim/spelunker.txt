@@ -1,0 +1,59 @@
+" Toggle to enable or disable.
+ZT
+
+" Toggle to enable or disable only the current buffer.
+Zt
+
+
+Correct misspelled words with a list of suggestions.
+" Correct all words in buffer.
+ZL
+
+" Correct word under cursor.
+Zl
+
+
+Correct misspelled words by inserting a correction.
+" Correct all words in buffer.
+ZC
+
+" Correct word under cursor.
+Zc
+
+
+
+Add words to spellfile
+Spelunker.vim use Vim spell commands as default. You can also add word under cursor to spellfile with the following commands:
+
+" Add selected word to spellfile
+" zg =>
+Zg
+
+" zw =>
+Zw
+
+" zug =>
+Zug
+
+" zuw =>
+Zuw
+
+" Add selected word to the internal word list
+" zG =>
+ZG
+
+" zW =>
+ZW
+
+" zuG =>
+ZUG
+
+" zuW =>
+ZUW
+
+
+" Jump cursor to next misspelled words.
+ZN
+
+" Jump cursor to previous misspelled words.
+ZP

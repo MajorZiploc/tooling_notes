@@ -1,0 +1,34 @@
+### BASICS OF K8S BEGIN
+
+pods =~ containers (can map to multiple containers if there is a sidecar)
+nodes = ec2 instance that runs the pod
+ingress = network control (host name and proxy path stuff)
+deployments = replica manage - apply to all copies of a pod
+services = load balancers
+
+### BASICS OF K8S END
+
+### COMMANDS BEGIN
+
+# using aws-vault on an aws cmd
+aws-vault exec <user> -- aws sts get-caller-identity
+
+# a type of clearing cache
+aws-vault remove --sessions-only <user>
+
+# list pods
+kubectl get pods
+
+# ssh on to container into a bash session
+kubectl exec -it "$kcontainer_name" -- /bin/bash
+
+# get logs
+kubectl logs "$kcontainer_name"
+
+# tail last 500 lines of logs of container/pod and watch for new logs (-f)
+kubectl logs --tail 500 -f "$kcontainer_name"
+
+# view api traffic
+knsexec ingress-nginx cat /etc/nginx/nginx.conf | grep 'start server www.domain.com' -A 500 | grep service
+
+### COMMANDS END

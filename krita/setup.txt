@@ -1,0 +1,105 @@
+# NOTE
+preferences are found in different spots per os
+windows: Settings -> Configure Krita
+mac: Krita -> Preferences
+
+# CONFIG LOCATIONS
+# IMPORTANT: BACK UP ORIGINAL RC FILES BEFORE OVERRIDING THEM IN CASE OF MAJOR ISSUES
+
+windows: %LOCALAPPDATA% -> /mnt/c/Users/LakeM/AppData/Local/krita*rc files not the krita/ dir there
+
+linux: ~/.config
+
+mac: ~/Library/Preferences
+
+change these to the proper location
+
+ResourceCacheDbDirectory=C:/Users/LakeM/AppData/Roaming/krita
+ResourceDirectory=C:/Users/LakeM/AppData/Roaming/krita
+mac:
+
+ResourceCacheDbDirectory=/Users/mlakhotia/Library/Application Support/krita
+ResourceDirectory=/Users/mlakhotia/Library/Application Support/krita
+
+OR you may just have to remove these 2 lines. play around with it until krita launches
+
+
+
+# NOTE: proly a good idea to nuke the recently open files section by simply deleting the list of files under the recent files section in the kritarc
+
+if there are some things missing you may need to do more configuration
+
+activate krita brush pack 3
+  Settings -> Manage Resource Libraries
+    youll find it there
+
+# IMPORTANT WORKFLOW TIP
+# Multi window workflow to replace needing gimp or paint.net open aswell
+1. go to preferences -> General -> Window -> Multiple Document Mode
+  choose: Subwindows
+2. File -> Open
+    open your reference image or reference_*.kra file
+
+  ## exit fullscreen of a subwindow
+  top right you will see 3 small icons (only if your in fullscreen window mode)
+    most right one closes the project
+    most left minimizes the window into a tab near the bottom of krita
+    middle will unfullscreen
+
+# Make a new view of the same window in subwindow mode
+  Window tab at top -> New View
+
+# IMPORTANT WORKFLOW TIP
+# scale ui settings
+1. go to preferences -> General -> Window
+  toggle 'Enable HiDPI support (try checked and unchecked)
+  unchecked seems good on mba
+  checked seems good on sl4
+    experiment with enabled fractional scale factor
+
+look at xppen problems for krita related configs in ./problems.txt
+
+Note that some these bread crumbs are typically from a windows perseptive. mac/linux likely put there in a preferences window of some sort
+
+
+Templates:
+copy the ./templates folder to where it is mentioned in the kritarc.
+  NOTE: if you are on mac or linux. you will need to find out where this gets stored, based to remove templates section from kritarc, make a template and see where it sets the location
+
+  WINDOWS SETTING:
+
+  [TemplateChooserDialog]
+  AlwaysUseTemplate=C:/Users/LakeM/AppData/Roaming/krita/templates/my/.source/my_sketch.kra
+  DetailsPaneSplitterSizes=415,398
+  FullTemplateName[$e]=$HOME/AppData/Roaming/krita/templates/my/.source/my_sketch.kra
+  LastReturnType=Template
+
+  MAC SETTING:
+
+  [TemplateChooserDialog]
+  AlwaysUseTemplate[$e]=$HOME/Library/Application Support/krita/templates/my/.source/my_sketch.kra
+  FullTemplateName[$e]=$HOME/Library/Application Support/krita/templates/my/.source/my_sketch.kra
+  LastReturnType=Template
+
+
+
+Keyboard shortcuts:
+  Freehand Selection: ctrl+alt+a
+  Undo Freehand Brush Stroke or called (Menu -> Edit -> Undo <something here>):
+    add Alternate: '`' (the backtick)
+
+
+Useful brushes:
+  line art:
+    b) Basic - 1
+      brush tip size 20px
+      go to brush settings (F5):
+        Check Size -
+          make linear with starting at 10%
+
+  sketching
+  brush tip size 10px-20px
+  2) Basic-2 Opacity
+      go to brush settings (F5):
+        Check Size -
+          make linear with starting at 10%

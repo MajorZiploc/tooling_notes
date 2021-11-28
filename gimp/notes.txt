@@ -1,0 +1,105 @@
+move/translate selections:
+
+  1. make selection
+  2. Create float layer of the selection with ctrl+shift+L
+  3. move selection
+    - OR: translate selection with shift-t
+  4. anchor layer (merge back to original layer) ctrl+h
+    - OR: can create a new layer of the float layer with ctrl+shift+N
+
+
+enable pen pressue for device: (WIP)
+  Edit -> Input Devices:
+    select your device from list (ex: Pentablet  Stylus Pen)
+      Change Mode to Screen
+      Optional: Change Pressure Cure for: Axes Pressue
+    press save (NOTE: it will look like nothing happened, but it saved)
+
+
+
+# OVERVIEW NOTES
+
+you can drag multiple pictures from a file explorer into gimp and it will make a layer of each image
+
+Main Window:
+
+  Toolbox: (top left corner)
+    each tool can have alt tools
+      use right click to select an alt tool
+
+  Tool Options (contextual menu): (bottom left corner)
+
+  Tabs Menu (customizable tools): (top right corner)
+
+  Layers Menu (and others): (bottom right corner)
+    shift click an eye to toggle all other layer visible
+    Create Group:
+      bottom left:
+        click folder
+        drag and drop various layers into the group folder
+
+Navigation:
+  Pane Canvas:
+    Middle mouse and move mouse
+    space and move mouse
+  Zoom
+    ctrl + mouse wheel
+    shift-+ , -
+
+Menus across the top:
+  File:
+    ! Export
+      create png or whatever
+  Edit:
+    ! Preferences
+      ! Input Devices
+    ! Interface
+      ! Use tool groups checkbox
+  Select:
+  View:
+  Image:
+  Layer:
+  Colors:
+    Curves:
+      good for adjusting various color values in an image. like tenting or making things pop
+      making things pop:
+        S curve (lights a little lighter and darks a little darker)
+  Tools:
+  Filters: (different effects)
+    ex. drop shadow for text
+    ! Blur
+      ! Gaussian Blur
+  Windows:
+    ! Single Window Mode checkbox
+  Help:
+
+Transform:
+  NOTE: will typically remove any piece of the selected object that is not on the canvas
+
+  Flip / Mirror Selection:
+    there is a specifcy transform tool for this, right click transform tool and select Flip
+
+Transparency:
+  Make something transparent
+    1. right click the layer and make sure you have an Alpha Channel
+    2. use what ever selctor you want
+    3. delete key to remove selected area
+
+Fuzzy Selector:
+  Tool Options:
+    use Antialiasing
+    use Feather edges
+    keep eye on threshold
+    use Draw mask for pink highlight
+
+TODO:invert selection
+  
+Crop Tool:
+  delete non selection:
+    1. select what you want to keep
+    2. press enter to remove non selection
+
+Move Tool:
+  Alignment:
+    for things like center alignment in the Tool Options
+

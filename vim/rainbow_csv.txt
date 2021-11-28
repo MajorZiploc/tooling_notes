@@ -1,0 +1,249 @@
+# rbql notes
+
+# Can run in command line or with vim plugin or with cli tool in vim
+CLI
+  # from file
+  rbql --input ./pokemon.csv --with-header --query "Select a.name" --delim ',' --policy quoted_rfc
+  # from std out (can also be used in vim)
+  cat ./pokemon.csv | rbql --with-header --query "Select a.name" --delim ',' --policy quoted_rfc
+vim
+  # with rainbow csv vim plugin while inside ./pokemon.csv
+  :Select a.name
+
+
+# ALWAYS CHECK YOUR FILETYPE
+# this works well for me on csv types; some situations may still lead to csv being csv type using this. So if you notice the colors of your csv only rotating between 2 colors; then just `set filetype=rfc_csv`
+autocmd BufNewFile,BufRead *.csv set filetype=rfc_csv
+
+# top level commands supported
+# :Select, :Update
+
+# INNER JOIN
+# NOTE: the join on clause likely does not support anything from python/js, just ==, AND, OR on simple fields, if you need to data clean, then run an :Update on the csv's first
+:Select a1, a4, b2 join ./manga_02.csv on a1 == b1
+# left and right join are also supported
+
+# python mixed in to a select
+:Select distinct a5, a8 and re.sub('[\n ]+',' ',a8) as author, b2 join ./manga_02.csv on a1 == b1 order by a8 desc limit 10
+# python is the default second lang, the other choice is js but I have had weird results from using js
+
+# Update
+:Update set a8 = a8 and re.sub('[\n ]+',' ',a8), a7 = a7 and a7 + '_junk'
+
+
+# MISC
+
+# enumerate records, NR is 1-based
+:Select NR, *
+
+# Using Python3 unpack operator to split one column into many.
+:Select *a1.split(':')
+
+# RBQL variables
+
+  Value of i-th field in the current record in input table
+    a1, a2,…, a{N}
+
+  Value of i-th field in the current record in join table B
+    b1, b2,…, b{N}
+
+  Record number (1-based)
+    NR
+
+  Number of fields in the current record
+    NF
+
+  Value of the field referenced by it’s “name”, You can use this notation if the field in the header has a “good” alphanumeric name.
+    a.name, b.Person_age, … a.{Good_alphanumeric_column_name}
+
+  Value of the field referenced by it’s “name”, You can use this notation to reference fields by arbitrary values in the header.
+    a[“object id”], a[‘9.12341234’], b[“%$ !! 10 20”] … a[“Arbitrary column name!”]
+
+
+# Supported SQL Keywords
+
+  SELECT
+    The SELECT statement is used to query the database.
+
+  WHERE
+    the WHERE expression is evaluated for each row in the input data as a boolean expression.
+
+  ORDER BY … [ DESC | ASC ]
+    Orders the values returned by a SELECT statement ascending (ASC) or descending (DESC) order.
+
+  [ LEFT | INNER ] JOIN
+    INNER JOIN: selects records that have matching values in both tables.
+    LEFT JOIN: selects all records from the left table, and the matching records from the right table.
+
+  DISTINCT
+    Eliminates duplicate rows.
+
+  GROUP BY
+    Groups together rows in a table that have the same values in all the columns listed.
+
+  TOP
+    Specifies the number of records to return.
+
+  LIMIT
+    Places an upper bound on the number of rows returned by the entire SELECT statement.
+
+  UPDATE
+    UPDATE query produces a new table where original values are replaced according to the UPDATE expression, so it can also be considered a special type of SELECT query.
+
+# Aggregate Functions
+
+  COUNT
+    Returns a count of the number of times that X is not NULL in a group.
+
+  ARRAY_AGG
+    Collects all the input values, including nulls, into an array.
+
+  MIN
+    Returns the minimum non-NULL value of all values in the group.
+
+  MAX
+    Returns the maximum value of all values in the group.
+
+  SUM
+    Return sum of all non-NULL values in the group.
+
+  AVG
+    Returns the average value of all non-NULL X within a group.
+
+  VARIANCE
+    Returns the population standard variance.
+
+  MEDIAN
+    Return the median (middle value) of numeric data.
+
+JOIN
+  LEFT JOIN and INNER JOIN
+    Join table B can be referenced either by its file path or by its command - an arbitrary string name the user should provide before executing the JOIN query.
+    RBQL supports STRICT LEFT JOIN which is like LEFT JOIN, but generates an error if any key in the left table “A” doesn’t have exactly one matching key in the right table “B”.
+    Table B path can be either relative to the working dir, relative to the main table or absolute. Limitation: JOIN statements can’t contain Python/JS expressions and must have the following form:
+     <JOIN_KEYWORD> (/path/to/table.tsv | table_command ) ON a… == b… [AND a… == b… [AND … ]]
+
+EXCEPT
+  Can be used to select everything except specific columns. E.g. to select everything but columns 2 and 4, run: SELECT * EXCEPT a2, a4 Traditional SQL engines do not support this query mode.
+
+WITH
+  You can set whether the input (and join) CSV file has a header or not using the environment configuration parameters which could be --with_headers CLI flag or GUI checkbox or something else. But it is also possible to override this selection directly in the query by adding either WITH (header) or WITH (noheader) statement at the end of the query. Example: select top 5 NR, * with (header)
+
+UNNEST()
+  UNNEST(list) takes a list/array as an argument and repeats the output record multiple times - one time for each value from the list argument. Example: SELECT a1, UNNEST(a2.split(';'))
+
+LIKE()
+  RBQL does not support LIKE operator, instead it provides “like()” function which can be used like this: SELECT * where like(a1, 'foo%bar')
+
+# Limitations:
+  Aggregate functions inside Python (or JS) expressions are not supported. Although you can use expressions inside aggregate functions.
+  MAX(float(a1) / 1000) - valid;
+  MAX(a1) / 1000 - invalid.
+  RBQL doesn’t support nested queries, but they can be emulated with consecutive queries.
+  Number of tables in all JOIN queries is always 2 (input table and join table), use consecutive queries to join 3 or more tables.
+
+# CLI Tooling
+  RBQL in npm: $ npm install -g rbql
+  RBQL in PyPI: $ pip install rbql
+
+# Useful commands
+
+# when looking at sql databases and reading from a cache of a query of column info
+# search string columns in specific tables for a string
+
+rbql --with-header --query "
+Select
+  'select * from ' + a.table_name + ' where ' +  a.column_name + ' like \'\%some_pattern\%\';' as select_statement
+where
+  a.table_name in (
+  'table1',
+  'table2',
+)
+and
+  like(a.data_type, 'character\%')
+" --delim ',' --policy quoted_rfc
+
+# aggregate tables columns into 1 row and prep the data to build a single query for each table with all columns in the 1 query
+
+rows=($(rbql --with-header --query "
+Select
+  a.table_name,
+  ARRAY_AGG(a.column_name) as columns
+where
+  a.table_name in (
+  'table1',
+  'table2'
+)
+and
+  a.data_type.startswith('character')
+group by a.table_name
+" --delim ',' --policy quoted_rfc --input ./test.csv | tail -n +2 | xargs))
+tuple_delimiter=",";
+for row in ${rows[@]}; do
+  table_name="$(echo "$row" | sed -E "s/(.*)${tuple_delimiter}(.*)/\\1/")";
+  columnsArg="$(echo "$row" | sed -E "s/(.*)${tuple_delimiter}(.*)/\\2/")";
+  columns=($(echo "$columnsArg" | tr "|" " " | xargs));
+  echo "$table_name"
+  for column in ${columns[@]}; do
+    echo "  $column";
+  done;
+done;
+
+# build query for 1 table and multiple columns
+table_name='attributes';
+columns=($(rbql --with-header --query "
+Select
+  a.column_name
+where
+  a.table_name == '$table_name'
+and
+  a.data_type.startswith('character')
+" --delim ',' --policy quoted_rfc  --input ./test.csv | tail -n +2 | xargs));
+echo "$table_name";
+for column in ${columns[@]}; do
+  echo "  $column";
+done;
+
+# build update query for 1 table and multiple columns
+table_name='attributes';
+columns=($(rbql --with-header --query "
+Select
+  a.column_name
+where
+  a.table_name == '$table_name'
+and
+  a.data_type.startswith('character')
+" --delim ',' --policy quoted_rfc  --input ./test.csv | tail -n +2 | xargs));
+_query="update $table_name\n";
+_where_condition="_where_condition";
+_new_column_value="_new_column_value";
+for _column in ${columns[@]}; do
+  _query+="  set $_column = $_new_column_value,\n";
+done;
+_query+="where _where_condition\n;";
+echo "$_query";
+
+# build insert query for 1 table and multiple columns
+table_name='table_name';
+columns=($(rbql --with-header --query "
+Select
+  a.column_name
+where
+  a.table_name == '$table_name'
+and
+  a.data_type.startswith('character')
+" --delim ',' --policy quoted_rfc  --input ./test.csv | tail -n +2 | xargs));
+_query="insert into $table_name (\n";
+_where_condition="_where_condition";
+_new_column_value="_new_column_value";
+for _column in ${columns[@]}; do
+  _query+="  $_column,\n";
+done;
+_query+=")\n";
+_query+="values (\n";
+for _column in ${columns[@]}; do
+  _query+="  $_new_column_value,\n";
+done;
+_query+=")\n;";
+echo "$_query";
+

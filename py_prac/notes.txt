@@ -1,0 +1,7 @@
+# run python file
+python ./src/main.rb
+
+# run python command
+python -c 'print("hi")
+print("there")
+'

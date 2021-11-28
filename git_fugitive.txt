@@ -5,3 +5,5 @@
 # use :cnext and :cprevious to move between commits
 :Glog
 
+# open diff of a file in place in :Git
+dJ

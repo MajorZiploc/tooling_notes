@@ -1,0 +1,33 @@
+xp pen tweaks you need to do:
+
+  NOTE: if the pen tip is going crazy, then you should completely remove the driver and redownload the driver and regive permissions for screen recording and accessiblity
+
+  in xp pen panel for the given application settings:
+    pen settings:
+      toggle 'Windows Ink' checkbox to see if on or off works
+        general rule:
+          off for display
+          on for graphics tablet
+
+  NOTE: application settings only work when the application is in focus
+
+  right click not working:
+    go to krita settings: Settings -> Configure Krita -> Tablet settings
+      turn on 'Use mouse events for right click- and middle clicks (workaround for convertible devices, needs restart)' checkbox
+
+    second solution!
+      add key mapping for right in canvas:
+        You click on Settings then Configure Krita then the preferences window opens.
+        There click on Canvas Input Settings, will show you a list of actions and its shortcuts. look for the Show Popup Widget.
+        Add shortcut:
+          {Type: 'Key Combination': Input: 'Ctrl + Alt + Shit + P', Action: 'Activate'}
+
+        in xp pen panel for your tablet for krita
+          in pen settings
+            change right click to 'Ctrl + Alt + Shit + P' and name brush_pane
+
+      NOTE: this solution requires that you flick your wrist outside of the canvas into a different menu to then 'right click', it should show the brush_pane
+
+canvas lines blurring but the exported image is fine
+  Display -> Canvas Graphics Acceleration and check what you have in "Scaling Mode"
+    it should probably be "High Quality Filtering", or "Nearest Neighbor", or turn off Canvas Graphics Acceleration

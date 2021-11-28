@@ -1,0 +1,42 @@
+// 1. Create (C)
+
+// Create a node with a label and properties
+CREATE (node:Label {property: 'value'})
+
+// Create a relationship between two nodes
+MATCH (node1:Label1), (node2:Label2)
+CREATE (node1)-[:RELATIONSHIP_TYPE]->(node2)
+
+
+// 2. Read (R)
+
+// Retrieve a single node by a property value
+MATCH (node:Label {property: 'value'})
+RETURN node
+
+// Retrieve all nodes of a specific label
+MATCH (nodes:Label)
+RETURN nodes
+
+// Retrieve nodes connected by a relationship
+MATCH (node1)-[:RELATIONSHIP_TYPE]->(node2)
+RETURN node1, node2
+
+
+// 3. Update (U)
+
+// Update a node's property
+MATCH (node:Label {property: 'oldValue'})
+SET node.property = 'newValue'
+
+
+// 4. Delete (D)
+
+// Delete a node and its relationships
+MATCH (node:Label {property: 'value'})
+DETACH DELETE node
+
+// Delete a relationship
+MATCH (node1)-[r:RELATIONSHIP_TYPE]->(node2)
+DELETE r
+

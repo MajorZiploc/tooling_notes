@@ -1,0 +1,13 @@
+# run file
+go run ./src/main.go
+
+# go package management (like npm)
+go mod init <module_name>: Initializes a new module with the given name and creates a go.mod file.
+go get <package_name>: Downloads the specified package and its dependencies and adds them to the go.mod file.
+go build: Builds the current project and its dependencies.
+go test: Runs the tests for the current project and its dependencies.
+go mod tidy: Removes unused dependencies from the go.mod file.
+
+# run tests verbose
+go test -v ./src
+
