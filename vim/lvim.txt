@@ -1,0 +1,23 @@
+# Lunarvim path
+~/.local/share/lunarvim/
+
+# Mason packages path
+~/.local/share/nvim/mason/packages
+
+# run this if it seems like your configs are not being used
+:LvimCacheReset
+
+
+# jdtls (java) requires newer python than all other projects
+pyenv global 3.11.2
+
+# commands for refreshing lvim:
+:PackerSync
+:LvimSyncCorePlugins
+:LvimCacheReset
+
+# General problem with packer or lvim try:
+:LvimCacheReset followed by :LvimUpdate followed by :LvimReload
+
+# treesitter errors
+Check the ensure_installed list of treesitter plugins. remove the one that the error states

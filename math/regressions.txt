@@ -1,0 +1,8 @@
+Math regressions work flow:
+  use pandas,seaborn,mathpltlib to plot some points
+  look at the graph and look through some basic graphs to see which style fits best
+    NOTE: your pointed data might need to be piece wise if different sections of your graph fit different types of graph styles better
+  look up the correct name for the graph style that fits your plot
+  go to ChatGPT and ask
+    can you give me a <graph_name> regression that best fits this set of points: [(1,2), (3,4)]
+

@@ -1,0 +1,140 @@
+
+show databases;
+
+/* SQL get column information */
+SELECT
+*
+FROM INFORMATION_SCHEMA.COLUMNS AS c -- WITH(NOLOCK)
+WHERE c.TABLE_NAME LIKE '%s%'
+ORDER BY c.TABLE_NAME
+;
+
+CREATE TABLE Ps (
+  i int
+);
+
+select * from Ps
+
+
+INSERT INTO Ps (i)
+  WITH actionable_rows AS (
+    SELECT 1 AS i
+  )
+select i from actionable_rows
+
+WITH actionable_rows AS (
+  SELECT 1 AS i
+)
+delete from Ps
+where
+i in (select i from actionable_rows)
+
+
+WITH actionable_rows AS (
+  SELECT 1 AS i
+)
+update Ps as ps1, actionable_rows as ar 
+SET ps1.i = ar.i + 1
+where ps1.i = ar.i
+
+
+with actionable_rows as (
+select
+  case
+    when (upper(t2.name) = 'ADMIN') or REGEXP_REPLACE('We keep this stuff -delete everything after the first occurrence of "-"-also this stuff is deleted', '[|-][^|-]*$', '') = 'We keep this stuff -' then 'ADMIN'
+    when iNITCAP(t2.name) = 'Title Case' or (lower(t2.name) = 'bob') then 'REGULAR'
+    else 'DEFAULT_VALUE'
+  end as name,
+  coalesce(NULL, 'new_value', 'COALESCE selects the first non null value') as value,
+  t2.id as table2_id,
+  UUID() as id
+from table2 as t2
+where
+  t2.id not in (
+    select distinct
+      t1.id
+    from table1 as t1
+    where
+      t1.type = 'account'
+      -- The ->> operator can be used wherever JSON_UNQUOTE(JSON_EXTRACT())
+      and t1.json_data ->> '$.old_value' != 'junk'
+      -- same as above
+      -- AND JSON_UNQUOTE(JSON_EXTRACT(t1.json_data, '$.old_value')) != 'junk'
+      and t1.created_date > '2023-12-01' - INTERVAL 7 DAY
+      and t1.name in ('Bob', 'Ross')
+      and CAST(t1.int_string as SIGNED INTEGER) > 100
+  );
+)
+-- INSERT
+-- INSERT INTO table1
+-- (
+--   name
+--   , value
+--   , table2_id
+--   , id
+-- )
+select
+  name
+  , value
+  , table2_id
+  , id
+from actionable_rows
+;
+-- OR UPDATE (TODO: verify this syntax will work)
+-- update table1 as t1, actionable_rows as ar 
+-- SET t1.name = ar.name,
+--     t1.value = ar.value,
+--     t1.table2_id = ar.table2_id,
+-- where t1.id = ar.id
+-- ;
+-- OR DELETE
+-- delete from table1
+-- where
+--   id in (select id from actionable_rows)
+-- ;
+
+
+
+SELECT
+'column' as ENTRY_TYPE
+, t.TABLE_NAME
+, t.COLUMN_NAME as ENTRY_NAME
+, t.DATA_TYPE
+, t.IS_NULLABLE
+, t.CHARACTER_MAXIMUM_LENGTH
+, t.NUMERIC_PRECISION
+, t.DATETIME_PRECISION
+, t.COLUMN_DEFAULT
+FROM INFORMATION_SCHEMA.COLUMNS AS t
+UNION
+    SELECT
+    'constraint' as ENTRY_TYPE
+    , t.TABLE_NAME
+    , t.CONSTRAINT_NAME as ENTRY_NAME
+    , t.CONSTRAINT_TYPE as DATA_TYPE
+    , '' as IS_NULLABLE
+    , 0 as CHARACTER_MAXIMUM_LENGTH
+    , 0 as NUMERIC_PRECISION
+    , 0 as DATETIME_PRECISION
+    , kcu.COLUMN_NAME as COLUMN_DEFAULT
+    FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS t
+    LEFT JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS kcu
+      ON t.constraint_name = kcu.constraint_name
+    WHERE
+      t.CONSTRAINT_TYPE LIKE '%KEY%'
+UNION
+    SELECT
+    'view' AS ENTRY_TYPE
+    , t.TABLE_NAME
+    , '' AS ENTRY_NAME
+    , t.VIEW_DEFINITION AS DATA_TYPE -- use if you want to see the view definitions - chunky
+    -- , '' AS DATA_TYPE -- use if you want to minify this query - minify
+    , '' as IS_NULLABLE
+    , 0 as CHARACTER_MAXIMUM_LENGTH
+    , 0 as NUMERIC_PRECISION
+    , 0 as DATETIME_PRECISION
+    , '' as COLUMN_DEFAULT
+    FROM INFORMATION_SCHEMA.VIEWS AS t
+ORDER BY TABLE_NAME, ENTRY_TYPE, ENTRY_NAME
+;
+

@@ -1,0 +1,12 @@
+# package.json
+cpanfile
+
+# npm
+cpanm
+  cpan helps
+
+# npm install
+cpanm install (may just be cpanm)
+
+# run Test::More tests
+perl ./src/test.pl

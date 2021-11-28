@@ -1,0 +1,13 @@
+$ celery -A proj events
+You should see a screen like:
+
+../_images/celeryevshotsm.jpg
+celery events is also used to start snapshot cameras (see Snapshots:
+
+$ celery -A proj events --camera=<camera-class> --frequency=1.0
+and it includes a tool to dump events to stdout:
+
+$ celery -A proj events --dump
+For a complete list of options use --help:
+
+$ celery events --help

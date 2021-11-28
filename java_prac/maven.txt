@@ -1,0 +1,19 @@
+mvn looks at pom.xml
+pom.xml build.defaultGoal will have the goal
+  spring-boot:run for spring boot apps
+
+skip tests
+mvn -DskipTests
+
+skip style checks
+mvn -Dcheckstyle.skip
+
+TEST THIS: target specific config spring (likely will stack with the default config)
+mvn -Dspring.profiles.active=dev
+
+mvn <phrase>
+  mvn clean
+  mvn install
+  mvn build
+  mvn compile
+  mvn test

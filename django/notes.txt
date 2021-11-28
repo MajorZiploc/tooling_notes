@@ -1,0 +1,60 @@
+# run a subset of tests based on a file glob pattern
+docker exec -i -t machine-integration-integrations-api-1 python manage.py test --pattern "test_autocreate_processor.py"
+
+# set this in self.setUp to see a full diff for failed tests
+self.maxDiff = None
+
+
+# django model filter on related field CANNOT be an object
+Book.objects.filter(author__address_id=address.id)
+# NOT the following
+Book.objects.filter(author__address=address)
+
+# execute a python file in the django shell
+# NOTE: making custom django commands is usually what you want to do
+docker exec -i -t machine-integration-integrations-api-1 bash -c 'python ./manage.py shell < ./carbon/scripts/scratch.py'
+
+# call a custom command from your app in <super_app_name?>/<app_name>/management/commands/<app_name><command_name>.py
+docker exec -i -t machine-integration-integrations-api-1 python ./manage.py <app_name><command_name> --arg1 'value'
+
+### EXAMPLE COMMAND FROM
+<app_name>/management/commands/<app_name><command_name>.py
+from django.core.management import BaseCommand
+
+class Command(BaseCommand):
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--arg1",
+            nargs="?",
+            type=str,
+            metavar="ARG1",
+            required=True,
+            help="Specify arg1",
+        )
+
+    def handle(self, arg1, *args, **options):
+        print(f'arg1: {arg1}')
+
+# SUB QUERY - IN OPERATOR __in
+employee_query = Employee.objects.filter(company='Private').only('id').all()
+Person.objects.value('name', 'age').filter(id__in=employee_query)
+
+# imbedded sql
+cursor.execute(query, args)
+
+# common built in commands
+python manage.py test
+python manage.py makemigrations
+python manage.py showmigrations
+python manage.py squashmigrations <appname> <squashfrom> <squashto>
+  NOTE: only wants the lead number of the migration file by default, not the whole name of the migration
+  ex: squash from init migration to 4th
+    python manage.py squashmigrations <appname> 0004
+  ex: squash from 2nd migration to 4th
+    python manage.py squashmigrations <appname> 0002 0004
+python manage.py migrate
+python manage.py runserver
+python manage.py createsuperuser
+python manage.py shell
+python manage.py startapp
+python manage.py startproject

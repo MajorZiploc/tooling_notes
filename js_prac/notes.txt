@@ -1,0 +1,50 @@
+# update all dependencies (NOTE: change the devDependencies to dependencies for rest of deps)
+npm outdated --json --long | jq 'to_entries | .[] | select(.value.type == "devDependencies") | .key + "@latest"' | xargs npm install
+yarn install `npm outdated --json --long | jq 'to_entries | .[] | select(.value.type == "devDependencies" || .value.type == "dependencies") | .key + "@latest"'`
+
+# npm testing library changes in a client of the library
+1. edit the compiled js of the library and then make the change in the library
+2. edit the reference of the package.json to the library to point to the repo branch (like a github branch)
+3. npm link (can be moody if deps conflict (for ex: different versions of react) but its the cleaniess way)
+4. make change in the library locally, compile it and then copy the dist folder over to the client projects node_modules/<library_name>/dist dir (fairly clean way and likely the easiest and decently clean)
+
+
+# run a js file
+node file.js
+
+# run js command
+node -e 'console.log("hi")
+console.log("there")
+'
+
+# run a ts file; requires `npm i -g ts-node`
+ts-node file.ts
+
+# run ts command
+ts-node -e 'console.log("hi")
+console.log("there")
+'
+
+# nvm
+node -v || node --version
+
+// list locally installed versions of node
+nvm ls
+
+// list remove available versions of node
+nvm ls-remote
+
+// install specific version of node
+nvm install 18.16.1
+
+// set default version of node
+nvm alias default 18.16.1
+
+// switch version of node
+nvm use 20.5.1
+
+// install latest LTS version of node (Long Term Support)
+nvm install --lts
+
+// install latest stable version of node
+nvm install stable

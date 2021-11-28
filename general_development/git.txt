@@ -1,0 +1,94 @@
+Extra snippets:
+
+git log --oneline --all --first-parent --remotes --reflog --author-date-order -- filename # search all branches git commits for commits that change a file
+git rebase -i <rebase_curr_branch_onto_this_branch>
+git merge --squash other_branch # alt approach to using rebase that is easier usually
+git reflog --relative-date
+git log --oneline # show each commit on 1 line
+git log -p --author="<pattern>"
+git stash drop stash@{n} # delete nth stash
+git stash pop --index <n> # pop/apply the nth stash
+git stash list # show all stashes
+git reset [--soft | --mixed [-N] | --hard | --merge | --keep] [--quiet] [--no-quiet] [<commit>]
+git merge --squash (--continue | --abort | --quit) <merge_this_branch_onto_curr_branch>
+
+git diff note:
+A=commit_or_branch_1
+B=commit_or_branch_2
+
+git diff A B
+  means
+  Changes from A to B.
+
+# to clean up/reduce the size git takes up, can be dangerous
+git reflog expire --all --expire=now
+git gc --prune=now --aggressive
+
+# Commit prefix style
++ = Add
+- = rm = Remove
+~ = Change
+^ = Update
+rn = Rename
+mv = Move
+> = Convert
+< = Revert
+% = Refactor
+! = Fix
+# = Document
+_ = Ignore
+* = Glob/wild commit - does more than it should - hard to describe commits; these kinds of commits should be done sparingly
+| = Guard - more conditions to do a thing
+\ = Patch
+$ = risky commit, implies potental cost in doing so
+@ = ???
+` = ???
+. = ???
+' = ???
+: = end of prefixes if multiple prefixes used in commit
+  ex: !#: -> Fix and Document:
+
+# Extra commit conventions
+; - used if a commit does multiple things, like saying 'and'
+
+# Exclude files from being stashed (will only stash unstaged files)
+git add <files_to_exclude>
+git stash push --message "Message" --keep-index
+git restore --staged .
+
+# delete or drop a stash by index, where n is the index
+git stash drop stash@{n}
+
+# list files that have changed from a branch
+git diff --name-only master feature/branch
+# OR (idk which is better)
+git checkout <notMainDev>
+git diff --name-only <mainDev>
+
+# color word diffs instead of lines
+git diff --color-words=.
+git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+git diff --color-words
+
+# git grep
+# find java or markdown files that contains crop_type or parentCrop (supports --not and --and aswell)
+git --no-pager grep -Pin -e "\bcrop_type\b" --or -e "parentCrop" -- "*."{java,md}
+
+# git ls-files
+# search for java files that contain the word person in the filename
+git ls-files | grep -Ei 'person.*\.java$'
+
+# use of git to do file replace of text in files
+for f in $(git grep -l 'request.user\.id' some/dir/path); do sed -Ei 's/request[.]user[.]id/request.user_id/g' $f; done
+for f in $(git grep -l 'request.user\.email' some/dir/path); do sed -Ei 's/request[.]user[.]email/request.user_email/g' $f; done
+
+# merging source into target if both are protected
+git checkout source;
+git pull;
+git checkout target;
+git pull;
+git checkout -b address-conflicts-for-source-to-target;
+git merge source;
+# resolve conflicts
+git push
+make base branch the source and then reopen a PR to merge updated source to target

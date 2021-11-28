@@ -1,0 +1,786 @@
+// NOTE: some mongo clients require you to quote your keys
+
+// CACHEING QUERIES BEGIN
+
+// dbs available
+
+show dbs;
+
+// collections / tables available
+
+show collections;
+
+// view schema of a collection (rough sense schema doesnt really exist)
+
+db.collectionName.findOne()
+
+// view schema with sample:
+
+db.collectionName.aggregate([
+    { $project: { _id: 0, field1: 1, field2: 1 } },
+    { $limit: 5 }
+])
+
+  // example:
+
+  db.books.aggregate([
+      { $limit: 5 },  // Limit the result to one document
+      { $project: { _id: 0 } }  // Exclude the _id field from the output
+  ]);
+
+// CACHEING QUERIES END
+
+db.createCollection('books');
+
+// use print or printjson when wanting output in the case of eval'ing multiple statements rather than just getting result of last statement
+
+print(db.books.insertOne({id: 1, name: 'How to Make Yogurt'}));
+printjson(db.books.find());
+db.books.deleteMany({id: 1});
+
+// TODO: add docs on bulkWrite at least
+// DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+
+db.books.find({id:1});
+
+// 'uses the db', if the db does not exist, it creates it
+
+use <db_name>
+
+// shows the db you are currently in
+
+db
+
+db.createUser({
+  user: "manyu",
+  password: "1234",
+  roles: ["readWrite", "dbAdmin"]
+});
+
+// create a collection named customers
+
+db.createCollection('customers');
+
+// show collections in db
+
+show collections
+
+// insert document into customers collection
+
+db.customers.insertOne({
+  first_name: "John",
+  last_name: "Doe"
+});
+
+// insert multiple documents into customers collection
+
+db.customers.insertOne([
+{
+  first_name: "John",
+  last_name: "Doe"
+},
+{
+  first_name: "Steven",
+  last_name: "Smith"
+},
+{
+  first_name: "Joan",
+  last_name: "Johnson",
+  gender: "female"
+}
+]);
+
+// view all docs in customers collection
+
+db.customers.find();
+
+// prettify/format the output of a find
+
+db.customers.find().pretty();
+
+// update a document, you have to specify EVERY FIELD in an update even if your not changing a field
+
+db.customers.update({first_name: "John"}, {first_name: "John", last_name: "Doe", gender: "male"});
+
+// update a document using the $set operator so that we dont have to specify every field when adding a new field or setting an old field to a new value
+
+db.customers.update({first_name: "Steven"}, {$set:{age: 45}});
+
+// increment a number field by 5
+
+db.customers.update({first_name: "Steven"}, {$inc:{age: 5}});
+
+// remove a field from a document, 1 is a dummy value here
+
+db.customers.update({first_name: "Steven"}, {$unset:{age: 1}});
+
+// update does not update a document if it can not find it
+
+db.customers.update({first_name: "Mary"}, {first_name: "Mary", last_name: "Samson"});
+
+// adding upsert option to make mongo add the document if it does not exist for an update
+
+db.customers.update({first_name: "Mary"}, {first_name: "Mary", last_name: "Samson"}, {upsert: true});
+
+// rename the key gender to sex for documents with a first_name of "Steven"
+
+db.customers.update({first_name: "Steven"}, {$rename: {"gender": "sex"}});
+
+// remove documents from collection with the option of removing only the first match
+
+db.customers.deleteOne({first_name: "Steven"});
+
+// FIND EXAMPLES BEGIN
+
+db.customers.find({$or: [{first_name: "Sharon"}, {first_name: "Troy"}]});
+
+// comparsion operators: $lte?, gte?
+// everyone that is under the age of 40
+
+db.customers.find({age: {$lt: 40}});
+
+// nested key filter
+
+db.customers.find({"address.city": "Boston"});
+
+// this check will also check if the membership array contains the given value.
+
+db.customers.find({membership: "mem1"});
+
+// FIND EXAMPLES END
+
+// sorting find results ascending order last name
+
+db.customers.find({membership: "mem1"}).sort({last_name: 1});
+
+// sorting find results descending order last name
+
+db.customers.find({membership: "mem1"}).sort({last_name: -1});
+
+// count the number of matches from a find
+
+db.customers.find().count();
+
+// set a limit of 4 documents from a find
+
+db.customers.find().limit(4);
+
+// for each
+
+db.customers.find().forEach(function(doc) {print("Customer Name: " + doc.first_name)});
+
+
+// AGGREGATION BEGIN
+
+// aggregation is made of a 'pipeline' of steps to perform
+
+// how many toothbrushes were sold
+
+db.purchase_orders.count({product: "toothbrush"});
+
+// Find a list of all products sold, returns a list of strings representing products
+
+db.purchase_orders.distint("product");
+
+// Find the total amount of money spent by each customer
+
+db.purchase_orders.aggregate([
+  {$match: {}}, # matches every entry in the collection, aka: no filter
+  # {$match: {customer: {$in: ["Mike", "Karen"]}}}, # matches customers with the name of Mike or Karen
+  # the {_id:..., total:...} below defines the structure we want the data returned in
+  {$group: {_id: "$customer", total: {$sum: "$total"}}}, # group by the customer (_id is treated as unique by mongo) and sum the totals together for each customer
+  {$sort: {total: -1}} # sort the results by total in descending order
+]);
+
+// like a sql LEFT OUTER JOIN = LEFT JOIN = JOIN
+
+db.purchase_orders.aggregate([
+  {$match: {}},
+  {$group: {_id: "$customer", total: {$sum: "$total"}}},
+  {
+   $lookup:
+     {
+       // must be a collection from the same db and cannot be sharded
+       from: "<collection to join>",
+       // comparsion of localField and foreignField is by strict equality, the field for either/both localField foreignField can have a value that is an array. it will be a contains check in that case
+       localField: "<field from the input documents>",
+       foreignField: "<field from the documents of the 'from' collection>",
+       // the foreign collection with have its documents that match placed in an array under the key name specified to as. NOTE: if the field existed before, it will be overridden after this.
+       as: "<output array field>"
+     }
+  }
+]);
+
+// AGGREGATION END
+
+// ADMIN BEGIN
+
+// This command provides statistics about the current database, such as the number of collections, the data size, the index size, and more.
+db.stats()
+
+// This command provides statistics about a specific collection, including the number of documents, the storage size, and the total index size.
+db.collection.stats()
+
+// Retrieves various server-related information, such as version, host, uptime, memory usage, and global lock status.
+db.serverStatus()
+
+// Lists the currently executing operations on the MongoDB server. This can be useful for monitoring and diagnosing performance issues.
+db.currentOp()
+
+// You can run various administrative commands using db.runCommand(), where <commandName> is the name of the command you want to execute
+db.runCommand({<commandName>: 1})
+
+// For example, db.runCommand({listDatabases: 1}) will list all available databases.
+db.runCommand({listDatabases: 1})
+
+// Shows the current profiling level and configuration. Profiling can be useful for performance optimization and debugging.
+db.getProfilingStatus()
+
+// This command is used to initiate a graceful shutdown of the MongoDB server.
+db.shutdownServer()
+
+// Initiates a repair operation on the current database, attempting to recover corrupted data.
+db.repairDatabase()
+
+// Deletes the current database.
+db.dropDatabase()
+
+// Deletes a specific collection.
+db.collection.drop()
+
+// ADMIN END
+
+// UNION ALL - add this to the end of your pipeline
+
+db.collection1.aggregate([
+  ...
+  {$unionWith: {
+    coll: 'collection_name',
+    pipeline: pipeline, // the pipeline for the second aggregate
+  }},
+])
+
+
+// leetcode sql 50 questions
+
+// https://leetcode.com/problems/recyclable-and-low-fat-products/?envType=study-plan-v2&envId=top-sql-50
+db.createCollection('products');
+
+db.products.deleteMany({})
+db.products.insertMany([
+  {product_id: 0, low_fats: 'Y', recyclable: 'N'},
+  {product_id: 1, low_fats: 'Y', recyclable: 'Y'},
+  {product_id: 2, low_fats: 'N', recyclable: 'Y'},
+  {product_id: 3, low_fats: 'Y', recyclable: 'Y'},
+  {product_id: 4, low_fats: 'N', recyclable: 'N'},
+]);
+
+
+db.products.aggregate([
+  {$match: {
+    $and: [
+      {$expr: {$eq: ['$low_fats', 'Y']}},
+      {$expr: {$eq: ['$recyclable', 'Y']}},
+  ]}},
+  {$project: {
+    _id: 0,
+    product_id: 1,
+  }}
+]);
+
+// select
+//    p.product_id
+// from Products as p
+// where
+//    p.low_fats = 'Y'
+//    and p.recyclable = 'Y'
+// ;
+
+// https://leetcode.com/problems/find-customer-referee/?envType=study-plan-v2&envId=top-sql-50
+db.createCollection('customers');
+
+db.customers.deleteMany({});
+db.customers.insertMany([
+  {id: 1, name: 'Will', referee_id: null},
+  {id: 2, name: 'Jane', referee_id: null},
+  {id: 3, name: 'Alex', referee_id: 2},
+  {id: 4, name: 'Bill', referee_id: null},
+  {id: 5, name: 'Zack', referee_id: 1},
+  {id: 6, name: 'Mark', referee_id: 2},
+]);
+
+db.customers.aggregate([
+  {$match: {
+    $or: [
+      {$expr: {$eq: ['$referee_id', null]}},
+      {$expr: {$ne: ['$referee_id', 2]}},
+    ]
+  }},
+  {$project: {
+    _id: 0,
+    name: 1,
+  }}
+]);
+
+
+// select
+//    c.name
+// from Customer as c
+// where
+//    c.referee_id is null
+//    or c.referee_id <> 2
+// ;
+
+// https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/submissions/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection('Teachers');
+
+db.Teachers.insertMany([
+  {id: 1, subject_id: 2, dept_id: 3},
+  {id: 1, subject_id: 2, dept_id: 4},
+  {id: 1, subject_id: 3, dept_id: 3},
+  {id: 2, subject_id: 1, dept_id: 1},
+  {id: 2, subject_id: 2, dept_id: 1},
+  {id: 2, subject_id: 3, dept_id: 1},
+  {id: 2, subject_id: 4, dept_id: 1},
+]);
+
+db.Teachers.aggregate(
+  {
+    $group: {
+      _id: '$id',
+      cnt: {$addToSet: '$subject_id'}
+    }
+  },
+  {
+    $project: {
+      teacher_id: '$_id',
+      cnt: {$size: '$cnt'}
+    }
+  }
+)
+
+// SQL =
+// select
+//   t.teacher_id
+//   , count(distinct t.subject_id) as cnt
+// from Teacher as t
+// group by t.teacher_id
+// ;
+
+
+// https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection('Employees');
+db.createCollection('EmployeeUNI');
+
+db.Employees.insertMany([
+  { id: 1, name: "Alice" },
+  { id: 7, name: "Bob" },
+  { id: 11, name: "Meir" },
+  { id: 90, name: "Winston" },
+  { id: 3, name: "Jonathan" }
+]);
+
+db.EmployeeUNI.insertMany([
+  { id: 3, unique_id: 1 },
+  { id: 11, unique_id: 2 },
+  { id: 90, unique_id: 3 }
+]);
+
+db.Employees.aggregate([
+  {
+    $lookup: {
+      from: "EmployeeUNI",
+      localField: "id",
+      foreignField: "id",
+      as: "eu"
+    }
+  },
+  {
+    $project: {
+      unique_id: { $arrayElemAt: ["$eu.unique_id", 0] },
+      name: "$name"
+    }
+  },
+  {
+    $match: {
+      unique_id: { $ne: null }
+    }
+  },
+  {
+    $sort: {
+      unique_id: 1
+    }
+  }
+]);
+
+// https://leetcode.com/problems/product-sales-analysis-i/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection('visits');
+db.createCollection('transactions');
+const visitsData = [
+  { visit_id: 1, customer_id: 23 },
+  { visit_id: 2, customer_id: 9 },
+  { visit_id: 4, customer_id: 30 },
+  { visit_id: 5, customer_id: 54 },
+  { visit_id: 6, customer_id: 96 },
+  { visit_id: 7, customer_id: 54 },
+  { visit_id: 8, customer_id: 54 },
+];
+db.visits.insertMany(visitsData);
+const transactionsData = [
+  { transaction_id: 2, visit_id: 5, amount: 310 },
+  { transaction_id: 3, visit_id: 5, amount: 300 },
+  { transaction_id: 9, visit_id: 5, amount: 200 },
+  { transaction_id: 12, visit_id: 1, amount: 910 },
+  { transaction_id: 13, visit_id: 2, amount: 970 },
+];
+db.transactions.insertMany(transactionsData);
+
+db.visits.aggregate([
+  {
+    $lookup: {
+      from: "transactions",
+      localField: "visit_id",
+      foreignField: "visit_id",
+      as: "transactions"
+    }
+  },
+  {
+    $match: {
+      "transactions.transaction_id": { $exists: false }
+    }
+  },
+  {
+    $group: {
+      _id: "$customer_id",
+      count_no_trans: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      customer_id: "$_id",
+      count_no_trans: 1,
+      _id: 0
+    }
+  }
+]);
+
+// https://leetcode.com/problems/rising-temperature/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection("weather");
+
+const weatherData = [
+  { id: 1, recordDate: ISODate("2015-01-01T00:00:00Z"), temperature: 10 },
+  { id: 2, recordDate: ISODate("2015-01-02T00:00:00Z"), temperature: 25 },
+  { id: 3, recordDate: ISODate("2015-01-03T00:00:00Z"), temperature: 20 },
+  { id: 4, recordDate: ISODate("2015-01-04T00:00:00Z"), temperature: 30 },
+];
+db.weather.insertMany(weatherData);
+
+db.weather.aggregate([
+  {
+    $lookup: {
+      from: "weather",
+      let: {recordDate: "$recordDate", temperature: "$temperature"},
+      pipeline: [
+        {
+          $match: {
+            $and: [
+              { $expr: { $gt: ["$$temperature", "$temperature"] } },
+              {
+                $expr: {
+                  $eq: ["$recordDate", {
+                    $subtract: [
+                      "$$recordDate",
+                      {$multiply: [24 * 60 * 60 * 1000, 1]} // Subtract 1 day in milliseconds
+                    ]
+                  },
+                  ]
+                }
+              }
+            ],
+          }
+        }],
+      as: "prevDay"
+    }
+  },
+  {$match: {$expr: { $gt: [{ $size: "$prevDay" }, 0] }}},
+  {$project: {id: "$id", _id: 0}},
+]);
+
+// https://leetcode.com/problems/average-time-of-process-per-machine/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection('activity');
+const activityData = [
+  { machine_id: 0, process_id: 0, activity_type: "start", timestamp: 0.712 },
+  { machine_id: 0, process_id: 0, activity_type: "end", timestamp: 1.520 },
+  { machine_id: 0, process_id: 1, activity_type: "start", timestamp: 3.140 },
+  { machine_id: 0, process_id: 1, activity_type: "end", timestamp: 4.120 },
+  { machine_id: 1, process_id: 0, activity_type: "start", timestamp: 0.550 },
+  { machine_id: 1, process_id: 0, activity_type: "end", timestamp: 1.550 },
+  { machine_id: 1, process_id: 1, activity_type: "start", timestamp: 0.430 },
+  { machine_id: 1, process_id: 1, activity_type: "end", timestamp: 1.420 },
+  { machine_id: 2, process_id: 0, activity_type: "start", timestamp: 4.100 },
+  { machine_id: 2, process_id: 0, activity_type: "end", timestamp: 4.512 },
+  { machine_id: 2, process_id: 1, activity_type: "start", timestamp: 2.500 },
+  { machine_id: 2, process_id: 1, activity_type: "end", timestamp: 5.000 },
+];
+db.activity.deleteMany({});
+db.activity.insertMany(activityData);
+
+// +------------+-----------------+
+// | machine_id | processing_time |
+// +------------+-----------------+
+// | 0          | 0.894           |
+// | 1          | 0.995           |
+// | 2          | 1.456           |
+// +------------+-----------------+
+
+db.activity.aggregate([
+  {$match:
+    {$expr: {$eq: ['$activity_type', 'start']}},
+  },
+  {$lookup: {
+    from: 'activity',
+    let: { machine_id: "$machine_id", process_id: "$process_id", activity_type: "activity_type" },
+    pipeline: [
+      {$match: {
+        $and: [
+          {$expr: {$eq: ['$machine_id', '$$machine_id']}},
+          {$expr: {$eq: ['$process_id', '$$process_id']}},
+          {$expr: {$eq: ['$activity_type', 'end']}},
+        ]
+      }}
+    ],
+    as: "b"
+  }},
+  {$addFields: {
+    process_time: {$subtract: [{$first: "$b.timestamp"}, "$timestamp"]}
+  }},
+  {$group: {
+    _id: "$machine_id",
+    processing_time: {$avg: "$process_time"},
+  }},
+  {$project: {
+    machine_id: "$_id",
+    processing_time: "$processing_time",
+    _id: 0,
+  }},
+  {$sort: {machine_id: 1}}
+]);
+
+// https://leetcode.com/problems/employee-bonus/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection('employee');
+db.createCollection('bonus');
+db.employee.deleteMany({});
+db.bonus.deleteMany({});
+db.employee.insertMany([
+  {empId: 3, name: 'Brad', supervisor: null, salary: 4000},
+  {empId: 1, name: 'John', supervisor: 3, salary: 1000},
+  {empId: 2, name: 'Dan', supervisor: 3, salary: 2000},
+  {empId: 4, name: 'Thomas', supervisor: 3, salary: 4000},
+]);
+db.bonus.insertMany([
+  {empId: 2, bonus: 500},
+  {empId: 4, bonus: 2000},
+]);
+
+db.employee.aggregate([
+  {$lookup: {
+    from: 'bonus',
+    localField: 'empId',
+    foreignField: 'empId',
+    as: 'b',
+  }},
+  {$match: {
+    $or: [
+      { $expr: { $eq: [{$size:"$b"}, 0] } },
+      {$expr: {$lt: [{$first:"$b.bonus"},1000]}}
+    ],
+  }},
+  {$project: {
+    _id: 0,
+    name: "$name",
+    bonus: {$ifNull: [{$first: "$b.bonus"}, null]},
+  }}
+]);
+
+// select
+//   e.name
+//   , b.bonus
+// from Employee as e
+// left join Bonus as b on e.empId = b.empId
+// where
+//   b.bonus is null
+//   or b.bonus < 1000
+// ;
+
+// https://leetcode.com/problems/students-and-examinations/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection('students');
+db.students.deleteMany({});
+db.students.insertMany([
+  {student_id: 1, student_name: 'Alice'},
+  {student_id: 2, student_name: 'Bob'},
+  {student_id: 13, student_name: 'John'},
+  {student_id: 6, student_name: 'Alex'},
+]);
+db.createCollection('subjects');
+db.subjects.deleteMany({});
+db.subjects.insertMany([
+  {subject_name: 'Math'},
+  {subject_name: 'Physics'},
+  {subject_name: 'Programming'},
+]);
+db.createCollection('examinations');
+db.examinations.deleteMany({});
+db.examinations.insertMany([
+  {student_id: 1, subject_name: 'Math'},
+  {student_id: 1, subject_name: 'Physics'},
+  {student_id: 1, subject_name: 'Programming'},
+  {student_id: 2, subject_name: 'Programming'},
+  {student_id: 1, subject_name: 'Physics'},
+  {student_id: 1, subject_name: 'Math'},
+  {student_id: 13, subject_name: 'Math'},
+  {student_id: 13, subject_name: 'Programming'},
+  {student_id: 13, subject_name: 'Physics'},
+  {student_id: 2, subject_name: 'Math'},
+  {student_id: 1, subject_name: 'Math'},
+]);
+
+// doesnt do the cross join. simple version
+db.examinations.aggregate([
+  {
+    $group: {
+      // group by multiple fields
+      _id: { student_id: "$student_id", subject_name: "$subject_name" },
+      attended_exams: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      student_id: "$_id.student_id",
+      subject_name: "$_id.subject_name",
+      attended_exams: 1
+    }
+  },
+  {$sort: {
+    student_id: 1,
+    subject_name: 1,
+  }}
+]);
+
+
+// TODO: left off here: https://leetcode.com/problems/managers-with-at-least-5-direct-reports/?envType=study-plan-v2&envId=top-sql-50
+
+// https://leetcode.com/problems/game-play-analysis-iv/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection('Activity');
+
+db.Activity.insertMany([
+  {player_id: 1, device_id: 2, event_date: ISODate("2016-03-01T00:00:00Z"), games_played: 5},
+  {player_id: 1, device_id: 2, event_date: ISODate("2016-03-02T00:00:00Z"), games_played: 6},
+  {player_id: 2, device_id: 3, event_date: ISODate("2017-06-25T00:00:00Z"), games_played: 1},
+  {player_id: 3, device_id: 1, event_date: ISODate("2016-03-02T00:00:00Z"), games_played: 0},
+  {player_id: 3, device_id: 4, event_date: ISODate("2018-07-03T00:00:00Z"), games_played: 5},
+]);
+
+db.Activity.insertMany([
+  {player_id: 1, device_id: 2, event_date: null, games_played: 5},
+  {player_id: 1, device_id: 2, event_date: null, games_played: 5, descr: "yo there boy"},
+])
+
+db.Activity.deleteMany({});
+
+// basic select section of sql 50 but using later data models
+
+db.Activity.find({
+  $and: [{
+    event_date: {
+      $eq: null
+    },
+    games_played: {
+      $gt: 1
+    }
+  }]
+})
+
+db.Activity.find({
+  descr: { $exists: true },
+  $expr: {
+    $gt: [{
+      $strLenCP: "$descr"
+    }, 7]
+  }
+})
+
+db.Activity.distinct("player_id", {
+  $and: [{
+    event_date: {
+      $eq: null
+    },
+    games_played: {
+      $gt: 1
+    }
+  }]
+})
+
+// solution
+
+db.Activity.aggregate([
+  {
+    $group: {
+      _id: "$player_id",
+      first_day: { $min: "$event_date" }
+    }
+  },
+  {
+    $lookup: {
+      from: "Activity",
+      let: { player_id: "$_id", first_day: "$first_day" },
+      pipeline: [
+        {
+          $match: {
+            $and: [
+              { $expr: { $eq: ["$player_id", "$$player_id"] } },
+              { $expr: {
+                $eq: [{ $add: ["$$first_day", 24 * 60 * 60 * 1000] }, "$event_date"]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      as: "second_days"
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      countFirstDays: { $sum: 1 },
+      countSecondDays: { $sum: {
+          $cond: {
+            if: { $gt: [{ $size: "$second_days" }, 0] },
+            then: 1,
+            else: 0
+          }
+        }
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      fraction: {
+        $round: [
+          { $divide: ["$countSecondDays", { $convert: { input: "$countFirstDays", to: "decimal" } }] },
+          2
+        ]
+      }
+    }
+  }
+]);

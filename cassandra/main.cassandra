@@ -1,0 +1,27 @@
+CREATE KEYSPACE IF NOT EXISTS my_keyspace
+  WITH replication = {
+    'class': 'SimpleStrategy',
+    'replication_factor': 1
+  }
+
+DROP TABLE my_keyspace.users
+
+CREATE TABLE IF NOT EXISTS my_keyspace.users (
+  user_id INT PRIMARY KEY,
+  username TEXT,
+  email TEXT,
+)
+
+use my_keyspace; INSERT INTO users (user_id, username, email) VALUES (1, 'john_doe', 'john@example.com');
+
+use my_keyspace; SELECT * FROM users
+
+SELECT * FROM users WHERE user_id = 1;
+Update Data:
+To update existing data, you can use the UPDATE statement. For example, if you want to change the email address of a user with user_id 1:
+
+UPDATE users SET email = 'new_email@example.com' WHERE user_id = 1;
+Delete Data:
+To delete data from a table, you can use the DELETE statement. For example, to delete a user with user_id 1:
+
+DELETE FROM users WHERE user_id = 1;

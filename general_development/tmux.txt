@@ -1,0 +1,27 @@
+# swap panes
+ctrl-b - { # swap-pane -U
+ctrl-b - } # swap-pane -D
+
+# running multiple commands NOTE the \; to separate the commands
+tmux switch-client -t "$session_name"\; split-window -h \; select-pane -L \; new-window \; next-window \
+
+# tmux commands docs
+man tmux
+
+# run tmux command within tmux
+ctrl-b - :<command>
+
+# source a tmux file
+# from tmux command mode
+source-file ~/.tmux.conf
+# OR from terminal
+tmux source ~/.tmux.conf
+
+# interesting tmux info
+tmux info
+
+# jump back and forth between 2 windows of a session like ctrl-^ in vim
+ctrl-b + l
+
+# jump back and forth between 2 sessions like ctrl-^ in vim
+ctrl-b + L

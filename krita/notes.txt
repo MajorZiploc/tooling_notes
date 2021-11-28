@@ -1,0 +1,308 @@
+# Command Search (like vscode)
+<ctrl>+<return>
+
+# Open pen settings
+F5
+
+# Misc Brush notes:
+
+  / - cycles back and forth between prev and curr brush
+
+  using 100% opacity on the brush setting and turning down the opacity of the layer will remove the noise of drawing over the same area
+
+  change brush size up and down with ] and [
+
+  change color Lighter (l) or darKer (k)
+    if on a color palette it cycles the colors in the palette
+    if on a color wheel thing, it will go based on that
+
+# smoothing / stabilizing a pen (this is per brush and likely wont save after closing krita)
+  1:
+    F5 turn on anti-aliasing checkbox in basic brush settings
+  2: right side when using brush tool under Tool Options
+    should see smoothing options
+    set Brush Smoothing to Stabilizier
+    set sample count to about 15
+    turn off delay checkbox
+
+# transformations (press enter to confirm a transformations)
+
+  # redraw retangle for making various scalings easier
+    ex: need to make legs thinner, but they are at an angle
+  1. select the area you want to transform
+  2. ctrl-t and rotate the area to be straight on rather than at an angle
+  3. go to transform tool options contextual menu (upper right)
+    click the little square icon (Free) twice
+  4. your rectangle will now be angled straight on and you can scale with ease
+
+  # liquify (useful for moving pieces of a more finished piece)
+    on right side in tool options, the water droplet is the liquify tool
+
+# Darken a sketch layer or multi layers or a group or multi groups (groups is a little weirder)
+  1. copy paste the layer as many times as you need for the darkness you want
+  2. merge all layers created by the prev process
+
+  # rotate in 3d space
+    hold ctrl and use rotate tool
+
+# filters
+  https://docs.krita.org/en/reference_manual/filters/adjust.html
+
+# Color Adjustment Curves
+  Ctrl+M
+  - color pop and adjustment
+    s cure = color pop
+
+# Mirroring
+  # preview
+    M to just see the mirror horizontally, doesnt apply the mirror to the layers
+      also found in the popup_brush_pane at the bottom left
+
+  # true mirror all layers
+  Image -> Mirror Image (horizontally|vertically)
+
+# Rotating Canvas
+  4,5,6
+  popup_brush_pane -> circle around the brushes has a white dot you can drag
+
+# Fill the background color
+  paint bucket tries to be smart
+    it accounts for any closed loops in layers above the fill layer and does not color that area
+    use shift-backspace to fill in the full layer or selection
+
+# Dockers (Settings -> Dockers)
+  Overview -  like the code map thing in vscode
+
+# Locking Alphas - for painting on only pixels that already exist on the layer
+  Layer tab on the end of a layer row, the checkerbox locks alphas
+
+  Workflow for this:
+    2 layers
+      top = sketch layer
+      bottom = base color layer
+      1. lock the base color layer and paint on it
+
+  checkerbox is limited
+  use the inherit alpha tool next to the checkerbox (a looking symbol)
+  inherit alpha looks at the pixels in the base (lowest) layer of the group it said layer
+    its slightly more complex than this based on what layers in the stack of layers are inherit alpha
+      all non inherit alpha layers build up the pixels (aggregate) that the inherit alpha layers can paint on
+
+# Finding Layers
+  hold down r and press on the canvas
+    looks for the top most layer where there are pixels in that spot
+    this applies to visible(or unlocked) layers only
+
+# color picking with using filters
+  ctrl: normal color picker will pick the color after filters (filters, opacity, layer effects) is applied to the base color
+  ctrl+alt enables the layer icon on the color picker
+    this selects the base color
+
+# select all painted area on a layer
+  Right click the layer -> Select Opaque (Replace)
+
+# symmetry/mirror drawing
+  basic
+    1. top right icons, there are horizontal and vertical brush mirroring tools
+  advanced (you can move the center line or have multiple lines at which your brush strokes are duplicated)
+    multibrush tool (Q) in toolbox
+      icon description: 3 lines from point in top right and disperse pointing towards bottom left
+    go to Tool Options:
+      Scroll down. you will see Type
+        symmetry is cool
+        mirror is like what you want
+          check show origin
+          you can rotate the lines
+
+# Dragging various fill bars (such as brush size bar)
+  in toolbar:
+    holding shift and dragging makes the drag much more accurate
+      WORKS IN krita 5.1+
+  in canvas:
+    <fn>+<shift>+(drag left or right)
+
+# WORKFLOW: Fake Line Art step
+  once done with all sketch layers
+    step away. copy paste and bunch and review it to make sure you arent missing anything
+  copy the r (root) of the sketch layers
+  select the Background layer and paste (so that it doesnt nest the pasted group)
+  rename to v (visual)
+  delete lines from various layers that should be hidden
+  once done merge all layers into 1 (Ctrl-e on the v group)
+  then slam the copy paste on the v layer and merge all the v's together
+  done!
+
+# WORKFLOW: simple lighting
+  add a 'overlay' paint layer over your color layers and use white
+
+# dodge tool
+  good for adding heavy rays of light on anything
+  making metal shiny or even skin
+  as long as you have a base color and have done shading, this is good for the final touch
+  take any brush
+    F5 to get to brush settings
+    Blend mode (near top of left nav)
+      Color Dodge
+      (Normal to go back to standard brush)
+
+# soft proofing - for checking your color values while painting. it will turn images to shades fo gray
+  <ctrl-y>
+
+# Color
+
+  # Configure Krita -> Color Management -> General
+    check Assume sRGB
+
+  # Change color from 1 to other
+    Filter -> Adjust -> HSV Adjustment
+
+# Laying down flats strats
+
+## G'MIC
+### NOTE: requires `brew install --cask xquartz` on mac (still doesnt seem to work even doing this)
+Filter -> Start G'MIC-Qt
+  Black and White -> Colorize [Interactive]
+    Input Type: Lineart
+    Output Type: Image + Color (2 Layers)
+    NOTE: notes on key comands on on this screen
+      notable key commands:
+        lay down nodes in colors with left click
+        right click either picks up color or removes node
+        space updates the preview
+        enter finalizes the flats
+        r to replace color with a diff color
+
+## Colorize Mask
+https://docs.krita.org/en/reference_manual/tools/colorize_mask.html
+NOTE: a solid brush will be best for this process
+NOTE: steps 5 onward benefit from clicking the Update button in the tool_options
+with the paint_layer you want to add colors to selected:
+1. left side bar icons: click Colorize Mask Tool. (brush with light coming out of it in all directions)
+2. click the paint_layer
+3. In tool_options: select Limit to layer bounds
+4. select a color for your brush that you dont want to use for colors in the paint_layer
+5. Use that color to draw bounds around the area you want to add color to
+6. In tool_options: Key Strokes -> select that color and click transparent
+  this will make sure that that color is not colorized
+7. Lock in the colors:
+  once all colors look good in the preview: disable the Edit Key Strokes
+    this is done through in the layer_preview window
+      go to the colorize_mask layer and click the pen icon (second from the right)
+        this will lock in your colors. you can undo it if you dont like it
+8. Convert the mask to a paint_layer
+  right click the layer in the layer_preview window
+    Convert -> Convert to Paint Layer
+9. Split newly generated paint_layer to a layer per color
+  Top menu: Layer -> Split -> Split Layer...
+    defaults should be fine in the window
+
+# upscaling resizing outline and retain shape sides
+use Lanczos3 scaling algo
+use magic wand selection tool to select whole shape
+use a brush to touch up all of the sides
+
+# Freehand selection tool - lasso tool
+hold alt to substract next selection
+hold shift to add next selection
+
+# toggle selection lines
+<cmd>+h
+
+# automatic outline - basic line art hack
+after silhouetting
+  right click layer
+  Layer Style
+  Stroke
+
+# good paper backgrounds
+https://unsplash.com/s/photos/paper-texture
+
+# Blending Modes
+  On brush
+    toolbar next to the brushes icon
+  On layer
+    top of layer tab
+  Multiply
+    darkening
+  overlay
+    highlight
+  screen
+    highlight
+
+# shift up and down the color
+k and l
+
+# Art effects to make your art pop
+
+## Layer Effects
+  right click the layer you want to add effects to -> Layer Style...
+    Pattern Overlay
+      for easy texture
+    Bevel and Emboss
+      Style: Inner Bevel
+      Technique: Chisel Soft
+      Depth: 15-20%
+      Softness: 10-15px
+      for easy shadows
+        good for a starting point on where you might want to manually paint shadows
+    Stroke
+      outline
+
+## Layer Type
+  add a paint layer above layers you want to enhance and change the type to something other than normal
+
+  ### Types to try:
+    - burn - popping of colors
+    - mod - mental instability / deep realizations / breaking
+
+## Filter Layers
+  Posterize (Artistic -> Posterize)
+    makes colors nice and sharp - easy pop
+  Gradient Map (Map -> Gradient Map)
+    like a color mapping on a scale
+  Palettize (Map -> Palettize)
+    from your image base colors to a specific palette
+    NOTE: also can add Dithering with this
+  Pixelize (Artistic -> Pixelize)
+    height and width: use even numbers between 2 and 8
+    to reduce res of your image
+      when happy with starting point, you can resize the image and touch out the resulting pixels
+        steps:
+        merge the filter layer with the below layers (or flatten the group)
+        and resize:
+          (Image -> Scale to New Size)
+            Filter: Nearest Neighbor
+            Pixel Dimensions:
+              50% idk
+  Edge Detection (Edge Detection -> Edge Detection)
+    like a pipe styled light object
+      think floating glowing banana at Acadian
+  Mean Removal (Enhance -> Mean Removal)
+    gives a sharpness to lines. like an oldschool film effect
+
+convert to gray scale
+  cmd+shift+u
+
+Pixel Grid (toggle on and off)
+View -> Show Pixel Grid
+
+non contiouous selection (Similar Color Selection Tool)
+            
+pixel vs nonpixel art
+  pixel art needs:
+    brush settings:
+      Brush Smoothing: None
+    selection tools:
+      Adjustments:
+        Anti-aliasing: False
+        Grow: 0px
+  nonpixel art needs:
+    brush settings:
+      Brush Smoothing: Stabilizier
+      Adjustments: (optional - pixel settings for this are proly ok too)
+        Anti-aliasing: True
+        Grow: 1px
+
+## 3d rotatable refs:
+  https://sketchfab.com/3d-models/
+  or blender files

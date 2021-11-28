@@ -1,0 +1,88 @@
+NOTE: casing can matter in postgres. and sometimes it likes lowercase, sometimes uppercase
+
+determine size of things:
+
+db size:
+select pg_size_pretty( pg_database_size('dbname') );
+
+table size (of current db):
+SELECT pg_size_pretty( pg_total_relation_size('tablename') );
+
+
+get a dump of a database schema:
+```shell script
+PGPASSWORD=<password> pg_dump -U <user_name> -d <database_name> -h <host_dns_or_ip> -p <port> --schema-only > create_the_tables.sql
+```
+
+### Load a DB backup locally
+
+get a dump of database:
+```shell script
+pg_dump -U <user_name> -d <database_name> -h <host_dns_or_ip> -p <port> | gzip > test_db.gz
+pwd <test db pwd>
+# OR
+PGPASSWORD=<password> pg_dump -U <user_name> -d <database_name> -h <host_dns_or_ip> -p <port> | gzip > test_db.gz
+```
+To load the backup, drop/create the db:
+```shell script
+export PGHOST=127.0.0.1;
+export PGPORT=5432;
+export PGDATABASE=<database_name>;
+export PGUSER=<user_name>;
+export PGPASSWORD=<password>;
+psql
+```
+then in in the psql shell (double quotes allows for dbs with '-' in name):
+```shell script
+DROP DATABASE "<db_name>";
+create database "<db_name>";
+\q
+```
+Now load the backup:
+```shell script
+export PGDATABASE=postgres;
+psql < ze_test_db.sql
+```
+
+kill connections to db:
+```
+SELECT
+	pg_terminate_backend(pg_stat_activity.pid)
+FROM
+	pg_stat_activity
+WHERE
+	pg_stat_activity.datname = 'db_name'
+	AND pid <> pg_backend_pid();
+```
+
+-- list tables
+
+SELECT *
+FROM pg_catalog.pg_tables
+WHERE schemaname != 'pg_catalog' AND 
+    schemaname != 'information_schema';
+
+-- see users
+\du
+
+-- login to psql as a user
+psql -U user1
+
+
+-- quit postgres session
+\q
+
+-- list databases
+\l
+
+-- connect to database
+\c <database>
+
+-- run sql file (be sure to be connected to the database)
+\i <path/to/file.sql>
+
+-- run sql string
+psql -c 'SHOW config_file'
+
+-- run sql string with csv output
+psql --csv -c 'SHOW config_file';

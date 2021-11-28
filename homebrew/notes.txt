@@ -1,0 +1,33 @@
+https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f
+homebrew Brewfile notes
+
+# updates all mac apps. from buo/cask-upgrade
+brew cu
+
+# view deps
+brew deps --tree <brewformula>
+brew deps --tree -1 <brewformula>
+brew deps --include-build --tree $(brew leaves)
+
+# view installs
+brew leaves | xargs brew deps --include-build --tree
+brew leaves | xargs brew deps --installed --for-each | sed "s/^.*:/$(tput setaf 4)&$(tput sgr0)/"
+brew leaves | sed 's/^/install /' > Brewfile
+
+# installs
+brew cask uninstall <caskname> you can do brew cask zap <caskname>
+
+# create Brewfile from current homebrew installs
+brew bundle dump --file=~/.private/Brewfile
+
+# search for lib
+brew search font
+
+# list pins
+brew list --pinned
+
+
+# pin a package version
+brew pin <package_name>
+# unpin a package version
+brew unpin <package_name>

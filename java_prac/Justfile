@@ -1,0 +1,14 @@
+run-file FILE:
+  javac "{{FILE}}";
+  java "{{FILE}}";
+
+init:
+  gradle build
+  gradle wrapper
+  just build
+
+build:
+  ./gradlew build
+
+run:
+  ./gradlew run

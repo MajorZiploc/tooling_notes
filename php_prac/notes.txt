@@ -1,0 +1,12 @@
+# composer is the package manager
+
+# composer looks at composer.json and composer.lock similar to how nodejs does it
+
+# install packages
+composer install
+
+# update the lock file
+composer update
+
+# see available composer commands
+composer

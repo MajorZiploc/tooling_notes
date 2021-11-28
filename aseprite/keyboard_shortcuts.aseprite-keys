@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<keyboard version="1">
+    <commands>
+        <key command="Undo" shortcut="`" />
+        <key command="Stroke" shortcut="S" removed="true" />
+        <key command="PaletteEditor" shortcut="A" removed="true" />
+        <key command="PaletteEditor" shortcut="Ctrl+A" />
+        <key command="Zoom" shortcut="`" removed="true">
+            <param name="percentage" value="50" />
+        </key>
+        <key command="SetInkType" shortcut="D">
+            <param name="type" value="simple" />
+        </key>
+        <key command="SetInkType" shortcut="Ctrl+A" removed="true">
+            <param name="type" value="lock-alpha" />
+        </key>
+        <key command="SetInkType" shortcut="A">
+            <param name="type" value="lock-alpha" />
+        </key>
+        <key command="SetInkType" shortcut="S">
+            <param name="type" value="shading" />
+        </key>
+        <key command="Flip" shortcut="Ctrl+Shift+H">
+            <param name="orientation" value="horizontal" />
+            <param name="target" value="canvas" />
+        </key>
+        <key command="Flip" shortcut="Ctrl+Shift+V">
+            <param name="orientation" value="vertical" />
+            <param name="target" value="canvas" />
+        </key>
+    </commands>
+    <tools>
+        <key tool="contour" shortcut="D" removed="true" />
+    </tools>
+    <quicktools />
+    <actions />
+    <wheel />
+    <drag />
+</keyboard>

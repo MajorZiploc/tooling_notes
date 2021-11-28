@@ -1,0 +1,12 @@
+
+# add python lanuage plugin
+asdf plugin-add python
+
+# install 3.6.10 version of python
+asdf install python 3.6.10
+
+# use system version of python
+asdf global python system
+
+# use 3.6.10 version of python that is managed by asdf
+asdf global python 3.6.10

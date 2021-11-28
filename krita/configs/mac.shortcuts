@@ -1,0 +1,5 @@
+[Shortcuts]
+KisToolSelectContiguous=W
+KisToolSelectOutline=Ctrl+Alt+A
+KisToolSelectSimilar=Meta+W
+edit_undo=Ctrl+Z; `

@@ -1,0 +1,223 @@
+# NOTE
+preferences are found in different spots per os
+windows: Settings -> Configure Krita
+mac: Krita -> Preferences
+
+# CONFIG LOCATIONS
+# IMPORTANT: BACK UP ORIGINAL RC FILES BEFORE OVERRIDING THEM IN CASE OF MAJOR ISSUES
+
+swaplocation will likely need to be copied in manually from old rc
+
+windows: %LOCALAPPDATA% -> /mnt/c/Users/LakeM/AppData/Local/krita*rc files not the krita/ dir there
+
+linux: ~/.config
+
+mac: ~/Library/Preferences
+
+mac ex:
+  cd ~/Library/Preferences;
+  afind_files_rename "\./krita.*rc.*" "s,(.*),\\1.bak,g" "" "1";
+  cd ~-;
+  cp ./configs/* ~/Library/Preferences;
+
+update these configs with the machines configs:
+  cd ~/Library/Preferences;
+  cp `afind_files "\./krita.*rc.*"` /Users/manyu/projects/tooling_notes/krita/configs;
+
+change these to the proper location
+
+ResourceCacheDbDirectory=C:/Users/LakeM/AppData/Roaming/krita
+ResourceDirectory=C:/Users/LakeM/AppData/Roaming/krita
+mac:
+
+ResourceCacheDbDirectory=/Users/mlakhotia/Library/Application Support/krita
+ResourceDirectory=/Users/mlakhotia/Library/Application Support/krita
+
+OR you may just have to remove these 2 lines. play around with it until krita launches
+
+
+
+# NOTE: proly a good idea to nuke the recently open files section by simply deleting the list of files under the recent files section in the kritarc
+
+# NOTE: if you copy the rc files onto the machine. its likely that most or all of the following setup steps are taken care of
+
+if there are some things missing you may need to do more configuration
+
+activate krita brush pack 3
+  Settings -> Manage Resource Libraries
+    youll find it there
+
+# IMPORTANT WORKFLOW TIP
+# Multi window workflow to replace needing gimp or paint.net open aswell
+1. go to preferences -> General -> Window -> Multiple Document Mode
+  choose: Subwindows
+2. File -> Open
+    open your reference image or reference_*.kra file
+
+  ## exit fullscreen of a subwindow
+  top right you will see 3 small icons (only if your in fullscreen window mode)
+    most right one closes the project
+    most left minimizes the window into a tab near the bottom of krita
+    middle will unfullscreen
+
+# Make a new view of the same window in subwindow mode
+  Window tab at top -> New View
+
+# IMPORTANT WORKFLOW TIP
+# scale ui settings
+1. go to preferences -> General -> Window
+  toggle 'Enable HiDPI support (try checked and unchecked)
+  unchecked seems good on mba
+  checked seems good on sl4
+    experiment with enabled fractional scale factor
+
+look at xppen problems for krita related configs in ./problems.txt
+
+Note that some these bread crumbs are typically from a windows perseptive. mac/linux likely put there in a preferences window of some sort
+
+
+Templates:
+copy the ./templates folder to where it is mentioned in the kritarc.
+  NOTE: if you are on mac or linux. you will need to find out where this gets stored, based to remove templates section from kritarc, make a template and see where it sets the location
+
+  WINDOWS SETTING:
+
+  [TemplateChooserDialog]
+  AlwaysUseTemplate=C:/Users/LakeM/AppData/Roaming/krita/templates/my/.source/my_sketch.kra
+  DetailsPaneSplitterSizes=415,398
+  FullTemplateName[$e]=$HOME/AppData/Roaming/krita/templates/my/.source/my_sketch.kra
+  LastReturnType=Template
+
+  MAC SETTING:
+
+  [TemplateChooserDialog]
+  AlwaysUseTemplate[$e]=$HOME/Library/Application Support/krita/templates/my/.source/my_sketch.kra
+  FullTemplateName[$e]=$HOME/Library/Application Support/krita/templates/my/.source/my_sketch.kra
+  LastReturnType=Template
+
+
+
+Keyboard shortcuts: (./configs/keyboard.shortcuts)
+  Freehand Selection: ctrl+alt+a
+  Undo Freehand Brush Stroke or called (Menu -> Edit -> Undo <something here>):
+    add Alternate: '`' (the backtick)
+  Similar Color Selection Tool: <ctrl>+w
+  Contiguous Selection Tool: w
+
+BrushesAndStuff toolbar:
+Settings -> Configure Toolbars
+  BrushesAndStuff <Krita>
+    add Brush option slider 3 under Brush option slider 2
+  mainToolBar <Krita>
+    remove all things
+
+Canvas Settings:
+  Krita -> Preferences -> Display
+  Canvas Decorations:
+    Canvas Border Color: #333333
+Cursor Settings:
+  Krita -> Preferences -> General -> Cursor
+    Brush Cursor Icon: Small Circle
+Tool Options Location:
+  Krita -> Preferences -> General -> Tools
+    Tool Options Location: In Toolbar
+
+custom brushes:
+  b) Basic-1 Opacity
+    for line art
+    customized and named b) Basic-1 Size
+    Brush Size: 2px
+    size - pressure
+      (0%, 2%)
+      (50%, 50%)
+      (75%, 100%)
+      change to 1px for smaller details
+  b) Basic-2 Opacity
+    for sketching
+    customized and named b) Basic-2 Opacity Hard
+      brush size: 5px
+      Opacity: 20% to 100%
+      size - pressure
+        (0%, 63%)
+        (45%, 91%)
+        (100%, 100%)
+  b) Basic-5 Size Opacity
+    for colors
+    customized and named b) Basic-5 Size Basic
+      Opacity: linear from 100% to 100%
+        for flats:
+          turn down layer opacity to 40%
+        for layered paint effect:
+          (NOTE: use the toolbar Opacity to adjust it. usually 23-33% is good)
+
+1wheel brushes:
+  a) Eraser Soft
+    lightening sketch layers to even out a layer
+  a) Eraser Circle
+    hard erasing
+  Eraser soft
+    soft erasing
+  b) Basic - 1 Size (custom)
+    hard shading/lighting/color
+    line art or sketching
+      reduce layer opacity for sketching with 9px brush size
+      15.49px is pretty good too
+  b) Basic-2 Opacity Hard (custom)
+    secondary sketching
+  b) Basic-5 Size Basic (custom)
+    water color / flats / layered colors
+  d) Ink pen (mypaint)
+    writing
+  k) Blender Basic
+    smearing
+  v) Distort Move
+  Ink circle 5
+    fine and varied size line art
+  t) Shapes Fill
+    flats - good for filling in areas with color
+
+2sidebar brushes:
+  Airbrush pressure
+  Block bristles
+  Block textured 1
+  Bristle Tapered
+  Bristles hairy
+  Brush dotted
+  c) Pencil-d Soft
+  d) Ink-7 Brush Rough
+  d) Ink-8 Sumi-e
+  f) Bristles-2 Flat Rough
+  f) Bristles-3 Large Smooth
+  f) Charcoal Rock Soft
+  g) Dry Bristles
+  h) Charcoal pencil large
+  j) Waterpaint Soft Edges
+  m) RGBA 02 Thickpaint
+  Sketch shade wash
+  u) Pixel Art
+  u) Pixel Art Dithering
+  u) Pixel Art Fill
+
+3ink brushes:
+  Ink brush 25
+    line art
+    hard shading/lighting/color
+
+  Color Palettes:
+    Add .kpl version if it exists since it retains color order. else use .gpl
+      /Users/manyu/projects/tooling_notes/krita/palettes/apollo.kpl
+      /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl
+    1. Have Palette Docker open:
+      Settings -> Dockers -> Palette
+    2. Import palette
+      (click 9 small blocks of colors) -> (icon with tooltip) Import a new palette from file (next to trashcan)
+
+Brushes to try:
+  d) Ink-7 Brush Rough
+  k) Blender Rake
+  m) RGBA 06 Rock
+  Basic-6 Details
+    soft line art
+    sketching
+  Basic-5 Size
+    good for filling in color

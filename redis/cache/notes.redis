@@ -1,0 +1,159 @@
+redis-cli
+
+" basic use cases
+
+redis-cli GET key1
+redis-cli SET key1 value1
+
+$ redis-cli -h redis15.localnet.org -p 6390 PING
+PONG
+If your instance is password protected, the -a <password> option will perform authentication saving the need of explicitly using the AUTH command:
+
+$ redis-cli -a <password> PING
+
+$ redis-cli -x SET net_services < /etc/services
+OK
+$ redis-cli GETRANGE net_services 0 50
+"#\n# Network services, Internet style\n#\n# Note that "
+"
+
+# EXAMPLES
+
+# get redis configs
+
+CONFIG GET *
+
+SET key1 value1
+SET key2 2
+
+GET key1
+GET key2
+
+SET field1 'hi6'
+SET field2 "there6"
+
+GET field1
+GET field2
+
+Expiring Keys:
+
+  # Set a key with an expiration time of 1 hour (in seconds).
+
+  SETEX key1 3600 value1
+
+  # Get the remaining time to live of a key.
+
+  TTL key1
+
+  # Set the expiration time for a key (in seconds).
+
+  EXPIRE key1 3600
+
+  # Remove the expiration from a key.
+
+  PERSIST key1
+
+String Operations:
+
+  # Increment the integer value of a key by 1.
+
+  INCR key2
+
+  # Decrement the integer value of a key by 1.
+
+  DECR key2
+
+  # Append a value to an existing key.
+
+  APPEND key1 value2
+
+  # Get the length of the string value stored in a key.
+
+  STRLEN key1
+
+Hashes(dictionary):
+
+  # Set the field in a hash.
+
+  HSET hash1 field1 value1
+  HSET hash1 field2 value2
+
+  # Get the value of a field in a hash.
+
+  HGET hash1 field1
+  HGET hash1 field2
+
+  # Get all fields and values in a hash.
+
+  HGETALL hash1
+
+  # Delete a field in a hash.
+
+  HDEL hash1 field1
+
+Lists:
+
+  # Add an element to the head of a list.
+
+  LPUSH list1 value1
+  LPUSH list1 value2
+
+  # Add an element to the tail of a list.
+
+  RPUSH list1 value3
+
+  # Get all elements in a list.
+
+  LRANGE list1 0 -1
+
+  # Remove and return the first element of a list.
+
+  LPOP list1
+
+Sets:
+
+  # Add a member to a set.
+
+  SADD set1 member1
+  SADD set1 member2
+
+  # Get all members of a set.
+
+  SMEMBERS set1
+
+  # Remove a member from a set.
+
+  SREM set1 member1
+
+  # Check if a member exists in a set.
+
+  SISMEMBER set1 member1
+
+Sorted Sets:
+
+  # Add a member with a score to a sorted set.
+
+  ZADD sortedset1 1 member1
+  ZADD sortedset1 2 member2
+
+  # Get all members in a sorted set by score.
+
+  ZRANGE sortedset1 0 -1
+
+  # Get the score of a member in a sorted set.
+
+  ZSCORE sortedset1 member1
+
+  # Remove a member from a sorted set.
+
+  ZREM sortedset1 member1
+
+Key Listing:
+
+  # List all keys matching a pattern (Use with caution in production as it can be slow on large datasets).
+  
+  KEYS pattern*
+  
+  # An efficient way to list keys matching a pattern (replace 1000 with your desired count).
+  
+  SCAN 0 MATCH pattern* COUNT 1000

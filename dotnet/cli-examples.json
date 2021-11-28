@@ -1,0 +1,722 @@
+[
+  {
+    "example_description": "dotnet tool uninstall -g dotnetsay",
+    "example_command": null,
+    "command_link": "tool uninstall",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-uninstall"
+  },
+  {
+    "example_description": "dotnet tool uninstall dotnetsay --tool-path c:\\global-tools",
+    "example_command": null,
+    "command_link": "tool uninstall",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-uninstall"
+  },
+  {
+    "example_description": "dotnet tool uninstall dotnetsay --tool-path ~/bin",
+    "example_command": null,
+    "command_link": "tool uninstall",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-uninstall"
+  },
+  {
+    "example_description": "dotnet tool uninstall dotnetsay",
+    "example_command": null,
+    "command_link": "tool uninstall",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-uninstall"
+  },
+  {
+    "example_description": "dotnet tool update -g dotnetsay",
+    "example_command": null,
+    "command_link": "tool update",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update"
+  },
+  {
+    "example_description": "dotnet tool update dotnetsay --tool-path c:\\global-tools",
+    "example_command": null,
+    "command_link": "tool update",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update"
+  },
+  {
+    "example_description": "dotnet tool update dotnetsay --tool-path ~/bin",
+    "example_command": null,
+    "command_link": "tool update",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update"
+  },
+  {
+    "example_description": "dotnet tool update dotnetsay",
+    "example_command": null,
+    "command_link": "tool update",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update"
+  },
+  {
+    "example_description": "dotnet tool update -g dotnetsay --version 2.0.*",
+    "example_command": null,
+    "command_link": "tool update",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update"
+  },
+  {
+    "example_description": "dotnet tool update -g dotnetsay --version (2.0.*,2.1.4)",
+    "example_command": null,
+    "command_link": "tool update",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update"
+  },
+  {
+    "example_description": "dotnet tool list -g",
+    "example_command": null,
+    "command_link": "tool list",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-list"
+  },
+  {
+    "example_description": "dotnet tool list --tool-path c:\\global-tools",
+    "example_command": null,
+    "command_link": "tool list",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-list"
+  },
+  {
+    "example_description": "dotnet tool list --tool-path ~/bin",
+    "example_command": null,
+    "command_link": "tool list",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-list"
+  },
+  {
+    "example_description": "dotnet tool list or dotnet tool list --local",
+    "example_command": null,
+    "command_link": "tool list",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-list"
+  },
+  {
+    "example_description": "dotnet tool install -g dotnetsay",
+    "example_command": null,
+    "command_link": "tool install",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install"
+  },
+  {
+    "example_description": "dotnet tool install dotnetsay --tool-path c:\\global-tools",
+    "example_command": null,
+    "command_link": "tool install",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install"
+  },
+  {
+    "example_description": "dotnet tool install dotnetsay --tool-path ~/bin",
+    "example_command": null,
+    "command_link": "tool install",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install"
+  },
+  {
+    "example_description": "dotnet tool install -g dotnetsay --version 2.0.0",
+    "example_command": null,
+    "command_link": "tool install",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install"
+  },
+  {
+    "example_description": "dotnet tool install dotnetsay",
+    "example_command": null,
+    "command_link": "tool install",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install"
+  },
+  {
+    "example_description": "Install the latest long-term supported (LTS) version to the default location:",
+    "example_command": "./dotnet-install.ps1 -Channel LTS",
+    "command_link": "dotnet install script",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script"
+  },
+  {
+    "example_description": "Install the latest preview version of the 6.0.1xx SDK to the specified location:",
+    "example_command": "./dotnet-install.ps1 -Channel 6.0.1xx -Quality preview -InstallDir C:\\cli",
+    "command_link": "dotnet install script",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script"
+  },
+  {
+    "example_description": "Install the 3.0.0 version of the shared runtime:",
+    "example_command": "./dotnet-install.ps1 -Runtime dotnet -Version 3.0.0",
+    "command_link": "dotnet install script",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script"
+  },
+  {
+    "example_description": "Obtain script and install the 2.1.2 version behind a corporate proxy (Windows only):",
+    "example_command": "Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -Proxy $env:HTTP_PROXY -ProxyUseDefaultCredentials -OutFile 'dotnet-install.ps1';\n./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '2.1.2' -ProxyAddress $env:HTTP_PROXY -ProxyUseDefaultCredentials;",
+    "command_link": "dotnet install script",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script"
+  },
+  {
+    "example_description": "Obtain script and install .NET CLI one-liner examples:",
+    "example_command": "# Run a separate PowerShell process because the script calls exit, so it will end the current PowerShell session.\n&powershell -NoProfile -ExecutionPolicy unrestricted -Command \"[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; &([scriptblock]::Create((Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1'))) <additional install-script args>\"",
+    "command_link": "dotnet install script",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script"
+  },
+  {
+    "example_description": "Build a project and its dependencies:",
+    "example_command": "dotnet msbuild",
+    "command_link": "msbuild",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild"
+  },
+  {
+    "example_description": "Build a project and its dependencies using Release configuration:",
+    "example_command": "dotnet msbuild -property:Configuration=Release",
+    "command_link": "msbuild",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild"
+  },
+  {
+    "example_description": "Run the publish target and publish for the osx.10.11-x64 RID:",
+    "example_command": "dotnet msbuild -target:Publish -property:RuntimeIdentifiers=osx.10.11-x64",
+    "command_link": "msbuild",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild"
+  },
+  {
+    "example_description": "See the whole project with all targets included by the SDK:",
+    "example_command": "dotnet msbuild -preprocess\ndotnet msbuild -preprocess:<fileName>.xml",
+    "command_link": "msbuild",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild"
+  },
+  {
+    "example_description": "Push foo.nupkg to the default push source specified in the NuGet config file, using an API key:",
+    "example_command": "dotnet nuget push foo.nupkg -k 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a",
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": "Push foo.nupkg to the official NuGet server, specifying an API key:",
+    "example_command": "dotnet nuget push foo.nupkg -k 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -s https://api.nuget.org/v3/index.json",
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": null,
+    "example_command": null,
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": "Push foo.nupkg to the default push source specified in the NuGet config file:",
+    "example_command": "dotnet nuget push foo.nupkg",
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": "Push foo.symbols.nupkg to the default symbols source:",
+    "example_command": "dotnet nuget push foo.symbols.nupkg",
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": "Push foo.nupkg to the default push source specified in the NuGet config file, with a 360-second timeout:",
+    "example_command": "dotnet nuget push foo.nupkg --timeout 360",
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": "Push all .nupkg files in the current directory to the default push source specified in the NuGet config file:",
+    "example_command": "dotnet nuget push \"*.nupkg\"",
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": "Push all .nupkg files to the default push source specified in the NuGet config file, even if a 409 Conflict response is returned by an HTTP(S) server:",
+    "example_command": "dotnet nuget push \"*.nupkg\" --skip-duplicate",
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": "Push all .nupkg files in the current directory to a local feed directory:",
+    "example_command": "dotnet nuget push \"*.nupkg\" -s c:\\mydir",
+    "command_link": "nuget push",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-push"
+  },
+  {
+    "example_description": "Displays the paths of all the local cache directories (http-cache directory, global-packages cache directory, and temporary cache directory):",
+    "example_command": "dotnet nuget locals all -l",
+    "command_link": "nuget locals",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-locals"
+  },
+  {
+    "example_description": "Displays the path for the local http-cache directory:",
+    "example_command": "dotnet nuget locals http-cache --list",
+    "command_link": "nuget locals",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-locals"
+  },
+  {
+    "example_description": "Clears all files from all local cache directories (http-cache directory, global-packages cache directory, and temporary cache directory):",
+    "example_command": "dotnet nuget locals all --clear",
+    "command_link": "nuget locals",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-locals"
+  },
+  {
+    "example_description": "Clears all files in local global-packages cache directory:",
+    "example_command": "dotnet nuget locals global-packages -c",
+    "command_link": "nuget locals",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-locals"
+  },
+  {
+    "example_description": "Clears all files in local temporary cache directory:",
+    "example_command": "dotnet nuget locals temp -c",
+    "command_link": "nuget locals",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-locals"
+  },
+  {
+    "example_description": "Deletes version 1.0 of package Microsoft.AspNetCore.Mvc:",
+    "example_command": "dotnet nuget delete Microsoft.AspNetCore.Mvc 1.0",
+    "command_link": "nuget delete",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-delete"
+  },
+  {
+    "example_description": "Deletes version 1.0 of package Microsoft.AspNetCore.Mvc, not prompting user for credentials or other input:",
+    "example_command": "dotnet nuget delete Microsoft.AspNetCore.Mvc 1.0 --non-interactive",
+    "command_link": "nuget delete",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-delete"
+  },
+  {
+    "example_description": "List the project references for the specified project:",
+    "example_command": "dotnet list app/app.csproj reference",
+    "command_link": "list reference",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-list-reference"
+  },
+  {
+    "example_description": "List the project references for the project in the current directory:",
+    "example_command": "dotnet list reference",
+    "command_link": "list reference",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-list-reference"
+  },
+  {
+    "example_description": "Remove a project reference from the specified project:",
+    "example_command": "dotnet remove app/app.csproj reference lib/lib.csproj",
+    "command_link": "remove reference",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-remove-reference"
+  },
+  {
+    "example_description": "Remove multiple project references from the project in the current directory:",
+    "example_command": "dotnet remove reference lib1/lib1.csproj lib2/lib2.csproj",
+    "command_link": "remove reference",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-remove-reference"
+  },
+  {
+    "example_description": "Remove multiple project references using a glob pattern on Unix/Linux:",
+    "example_command": "dotnet remove app/app.csproj reference **/*.csproj`",
+    "command_link": "remove reference",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-remove-reference"
+  },
+  {
+    "example_description": "Remove Newtonsoft.Json NuGet package from a project in the current directory:",
+    "example_command": "dotnet remove package Newtonsoft.Json",
+    "command_link": "remove package",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-remove-package"
+  },
+  {
+    "example_description": "Add a project reference:",
+    "example_command": "dotnet add app/app.csproj reference lib/lib.csproj",
+    "command_link": "add reference",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-reference"
+  },
+  {
+    "example_description": "Add multiple project references to the project in the current directory:",
+    "example_command": "dotnet add reference lib1/lib1.csproj lib2/lib2.csproj",
+    "command_link": "add reference",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-reference"
+  },
+  {
+    "example_description": "Add multiple project references using a globbing pattern on Linux/Unix:",
+    "example_command": "dotnet add app/app.csproj reference **/*.csproj",
+    "command_link": "add reference",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-reference"
+  },
+  {
+    "example_description": "Add Newtonsoft.Json NuGet package to a project:",
+    "example_command": "dotnet add package Newtonsoft.Json",
+    "command_link": "add package",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package"
+  },
+  {
+    "example_description": "Add a specific version of a package to a project:",
+    "example_command": "dotnet add ToDo.csproj package Microsoft.Azure.DocumentDB.Core -v 1.0.0",
+    "command_link": "add package",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package"
+  },
+  {
+    "example_description": "Add a package using a specific NuGet source:",
+    "example_command": "dotnet add package Microsoft.AspNetCore.StaticFiles -s https://dotnet.myget.org/F/dotnet-core/api/v3/index.json",
+    "command_link": "add package",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package"
+  },
+  {
+    "example_description": "Store the packages specified in the packages.csproj project file for .NET Core 2.0.0:",
+    "example_command": "dotnet store --manifest packages.csproj --framework-version 2.0.0",
+    "command_link": "store",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-store"
+  },
+  {
+    "example_description": "Store the packages specified in the packages.csproj without optimization:",
+    "example_command": "dotnet store --manifest packages.csproj --skip-optimization",
+    "command_link": "store",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-store"
+  },
+  {
+    "example_description": "Opens the documentation page for the dotnet new command:",
+    "example_command": "dotnet help new",
+    "command_link": "help",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-help"
+  },
+  {
+    "example_description": "List the projects in a solution:",
+    "example_command": "dotnet sln todo.sln list",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Add a C# project to a solution:",
+    "example_command": "dotnet sln add todo-app/todo-app.csproj",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Remove a C# project from a solution:",
+    "example_command": "dotnet sln remove todo-app/todo-app.csproj",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Add multiple C# projects to the root of a solution:",
+    "example_command": "dotnet sln todo.sln add todo-app/todo-app.csproj back-end/back-end.csproj --in-root",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Add multiple C# projects to a solution:",
+    "example_command": "dotnet sln todo.sln add todo-app/todo-app.csproj back-end/back-end.csproj",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Remove multiple C# projects from a solution:",
+    "example_command": "dotnet sln todo.sln remove todo-app/todo-app.csproj back-end/back-end.csproj",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Add multiple C# projects to a solution using a globbing pattern (Unix/Linux only):",
+    "example_command": "dotnet sln todo.sln add **/*.csproj",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Add multiple C# projects to a solution using a globbing pattern (Windows PowerShell only):",
+    "example_command": "dotnet sln todo.sln add (ls -r **/*.csproj)",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Remove multiple C# projects from a solution using a globbing pattern (Unix/Linux only):",
+    "example_command": "dotnet sln todo.sln remove **/*.csproj",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Remove multiple C# projects from a solution using a globbing pattern (Windows PowerShell only):",
+    "example_command": "dotnet sln todo.sln remove (ls -r **/*.csproj)",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Create a solution, a console app, and two class libraries. Add the projects to the solution, and use the --solution-folder option of dotnet sln to organize the class libraries into a solution folder.",
+    "example_command": "dotnet new sln -n mysolution\ndotnet new console -o myapp\ndotnet new classlib -o mylib1\ndotnet new classlib -o mylib2\ndotnet sln mysolution.sln add myapp\\myapp.csproj\ndotnet sln mysolution.sln add mylib1\\mylib1.csproj --solution-folder mylibs\ndotnet sln mysolution.sln add mylib2\\mylib2.csproj --solution-folder mylibs",
+    "command_link": "sln",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln"
+  },
+  {
+    "example_description": "Clean a default build of the project:",
+    "example_command": "dotnet clean",
+    "command_link": "clean",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-clean"
+  },
+  {
+    "example_description": "Clean a project built using the Release configuration:",
+    "example_command": "dotnet clean --configuration Release",
+    "command_link": "clean",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-clean"
+  },
+  {
+    "example_description": "Pack the project in the current directory:",
+    "example_command": "dotnet pack",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "Pack the app1 project:",
+    "example_command": "dotnet pack ~/projects/app1/project.csproj",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "Pack the project in the current directory and place the resulting packages into the nupkgs folder:",
+    "example_command": "dotnet pack --output nupkgs",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "Pack the project in the current directory into the nupkgs folder and skip the build step:",
+    "example_command": "dotnet pack --no-build --output nupkgs",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "With the project's version suffix configured as <VersionSuffix>$(VersionSuffix)</VersionSuffix> in the .csproj file, pack the current project and update the resulting package version with the given suffix:",
+    "example_command": "dotnet pack --version-suffix \"ci-1234\"",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "Set the package version to 2.1.0 with the PackageVersion MSBuild property:",
+    "example_command": "dotnet pack -p:PackageVersion=2.1.0",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "Pack the project for a specific target framework:",
+    "example_command": "dotnet pack -p:TargetFrameworks=net45",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "Pack the project and use a specific runtime (Windows 10) for the restore operation:",
+    "example_command": "dotnet pack --runtime win10-x64",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "Pack the project using a .nuspec file:",
+    "example_command": "dotnet pack ~/projects/app1/project.csproj -p:NuspecFile=~/projects/app1/project.nuspec -p:NuspecBasePath=~/projects/app1/nuget",
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": null,
+    "example_command": null,
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": null,
+    "example_command": null,
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": null,
+    "example_command": null,
+    "command_link": "pack",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack"
+  },
+  {
+    "example_description": "Run the tests in the project in the current directory:",
+    "example_command": "dotnet test",
+    "command_link": "test",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test"
+  },
+  {
+    "example_description": "Run the tests in the test1 project:",
+    "example_command": "dotnet test ~/projects/test1/test1.csproj",
+    "command_link": "test",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test"
+  },
+  {
+    "example_description": "Run the tests in the project in the current directory, and generate a test results file in the trx format:",
+    "example_command": "dotnet test --logger trx",
+    "command_link": "test",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test"
+  },
+  {
+    "example_description": "Run the tests in the project in the current directory, and generate a code coverage file (after installing Coverlet collectors integration):",
+    "example_command": "dotnet test --collect:\"XPlat Code Coverage\"",
+    "command_link": "test",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test"
+  },
+  {
+    "example_description": "Run the tests in the project in the current directory, and generate a code coverage file (Windows only):",
+    "example_command": "dotnet test --collect \"Code Coverage\"",
+    "command_link": "test",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test"
+  },
+  {
+    "example_description": "Run the tests in the project in the current directory, and log with detailed verbosity to the console:",
+    "example_command": "dotnet test --logger \"console;verbosity=detailed\"",
+    "command_link": "test",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test"
+  },
+  {
+    "example_description": "Run the tests in the project in the current directory, and report tests that were in progress when the test host crashed:",
+    "example_command": "dotnet test --blame",
+    "command_link": "test",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test"
+  },
+  {
+    "example_description": "Run the project in the current directory:",
+    "example_command": "dotnet run",
+    "command_link": "run",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run"
+  },
+  {
+    "example_description": "Run the specified project:",
+    "example_command": "dotnet run --project ./projects/proj1/proj1.csproj",
+    "command_link": "run",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run"
+  },
+  {
+    "example_description": "Run the project in the current directory, specifying Release configuration:",
+    "example_command": "dotnet run --property:Configuration=Release",
+    "command_link": "run",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run"
+  },
+  {
+    "example_description": "Run the project in the current directory (the --help argument in this example is passed to the application, since the blank -- option is used):",
+    "example_command": "dotnet run --configuration Release -- --help",
+    "command_link": "run",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run"
+  },
+  {
+    "example_description": "Restore dependencies and tools for the project in the current directory only showing minimal output and then run the project:",
+    "example_command": "dotnet run --verbosity m",
+    "command_link": "run",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run"
+  },
+  {
+    "example_description": "Create a framework-dependent cross-platform binary for the project in the current directory:",
+    "example_command": "dotnet publish",
+    "command_link": "publish",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish"
+  },
+  {
+    "example_description": "Create a self-contained executable for the project in the current directory, for a specific runtime:",
+    "example_command": "dotnet publish --runtime osx.10.11-x64",
+    "command_link": "publish",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish"
+  },
+  {
+    "example_description": "Create a framework-dependent executable for the project in the current directory, for a specific platform:",
+    "example_command": "dotnet publish --runtime osx.10.11-x64 --self-contained false",
+    "command_link": "publish",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish"
+  },
+  {
+    "example_description": "Publish the project in the current directory, for a specific runtime and target framework:",
+    "example_command": "dotnet publish --framework netcoreapp3.1 --runtime osx.10.11-x64",
+    "command_link": "publish",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish"
+  },
+  {
+    "example_description": "Publish the specified project file:",
+    "example_command": "dotnet publish ~/projects/app1/app1.csproj",
+    "command_link": "publish",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish"
+  },
+  {
+    "example_description": "Publish the current application but don't restore project-to-project (P2P) references, just the root project during the restore operation:",
+    "example_command": "dotnet publish --no-dependencies",
+    "command_link": "publish",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish"
+  },
+  {
+    "example_description": "Build a project and its dependencies:",
+    "example_command": "dotnet build",
+    "command_link": "build",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+  },
+  {
+    "example_description": "Build a project and its dependencies using Release configuration:",
+    "example_command": "dotnet build --configuration Release",
+    "command_link": "build",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+  },
+  {
+    "example_description": "Build a project and its dependencies for a specific runtime (in this example, Ubuntu 18.04):",
+    "example_command": "dotnet build --runtime ubuntu.18.04-x64",
+    "command_link": "build",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+  },
+  {
+    "example_description": "Build the project and use the specified NuGet package source during the restore operation:",
+    "example_command": "dotnet build --source c:\\packages\\mypackages",
+    "command_link": "build",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+  },
+  {
+    "example_description": "Build the project and set version 1.2.3.4 as a build parameter using the -p MSBuild option:",
+    "example_command": "dotnet build -p:Version=1.2.3.4",
+    "command_link": "build",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+  },
+  {
+    "example_description": "Restore dependencies and tools for the project in the current directory:",
+    "example_command": "dotnet restore",
+    "command_link": "restore",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore"
+  },
+  {
+    "example_description": "Restore dependencies and tools for the app1 project found in the given path:",
+    "example_command": "dotnet restore ./projects/app1/app1.csproj",
+    "command_link": "restore",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore"
+  },
+  {
+    "example_description": "Restore the dependencies and tools for the project in the current directory using the file path provided as the source:",
+    "example_command": "dotnet restore -s c:\\packages\\mypackages",
+    "command_link": "restore",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore"
+  },
+  {
+    "example_description": "Restore the dependencies and tools for the project in the current directory using the two file paths provided as sources:",
+    "example_command": "dotnet restore -s c:\\packages\\mypackages -s c:\\packages\\myotherpackages",
+    "command_link": "restore",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore"
+  },
+  {
+    "example_description": "Restore dependencies and tools for the project in the current directory showing detailed output:",
+    "example_command": "dotnet restore --verbosity detailed",
+    "command_link": "restore",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore"
+  },
+  {
+    "example_description": "Create a C# console application project:",
+    "example_command": "dotnet new console",
+    "command_link": "new",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new"
+  },
+  {
+    "example_description": "Create an F# console application project in the current directory:",
+    "example_command": "dotnet new console --language \"F#\"",
+    "command_link": "new",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new"
+  },
+  {
+    "example_description": "Create a .NET Standard 2.0 class library project in the specified directory:",
+    "example_command": "dotnet new classlib --framework \"netstandard2.0\" -o MyLibrary",
+    "command_link": "new",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new"
+  },
+  {
+    "example_description": "Create a new ASP.NET Core C# MVC project in the current directory with no authentication:",
+    "example_command": "dotnet new mvc -au None",
+    "command_link": "new",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new"
+  },
+  {
+    "example_description": "Create a new xUnit project:",
+    "example_command": "dotnet new xunit",
+    "command_link": "new",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new"
+  },
+  {
+    "example_description": "Create a global.json in the current directory setting the SDK version to 3.1.101:",
+    "example_command": "dotnet new globaljson --sdk-version 3.1.101",
+    "command_link": "new",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new"
+  },
+  {
+    "example_description": "Show help for the C# console application template:",
+    "example_command": "dotnet new console -h",
+    "command_link": "new",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new"
+  },
+  {
+    "example_description": "Show help for the F# console application template:",
+    "example_command": "dotnet new console --language \"F#\" -h",
+    "command_link": "new",
+    "command_link-href": "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new"
+  }
+]

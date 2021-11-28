@@ -1,0 +1,54 @@
+# AWS COMPONENT OVERVIEW BEGIN
+
+AWS::<service_type>::<resource_type>
+ex: AWS:CloudFormation::Stack
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
+
+important resource types:
+Resource
+  - everything is a resource
+ARN (amazon resource name)
+ID (unique resource identifier)
+Stack
+  - collection of related resource
+Cluster
+  - grouping of tasks or services within a stack
+Task
+  - A docker container wrapper
+Service
+  - A Task wrapper (manager of task)
+  - performs health checks and replaces unhealth tasks
+VPC
+  - virtual private cloud
+  - related to an aws account
+  - in 1 region
+  - split across 3 availiability zones
+  - mostly non routable address space IPs
+Subnet
+  - Further divides the VPC availiability zone
+  - CIDR Blocks
+Fargate
+  - serverless ECS
+  - do not have to provision and manage servers like tradional ECS
+  - comes at a premium
+AWS::ServiceDiscovery::Service
+  - used to find services in the Cloud Map
+  - used when services wish to communicate with each other
+AWS::IAM::Role
+  - Roles system
+CloudMap
+  - a lookup table for searching for resources
+SideCar
+  - a docker container that runs along side the worker docker container for a task used to help debug
+AWS::ElasticLoadBalancingV2::LoadBalancer
+  - used to load balance across services in a stack
+  - usually the only thing with a public ip address
+
+
+AWS App2Container
+  - Useful for containerizing a non container app in dotnet or java to aws ecs
+
+AWS CDK
+  - use python or js to create CloudFormation scripts
+
+# AWS COMPONENT OVERVIEW END

@@ -1,0 +1,25 @@
+# like package.json(.lock)?
+Gemfile(.lock)?
+
+# like npm install
+bundle
+
+# npm install
+bundle install
+  gem helps tool
+
+# run ruby file
+ruby ./src/main.rb
+
+# run ruby command
+ruby -e 'puts "hi"
+puts "there"
+'
+
+# run rspec tests
+rspec spec src/spec/hello_world_spec.rb
+
+# like npm run start
+rails server
+rails s
+

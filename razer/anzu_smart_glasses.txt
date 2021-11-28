@@ -1,0 +1,23 @@
+# Replace Lenses
+
+remove lens
+ 1. Turn to the back of the frame
+ 2. Apply firm pressure to the top of the lens
+ 3. push firmly until the lens pops out
+
+add lens
+ 1. turn frame around and align new lens to the nose bridge corner
+ 2. press along the lens edge firmly to snap it into place
+
+taps usually need to cover the whole front side of the frame. tapping your finger awkwardless side ways seems to work well
+for all taps:
+  front right side seems to work
+
+# pause song
+single tap on side of frame
+
+# next song
+double tap on side of frame
+
+# prev song
+triple tap on side of frame

@@ -1,0 +1,13 @@
+{
+  "color_palette": "apollo",
+  "replacements": [
+    {
+    "from_color_ramp": "green",
+    "to_color_ramp": "blue"
+    },
+    {
+    "from_color_ramp": "skin",
+    "to_color_ramp": "gray_scale"
+    }
+  ]
+}

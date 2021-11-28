@@ -1,0 +1,11 @@
+for sketching:
+
+good to have a pencil(or whatever brush) that can go from low to high values without variation in brush size
+  under Brush size click the side icon
+    set the min and max value of value to 100 for no variation
+    change the pen pressue curve to a exponential curve, like a bowl with the left size on the ground
+  12px size brush seems good or close to that
+  'Perfect Pencil' works pretty well from CS assets store
+
+its better to work with larger shapes and shrink them if needed
+

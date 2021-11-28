@@ -1,0 +1,59 @@
+use the python version you want to use
+
+# view installed verions
+pyenv versions
+
+# view available verions
+pyenv install -l
+
+1. Install python 3.8.5
+    ```
+    pyenv install 3.8.5
+
+    # Set pyenv to use 3.8.5
+    pyenv global 3.8.5
+
+    # Check output to confirm version is correct
+    python --version
+    ```
+2. Install other dependencies
+    ```
+    brew install postgresql
+
+    # Verify was installed
+    which pg_config
+    ```
+3. Set up virtual env
+    ```
+    # Create a new virtualenv in a dir called .venv
+    python -m venv .venv
+
+    # ALTERNATIELY if you don't want to change pyenv globally
+    PYENV_VERSION=3.8.5 python -m venv .venv
+
+    # Activate the venv
+    source .venv/bin/activate
+
+    # Verify venv is active (both commands should be in the .venv directory)
+    which python
+    which pip
+
+    # Check output to confirm version is correct
+    python --version
+
+    # Install the requirements
+    pip install -r requirements.txt
+
+    # If you want to get out of the venv, run the following
+    deactivate
+    ```
+    - If you want to remove and recreate your venv, just delete the .venv directory `rm -r .venv`
+    - After you create the venv, feel free to switch your pyenv global version back to whatever you prefer,
+      the venv will still point to whatever python version you created it with
+    - Feel free to change `.venv` to whatever you prefer, this is just the name of the venv folder
+    - If you prefer to use `virtualenv` / `virtualenvwrapper` you can do that too
+4. Pycharm Setup
+    - Opening the project root folder should automatically assign the virtual environment (if you named it `venv`) as the interpreter.
+    - Click Pycharm -> Preferences (⌘,) -> Languages & Frameworks -> Django. Now select `{Project Root Directory}/analytics` as the Django Project Root
+    - Verify `analytics/settings.py` is set as the "Settings" file.
+

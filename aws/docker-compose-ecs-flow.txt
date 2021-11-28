@@ -1,0 +1,16 @@
+# In order to create an aws ecs cloudformation deployment yml locally from docker-compose:
+1. have aws ecr repos with images
+  build_services=(image1 image2)
+  export AWS_PAGER='';
+  for service in "${build_services[@]}"; do
+    aws ecr create-repository --repository-name "django-react-$service";
+    docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$service;
+  done
+2. an aws docker context
+  docker context create ecs myecscontext
+3. attach to the aws docker context
+  docker context use myecscontext
+4. create the cloudformation deployment yml
+  docker-compose -f compose.yml -f compose-prod.yml convert > ecs.yml
+5. upload the yml as a cloudformation stack on aws from a file
+

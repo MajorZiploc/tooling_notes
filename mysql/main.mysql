@@ -1,0 +1,35 @@
+
+show databases;
+
+CREATE TABLE Ps (
+  i int
+);
+
+select * from Ps
+
+
+INSERT INTO Ps (i)
+  WITH actionable_rows AS (
+    SELECT 1 AS i
+  )
+select i from actionable_rows
+
+WITH actionable_rows AS (
+  SELECT 1 AS i
+)
+delete from Ps
+where
+i in (select i from actionable_rows)
+
+
+WITH actionable_rows AS (
+  SELECT 1 AS i
+)
+update Ps as ps1, actionable_rows as ar 
+SET ps1.i = ar.i + 1
+where ps1.i = ar.i
+
+-- self join - check if prev date is less than next date
+SELECT w1.Id
+FROM Weather w1, Weather w2
+WHERE dateDiff(w1.Date,w2.Date) = 1 AND w1.Temperature > w2.Temperature;

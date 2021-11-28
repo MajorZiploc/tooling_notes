@@ -1,0 +1,20 @@
+# run python file
+python ./src/main.rb
+
+# run python command
+python -c 'print("hi")
+print("there")
+'
+
+# list outdated packages
+. .venv/bin/activate
+pip list -o
+
+# run black formatting on selected lines in vims
+'<,'>! black -q -
+
+# If a package comes back that cannot be found in the requirements.txt file it is probably a nested dependency. 
+# So run pipdeptree:
+pip install pipdeptree
+pipdeptree
+

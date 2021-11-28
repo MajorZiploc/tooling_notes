@@ -1,0 +1,36 @@
+event driven architecture overview
+https://aws.amazon.com/event-driven-architecture/
+
+good description of exchange
+http://blogs.quovantis.com/rabbit-mq-working/#:~:text=RabbitMQ%20is%20an%20open%20source,taken%20by%20web%20application%20servers.
+
+a task queue - like TaskScheduler in windows
+can be push or poll based
+
+Task Queues - can be used to manage background work that must be executed outside the usual HTTP request-response cycle
+
+  Usecases:
+  - poll the github api every 10 mins, process data and store in db
+  - execute long running db queries and storing the results in the db (cacheing)
+
+Celery basics:
+
+  Celeryd
+    A worker that processes tasks as long as tasks are available
+
+  Celerybeat - the boss of Celeryd
+    In charge of scheduling work (typically some sort of time interval)
+
+Celery communicates via messages, usually using a broker to mediate between clients and workers. To initiate a task, a client adds a message to the queue, which the broker then delivers to a worker.
+  The broker also communicates the status of the task
+Rabbitmq or redis are common choices.
+  tho you can use mongo or any db as the broker aswell
+  Rabbitmq - good for logging messages, monitoring, fallover if the system goes down
+  redis - in memory, not great if the system fails
+
+Exchange - delivers messages to queues based on exchange types
+  types
+    direct - message goes to the queues whose binding key exactly matches the routing key of the message
+    topic - same as direct but diff is routing based on multiple criteria (multiple regex based routing keys for example)
+    fanout - broadcasts all messages to all queues (routing key is null since exchange delivers messages to all queues, so no routing is needed)
+

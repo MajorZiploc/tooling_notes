@@ -1,0 +1,11 @@
+{
+  "color_palette": "apollo",
+  "replacements": [
+    {
+    "color_ramp": "gray_scale",
+    "start_idx": 0,
+    "end_idx": 15,
+    "shift_step": -2
+    }
+  ]
+}

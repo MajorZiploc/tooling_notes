@@ -1,0 +1,2 @@
+always pip install wheel
+this appears to make the venv work in coc
