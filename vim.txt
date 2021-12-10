@@ -40,3 +40,6 @@ g <ctrl-a>
 # fix dos new lines
 :%s/\r/\r/g
 
+# reset syntax highlighting if it messes up
+:syntax sync fromstart
+
