@@ -1,5 +1,29 @@
 USE System;
 
+-- Declare a table, ie a record / list of records
+DECLARE @endUser table (
+  EndUserId INT
+  ,[Name] VARCHAR(50)
+  , [Age] INT
+)
+
+-- Get auto generated id back from an insert along with other info using a table variable with OUTPUT..INTO
+INSERT INTO dbo.EndUser
+(
+  Name
+  ,Age
+)
+OUTPUT INSERTED.EndUserId, INSERTED.Name, INSERTED.Age
+INTO @endUser
+VALUES
+(
+  'Bob'
+  ,24
+)
+;
+
+
+
 DECLARE @responseDate DATE
 	  , @responseEndDate DATE
 	  , @responseDateFormat VARCHAR(8)
