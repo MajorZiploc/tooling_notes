@@ -1,0 +1,131 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: update repo cache (CentOS)
+    tags: always
+    dnf:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "Centos"
+
+  - name: update repo cache (Ubuntu)
+    tags: always
+    apt:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- hosts: all
+  become: true
+  tasks:
+    - name: add ssh key for simone
+      tags: always
+      authorized_key:
+        user: simone
+        key: "ssh-ed5519 AAAAAAAC3asdzxcfdsaf234zds ansible"
+
+- hosts: workstations
+  become: true
+  tasks:
+    - name: Install upzip
+      package:
+        name: unzip
+
+    - name: Install terraform
+      unarchive:
+        src: https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip
+        dest: /usr/local/bin
+        remote_src: yes
+        mode: 0755
+        owner: root
+        group: root
+
+- hosts: web_servers
+  become: true
+  tasks:
+
+  - name: Install the apt packages and updates apt packages (Ubuntu)
+    tags: apache,apache2,ubuntu
+    apt:
+      name:
+       - apache2
+       - libapache2-mod-php
+      state: latest
+    when: ansible_distribution in ["Debian", "Ubuntu"]
+
+  - name: Install the dnf packages and updates dnf packages (CentOS)
+    tags: apache,centos,httpd
+    dnf:
+      name:
+       - httpd
+       - php
+      state: latest
+    when: ansible_distribution == "Centos"
+
+  - name: start httpd (CentOS)
+    tags: httpd,apache,centos
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+    when: ansible_distribution == "Centos"
+
+  - name: change e-mail address for admin
+    tags: apache,centos,httpd
+    lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^ServerAdmin'
+      line: ServerAdmin somebody@somewhere.net
+    when: ansible_distribution == "Centos"
+    register: httpd_config_file
+
+  - name: restart httpd (Centos)
+    tags: apache,centos,httpd
+    service:
+      name: httpd
+      state: restarted
+    when: httpd_config_file.changed
+
+  - name: copy default html file for site
+    tags: apache,apache2,httpd
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: Install the apt packages and updates apt packages (Ubuntu)
+    tags: db,mariadb,ubuntu
+    apt:
+      name:
+       - mariadb-server
+      state: latest
+    when: ansible_distribution in ["Debian", "Ubuntu"]
+
+  - name: install mariadb package (CentOS)
+    tags: centos,db,mariadb
+    dnf:
+      name:
+       - mariadb
+      state: latest
+    when: ansible_distribution == "Centos"
+
+- hosts: file_servers
+  become: true
+  tasks:
+
+  - name: install samba package
+    tags: samba
+    package:
+      name:
+       - samba
+      state: latest
+

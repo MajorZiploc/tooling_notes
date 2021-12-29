@@ -1,0 +1,5 @@
+# vim: set filetype=bash :
+
+run +FILE:
+  swipl -q -l {{FILE}}
+

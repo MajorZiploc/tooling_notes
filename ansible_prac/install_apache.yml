@@ -1,0 +1,24 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Install the apt packages and updates apt packages
+    apt:
+      name:
+       - apache2
+       - libapache2-mod-php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution in ["Debian", "Ubuntu"]
+
+  - name: Install the dnf packages and updates dnf packages
+    dnf:
+      name:
+       - httpd
+       - php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Centos"
+
