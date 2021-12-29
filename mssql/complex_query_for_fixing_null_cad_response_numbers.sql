@@ -26,6 +26,7 @@ DECLARE @endUser table (
   , [Age] INT
 )
 
+-- OUTPUT..INTO EXAMPLES BEGIN
 -- Get auto generated id back from an insert along with other info using a table variable with OUTPUT..INTO
 INSERT INTO dbo.EndUser
 (
@@ -40,6 +41,37 @@ VALUES
   ,24
 )
 ;
+
+DELETE Production.ProductProductPhoto
+OUTPUT DELETED.ProductID,
+p.Name,
+p.ProductModelID,
+DELETED.ProductPhotoID
+INTO @MyTableVar
+FROM Production.ProductProductPhoto AS ph
+JOIN Production.Product as p
+ON ph.ProductID = p.ProductID
+WHERE p.ProductModelID BETWEEN 120 and 130
+;
+
+DECLARE @MyTableVar TABLE (
+EmpID INT NOT NULL,
+OldVacationHours INT,
+NewVacationHours INT,
+ModifiedDate DATETIME);
+
+UPDATE TOP (10) HumanResources.Employee
+SET VacationHours = VacationHours * 1.25,
+ModifiedDate = GETDATE()
+OUTPUT inserted.BusinessEntityID,
+deleted.VacationHours,
+inserted.VacationHours,
+inserted.ModifiedDate
+INTO @MyTableVar
+WHERE ...
+;
+
+-- OUTPUT..INTO EXAMPLES END
 
 -- setting a variable and multi variable declaration
 DECLARE @STR NVARCHAR(100), @LEN1 INT, @LEN2 INT;
