@@ -1,5 +1,11 @@
 USE System;
 
+-- SHOW QUERY PLAN, must be executed on its own. will affect all other queries until OFF is called
+-- all other queries will only be estimates of resources to perform the query, not the results of the actual query
+SET SHOWPLAN_ALL ON;
+SET SHOWPLAN_ALL OFF;
+-- SHOWPLAN_TEXT, SHOWPLAN_XML, STATISTICS PROFILE, STATISTICS IO, STATISTICS TIME also operate the same way
+
 -- CROSS APPLY (like INNER JOIN) and OUTER APPLY (like LEFT JOIN) is to remove sub queries from select statments
 -- convert this...
 select
