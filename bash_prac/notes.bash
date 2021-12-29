@@ -1,23 +1,23 @@
-( ) (for subshell) can be used to basically join stdout and the pipe will redirect all the output of all commands in the ( )
-{ } (for current shell)
+( ) # (for subshell) can be used to basically join stdout and the pipe will redirect all the output of all commands in the ( )
+{ } # (for current shell)
 (ls; ls) | less # content of directory listed twice in list
 { ls ; ls; } | less # content of directory listed twice in list -- SPACES AND SEMI COLONS ARE IMPORTANT IN THIS!
 
-ex: ls -a - ~
--	End of options flag. All other arguments are positional parameters.
+# ex: ls -a - ~
+# -	End of options flag. All other arguments are positional parameters.
 
---	Unset positional parameters. If arguments given (-- arg1 arg2), positional parameters set to arguments.
+# --	Unset positional parameters. If arguments given (-- arg1 arg2), positional parameters set to arguments.
 
-less: or (tail -f | less +F )
-while in less. use shift+F to auto refresh the file. To toggle it off, use Ctrl+C
+# less: or (tail -f | less +F )
+# while in less. use shift+F to auto refresh the file. To toggle it off, use Ctrl+C
 
 column -t: # makes the output look easy to read
 mount
 mount | column -t
 
-Parameter expansion:
-: means to count empty string as unset
-using param@/param* or param[@]/param[*] can change the param expansion behavior
+# Parameter expansion:
+# : means to count empty string as unset
+# using param@/param* or param[@]/param[*] can change the param expansion behavior
 
 cd ~- | cd - # goes back to the previous working directory
 
@@ -29,7 +29,7 @@ cd ~- | cd - # goes back to the previous working directory
 
 # jobs - NOTE: they will end when you end your terminal session unlike tmux
 # put a foreground task into the background
-<ctrl>-z
+# <ctrl>-z
 # lists open jobs
 jobs
 # brings the last open job to the foreground
@@ -125,7 +125,7 @@ if [ ${assArray2[Monitor]+_} ]; then echo "Key exists"; else echo "Key does not 
 unset assArray1
 
 # Interactive search up history for command
-<CTRL>-R
+# <CTRL>-R
 # Run last command in history that starts with string
 !string
 # Puts last command in history that starts with string as last entry in history
@@ -146,15 +146,15 @@ $$
 # process id of most recent job that occurred
 $!
 
-glob notes:
-  For all nonhidden files/folders in current directory non-recursive, use -d '*'
-  For all hidden files/folders in current directory non-recursive, use -d '.[^.]*'
-  For all hidden and nonhidden files/folders in current directory non-recursive, use -d '* .[^.]*'
+# glob notes:
+  # For all nonhidden files/folders in current directory non-recursive, use -d '*'
+  # For all hidden files/folders in current directory non-recursive, use -d '.[^.]*'
+  # For all hidden and nonhidden files/folders in current directory non-recursive, use -d '* .[^.]*'
 
 # copy contents of source to existing dir dest, including hidden stuff
 # cp -a /source/. /dest/
 
-Extra snippets:
+# Extra snippets:
 pwsh -ExecutionPolicy [Bypass | Unrestricted | RemoteSigned| AllSigned | Default | Undefined | Restricted] -File '/path/to/script.ps1 -Flag arg'
 pwsh -ExecutionPolicy [Bypass | Unrestricted | RemoteSigned| AllSigned | Default | Undefined | Restricted] -Command "& {Write-Host 'hi'}"
 perl -ne 'print unless $seen{$_}++' # unique without sorting
@@ -238,7 +238,7 @@ function set_cardesian_product_experimental {
   while read a; do while read b; do echo "$a, $b"; done < $set1; done < $set2;
 }
 
-FROM WINDOWS GIT BASH: 
+# FROM WINDOWS GIT BASH:
 ################################## Construct PATH variable ##################################
 
 #winpath=$(echo $MSYS2_WINPATH | tr ";" "\n" | sed -e 's/\\/\\\\/g' | xargs -I {} cygpath -u {})
