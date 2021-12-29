@@ -92,6 +92,38 @@ array=("${array[@]:2:3}")
 # remove the first 2 arguments
 set -- "${@:3}"
 
+# Associative Array
+# init/create 1
+declare -A assArray1
+assArray1[fruit]=Mango
+assArray1[bird]=Cockatail
+assArray1[flower]=Rose
+assArray1[animal]=Tigar
+# init/create 2
+declare -A assArray2=( [HDD]=Samsung [Monitor]=Dell [Keyboard]=A4Tech )
+# Accessing elements
+# get value for a key
+echo ${assArray1[bird]}
+echo ${assArray1[flower]}
+# show keys 1
+for key in "${!assArray1[@]}"; do echo $key; done
+# show keys 2
+echo "${!assArray1[@]}"
+# show values 1
+for val in "${assArray1[@]}"; do echo $val; done
+# show values 2
+echo "${assArray1[@]}"
+# access key and value
+for key in "${!assArray1[@]}"; do echo "$key => ${assArray1[$key]}"; done
+# add new data to an associative array
+assArray2+=([Mouse]=Logitech)
+# remove entry
+unset assArray2[Monitor]
+# check for key
+if [ ${assArray2[Monitor]+_} ]; then echo "Key exists"; else echo "Key does not exists"; fi
+# delete associative array
+unset assArray1
+
 # Interactive search up history for command
 <CTRL>-R
 # Run last command in history that starts with string
