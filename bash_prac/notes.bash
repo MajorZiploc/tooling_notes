@@ -1,3 +1,5 @@
+# NOTE for zsh users: the ${!...} does not work in zsh
+
 ( ) # (for subshell) can be used to basically join stdout and the pipe will redirect all the output of all commands in the ( )
 { } # (for current shell)
 (ls; ls) | less # content of directory listed twice in list
@@ -115,6 +117,8 @@ for val in "${assArray1[@]}"; do echo $val; done
 echo "${assArray1[@]}"
 # access key and value
 for key in "${!assArray1[@]}"; do echo "$key => ${assArray1[$key]}"; done
+# zsh varient:
+for key value in ${(kv)assArray1}; do echo "$key -> $value"; done
 # add new data to an associative array
 assArray2+=([Mouse]=Logitech)
 # remove entry
