@@ -43,3 +43,10 @@ g <ctrl-a>
 # reset syntax highlighting if it messes up
 :syntax sync fromstart
 
+# auto complete like stuff
+in insert mode press <ctrl>-p || <ctrl>-n and it shows suggestions
+https://stackoverflow.com/questions/54104/is-there-any-way-to-enable-code-completion-for-perl-in-vim
+The standard Ctrl+N and Ctrl+P works even better if you add the following to your ~/.vim/ftplugin/perl.vim file:
+set iskeyword+=:
+Then it will autocomplete module names, etc.
+
