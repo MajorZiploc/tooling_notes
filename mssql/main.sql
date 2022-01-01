@@ -55,7 +55,7 @@ INTO @MyTableVar
 FROM Production.ProductProductPhoto AS ph
 JOIN Production.Product as p
 ON ph.ProductID = p.ProductID
-WHERE p.ProductModelID BETWEEN 120 and 130
+WHERE p.ProductModelID BETWEEN 120 AND 130
 ;
 
 DECLARE @MyTableVar TABLE (

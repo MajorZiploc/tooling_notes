@@ -1,4 +1,4 @@
-print "Hello, world\n";
+# Applies to perl 5. NOTE: there is a perl 6 out aswell
 
 # single line comment
 
@@ -73,4 +73,118 @@ $name = "Ali";
 $age = 10;
 $status = ($age > 60 )? "A senior citizen" : "Not a senior citizen";
 print "$name is  - $status\n";
+
+# FUNCTIONS BEGIN
+
+# similar to bash args. everything is put into a list
+# 'my' is a way to create a local variable. only usable in lexical scopes with begin end structure
+sub PrintList {
+  my @list = @_;
+  print "Given list is @list\n";
+}
+$a = 10;
+@b = (1, 2, 3, 4);
+# Function call with list parameter
+PrintList($a, @b);
+
+# Function with hash argument. you have to convert the input list to a hash
+sub PrintHash {
+  my (%hash) = @_;
+  foreach my $key ( keys %hash ) {
+    my $value = $hash{$key};
+    print "$key : $value\n";
+  }
+}
+%hash = ('name' => 'Tom', 'age' => 19);
+# Function call with hash parameter
+PrintHash(%hash);
+
+# Function that returns a value
+sub Average {
+  # get total number of arguments passed.
+  $n = scalar(@_);
+  $sum = 0;
+  foreach $item (@_) {
+    $sum += $item;
+  }
+  $average = $sum / $n;
+  return $average;
+}
+# Function call that returns a value
+$num = Average(10, 20, 30);
+print "Average for the given numbers : $num\n";
+
+# Local variables - a way to override a global variables value within the lexical scope the local operates in.
+# Global variable
+$string = "Hello, World!";
+sub PrintHello {
+# Private variable for PrintHello function
+local $string;
+$string = "Hello, Perl!";
+PrintMe();
+print "Inside the function PrintHello $string\n";
+}
+sub PrintMe {
+  print "Inside the function PrintMe $string\n";
+}
+# Function call
+PrintHello();
+print "Outside the function $string\n";
+
+# state is a way to carry over variable state between a call to the same function
+# python default values of parameters operate in a similar way
+use feature 'state';
+sub PrintCount {
+  state $count = 0; # initial value
+  print "Value of counter is $count\n";
+  $count++;
+}
+for (1..5) {
+  PrintCount();
+}
+
+# FUNCTIONS END
+
+# ERRORS BEGIN
+# die=throw
+# unless is the opposite of if
+unless(chdir("/etc")) {
+  die "Error: Can't change directory - $!";
+}
+# bash/react like || && chaining similar to ternary
+# same as
+chdir("/etc") || die "Error: Can't change directory - $!";
+# same as
+!chdir("/etc") && die "Error: Can't change directory - $!";
+# same as
+chdir('/etc') or die "Can't change directory";
+# same as
+!chdir('/etc') and die "Can't change directory";
+# warn is a softer die. it continues execute after the warning
+chdir('/etc') or warn "Can't change directory";
+# for errors in modules look into: carp, cluck, croak, confess
+# ERRORS END
+
+# REGEX BEGIN
+# https://www.tutorialspoint.com/perl/perl_regular_expressions.htm
+$string = "The food is in the salad bar";
+$string =~ m/foo/;
+print "Before: $`\n";
+print "Matched: $&\n";
+print "After: $'\n";
+$string = "The cat sat on the mat";
+$string =~ s/cat/dog/;
+print "$string\n";
+$string = 'The cat sat on the mat';
+$string =~ tr/a/o/;
+print "$string\n";
+# pattern matching to disconstruct capture groups
+$time = "12:05:30";
+$time =~ m/(\d+):(\d+):(\d+)/;
+my ($hours, $minutes, $seconds) = ($1, $2, $3);
+print "Hours : $hours, Minutes: $minutes, Second: $seconds\n";
+# or
+($hours, $minutes, $seconds) = ($time =~ m/(\d+):(\d+):(\d+)/);
+print "$hours, $minutes, $seconds\n"
+# REGEX END
 
