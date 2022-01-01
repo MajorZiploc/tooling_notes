@@ -92,6 +92,23 @@ def conditional_prac():
   v = d.get('d', 3)
   print(v)
 
+def dictionary_prac():
+  d = {'a': 1, 'b': 2}
+  # default value of 3
+  v = d.get('d', 3)
+  print(v)
+  print(d.keys())
+  for key in d.keys():
+    print(key)
+  for k, v in d.items():
+    print(k, v)
+  print('a' in d)
+  print('a' in d.keys())
+  print(1 in d.values())
+  d['b'] = d['b'] + 1
+  for k, v in d.items():
+    print(k, v)
+
 def regex_prac():
   print('Regex')
   s = 'sodac'
@@ -110,5 +127,6 @@ def main():
   stack_prac()
   conditional_prac()
   regex_prac()
+  dictionary_prac()
 
 main()
