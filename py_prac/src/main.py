@@ -1,4 +1,5 @@
 import functools as ft
+import re
 from queue import Queue
 from queue import LifoQueue
 from collections import deque
@@ -76,6 +77,30 @@ def set_prac():
   print(1 in num_set)
   print(4 in num_set)
 
+def conditional_prac():
+  print('Conditionals')
+  # Ternary Operator
+  name = "Bob" if True and True else "Tim"
+  print(name)
+  x = 0
+  if True or False:
+    x += 1
+  print(x)
+  # switch/case
+  # use a dictionary for this
+  d = {'a': 1, 'b': 2}
+  v = d.get('d', 3)
+  print(v)
+
+def regex_prac():
+  print('Regex')
+  s = 'sodac'
+  search_res = re.search('shake|soda|coke|hot chocolate|cappacino|a[bc]', s, re.I)
+  print(search_res)
+  s = 'Wendy\'s hot dog'
+  food_item = re.sub('Wendy\'s', '', s, flags=re.I) if re.search('Wendy\'s', s, re.I) else s
+  print(food_item.strip())
+
 def main():
   print('Hello world')
   obj_prac()
@@ -83,5 +108,7 @@ def main():
   list_prac()
   queue_prac()
   stack_prac()
+  conditional_prac()
+  regex_prac()
 
 main()
