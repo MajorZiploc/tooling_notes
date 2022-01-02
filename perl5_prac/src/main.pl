@@ -9,7 +9,7 @@ These comments will be ignored by the
 compiler until the next =cut is encountered.
 =cut
 
-sub MultilineExamples {
+sub multiline_examples {
   # Here Documents
   $a = 10;
 $var = <<"EOF";
@@ -32,14 +32,14 @@ print "$var\n";
   print "$string\n";
 }
 
-sub EscapeCharacterExamples {
+sub escape_character_examples {
   # escape character /
   $result = "This is \"number\"";
   print "$result\n";
   print "\$result\n";
 }
 
-sub ScalarExamples {
+sub scalar_examples {
   $age = 25;             # An integer assignment
   $name = "John Paul";   # A string
   $salary = 1445.50;     # A floating point
@@ -50,7 +50,7 @@ sub ScalarExamples {
   print "Salary = $salary\n";
 }
 
-sub ArrayExamples {
+sub array_examples {
   @ages = (25, 30, 40);
   @names = ("John Paul", "Lisa", "Kumar");
   print "\$ages[0] = $ages[0]\n";
@@ -61,14 +61,14 @@ sub ArrayExamples {
   print "\$names[2] = $names[2]\n";
 }
 
-sub HashMapExamples {
+sub hash_map_examples {
   %data = ('John Paul', 45, 'Lisa', 30, 'Kumar', 40);
   print "\$data{'John Paul'} = $data{'John Paul'}\n";
   print "\$data{'Lisa'} = $data{'Lisa'}\n";
   print "\$data{'Kumar'} = $data{'Kumar'}\n";
 }
 
-sub SpecialLiteralsExamples {
+sub special_literals_examples {
   print "File name ". __FILE__ . "\n";
   print "Line Number " . __LINE__ ."\n";
   print "Package " . __PACKAGE__ ."\n";
@@ -76,14 +76,14 @@ sub SpecialLiteralsExamples {
   print "__FILE__ __LINE__ __PACKAGE__\n";
 }
 
-sub TernaryOperatorExamples {
+sub ternary_operator_examples {
   $name = "Ali";
   $age = 10;
   $status = ($age > 60 )? "A senior citizen" : "Not a senior citizen";
   print "$name is  - $status\n";
 }
 
-sub FunctionExamples {
+sub function_examples {
   # similar to bash args. everything is put into a list
   # 'my' is a way to create a local variable. only usable in lexical scopes with begin end structure
   sub PrintList {
@@ -152,7 +152,7 @@ sub FunctionExamples {
   }
 }
 
-sub ErrorExamples {
+sub error_examples {
   # die=throw
   # unless is the opposite of if
   unless(chdir("/etc")) {
@@ -172,7 +172,7 @@ sub ErrorExamples {
   # for errors in modules look into: carp, cluck, croak, confess
 }
 
-sub RegexExamples {
+sub regex_examples {
   # https://www.tutorialspoint.com/perl/perl_regular_expressions.htm
   $string = "The food is in the salad bar";
   $string =~ m/foo/;
@@ -195,18 +195,18 @@ sub RegexExamples {
   print "$hours, $minutes, $seconds\n";
 }
 
-sub Main {
-  MultilineExamples();
-  EscapeCharacterExamples();
-  ScalarExamples();
-  ArrayExamples();
-  HashMapExamples();
-  SpecialLiteralsExamples();
-  TernaryOperatorExamples();
-  FunctionExamples();
-  ErrorExamples();
-  RegexExamples();
+sub main {
+  multiline_examples();
+  escape_character_examples();
+  scalar_examples();
+  array_examples();
+  hash_map_examples();
+  special_literals_examples();
+  ternary_operator_examples();
+  function_examples();
+  error_examples();
+  regex_examples();
 }
 
-Main();
+main();
 
