@@ -86,17 +86,17 @@ sub ternary_operator_examples {
 sub function_examples {
   # similar to bash args. everything is put into a list
   # 'my' is a way to create a local variable. only usable in lexical scopes with begin end structure
-  sub PrintList {
+  sub print_list {
     my @list = @_;
     print "Given list is @list\n";
   }
   $a = 10;
   @b = (1, 2, 3, 4);
   # Function call with list parameter
-  PrintList($a, @b);
+  print_list($a, @b);
 
   # Function with hash argument. you have to convert the input list to a hash
-  sub PrintHash {
+  sub print_hash {
     my (%hash) = @_;
     foreach my $key ( keys %hash ) {
       my $value = $hash{$key};
@@ -105,10 +105,10 @@ sub function_examples {
   }
   %hash = ('name' => 'Tom', 'age' => 19);
   # Function call with hash parameter
-  PrintHash(%hash);
+  print_hash(%hash);
 
   # Function that returns a value
-  sub Average {
+  sub average_fn {
     # get total number of arguments passed.
     $n = scalar(@_);
     $sum = 0;
@@ -119,36 +119,36 @@ sub function_examples {
     return $average;
   }
   # Function call that returns a value
-  $num = Average(10, 20, 30);
-  print "Average for the given numbers : $num\n";
+  $num = average_fn(10, 20, 30);
+  print "average_fn for the given numbers : $num\n";
 
   # Local variables - a way to override a global variables value within the lexical scope the local operates in.
   # Global variable
   $string = "Hello, World!";
-  sub PrintHello {
-  # Private variable for PrintHello function
+  sub print_hello {
+  # Private variable for print_hello function
   local $string;
   $string = "Hello, Perl!";
-  PrintMe();
-  print "Inside the function PrintHello $string\n";
+  print_me();
+  print "Inside the function print_hello $string\n";
   }
-  sub PrintMe {
-    print "Inside the function PrintMe $string\n";
+  sub print_me {
+    print "Inside the function print_me $string\n";
   }
   # Function call
-  PrintHello();
+  print_hello();
   print "Outside the function $string\n";
 
   # state is a way to carry over variable state between a call to the same function
   # python default values of parameters operate in a similar way
   use feature 'state';
-  sub PrintCount {
+  sub print_count {
     state $count = 0; # initial value
     print "Value of counter is $count\n";
     $count++;
   }
   for (1..5) {
-    PrintCount();
+    print_count();
   }
 }
 
@@ -195,6 +195,27 @@ sub regex_examples {
   print "$hours, $minutes, $seconds\n";
 }
 
+sub string_cmp_examples {
+  $success = "success";
+  $fail = "fail";
+  $a = "abc";
+  $b = "xyz";
+  $r = $a ge $b ? $success : $fail;
+  print "$r\n";
+  $r = $a gt $b ? $success : $fail;
+  print "$r\n";
+  $r = $a eq $b ? $success : $fail;
+  print "$r\n";
+  $r = $a ne $b ? $success : $fail;
+  print "$r\n";
+  $r = $a le $b ? $success : $fail;
+  print "$r\n";
+  $r = $a lt $b ? $success : $fail;
+  print "$r\n";
+  $r = $a cmp $b ? $success : $fail;
+  print "$r\n";
+}
+
 sub main {
   multiline_examples();
   escape_character_examples();
@@ -206,6 +227,7 @@ sub main {
   function_examples();
   error_examples();
   regex_examples();
+  string_cmp_examples();
 }
 
 main();
