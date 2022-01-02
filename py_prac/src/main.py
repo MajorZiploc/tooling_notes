@@ -69,6 +69,35 @@ def list_prac():
   print(ft.reduce(lambda acc, ele: acc + ele, l, 0))
   for ele in l:
     print(ele)
+  # unpacking lists to merge into 1 list. like spread in js
+  my_first_list = [1, 2, 3]
+  my_second_list = [4, 5, 6]
+  my_merged_list = [*my_first_list, *my_second_list]
+  print(my_merged_list)
+  # unpacking pattern match to get first and last ele of list, and rest in between
+  l = range(1, 10)
+  first, *b, last = l
+  print(first, last)
+  # string_to_list
+  a = [*"RealPython"]
+  print(a)
+  *a, = "RealPython"
+  print(a)
+
+def args_kwargs_prac():
+  # args and kwargs are just names, they can be any name you want
+  def my_f(a, b, *args, **kwargs):
+    c = a + b
+    argsStr = ''
+    for a in args:
+      argsStr += f'{a}'
+    kwargsStr = ''
+    for k, v in kwargs.items():
+      kwargsStr += f'{k}: {v}'
+    print(f'c: {c}')
+    print(f'argsStr: {argsStr}')
+    print(f'kwargsStr: {kwargsStr}')
+  my_f(1, 2, [1, 'hi', 'there'], yo='say', z=1)
 
 def set_prac():
   print('Set operations')
@@ -108,6 +137,11 @@ def dictionary_prac():
   d['b'] = d['b'] + 1
   for k, v in d.items():
     print(k, v)
+  # unpacking dictionaries to merge. like spread in js
+  my_first_dict = {"A": 1, "B": 2}
+  my_second_dict = {"C": 3, "D": 4}
+  my_merged_dict = {**my_first_dict, **my_second_dict}
+  print(my_merged_dict)
 
 def regex_prac():
   print('Regex')
@@ -128,5 +162,6 @@ def main():
   conditional_prac()
   regex_prac()
   dictionary_prac()
+  args_kwargs_prac()
 
 main()
