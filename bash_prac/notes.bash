@@ -164,6 +164,8 @@ pwsh -ExecutionPolicy [Bypass | Unrestricted | RemoteSigned| AllSigned | Default
 perl -ne 'print unless $seen{$_}++' # unique without sorting
 
 # alias graveyard:
+alias git_deploy='git checkout develop && git pull && git push && { git checkout master 2>/dev/null || git checkout main 2>/dev/null ; } && git pull && git merge develop --commit --no-edit && git push && git checkout develop'
+
 alias dir='ls --format=vertical'
 alias vdir='ls --format=long'
   # under color guard
