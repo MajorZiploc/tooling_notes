@@ -44,6 +44,13 @@ let setPrac () =
   let s2 = Set.union (Set.ofList l1) (Set.ofList l2)
   printfn "%A" s2
 
+let mapPrac () =
+  let m1 = Map.ofList [1, "one"; 2, "two"]
+  printfn "%A" m1
+  let v1 = m1 |> Map.tryFind 1
+  printfn "%A" v1
+  m1 |> Map.iter (printfn "%A -> %A")
+  printfn "%A" (m1 |> Map.toList)
 
 // Define a function to construct a message to print
 let from whom =
@@ -58,6 +65,7 @@ let mainAsync _argv = async {
   IPAddressFormat.V4 (1,2,3,4) |> IPAddressFormat.show
   setPrac ()
   recordPrac ()
+  mapPrac ()
   let message = from "F#" // Call the function
   printfn "Hello world %s" message
   return 0 // return an integer exit code
