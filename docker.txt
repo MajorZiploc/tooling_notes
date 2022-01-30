@@ -50,6 +50,12 @@ docker network ls
 # create a new network
 docker network create <network_name>
 
+# If you have multiple bridge drivers, make sure that you starting your containers which will be talking with each other using same bridge network
+docker run -d -t --network networkname  --name containername
+
+# You will see details of network with list of containers. Each container will have IPv4Address associated with it. Use value of these address to communicate instead of localhost or 127.0.0.1
+docker network inspect networkname
+
 # create a container and connect it to a network
 docker run -d -p27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --network mongo-network mongo
 

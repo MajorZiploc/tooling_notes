@@ -20,7 +20,7 @@ let recordPrac () =
   printfn "%s" (p.say())
   // Update field on record based on old record data
   let p = { p with age=p.age + 10; }
-  printfn "%s" (p |> PersonR.say)
+  p |> PersonR.say |> printfn "%s"
 
 // union type
 type IPAddressFormat = 
