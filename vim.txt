@@ -50,3 +50,38 @@ The standard Ctrl+N and Ctrl+P works even better if you add the following to you
 set iskeyword+=:
 Then it will autocomplete module names, etc.
 
+# List open buffers
+:ls
+
+# goto buffer based on id from :ls
+:b<n> or :b <n>
+# Example: :b1 to goto buffer with id of 1
+
+# goto next buffer
+:n or :bn
+
+# goto prev buffer
+:N or :bp
+
+# remove a buffer from :ls listing and jump list
+:bwipeout
+
+# remove a buffer from :ls listing but not jump list
+:bdelete
+
+# open new tab specified directory or the file
+:tabedit <./path/to/dir/or/file>
+# Example: :tabedit . to open current directory in new tab
+# Example: :tabedit ./READEME.md to open READEME in new tab
+
+# cycle to next tab
+gt in normal mode
+
+# cycle to prev tab
+gN in normal mode
+
+# goto to nth tab
+<n>gt in normal mode
+# Example: 3gt will go to third tab
+
+
