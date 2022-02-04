@@ -18,6 +18,11 @@ brings up a list of the commands in normal mode and then press enter on the one 
 
 `:his[tory]`
 
+## search command history
+
+(start typing how a prev cmd started) -
+press up arrow to get last command that matches it
+
 # Syntax
 
 ## turn syntax highlighting off
@@ -140,9 +145,6 @@ Example: `3gt` will go to third tab
 ## clear the search highlight from / searches
 `:noh`
 
-(start typing how a prev cmd started) -
-press up arrow to get last command that matches it
-
 ---
 
 ## incrementing selected numbers in diff ways
@@ -165,4 +167,10 @@ press up arrow to get last command that matches it
 
 ---
 
+# Explorer (Netrw)
+
+## go into directory or open file
+`<enter>>`
+or
+`<ctrl>-m`
 
