@@ -1,5 +1,4 @@
-
-# Git 
+# Git
 ## diff the split screen files you have open in vim
 
 `:windo :diffthis`
