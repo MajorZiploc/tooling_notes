@@ -84,4 +84,16 @@ gN in normal mode
 <n>gt in normal mode
 # Example: 3gt will go to third tab
 
+# save vim session, (will save a vim file)
+:mksession <session_name>.vim
+# open session
+> vim -S <session_name>.vim
+
+# spellchecking (google iso language codes for all codes)
+:set spelllang=en_us
+:set spell
+# some language codes
+ en_us => english
+ fr_ch => french
+ de_de => german
 
