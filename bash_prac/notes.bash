@@ -82,6 +82,11 @@ ${param/#search_glob_pattern/replacement_text} # non greedy
 # Substition at right edge:
 ${param/%search_glob_pattern/replacement_text} # non greedy
 
+# use a capture group from a bash match [1] here for the first capture group
+if [[ $file =~ packages/([^/]+) ]]; then
+  do_thing ${BASH_REMATCH[1]}
+fi
+
 # Arrays:
 # init array with elements
 array=(zero one "two three")
