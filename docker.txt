@@ -22,9 +22,6 @@ docker restart <container_(?:name|id|image:tag)>
 # stop a running container
 docker stop <container_(?:name|id|image:tag)>
 
-# remove stopped containers
-docker container prune
-
 # remove / delete an image
 docker rmi <image_(?:name|id|image:tag)>
 
@@ -76,4 +73,18 @@ docker build -t image_name:1.0 .
 docker exec -t <container name> <command must not be a string even if it has spaces>
 # Example
 docker exec -t devcontainer-pandas_data_analytics_app-1 python /workspace/src/fast_food/clean_scripts/el_pollo_loco.py
+
+# Prune things
+docker container prune
+docker image prune
+docker network prune
+docker volume prune
+# Prune all the things
+docker system prune
+
+# Build images from docker compose
+docker-compose -f compose.yml -f compose-prod.yml "service1 service2"
+
+# glue: create 1 compose file out of multiple, it will inplace env vars
+docker-compose -f compose.yml -f compose-dev.yml config > kompose.yml
 
