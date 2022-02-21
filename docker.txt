@@ -88,3 +88,9 @@ docker-compose -f compose.yml -f compose-prod.yml "service1 service2"
 # glue: create 1 compose file out of multiple, it will inplace env vars
 docker-compose -f compose.yml -f compose-dev.yml config > kompose.yml
 
+# it'll clear out "everything"
+docker-compose -f <compose_file.yml> down -v
+
+# without the -v option and it'll clear out "everything" except the volumes
+docker-compose -f <compose_file.yml> down --rmi all
+
