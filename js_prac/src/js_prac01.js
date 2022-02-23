@@ -124,6 +124,24 @@ function zip(a, b) {
   return res;
 }
 
+
+function toKeyValArray(json) {
+  if (json === null || json === undefined) {
+    return json;
+  }
+  return Object.keys(json).map(key => ({ key: key, value: json[key] }));
+}
+
+function fromKeyValArray(keyValueArray) {
+  if (keyValueArray === null || keyValueArray === undefined) {
+    return keyValueArray;
+  }
+  return keyValueArray.reduce((acc, ele) => {
+    acc[ele.key] = ele.value;
+    return acc;
+  }, {});
+}
+
 async function main() {
   console.log('spread operator');
   const j = { x: 1, z: 'z' };
