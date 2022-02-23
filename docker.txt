@@ -94,3 +94,8 @@ docker-compose -f <compose_file.yml> down -v
 # without the -v option and it'll clear out "everything" except the volumes
 docker-compose -f <compose_file.yml> down --rmi all
 
+# To refresh .env variables for an image, it is enough to do the following:
+
+docker-compose -f compose.yml -f compose-prod.yml down -v
+docker-compose -f compose.yml -f compose-prod.yml up --force-recreate
+

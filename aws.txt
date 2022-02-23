@@ -1,0 +1,55 @@
+# Useful resources:
+https://github.com/rik2803/aws-cli-examples
+
+### You can disable pager either by exporting AWS_PAGER="" or by modifying you AWS cli config file.
+export AWS_PAGER="" 
+### or update your ~/.aws/config with 
+[default]
+cli_pager=
+### Alternatively, you can enable the default pager to output of less program as
+export AWS_PAGER="less"
+
+# check who aws is performing operations as
+aws sts get-caller-identity
+
+# creating an ecr repo for a docker container
+aws ecr create-repository --no-paginate --repository-name <container-name>
+
+# CLOUDFORMATION BEGIN
+
+aws cloudformation list-stacks
+
+aws cloudformation describe-stacks
+
+aws cloudformation describe-stack-events
+
+# get events for a stack
+aws cloudformation describe-stack-events --stack-name <name>
+
+aws cloudformation list-stack-resources --stack-name <name>
+
+# CLOUDFORMATION END
+
+# CLOUDWATCH BEGIN
+
+# list services in the given namespace
+aws cloudwatch list-metrics --namespace "AWS/EC2"
+
+# CLOUDWATCH END
+
+# In order to create an aws ecs cloudformation deployment yml locally from docker-compose:
+1. have aws ecr repos with images
+  build_services=(image1 image2)
+  export AWS_PAGER='';
+  for service in "${build_services[@]}"; do
+    aws ecr create-repository --repository-name "django-react-$service";
+    docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$service;
+  done
+2. an aws docker context
+  docker context create ecs myecscontext
+3. attach to the aws docker context
+  docker context use myecscontext
+4. create the cloudformation deployment yml
+  docker-compose -f compose.yml -f compose-prod.yml convert > ecs.yml
+5. upload the yml as a cloudformation stack on aws from a file
+
