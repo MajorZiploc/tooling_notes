@@ -31,6 +31,17 @@ class Season {
   }
 }
 
+// union type , abstract data type
+const construct = (type, values) => ({
+  case: (cases) => cases[type].apply(null, values)
+})
+
+const Answer = {
+  Response: response => construct('Response', [response]),
+  Declined: construct('Declined', []),
+  Undecided: construct('Undecided', [])
+}
+
 function matrix_prac() {
   console.log('matrix_prac');
   const matrix = [
@@ -236,6 +247,15 @@ async function main() {
   const winter = Season.Winter;
   console.log(winter === Season.Summer);
   console.log(winter === Season.Winter);
+
+  console.log('Unions');
+  const answer = Answer.Response('sure thing!')
+  const answerString = answer.case({
+    Response: (response) => `I answered: ${response}`,
+    Declined: () => `I'd rather not say`,
+    Undecided: () => `I'm still thinking...`
+  })
+  console.log(answerString)
 }
 
 main();
