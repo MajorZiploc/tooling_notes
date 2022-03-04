@@ -11,3 +11,9 @@ yarn build
 | | | coc-sh/
 | | | coc-sql/
 | | | coc-tsserver/
+
+
+# run in swipl interative, this is for coc-vim language server support
+# > swipl
+# pack_install(lsp_server).
+

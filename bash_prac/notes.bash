@@ -267,3 +267,13 @@ function set_cardesian_product_experimental {
 
 ################################# Constructed PATH variable #################################
 
+# UNIX COMMAND NOTES BEGIN
+
+# Create a .tgz file
+tar zcf </file/path.tgz> <content that can be an array or string>
+
+# Read a .tgz file
+tar ztf </file/path.tgz>
+
+# UNIX COMMAND NOTES END
+
