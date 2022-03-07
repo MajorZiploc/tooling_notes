@@ -5,5 +5,7 @@
   "repository": "git@github.com:MajorZiploc/web_scraper_io_scripts.git",
   "author": "Manyu Lakhotia <lakemonyew@gmail.com>",
   "license": "MIT",
-  "dependencies": { }
+  "dependencies": {
+    "json-test-utility": "^0.3.5"
+  }
 }

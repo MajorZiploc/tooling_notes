@@ -3,19 +3,19 @@ const jr = jtu.jsonRefactor;
 
 function operationOnTypeForJson(json, operation, type = 'String') {
   return jr.fromKeyValArray(
-    jr.toKeyValArray(json).map(kv => operationOnKeyValuePair(kv, operation, type))
+    jr.toKeyValArray(json).map(kv => ({ ...kv, value: operationOnValue(kv.value, operation, type) }))
   );
 }
 
-function operationOnKeyValuePair(kv, operation, type = 'String') {
-  if (kv.value?.constructor.name === type) {
-    return { ...kv, value: operation(kv.value) };
-  } else if (kv.value?.constructor.name === 'Object') {
-    return { ...kv, value: operationOnTypeForJson(kv.value, operation, type) };
-  } else if (kv.value?.constructor.name === 'Array') {
-    return { ...kv, value: kv.value.map(v => operationOnKeyValuePair(v, operation, type)) };
+function operationOnValue(value, operation, type = 'String') {
+  if (value?.constructor.name === type) {
+    return operation(value);
+  } else if (value?.constructor.name === 'Object') {
+    return operationOnTypeForJson(value, operation, type);
+  } else if (value?.constructor.name === 'Array') {
+    return value.map(v => operationOnValue(v, operation, type));
   } else {
-    return kv;
+    return value;
   }
 }
 
