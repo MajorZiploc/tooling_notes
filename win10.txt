@@ -5,3 +5,6 @@ net localgroup
 // list users in the docker-users group
 net localgroup docker-users
 
+// Microsoft PowerToys app for key remaps
+// Using to remap PgUp and PgDn to Left and Right Array respectively
+
