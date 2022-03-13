@@ -23,3 +23,14 @@ git diff A B
 git reflog expire --all --expire=now
 git gc --prune=now --aggressive
 
+# Commit prefix style (gone away from Adds/Rms/Changes/Fixes style)
++ = Add
+- = rm = Remove
+~ = Change
+^ = Update
+rn = Rename
+mv = Move
+ = Convert
+ = Refactor
+ = Fix
+
