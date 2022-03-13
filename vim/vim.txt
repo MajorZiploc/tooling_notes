@@ -97,3 +97,6 @@ gN in normal mode
  fr_ch => french
  de_de => german
 
+# file content swipes
+<ctrl-e> - swipes content up a line at a time
+<ctrl-y> - swipes content down a line at a time
