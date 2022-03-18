@@ -1,0 +1,7 @@
+# WSL -- if you run into an issue where not all aws commands exist, this most likely means your awscli is out of date
+sudo apt update -y
+sudo apt install -y awscli
+
+# aws session manager plugin
+use the windows installer, it will work for wsl
+

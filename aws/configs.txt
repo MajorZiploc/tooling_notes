@@ -1,0 +1,9 @@
+
+### You can disable pager either by exporting AWS_PAGER="" or by modifying you AWS cli config file.
+export AWS_PAGER="" 
+### or update your ~/.aws/config with 
+[default]
+cli_pager=
+### Alternatively, you can enable the default pager to output of less program as
+export AWS_PAGER="less"
+
