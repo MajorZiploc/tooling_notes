@@ -2,3 +2,50 @@
 # from app store (free)
 amphetamine
 
+# KEYBINDINGS BEGIN
+
+<command> = <C>
+<option> = <O>
+
+# zoom into screen
+<C>+<O>+<+>
+# zoom out of screen
+<C>+<O>+<->
+
+# take screenshot of whole screen
+<C>+<shift>+3
+# take screenshot of selection
+<C>+<shift>+4
+# take screenshot of whole screen and put into clipboard
+<C>+<shift>+<ctrl>+3
+# take screenshot of selection and put into clipboard
+<C>+<shift>+<ctrl>+4
+
+# toggle fullscreen mode for the focused application
+<C>+<ctrl>+f
+
+# Closes the active window
+<C>+w
+# Closes all currently active app windows
+<C>+<O>+w
+
+# Minimize the active window
+<C>+m
+# Minimizes all currently active app windows
+<C>+<O>+m
+
+# Open Spotlight to search for things on the system
+<C>+<space>
+
+# Cycle through all instances of the currently active application
+<C>+`
+
+# ITERM2 BEGIN
+
+# toggle transparency
+<C>+u
+
+# ITERM2 END
+
+# KEYBINDINGS END
+
