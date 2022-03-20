@@ -30,7 +30,7 @@ git gc --prune=now --aggressive
 ^ = Update
 rn = Rename
 mv = Move
- = Convert
- = Refactor
- = Fix
+> = Convert
+% = Refactor
+! = Fix
 
