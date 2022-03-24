@@ -99,3 +99,6 @@ docker-compose -f <compose_file.yml> down --rmi all
 docker-compose -f compose.yml -f compose-prod.yml down -v
 docker-compose -f compose.yml -f compose-prod.yml up --force-recreate
 
+# stale database - may require clearing out volumes
+docker volume rm $(docker volume ls -q)
+
