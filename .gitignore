@@ -18,5 +18,8 @@ obj
 
 .gradle
 build
+.classpath
+.project
+.settings/
 node_modules
 *.egg-info
