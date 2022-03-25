@@ -99,6 +99,11 @@ array=("${array[@]:2:3}")
 # remove the first 2 arguments
 set -- "${@:3}"
 
+# Generate number ranges
+# start can include padding required for numbers
+# {start..end..step}
+echo {001..777..3}
+
 # Associative Array
 # init/create 1
 declare -A assArray1
