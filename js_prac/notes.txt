@@ -1,0 +1,3 @@
+# update all dependencies
+npm outdated --json --long | jq 'to_entries | .[] | select(.value.type == "devDependencies") | .key + "@latest"' | xargs npm install
+yarn install `npm outdated --json --long | jq 'to_entries | .[] | select(.value.type == "devDependencies" || .value.type == "dependencies") | .key + "@latest"'`
