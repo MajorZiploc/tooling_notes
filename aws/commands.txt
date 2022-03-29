@@ -1,6 +1,9 @@
 # Useful resources:
 https://github.com/rik2803/aws-cli-examples
 
+# if installed through brew on mac, there are a ton of example commands here:
+/opt/homebrew/share/awscli/examples
+
 # check who aws is performing operations as
 aws sts get-caller-identity
 
