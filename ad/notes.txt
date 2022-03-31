@@ -1,0 +1,50 @@
+# Useful fields:
+let NAME = "name"
+let MEMBER = "member"
+let MEMBEROF = "memberof"
+let SAMACCOUNTNAME = "samaccountname"
+let EMPLOYEEID = "employeeid"
+let DISTINGUISHEDNAME = "distinguishedname"
+let PWDLASTSET = "pwdlastset"
+let WHENCREATED = "whencreated"
+let ACCOUNTEXPIRES = "accountexpires"
+let LASTLOGON = "lastlogon"
+let BADPWDCOUNT = "badpwdcount"
+let LOCKOUTTIME = "lockouttime"
+let BADPASSWORDTIME = "badpasswordtime"
+let PRIMARYGROUPID = "primarygroupid"
+let LOGONCOUNT = "logoncount"
+let PROXYADDRESSES = "proxyaddresses"
+let DESCRIPTION = "description"
+let IPPHONE = "ipphone"
+let OBJECTCLASS = "objectclass"
+let SAMACCOUNTTYPE = "samaccounttype"
+let DEPARTMENT = "department"
+let LASTLOGOFF = "lastlogoff"
+
+# common AD ldap connection process
+let config = {
+    BindUserName = config.["ldap:bindUserName"]
+    BindPassword = config.["ldap:bindPassword"]
+    Server = config.["ldap:server"]
+  }
+
+let getConn () =
+  let constraints = new LdapConstraints()
+  constraints.ReferralFollowing <- true
+  let conn = new LdapConnection()
+  conn.SecureSocketLayer <- false
+  conn.Constraints <- constraints
+  conn.Connect(config.Server, LdapConnection.DEFAULT_PORT)
+  # conn.Bind(LdapConnection.Ldap_V3, @"<domain_name>\" + config.BindUserName, config.BindPassword)
+  conn
+
+# GUI tools for AD ldap windows (all may require downloading/installing them)
+# microsoft
+Active Directory Users and Computers
+# microsoft
+Active Directory Administrative Center
+# third party
+Active Directory Explorer - Sysinternals: www.sysinternals.com
+
+
