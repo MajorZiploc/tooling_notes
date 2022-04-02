@@ -14,4 +14,3 @@ const Modal = ({ visible = false, ...rest }) => {
   }, []);
   return visible ? createPortal(<ModalView {...rest} />, modalContainer) : null;
 };
-

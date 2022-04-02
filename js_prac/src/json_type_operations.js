@@ -18,4 +18,3 @@ function operationOnValue(value, operation, type = 'String') {
     return value;
   }
 }
-

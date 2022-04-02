@@ -33,14 +33,14 @@ class Season {
 
 // union type , abstract data type
 const construct = (type, values) => ({
-  case: (cases) => cases[type].apply(null, values)
-})
+  case: cases => cases[type].apply(null, values),
+});
 
 const Answer = {
   Response: response => construct('Response', [response]),
   Declined: construct('Declined', []),
-  Undecided: construct('Undecided', [])
-}
+  Undecided: construct('Undecided', []),
+};
 
 function matrix_prac() {
   console.log('matrix_prac');
@@ -116,14 +116,21 @@ function groupBy(lst, keySupplier) {
 }
 
 function zip(a, b) {
-  const maxI = (a.length > b.length ? a : b).length;
+  const minI = (a.length > b.length ? b : a).length;
   const res = [];
-  for (var i = 0; i < maxI; i++) {
+  for (var i = 0; i < minI; i++) {
     res.push([a[i], b[i]]);
   }
   return res;
 }
 
+function chunk(arr, n) {
+  const chunkedArr = [];
+  while (arr.length !== 0) {
+    chunkedArr.push(arr.splice(0, n));
+  }
+  return chunkedArr;
+}
 
 function toKeyValArray(json) {
   if (json === null || json === undefined) {
@@ -185,8 +192,14 @@ async function main() {
   console.log(arr.every(e => e < 2));
   console.log(arr.some(e => e < 2));
   console.log(arr.find(e => e == 3));
+  console.log(arr.findIndex(e => e == 3));
   console.log(arr.find(e => e == 4));
+  // remove indices 1 and 2 in place and return the removed elements
+  console.log(arr.splice(1, 2));
+  // remove index 0 in place and return the removed elements
+  console.log(arr.splice(0));
   console.log(zip([1, 2, 3, 4, 5].slice(0, 3), ['a', 'b', 'c']));
+  console.log(chunk([...Array(20).keys()], 6));
   const keyChecks = new Set(['o', 'e']);
   console.log(groupBy(['one', 'two', 'three'], ele => ele.split('').filter(c => keyChecks.has(c)).length));
   // prettier-ignore
@@ -208,6 +221,8 @@ async function main() {
   console.log('string operations');
   const s1 = 'this is A stRing';
   console.log(s1.split(''));
+  // string to and from list
+  console.log(s1.split('').join(''));
   console.log(s1.split(' '));
   console.log(s1.length);
   const r1 = /st(.{2,})/;
@@ -254,10 +269,13 @@ async function main() {
   console.log(xs + 1);
   const y = '1';
   const yi = Number(y);
+  console.log(isNaN(yi));
   console.log(yi + 1);
   const sd = '11/11/2021';
-  const ds = Date(sd);
+  const ds = new Date(sd);
   console.log(ds);
+  // Check if a date is invalid
+  console.log(isNaN(ds));
 
   console.log(p.constructor);
 
@@ -267,13 +285,13 @@ async function main() {
   console.log(winter === Season.Winter);
 
   console.log('Unions');
-  const answer = Answer.Response('sure thing!')
+  const answer = Answer.Response('sure thing!');
   const answerString = answer.case({
-    Response: (response) => `I answered: ${response}`,
+    Response: response => `I answered: ${response}`,
     Declined: () => `I'd rather not say`,
-    Undecided: () => `I'm still thinking...`
-  })
-  console.log(answerString)
+    Undecided: () => `I'm still thinking...`,
+  });
+  console.log(answerString);
 }
 
 main();
