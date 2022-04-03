@@ -5,6 +5,11 @@
 (ls; ls) | less # content of directory listed twice in list
 { ls ; ls; } | less # content of directory listed twice in list -- SPACES AND SEMI COLONS ARE IMPORTANT IN THIS!
 
+# glob eq to regex .*.(js|ts)
+*.{.js,.ts}
+# recursive glob **
+**/*.json
+
 # ex: ls -a - ~
 # -	End of options flag. All other arguments are positional parameters.
 
