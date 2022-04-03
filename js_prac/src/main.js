@@ -42,23 +42,45 @@ const Answer = {
   Undecided: construct('Undecided', []),
 };
 
-function matrix_prac() {
-  console.log('matrix_prac');
-  const matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ];
-  console.log(matrix);
-  const two = matrix[0][1];
-  console.log(two);
-  const nine = matrix[2][2];
-  console.log(nine);
+function spreadPrac() {
+  console.log('spread operator');
+  const j = { x: 1, z: 'z' };
+  console.log(j.y);
+  // the last keys value takes precedence in the spread operator
+  const j2 = { x: 2, ...j };
+  console.log(j2);
+  const j3 = { ...j, ...{ x: 2 } };
+  console.log(j3);
+  const j35 = { ...j, j3 };
+  console.log(j35);
+  const j4 = { ...j, y: 2, x: 5 };
+  console.log(j4);
+}
+
+function objectPrac() {
+  console.log('objects');
+  const p = new Person(1, 'bob');
+  p.say();
+  const pf = new PersonF(1, 'sam');
+  pf.say();
+}
+
+function setPrac() {
+  const p = new Person(1, 'bob');
+  const p2 = new Person(1, 'bob');
+  const p3 = new Person(1, 'sam');
+  // native sets are very basic. only works with basic values, not list,json,obj
+  const pset = new Set([p, p2, p3]);
+  console.log(pset);
+  const nset = new Set([1, 1, 3]);
+  console.log(nset);
+  const jset = new Set([{ x: 1 }, { x: 1 }, {}, {}]);
+  console.log(jset);
 }
 
 function queuePrac() {
   // FIFO
-  console.log('queue_prac');
+  console.log('queuePrac');
   let q = [3, 2, 1]; // think in reverse order
   console.log(q);
   // pop = poll
@@ -70,9 +92,9 @@ function queuePrac() {
   console.log(q);
 }
 
-function stack_prac() {
+function stackPrac() {
   // LIFO
-  console.log('stack_prac');
+  console.log('stackPrac');
   let stack = [3, 2, 1]; // think in reverse order
   console.log(stack);
   let f = stack.pop(); // grabs last ele in list (first in stack)
@@ -80,6 +102,20 @@ function stack_prac() {
   console.log(stack);
   stack.push(4); // Adds to the ending of list (first in stack)
   console.log(stack);
+}
+
+function matrixPrac() {
+  console.log('matrixPrac');
+  const matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ];
+  console.log(matrix);
+  const two = matrix[0][1];
+  console.log(two);
+  const nine = matrix[2][2];
+  console.log(nine);
 }
 
 function fib_in_store(n, store) {
@@ -117,7 +153,7 @@ function groupBy(lst, keySupplier) {
 
 function zip(a, b) {
   const minI = (a.length > b.length ? b : a).length;
-  const res = [].push();
+  const res = [];
   for (var i = 0; i < minI; i++) {
     res.push([a[i], b[i]]);
   }
@@ -149,44 +185,23 @@ function fromKeyValArray(keyValueArray) {
   }, {});
 }
 
-async function main() {
-  console.log('spread operator');
-  const j = { x: 1, z: 'z' };
-  console.log(j.y);
-  // the last keys value takes precedence in the spread operator
-  const j2 = { x: 2, ...j };
-  console.log(j2);
-  const j3 = { ...j, ...{ x: 2 } };
-  console.log(j3);
-  const j35 = { ...j, j3 };
-  console.log(j35);
-  const j4 = { ...j, y: 2, x: 5 };
-  console.log(j4);
+function flatten(thing) {
+  return thing.constructor.name === 'Array' ?
+    thing.reduce((acc, ele) => {
+      const flatEle = flatten(ele);
+      if (flatEle.constructor.name === 'Array') {
+        acc = acc.concat(flatEle);
+      }
+      else {
+        acc.push(flatEle);
+      }
+      return acc;
+      }, [])
+    : thing;
+}
 
-  console.log('objects');
-  const p = new Person(1, 'bob');
-  const p2 = new Person(1, 'bob');
-  const p3 = new Person(1, 'sam');
-  p.say();
-  // native sets are very basic. only works with basic values, not list,json,obj
-  const pset = new Set([p, p2, p3]);
-  console.log(pset);
-  const nset = new Set([1, 1, 3]);
-  console.log(nset);
-  const jset = new Set([{ x: 1 }, { x: 1 }, {}, {}]);
-  console.log(jset);
-
-  queuePrac();
-  stack_prac();
-  matrix_prac();
-
-  console.log('generate range of numbers. 0,1,2,3,4');
-  console.log([...Array(5).keys()]);
-  console.log([...Array(15).keys()].map(fib_mem));
-  const pf = new PersonF(1, 'sam');
-  pf.say();
+function listOperations() {
   const arr = [1, 2, 3];
-
   console.log('list operations');
   console.log(arr.flatMap(e => [e, e]));
   console.log(arr.every(e => e < 2));
@@ -202,22 +217,24 @@ async function main() {
   console.log(chunk([...Array(20).keys()], 6));
   const keyChecks = new Set(['o', 'e']);
   console.log(groupBy(['one', 'two', 'three'], ele => ele.split('').filter(c => keyChecks.has(c)).length));
-  // prettier-ignore
-  console.log(true ? 'has ternary op'
-    : 'ya dig?' === undefined ? 'lol'
-    : 'or no?');
+  console.log(flatten([1, [2], 3, [[4], 5]]));
+}
 
+function typeCheckingPrac() {
   console.log('checking types');
-  console.log([].constructor.name);
+  console.log([].constructor.name); // Array
   console.log([] instanceof Array); // true
   console.log(typeof []); // object
-  console.log(p.constructor.name);
+  const p = new Person(1, 'bob');
+  console.log(p.constructor.name); // Person
   console.log(p instanceof Person); // true
   console.log(typeof p); // object
-  console.log({}.constructor.name);
+  console.log({}.constructor.name); // Object
   console.log({} instanceof Object); // true
   console.log(typeof {}); // object
+}
 
+function stringPrac() {
   console.log('string operations');
   const s1 = 'this is A stRing';
   console.log(s1.split(''));
@@ -241,7 +258,12 @@ async function main() {
   console.log(s1.indexOf(' st'));
   console.log(s1.match(r2));
   console.log(s1.normalize('NFC'));
+  var r = /(g.)/ig;
+  var s2 = 'i  got gs';
+  console.log(s2.match(r));
+}
 
+function forLoopPrac() {
   const arr2 = [2, 3, 4, 5];
   console.log('for loop basic');
   for (let i = 0; i < arr2.length; i++) {
@@ -262,7 +284,9 @@ async function main() {
   Object.entries(obj1).forEach(kv => {
     console.log(`${kv}`);
   });
+}
 
+function typeConversionPrac() {
   console.log('Type conversions');
   const x = 1;
   const xs = String(x);
@@ -276,14 +300,18 @@ async function main() {
   console.log(ds);
   // Check if a date is invalid
   console.log(isNaN(ds));
-
+  const p = new Person(1, 'bob');
   console.log(p.constructor);
+}
 
+function enumPrac() {
   console.log('Enums');
   const winter = Season.Winter;
   console.log(winter === Season.Summer);
   console.log(winter === Season.Winter);
+}
 
+function unionPrac() {
   console.log('Unions');
   const answer = Answer.Response('sure thing!');
   const answerString = answer.case({
@@ -292,6 +320,29 @@ async function main() {
     Undecided: () => `I'm still thinking...`,
   });
   console.log(answerString);
+}
+
+async function main() {
+  console.log('generate range of numbers. 0,1,2,3,4');
+  console.log([...Array(5).keys()]);
+  console.log([...Array(15).keys()].map(fib_mem));
+  // prettier-ignore
+  console.log(true ? 'has ternary op'
+    : 'ya dig?' === undefined ? 'lol'
+    : 'or no?');
+  spreadPrac();
+  objectPrac();
+  setPrac();
+  queuePrac();
+  stackPrac();
+  matrixPrac();
+  listOperations();
+  typeCheckingPrac();
+  stringPrac();
+  forLoopPrac();
+  typeConversionPrac();
+  enumPrac();
+  unionPrac();
 }
 
 main();

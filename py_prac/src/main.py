@@ -15,11 +15,12 @@ class Person(object):
     print(f'Hi, my name is {self.name}, and I am {self.age} years old')
 
 def obj_prac():
-  print('Object practice')
+  print('obj_prac')
   p = Person('bob', 24)
   p.say()
 
 def queue_prac():
+  print('queue_prac')
   # Initializing a queue
   queue = []
   # Adding elements to the queue
@@ -37,6 +38,7 @@ def queue_prac():
   print(queue)
 
 def stack_prac():
+  print('stack_prac')
   stack = []
   # append() function to push
   # element in the stack
@@ -55,14 +57,55 @@ def stack_prac():
   print('\nStack after elements are popped:')
   print(stack)
 
+def flat_map(f, xs):
+  ys = []
+  for x in xs:
+    ys.extend(f(x))
+  return ys
+
+def find(pred, xs):
+  for x in xs:
+    if pred(x):
+      return x
+  return None
+
+def find_index(pred, xs):
+  i = 0
+  found = False
+  for x in xs:
+    i = i + 1
+    if pred(x):
+      found = True
+      break
+  if found:
+    return i
+  return None
+
+def some(pred, xs):
+  for x in xs:
+    if pred(x):
+      return True
+  return False
+
+def every(pred, xs):
+  for x in xs:
+    if not pred(x):
+      return False
+  return True
+
 # py_linq pip package is a great util for list operations with a c# linq like interface
 def list_prac():
-  print('List operations')
+  print('list_prac')
   l = [1, 2, 3]
+  # range includes lower bound and excludes upper bound
+  l2 = list(range(4, 7))
+  l3 = list(zip(l, l2))
+  print(l3)
   # list.map
   print([ele * 2 for ele in l])
   # seq.map - seq only differs from list in that it uses () instead of [] for comprehesions
   print(list((ele * 2 for ele in l)))
+  print(flat_map(lambda ele: [ele * 2, ele * 3], l))
   # list.filter
   print([ele for ele in l if ele > 1])
   # list.reduce list.fold
@@ -72,7 +115,10 @@ def list_prac():
   # unpacking lists to merge into 1 list. like spread in js
   my_first_list = [1, 2, 3]
   my_second_list = [4, 5, 6]
+  # concat
   my_merged_list = [*my_first_list, *my_second_list]
+  # or
+  # my_merged_list = my_first_list + my_second_list
   print(my_merged_list)
   # unpacking pattern match to get first and last ele of list, and rest in between
   l = range(1, 10)
@@ -85,6 +131,7 @@ def list_prac():
   print(a)
 
 def args_kwargs_prac():
+  print('args_kwargs_prac')
   # args and kwargs are just names, they can be any name you want
   def my_f(a, b, *args, **kwargs):
     c = a + b
@@ -100,14 +147,14 @@ def args_kwargs_prac():
   my_f(1, 2, [1, 'hi', 'there'], yo='say', z=1)
 
 def set_prac():
-  print('Set operations')
+  print('set_prac')
   # generate number ranges (include bottom, exclude top of range)
   num_set = set(range(1, 4))
   print(1 in num_set)
   print(4 in num_set)
 
 def conditional_prac():
-  print('Conditionals')
+  print('conditional_prac')
   # Ternary Operator
   name = "Bob" if True and True else "Tim"
   print(name)
@@ -122,6 +169,7 @@ def conditional_prac():
   print(v)
 
 def dictionary_prac():
+  print('dictionary_prac')
   d = {'a': 1, 'b': 2}
   # default value of 3
   v = d.get('d', 3)
@@ -143,8 +191,8 @@ def dictionary_prac():
   my_merged_dict = {**my_first_dict, **my_second_dict}
   print(my_merged_dict)
 
-def regex_prac():
-  print('Regex')
+def string_prac():
+  print('string_prac')
   s = 'sodac'
   search_res = re.search('shake|soda|coke|hot chocolate|cappacino|a[bc]', s, re.I)
   print(search_res)
@@ -153,14 +201,13 @@ def regex_prac():
   print(food_item.strip())
 
 def main():
-  print('Hello world')
   obj_prac()
   set_prac()
   list_prac()
   queue_prac()
   stack_prac()
   conditional_prac()
-  regex_prac()
+  string_prac()
   dictionary_prac()
   args_kwargs_prac()
 
