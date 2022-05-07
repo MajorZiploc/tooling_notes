@@ -131,6 +131,9 @@ Example: `3gt` will go to third tab
 
 `:set spell`
 
+## turn off spellchecking
+`:set nospell`
+
 ## some language codes
 
 `en_us` => english
