@@ -42,7 +42,7 @@ jobs
 # brings the last open job to the foreground
 fg
 # brings id 1 task to the foreground
-fb % 1
+fg % 1
 
 # Conditionals:
 # assign param to default if its null
@@ -53,6 +53,30 @@ ${param:-default}
 ${param:?error}
 # use alternate if param is nonnull
 ${param:+alternate}
+# string checks
+test -z $var && echo "string is null/empty" || echo "string is not null/empty"
+test -n $var && echo "string is not null/empty" || echo "string is null/empty"
+== => Check for string equality.
+!= => Check for string inequality.
+# file/dir checks
+test -e $var && echo "var is a file or sym link" || echo "var is not a file or sym link"
+test -f $var && echo "var is a file" || echo "var is not a file"
+test -d $var && echo "var is a dir" || echo "var is not a dir"
+test -s $var && echo "var is a not zero byte file" || echo "var is a zero byte file"
+
+# ! negates condition
+[[ ! -s ~/Desktop/zero_byte.txt ]]
+
+# integer checks
+-eq => Integer X is equal to Integer Y
+-ne => Integer X is not equal to Integer Y
+-gt => Integer X is greater than Integer Y
+-ge => Integer X is greater than or equal to Integer Y
+-lt => Integer X is lesser than Integer Y
+-le => Integer X is lesser than or equal to Integer Y
+
+# OR condition
+[[ $X -eq 10 || $Y -eq 10 ]]
 
 # Extraction:
 # returns the rest of param after the offset
