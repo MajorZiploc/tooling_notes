@@ -123,6 +123,12 @@ array=(zero one "two three")
 array+=("four and beyound")
 # replace space with underscore in array elements
 array=("${array[@]// /_}")
+# init array from number generator
+array=(`echo {0..10}`)
+# removes the first element
+unset arr[0]
+# removes the first element
+array=("${array[@]:1}")
 # recreate array with elements from index 2 to 4
 array=("${array[@]:2:3}")
 # remove the first 2 arguments
