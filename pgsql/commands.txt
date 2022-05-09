@@ -1,0 +1,42 @@
+NOTE: casing can matter in postgres. and sometimes it likes lowercase, sometimes uppercase
+
+### Load a DB backup locally
+
+get a dump of database:
+```shell script
+pg_dump -U <user_name> -d <database_name> -h <host_dns_or_ip> -p <port> | gzip > test_db.gz
+pwd <test db pwd>
+```
+To load the backup, drop/create the db:
+```shell script
+export PGHOST=127.0.0.1;
+export PGPORT=5432;
+export PGDATABASE=<database_name>;
+export PGUSER=<user_name>;
+export PGPASSWORD=<password>;
+psql
+```
+then in in the psql shell:
+```shell script
+DROP DATABASE dap;
+create database dap;
+\q
+```
+Now load the backup:
+```shell script
+export PGDATABASE=postgres;
+psql < ze_test_db.sql
+```
+
+-- list tables
+
+SELECT *
+FROM pg_catalog.pg_tables
+WHERE schemaname != 'pg_catalog' AND 
+    schemaname != 'information_schema';
+
+-- quit postgres session
+\q
+
+-- list databases
+\l
