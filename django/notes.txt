@@ -1,0 +1,3 @@
+# run a subset of tests based on a file glob pattern
+docker exec -i -t machine-integration-integrations-api-1 python manage.py test --pattern "test_autocreate_processor.py"
+
