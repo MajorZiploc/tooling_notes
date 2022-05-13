@@ -34,3 +34,11 @@ mv = Move
 % = Refactor
 ! = Fix
 
+# Exclude files from being stashed (will only stash unstaged files)
+git add <files_to_exclude>
+git stash push --message "Message" --keep-index
+git restore --staged .
+
+# delete or drop a stash by index, where n is the index
+git stash drop stash@{n}
+
