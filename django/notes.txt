@@ -1,6 +1,10 @@
 # run a subset of tests based on a file glob pattern
 docker exec -i -t machine-integration-integrations-api-1 python manage.py test --pattern "test_autocreate_processor.py"
 
+# set this in self.setUp to see a full diff for failed tests
+self.maxDiff = None
+
+
 # django model filter on related field CANNOT be an object
 Book.objects.filter(author__address_id=address.id)
 # NOT the following
