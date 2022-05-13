@@ -102,3 +102,10 @@ docker-compose -f compose.yml -f compose-prod.yml up --force-recreate
 # stale database - may require clearing out volumes
 docker volume rm $(docker volume ls -q)
 
+# environment variables in docker compose
+# DONT ASSUME THAT THE EXISTING ENVIRONMENT VARIABLES IN THE COMPOSE FILE ARE THE ONLY VALID ONES
+# Example
+# You want to switch to using the actual servers db instead of the local container db
+# You will need to add the db user/pass/name into the backend server based on the backend settings file
+# The env vars in the db container are useless once you switch the db host to the actual server url rather than the container name
+
