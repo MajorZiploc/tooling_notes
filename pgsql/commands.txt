@@ -40,3 +40,9 @@ WHERE schemaname != 'pg_catalog' AND
 
 -- list databases
 \l
+
+-- connect to database
+\c <database>
+
+-- run sql file (be sure to be connected to the database)
+\i <path/to/file.sql>

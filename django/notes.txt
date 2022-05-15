@@ -10,3 +10,27 @@ Book.objects.filter(author__address_id=address.id)
 # NOT the following
 Book.objects.filter(author__address=address)
 
+# execute a python file in the django shell
+# NOTE: making custom django commands is usually what you want to do
+docker exec -i -t machine-integration-integrations-api-1 bash -c 'python ./manage.py shell < ./carbon/scripts/scratch.py'
+
+# call a custom command from your app in <super_app_name?>/<app_name>/management/commands/<app_name><command_name>.py
+docker exec -i -t machine-integration-integrations-api-1 python ./manage.py <app_name><command_name> --arg1 'value'
+
+### EXAMPLE COMMAND FROM
+<app_name>/management/commands/<app_name><command_name>.py
+from django.core.management import BaseCommand
+
+class Command(BaseCommand):
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--arg1",
+            nargs="?",
+            type=str,
+            metavar="ARG1",
+            required=True,
+            help="Specify arg1",
+        )
+
+    def handle(self, arg1, *args, **options):
+        print(f'arg1: {arg1}')
