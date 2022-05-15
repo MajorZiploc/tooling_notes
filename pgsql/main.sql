@@ -121,3 +121,13 @@ LEFT JOIN LATERAL
    LIMIT 1 
 -- Declare a rowtype variable dynamic
 ) AS FirstOE
+
+-- null coalesce, ??, ISNULL
+coalesce(thing1, thing2) as thing
+
+-- copy to csv
+
+copy (
+  <query_here>
+) to stdout with csv header;
+
