@@ -27,6 +27,7 @@ from dataclasses import dataclass
 from typing import Callable, Iterator, Union, Optional, Any, cast, Mapping, MutableMapping, Sequence, Iterable, Match, AnyStr, IO, TypeVar, List, Set, Dict, Tuple
 # https://docs.python.org/3/library/asyncio-task.html
 import asyncio
+from collections import OrderedDict
 
 # A coroutine is typed like a normal function
 async def countdown_async(tag: str, count: int) -> str:
@@ -413,6 +414,8 @@ def list_prac():
   # list.take. take first 5 elements
   print(list(range(1, 10))[0:5])  # [1, 2, 3, 4, 5]
   print(groupby(range(1, 10), lambda ele: ele % 2))  # {1: [1, 3, 5, 7, 9], 0: [2, 4, 6, 8]}
+  # keep unique list entries and preserve order
+  print(OrderedDict.fromkeys([2,1,1,3]).keys())
   # list sorting - creates new list
   print(sorted([{'x': 1}, {'x': 5}, {'x': -1}], key=lambda ele: ele['x']))  # [{'x': -1}, {'x': 1}, {'x': 5}]
   # list sorting - inplace
