@@ -34,3 +34,7 @@ class Command(BaseCommand):
 
     def handle(self, arg1, *args, **options):
         print(f'arg1: {arg1}')
+
+# SUB QUERY - IN OPERATOR __in
+employee_query = Employee.objects.filter(company='Private').only('id').all()
+Person.objects.value('name', 'age').filter(id__in=employee_query)
