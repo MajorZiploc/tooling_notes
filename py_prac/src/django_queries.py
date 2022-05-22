@@ -1,6 +1,14 @@
 from datetime import date
 from django.db import models
 from django.db.models import F, Q, QuerySet, Avg, Count, Sum, Value
+from django.db.models.functions import Coalesce, Lower
+
+# Convert model to dictionary for things like dictionary like access
+from django.forms.models import model_to_dict
+# Will show relations
+model_to_dict(instance)
+# Will only show fields directly on table
+instance.__dict__
 
 # MODELS FOR THE EXAMPLES
 
@@ -187,6 +195,38 @@ paul = Author.objects.create(name="Paul")
 entry.authors.add(joe, paul)
 entry.save()
 
+# NULL Coalesce BEGIN
+
+Entry.objects.order_by(Coalesce('summary', 'headline').desc())
+
+# NULL Coalesce END
+
+# ORDEY_BY BEGIN
+
+# ascending
+Entry.objects.order_by(Coalesce('summary', 'headline').desc())
+Entry.objects.order_by('sumary')
+# descending
+Entry.objects.order_by(Coalesce('summary', 'headline').desc())
+Entry.objects.order_by('-sumary')
+# random order, can be expensive
+Entry.objects.order_by('?')
+
+# ORDEY_BY END
+
+# reverse a query
+# GOTYA: only has an effect on queries with an .order_by()
+my_queryset.reverse()
+
+# distinct
+# GOTYA: general must match your .order_by()
+Entry.objects.order_by('author', 'pub_date').distinct('author', 'pub_date')
+# GOTYA: must specify full field name. no short cuts in case of relation fields
+# WRONG
+Entry.objects.order_by('blog').distinct('blog')
+# CORRECT
+Entry.objects.order_by('blog__id').distinct('blog__id')
+
 # QUERYSET CACHEING BEGIN
 
 # NOTE: the entire queryset must be evaluated to populate the cache:
@@ -332,6 +372,28 @@ Poll.objects.get(
 # Count(..., distinct=True) fixes this problem for Count
 
 # ANNOTATE END
+
+# VALUES AND VALUES LIST BEGIN
+
+# .values() returns dictionaries of requested fields
+Article.objects.values('comment_id').distinct()
+
+# .values_list() returns tuples, can flatten if 1 field is requested
+Article.objects.values_list('comment_id', flat=True).distinct() # <QuerySet [{'name__lower': 'beatles blog'}]>
+
+# .values() and .values_list() can use functions like so
+Blog.objects.values(lower_name=Lower('name'))
+Entry.objects.values_list('id', Lower('headline')) # <QuerySet [(1, 'first entry'), ...]>
+
+# VALUES AND VALUES LIST END
+
+# .update_or_create() defaults explained
+obj, created = Person.objects.update_or_create(
+    first_name='John', last_name='Lennon',
+    defaults={'first_name': 'Bob'},
+)
+# If person exists with first_name='John' & last_name='Lennon' then update first_name='Bob'
+# Else create new person with first_name='Bob' & last_name='Lennon'
 
 # JSONField BEGIN
 
@@ -487,3 +549,8 @@ e = Entry.objects.get(id=2)
 e.entrydetail # returns the related EntryDetail object
 
 # OneToOneField RELATION END
+
+# Push null dates to the end of a desc sort
+long_ago = datetime.datetime(year=1980, month=1, day=1)
+MyModel.objects.annotate(date_null=
+    Coalesce('date_field', Value(long_ago))).order_by('-date_null')
