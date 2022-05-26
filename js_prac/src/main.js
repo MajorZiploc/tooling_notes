@@ -322,6 +322,15 @@ function unionPrac() {
   console.log(answerString);
 }
 
+function yieldPrac() {
+  console.log('yieldPrac');
+  function* yieldMeSomethingMister() {
+    yield 1;
+    yield 2;
+  }
+  console.log([...yieldMeSomethingMister()]);
+}
+
 async function main() {
   console.log('generate range of numbers. 0,1,2,3,4');
   console.log([...Array(5).keys()]);
@@ -343,6 +352,7 @@ async function main() {
   typeConversionPrac();
   enumPrac();
   unionPrac();
+  yieldPrac();
 }
 
 main();
