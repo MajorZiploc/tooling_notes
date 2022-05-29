@@ -263,6 +263,10 @@ print(queryset[5]) # Queries the database again
 
 # QUERYSET CACHEING END
 
+# select_related is for get values from related tables in queries
+# good for .values() and .values_list
+Entry.objects.select_related('related_table1__to_another_table2', 'related_table3')
+
 # MODEL EQUALITY CHECK
 some_entry == other_entry
 # SAME AS COMPARING THE pk FIELD REGARDLESS OF THE pk FIELD NAME
