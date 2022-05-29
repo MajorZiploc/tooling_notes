@@ -1,0 +1,11 @@
+Finding the number of tasks in a queue:
+
+$ rabbitmqctl list_queues name messages messages_ready messages_unacknowledged
+Here messages_ready is the number of messages ready for delivery (sent but not received), messages_unacknowledged is the number of messages that’s been received by a worker but not acknowledged yet (meaning it is in progress, or has been reserved). messages is the sum of ready and unacknowledged messages.
+
+Finding the number of workers currently consuming from a queue:
+
+$ rabbitmqctl list_queues name consumers
+Finding the amount of memory allocated to a queue:
+
+$ rabbitmqctl list_queues name memory
