@@ -10,6 +10,9 @@
 # recursive glob **
 **/*.json
 
+# find the execution time in seconds of a command, just prefix your command with time
+time <command can have spaces>
+
 # ex: ls -a - ~
 # -	End of options flag. All other arguments are positional parameters.
 
