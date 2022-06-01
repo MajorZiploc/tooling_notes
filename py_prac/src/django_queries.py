@@ -1,7 +1,8 @@
 from datetime import date
 from django.db import models
-from django.db.models import F, Q, QuerySet, Avg, Count, Sum, Value
-from django.db.models.functions import Coalesce, Lower
+from django.db.models import F, Q, QuerySet, Avg, Count, Sum, Value, Case, When
+from django.db.models.fields import TextField
+from django.db.models.functions import Coalesce, Lower, Concat
 
 # Convert model to dictionary for things like dictionary like access
 from django.forms.models import model_to_dict
@@ -28,7 +29,7 @@ class Author(models.Model):
 
 class EntryManager(models.Manager):
     def is_published(self):
-      raise NotImplemented()
+        raise NotImplemented()
 
 class Entry(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
@@ -82,7 +83,7 @@ Entry.objects.all()[:10:2]
 # NOTE: they can typically be chained:
 Entry.objects.filter(pub_date__year__gte=2005)
 
-__exact # implied with just =
+__exact  # implied with just =
 __iexact
 __contains
 __icontains
@@ -96,7 +97,7 @@ __lt
 __gte
 __lte
 
-__range # inclusive
+__range  # inclusive
 start_date = datetime.date(2005, 1, 1)
 end_date = datetime.date(2005, 3, 31)
 Entry.objects.filter(pub_date__range=(start_date, end_date))
@@ -104,7 +105,7 @@ Entry.objects.filter(pub_date__range=(start_date, end_date))
 # GOTYA: do not mix date and datetime with __range, will cause weird results. cast to __date first
 # TODO: USE_TZ is a thing in django. look into it
 
-__date # cast a datetime field to date
+__date  # cast a datetime field to date
 __year
 __iso_year
 __month
@@ -113,12 +114,12 @@ __week
 __week_day
 __iso_week_day
 __quarter
-__time # cast a datetime field to time
+__time  # cast a datetime field to time
 __hour
 __minute
 __second
-__isnull # Entry.objects.filter(pub_date__isnull=True)
-__regex # Entry.objects.get(title__regex=r'^(An?|The) +')
+__isnull  # Entry.objects.filter(pub_date__isnull=True)
+__regex  # Entry.objects.get(title__regex=r'^(An?|The) +')
 __iregex
 
 # FILTERING __ commands END
@@ -145,7 +146,9 @@ Blog.objects.filter(entry__headline__contains='Lennon').filter(entry__pub_date__
 # GOTYA multiple filters chains: it performs multiple joins to the primary model, potentially yielding duplicates.
 
 # GOTYA: .exclude doesnt work the same for the above cases
-# would exclude blogs that contain both entries with only Lennon headline and entries with only pub_date=2008 BUT WILL NOT exclude blogs that meet both conditions
+# would exclude blogs that contain both entries with only Lennon headline
+# and entries with only pub_date=2008 BUT WILL NOT exclude blogs that meet
+# both conditions
 Blog.objects.exclude(entry__headline__contains='Lennon', entry__pub_date__year=2008,)
 # WORKAROUND: WILL exclude blogs that meet both conditions
 Blog.objects.exclude(entry__in=Entry.objects.filter(headline__contains='Lennon', pub_date__year=2008,),)
@@ -155,7 +158,9 @@ Blog.objects.exclude(entry__in=Entry.objects.filter(headline__contains='Lennon',
 # For referencing different fields on the same model
 # useful in things like comparsions
 Entry.objects.filter(number_of_comments__gt=F('number_of_pingbacks'))
-# supports the use of addition, subtraction, multiplication, division, modulo, and power arithmetic with F() objects, both with constants and with other F() objects
+# supports the use of addition, subtraction, multiplication, division,
+# modulo, and power arithmetic with F() objects, both with constants and
+# with other F() objects
 Entry.objects.filter(number_of_comments__gt=F('number_of_pingbacks') * 2)
 Entry.objects.filter(rating__lt=F('number_of_comments') + F('number_of_pingbacks'))
 Entry.objects.filter(mod_date__gt=F('pub_date') + timedelta(days=3))
@@ -173,9 +178,9 @@ Entry.objects.filter(headline__contains='%')
 
 # QUERIES OVER RELATIONS
 # All are equal
-Entry.objects.filter(blog=b) # Query using object instance
-Entry.objects.filter(blog=b.id) # Query using id from instance
-Entry.objects.filter(blog=5) # Query using id directly
+Entry.objects.filter(blog=b)  # Query using object instance
+Entry.objects.filter(blog=b.id)  # Query using id from instance
+Entry.objects.filter(blog=5)  # Query using id directly
 
 # FILTERING END
 
@@ -237,14 +242,14 @@ Entry.objects.order_by('blog__id').distinct('blog__id')
 
 # Will use the same query results for each print (cacheing)
 queryset = Entry.objects.all()
-print([p.headline for p in queryset]) # Evaluate the query set.
-print([p.pub_date for p in queryset]) # Re-use the cache from the evaluation.
+print([p.headline for p in queryset])  # Evaluate the query set.
+print([p.pub_date for p in queryset])  # Re-use the cache from the evaluation.
 
 # limiting the queryset using array slices
 queryset = Entry.objects.all()
-[entry for entry in queryset] # Queries the database
-print(queryset[5]) # Uses cache
-print(queryset[5]) # Uses cache
+[entry for entry in queryset]  # Queries the database
+print(queryset[5])  # Uses cache
+print(queryset[5])  # Uses cache
 
 # WHEN CACHE IS USED END
 
@@ -256,8 +261,8 @@ print([e.pub_date for e in Entry.objects.all()])
 
 # limiting the queryset using array slices
 queryset = Entry.objects.all()
-print(queryset[5]) # Queries the database
-print(queryset[5]) # Queries the database again
+print(queryset[5])  # Queries the database
+print(queryset[5])  # Queries the database again
 
 # WHEN CACHE ISNT USED END
 
@@ -290,26 +295,26 @@ b.delete()
 
 # for models that do not inherit from other models
 blog = Blog(name='My blog', tagline='Blogging is easy')
-blog.save() # blog.pk == 1
+blog.save()  # blog.pk == 1
 blog.pk = None
 blog._state.adding = True
-blog.save() # blog.pk == 2
+blog.save()  # blog.pk == 2
 
 # for models that do inherit from other models
 class ThemeBlog(Blog):
     theme = models.CharField(max_length=200)
 django_blog = ThemeBlog(name='Django', tagline='Django is easy', theme='python')
-django_blog.save() # django_blog.pk == 3
+django_blog.save()  # django_blog.pk == 3
 # GOTYA: Due to how inheritance works, you have to set both pk and id to None, and _state.adding to True:
 django_blog.pk = None
 django_blog.id = None
 django_blog._state.adding = True
-django_blog.save() # django_blog.pk == 4
+django_blog.save()  # django_blog.pk == 4
 
 # GOTYA: relations are not copied
 # must set manually
 # ManyToManyField example
-entry = Entry.objects.all()[0] # some previous entry
+entry = Entry.objects.all()[0]  # some previous entry
 old_authors = entry.authors.all()
 entry.pk = None
 entry._state.adding = True
@@ -377,17 +382,29 @@ Poll.objects.get(
 
 # ANNOTATE END
 
+# CASE STATEMENT BEGIN
+
+recs = Poll.objects.annotate(
+    question_comment=Case(
+        When(question="", then="No question!"),
+        When(question="For real?", then=Concat("Not a", Value(" "),  "real question!", output_field=TextField()),
+        ),
+    )
+).filter(question_comment="No question!")
+
+# CASE STATEMENT END
+
 # VALUES AND VALUES LIST BEGIN
 
 # .values() returns dictionaries of requested fields
 Article.objects.values('comment_id').distinct()
 
 # .values_list() returns tuples, can flatten if 1 field is requested
-Article.objects.values_list('comment_id', flat=True).distinct() # <QuerySet [{'name__lower': 'beatles blog'}]>
+Article.objects.values_list('comment_id', flat=True).distinct()  # <QuerySet [{'name__lower': 'beatles blog'}]>
 
 # .values() and .values_list() can use functions like so
 Blog.objects.values(lower_name=Lower('name'))
-Entry.objects.values_list('id', Lower('headline')) # <QuerySet [(1, 'first entry'), ...]>
+Entry.objects.values_list('id', Lower('headline'))  # <QuerySet [(1, 'first entry'), ...]>
 
 # VALUES AND VALUES LIST END
 
@@ -404,6 +421,7 @@ obj, created = Person.objects.update_or_create(
 class Dog(models.Model):
     name = models.CharField(max_length=200)
     data = models.JSONField(null=True)
+
     def __str__(self):
         return self.name
 
@@ -421,7 +439,9 @@ Dog.objects.filter(data__isnull=True)
 # <QuerySet [<Dog: Max>]>
 Dog.objects.filter(data__isnull=False)
 # <QuerySet [<Dog: Archie>]>
-# WORKAROUND: Unless you are sure you wish to work with SQL NULL values, consider setting null=False and providing a suitable default for empty values, such as default=dict.
+# WORKAROUND: Unless you are sure you wish to work with SQL NULL values,
+# consider setting null=False and providing a suitable default for empty
+# values, such as default=dict.
 
 # FIELD LOOKUPS, Array, nested, flat
 Dog.objects.create(name='Rufus', data={
@@ -450,10 +470,13 @@ Dog.objects.create(name='Shep', data={'breed': 'collie'})
 Dog.objects.filter(data__owner__isnull=True)
 # <QuerySet [<Dog: Shep>]>
 
-# GOTYA: Due to the way in which key-path queries work, exclude() and filter() are not guaranteed to produce exhaustive sets. If you want to include objects that do not have the path, add the isnull lookup.
+# GOTYA: Due to the way in which key-path queries work, exclude() and
+# filter() are not guaranteed to produce exhaustive sets. If you want to
+# include objects that do not have the path, add the isnull lookup.
 
 # PostgreSQL users
-# On PostgreSQL, if only one key or index is used, the SQL operator -> is used. If multiple operators are used then the #> operator is used.
+# On PostgreSQL, if only one key or index is used, the SQL operator -> is
+# used. If multiple operators are used then the #> operator is used.
 
 # __contains
 Dog.objects.create(name='Rufus', data={'breed': 'labrador', 'owner': 'Bob'})
@@ -503,7 +526,7 @@ print(e.blog)  # Doesn't hit the database; uses cached version.
 
 # CUSTOM REVERSE MANAGER BEGIN
 
-## See EntryManager and Entry model for custom manager definition at the beginning
+# See EntryManager and Entry model for custom manager definition at the beginning
 
 b = Blog.objects.get(id=1)
 # Use a customer manager for a query
@@ -532,11 +555,11 @@ set(objs)
 # MANYTOMANY RELATION BEGIN
 
 e = Entry.objects.get(id=3)
-e.authors.all() # Returns all Author objects for this Entry.
+e.authors.all()  # Returns all Author objects for this Entry.
 e.authors.count()
 e.authors.filter(name__contains='John')
 a = Author.objects.get(id=5)
-a.entry_set.all() # Returns all Entry objects for this Author.
+a.entry_set.all()  # Returns all Entry objects for this Author.
 
 # ManyToManyField RELATION END
 
@@ -547,14 +570,13 @@ class EntryDetail(models.Model):
     details = models.TextField()
 
 ed = EntryDetail.objects.get(id=2)
-ed.entry # Returns the related Entry object.
+ed.entry  # Returns the related Entry object.
 # Reverse lookup returns 1 thing rather than a collection
 e = Entry.objects.get(id=2)
-e.entrydetail # returns the related EntryDetail object
+e.entrydetail  # returns the related EntryDetail object
 
 # OneToOneField RELATION END
 
 # Push null dates to the end of a desc sort
 long_ago = datetime.datetime(year=1980, month=1, day=1)
-MyModel.objects.annotate(date_null=
-    Coalesce('date_field', Value(long_ago))).order_by('-date_null')
+MyModel.objects.annotate(date_null=Coalesce('date_field', Value(long_ago))).order_by('-date_null')
