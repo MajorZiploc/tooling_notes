@@ -1,0 +1,34 @@
+redux uses fanout stategy for dispatching actions to reducers
+
+actions
+  mainly a label/type for the action and input for the action to be used in the reducer to change the state
+
+reduces
+  functions that take the state and action
+  NOTE: you must NOT mutate the state. create copy and change the copy
+
+store - the state
+  all data lives here
+
+SAGAS BEGIN
+
+
+uses a selector to get data just as you would in a component
+const things: Thing[] = yield select( selectThings );
+
+# sets things on the store by dispatching an action
+yield put( actions.setThing( newThings ) );
+
+# calls function getThing with the arguments state and thingId
+const response = yield call( getThing, state, thingId );
+
+# calls a list of functions with args or no args
+yield all( [
+    call( fetchFields ),
+    call( fetchThings ),
+] );
+
+
+
+
+SAGAS END
