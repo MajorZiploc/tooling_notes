@@ -69,3 +69,9 @@ aws ecs describe-task-definition --task-definition <task_def_name>
 
 # ECS END
 
+
+# S3 BEGIN
+
+aws-vault exec <user> -- aws s3 cp s3://source/path/file.txt ~/target/path/file.txt
+
+# S3 END
