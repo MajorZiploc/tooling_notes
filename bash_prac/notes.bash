@@ -54,6 +54,8 @@ ${param:=default}
 ${param:-default}
 # returns non zero and uses error expression if param is null
 ${param:?error}
+# default error message roughly: f:param: param: parameter not set
+${param:?}
 # use alternate if param is nonnull
 ${param:+alternate}
 # string checks
