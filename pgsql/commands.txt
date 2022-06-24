@@ -46,3 +46,6 @@ WHERE schemaname != 'pg_catalog' AND
 
 -- run sql file (be sure to be connected to the database)
 \i <path/to/file.sql>
+
+-- run sql string
+psql -c 'SHOW config_file'

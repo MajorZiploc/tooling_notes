@@ -406,6 +406,9 @@ def list_prac():
     print(next((True for x in l if x > 100), False))  # False
     # list.all is above 100
     print(next((False for x in l if not x > 100), True))  # False
+    # lazy some/every/forall/forany
+    any((False, False, True))  # True
+    all((True, True, True))  # True
     # greedy some/every/forall/forany
     any([False, False, True])  # True
     all([True, True, True])  # True
@@ -494,6 +497,9 @@ def set_prac():
     num_set = set(range(1, 4))
     print(1 in num_set)
     print(4 in num_set)
+    # comprehesion to create set
+    num_set2 = { x for x in [1, 1, 2, 1 ,4] }
+    print(num_set2)
 
 def conditional_prac():
     print('conditional_prac')
