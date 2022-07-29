@@ -353,6 +353,31 @@ async function main() {
   enumPrac();
   unionPrac();
   yieldPrac();
+  const f = (maxArea, sampleArea) => (maxArea = sampleArea > maxArea ? sampleArea : maxArea)
+  console.log(f(2,3));
+  console.log([1,2,3,1].reduce(
+  (maxArea, sampleArea) =>
+    (maxArea = sampleArea > maxArea ? sampleArea : maxArea),
+  0.0,
+));
+  const harvestActivities = [
+    {
+      yields: [{
+        yieldUom: 1
+      }
+      ]
+    },
+    {
+      yields: [{
+        yieldUom: 2
+      }
+      ]
+    }
+  ]
+  const harvestUoms = harvestActivities
+      .flatMap(activity => activity.yields.map(y => y.yieldUom))
+      .filter((v, i, a) => a.indexOf(v) === i);
+  console.log(harvestUoms)
 }
 
 main();

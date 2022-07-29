@@ -486,6 +486,7 @@ def args_kwargs_prac():
         kwargsStr = ''
         for k, v in kwargs.items():
             kwargsStr += f'{k}: {v}'
+        for key, val in inputs_grouped_by_ticket.items():
         print(f'c: {c}')
         print(f'argsStr: {argsStr}')
         print(f'kwargsStr: {kwargsStr}')
