@@ -208,6 +208,9 @@ $!
 # copy contents of source to existing dir dest, including hidden stuff
 # cp -a /source/. /dest/
 
+#basic auth with curl
+curl --anyauth -u "<user>:<pass>"
+
 # Extra snippets:
 pwsh -ExecutionPolicy [Bypass | Unrestricted | RemoteSigned| AllSigned | Default | Undefined | Restricted] -File '/path/to/script.ps1 -Flag arg'
 pwsh -ExecutionPolicy [Bypass | Unrestricted | RemoteSigned| AllSigned | Default | Undefined | Restricted] -Command "& {Write-Host 'hi'}"
