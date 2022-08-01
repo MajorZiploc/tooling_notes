@@ -64,6 +64,12 @@ docker-compose -f <file_name>.yaml up
 # stop and tear down all containers and a network
 docker-compose -f <file_name>.yaml down
 
+## Docker Compose File
+
+env_file prop can help remove redundant env var mappings in the compose file
+    env_file:
+      - docker-compose.env
+
 ## Dockerfile
 
 # build a docker image with the given tag (image_name:image_version) using the Dockerfile in the current directory
