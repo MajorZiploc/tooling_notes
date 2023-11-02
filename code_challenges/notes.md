@@ -46,6 +46,10 @@ numbers:
 regex:
   consider. greedy vs non-greedy matching
     usually used to match the 'rest'
+  positive look ahead assertion to check if a pattern is contained in the string
+    can be useful to simplify a regex. where you have a general pattern and then extra checks to see if the string contains something
+    ex: does the string contain a digit? where the string containes _'s and s's (or the general pattern)
+      ^(?=.*\d)[_s]*$
 
 while loop:
   typical to have to repeat a step after a while loop is done

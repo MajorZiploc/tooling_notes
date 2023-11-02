@@ -321,6 +321,10 @@ function stringPrac() {
   console.log(s1.indexOf(' st'));
   console.log(s1.match(r2));
   console.log(s1.normalize('NFC'));
+  // (?=.*<pattern>) positive look ahead assert
+  // ex> (?=.*\d) checks that the string has at least 1 digit
+  // this regex checks that the string has at least 1 digit, lower and upper. with at least 6 chars total of alphanum
+  const REGEXP = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{6,}$/;
   var r = /(g.)/ig;
   var s2 = 'i  got gs';
   console.log(s2.match(r));
