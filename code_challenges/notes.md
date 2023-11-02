@@ -8,6 +8,8 @@ break problem into small units
 
 try to do it by hand or quickly mentally
 
+make sure you understand all of the rules. also consider heuristics that you can add to the rule set given
+
 ## Practical
 
 consider the bounds of the problem. does complexity matter? dont be over general - consider heuristics that work for the problem
