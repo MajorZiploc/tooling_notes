@@ -100,6 +100,10 @@ when records of 1 table need to do something with other records of the same tabl
 
     nth_value(): returns the value of a specified column for the nth row within the window frame.
 
+UNION vs UNION ALL
+  UNION - removes dups
+  UNION ALL - keeps dups
+
 creating list of records can be done with selects tied together with unions. or you create a temp table and load the temp table
   example:
     SELECT 'Low Salary' AS type
