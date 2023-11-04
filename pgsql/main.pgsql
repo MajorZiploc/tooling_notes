@@ -439,6 +439,41 @@ group by a.sell_date
 order by a.sell_date
 ;
 
+
+-- rolling_average_pgsql
+-- rolling average/aggregator with preceding and current row
+-- also use lag to remove entries without preceding rows after work is done
+with DayTotals as (
+  select
+    c.visited_on
+    , sum(c.amount) as day_amount
+  from Customer as c
+  group by c.visited_on
+)
+, Result as (
+select
+  c.visited_on
+  , sum(c.day_amount)
+    over(order by c.visited_on rows between 6 preceding and current row)
+    as amount
+  , round(
+      cast(
+        avg(c.day_amount)
+        over(order by c.visited_on rows between 6 preceding and current row)
+      as numeric)
+    , 2)as average_amount
+  , lag(c.visited_on, 6, null) over (order by c.visited_on) as range_start
+from DayTotals as c
+order by c.visited_on
+)
+select
+  r.visited_on
+  , r.amount
+  , r.average_amount
+from Result as r
+where r.range_start is not null
+;
+
 -- tuple used in 'in' check
 Select 
     round(avg(order_date = customer_pref_delivery_date)*100, 2) as immediate_percentage

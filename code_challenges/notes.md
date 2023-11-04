@@ -100,6 +100,11 @@ when records of 1 table need to do something with other records of the same tabl
 
     nth_value(): returns the value of a specified column for the nth row within the window frame.
 
+window frame rolling aggregator:
+  rolling average/aggregator with preceding and current row
+    also use lag to remove entries without preceding rows after work is done
+    ex: rolling_average_pgsql in main.pgsql
+
 string_agg(distinct a.product, ',' order by a.product): aggregator to make string list
 
 UNION vs UNION ALL
