@@ -38,6 +38,9 @@ priority queue:
   for quick location of either min or max value for mutation
     ex: customers queued at a grocery store waiting for a teller to open up
 
+scheduling:
+  if goal is to minimize diff between values then schedule the highest weights first
+
 numbers:
   mod 2 or 10 or 60 or 256
     mod can be used to aggregate from 1 number into another. just remember to floor/integer division the source number each iteration
