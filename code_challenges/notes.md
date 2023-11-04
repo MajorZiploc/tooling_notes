@@ -10,6 +10,8 @@ try to do it by hand or quickly mentally
 
 make sure you understand all of the rules. also consider heuristics that you can add to the rule set given
 
+how much data do you have access to for each decision? if all, then you can do quite a bit more than if you can just see the next step
+
 ## Practical
 
 consider the bounds of the problem. does complexity matter? dont be over general - consider heuristics that work for the problem
