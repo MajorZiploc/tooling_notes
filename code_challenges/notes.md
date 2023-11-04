@@ -156,7 +156,7 @@ to push nulls to the end: order by field desc nulls last
 
 if multiple of a field and you expect single for each value of the field, throw a distinct query earlier in the join chain (proly as the first query)
 
-common complex join order: (distinct query or cartensian product query) to (cte) to (actual tables)
+common complex join order: (left join distinct query or cartensian product query) to (cte) to (actual tables)
 
 optimizations:
 
