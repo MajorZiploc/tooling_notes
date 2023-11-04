@@ -100,6 +100,8 @@ when records of 1 table need to do something with other records of the same tabl
 
     nth_value(): returns the value of a specified column for the nth row within the window frame.
 
+string_agg(distinct a.product, ',' order by a.product): aggregator to make string list
+
 UNION vs UNION ALL
   UNION - removes dups
   UNION ALL - keeps dups
