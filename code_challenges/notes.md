@@ -100,6 +100,9 @@ when records of 1 table need to do something with other records of the same tabl
 
     nth_value(): returns the value of a specified column for the nth row within the window frame.
 
+    NOTE: the over clause could be blank if the order and groupings of the root query are what you want in the sub window query
+      ex: dense_rank() over() as rank
+
 window frame rolling aggregator:
   rolling average/aggregator with preceding and current row
     also use lag to remove entries without preceding rows after work is done
