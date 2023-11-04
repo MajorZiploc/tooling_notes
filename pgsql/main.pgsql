@@ -532,6 +532,32 @@ order by days desc nulls last
 # cast to an integer
 select 1.0::integer;
 
+-- Define the custom aggregate function
+CREATE OR REPLACE FUNCTION weighted_avg_finalfunc(state numeric, weight_sum numeric) RETURNS numeric AS $$
+BEGIN
+  IF weight_sum = 0 THEN
+    RETURN NULL;  -- Handle division by zero
+  ELSE
+    RETURN state / weight_sum;  -- Calculate the weighted average
+  END IF;
+END;
+$$ LANGUAGE plpgsql;
+CREATE OR REPLACE FUNCTION weighted_avg_sfunc(state numeric, value numeric, weight numeric, weight_sum numeric) RETURNS numeric AS $$
+BEGIN
+  state := state + (value * weight);
+  weight_sum := weight_sum + weight;
+  RETURN state;
+END;
+$$ LANGUAGE plpgsql;
+-- Register the custom aggregate function
+CREATE OR REPLACE AGGREGATE weighted_avg(numeric, numeric) (
+  sfunc = weighted_avg_sfunc,
+  stype = numeric,
+  finalfunc = weighted_avg_finalfunc
+);
+-- Use the custom aggregate function in your SQL queries
+-- For example:
+SELECT weighted_avg(value, weight) FROM your_table;
 
 -- pivot explained
 In SQL, the `PIVOT` operation is used to transform data from rows into columns, effectively reshaping the result set of a query. This can be very useful when you want to aggregate or summarize data in a more structured form. Let me provide you with a basic example and use case to help you understand how `PIVOT` works.
