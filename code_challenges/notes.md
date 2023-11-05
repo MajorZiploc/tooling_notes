@@ -216,3 +216,13 @@ There are several less common but highly useful SQL features and techniques that
         SELECT employee_id, department_id FROM Employee
         GROUP BY employee_id
         ;
+## mongodb
+
+typical aggregate step order:
+
+  group (aggregator/prep table prior to join) (for more complex queries)
+  lookup (left join)
+  match (where)
+  group (aggregator)
+  project (fields to select)
+  sort (order by)
