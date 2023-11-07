@@ -550,7 +550,63 @@ db.employee.aggregate([
 //   or b.bonus < 1000
 // ;
 
-// TODO: left off here: https://leetcode.com/problems/students-and-examinations/?envType=study-plan-v2&envId=top-sql-50
+// https://leetcode.com/problems/students-and-examinations/?envType=study-plan-v2&envId=top-sql-50
+
+db.createCollection('students');
+db.students.deleteMany({});
+db.students.insertMany([
+  {student_id: 1, student_name: 'Alice'},
+  {student_id: 2, student_name: 'Bob'},
+  {student_id: 13, student_name: 'John'},
+  {student_id: 6, student_name: 'Alex'},
+]);
+db.createCollection('subjects');
+db.subjects.deleteMany({});
+db.subjects.insertMany([
+  {subject_name: 'Math'},
+  {subject_name: 'Physics'},
+  {subject_name: 'Programming'},
+]);
+db.createCollection('examinations');
+db.examinations.deleteMany({});
+db.examinations.insertMany([
+  {student_id: 1, subject_name: 'Math'},
+  {student_id: 1, subject_name: 'Physics'},
+  {student_id: 1, subject_name: 'Programming'},
+  {student_id: 2, subject_name: 'Programming'},
+  {student_id: 1, subject_name: 'Physics'},
+  {student_id: 1, subject_name: 'Math'},
+  {student_id: 13, subject_name: 'Math'},
+  {student_id: 13, subject_name: 'Programming'},
+  {student_id: 13, subject_name: 'Physics'},
+  {student_id: 2, subject_name: 'Math'},
+  {student_id: 1, subject_name: 'Math'},
+]);
+
+// doesnt do the cross join. simple version
+db.examinations.aggregate([
+  {
+    $group: {
+      _id: { student_id: "$student_id", subject_name: "$subject_name" },
+      attended_exams: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      student_id: "$_id.student_id",
+      subject_name: "$_id.subject_name",
+      attended_exams: 1
+    }
+  },
+  {$sort: {
+    student_id: 1,
+    subject_name: 1,
+  }}
+]);
+
+
+// TODO: left off here: https://leetcode.com/problems/managers-with-at-least-5-direct-reports/?envType=study-plan-v2&envId=top-sql-50
 
 // https://leetcode.com/problems/game-play-analysis-iv/?envType=study-plan-v2&envId=top-sql-50
 
