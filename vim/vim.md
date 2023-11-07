@@ -657,3 +657,10 @@ rm ~/.local/share/nvim/shada/*; rm  ~/.local/state/nvim/shada/*;
 # commentstring
 # set commentstring locally to -- . good for sql
 setlocal commentstring=--\ %s
+
+# Macros
+
+to rerun a macro
+@@
+OR
+<shift><register> --example: Q to use q register
