@@ -159,6 +159,13 @@ insert into user_attribute -- insert from select example
   )
 ;
 
+-- distinct on clause -- multi field distinct rows
+select distinct on (group_id, product_code) p.*
+from products p
+join products e using (product_code) 
+where e.group_id <> p.group_id
+order by 3, 2 desc, 1 desc;
+
 -- advanced 01
 /* Wet Run */
 BEGIN TRANSACTION;
