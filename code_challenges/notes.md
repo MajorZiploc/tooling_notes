@@ -113,7 +113,8 @@ window frame rolling aggregator:
     also use lag to remove entries without preceding rows after work is done
     ex: rolling_average_pgsql in main.pgsql
 
-string_agg(distinct a.product, ',' order by a.product): aggregator to make string list
+string_agg(distinct a.product, ',' order by a.product): aggregator to make string list-like
+  NOTE: use this to create sudo lists that are actually strings. usually sql flavors have a true array_agg. but its not standard
 
 UNION vs UNION ALL
   UNION - removes dups
@@ -216,6 +217,9 @@ There are several less common but highly useful SQL features and techniques that
         SELECT employee_id, department_id FROM Employee
         GROUP BY employee_id
         ;
+
+array_agg(g.employee_id order by g.employee_id) as employees: aggregator to make a list
+
 ## mongodb
 
 typical aggregate step order:

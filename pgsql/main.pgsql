@@ -436,7 +436,7 @@ left join Confirmations as c on su.user_id = c.user_id
 group by su.user_id
 ;
 
--- string_agg() aggregator function to make a string list
+-- string_agg() aggregator function to make a string list-like
 select
   a.sell_date
   , count(distinct a.product) as num_sold
@@ -446,6 +446,24 @@ group by a.sell_date
 order by a.sell_date
 ;
 
+-- array_agg() aggregator function to make a list; array() to create an array out of a select result
+-- a parameterized sql query to find other groups that have the same employees
+prepare find_groups_with_matching_employees(text) as
+select
+  g.group_name
+  , array_agg(g.employee_id order by g.employee_id) as employees
+from groups g
+where
+  g.group_name <> $1
+group by g.group_name
+having
+  array(
+    select employee_id
+    from groups
+    where group_name = $1
+    order by employee_id
+  ) = array_agg(g.employee_id order by g.employee_id)
+order by g.group_name;
 
 -- rolling_average_pgsql
 -- rolling average/aggregator with preceding and current row
