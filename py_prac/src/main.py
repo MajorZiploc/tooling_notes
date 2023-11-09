@@ -1,6 +1,6 @@
 import functools as ft
-# groupby is pretty terrible from itertools
-from itertools import permutations, count, chain
+# groupby is pretty terrible from itertools: it depends on order of the items. it will only add to a collection if the prev item was added to the same collection. else it will create a new entry
+from itertools import permutations, count, chain, groupby
 import re
 import os
 import time
@@ -298,7 +298,7 @@ def flat_map(f, xs):
         ys.extend(f(x))
     return ys
 
-def groupby(l: Iterable[Any], key_supplier: Callable):
+def groupby2(l: Iterable[Any], key_supplier: Callable):
     def reducer(acc, ele):
         key = key_supplier(ele)
         acc[key] = acc.get(key, [])
@@ -449,7 +449,12 @@ def list_prac():
     print(list(range(1, 10))[1::])  # [2, 3, 4, 5, 6, 7, 8, 9]
     # list.take. take first 5 elements
     print(list(range(1, 10))[0:5])  # [1, 2, 3, 4, 5]
-    print(groupby(range(1, 10), lambda ele: ele % 2))  # {1: [1, 3, 5, 7, 9], 0: [2, 4, 6, 8]}
+    print(groupby2(range(1, 10), lambda ele: ele % 2))  # {1: [1, 3, 5, 7, 9], 0: [2, 4, 6, 8]}
+    # itertools groupby depends on order
+    for k, c in groupby([1,2,3,4], lambda i: i % 2 == 0):
+        print(k, list(c))
+    for k, c in groupby([1,2,3,4], lambda i: i > 2):
+        print(k, list(c))
     # keep unique list entries and preserve order
     print(OrderedDict.fromkeys([2, 1, 1, 3]).keys())
     # list sorting - creates new list
