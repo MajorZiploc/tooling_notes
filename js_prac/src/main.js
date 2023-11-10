@@ -116,12 +116,22 @@ function setPrac() {
 }
 
 function queuePrac() {
-  // FIFO
   console.log('queuePrac');
-  let q = [3, 2, 1]; // think in reverse order
+  // FIFO
+  let q = [1, 2, 3]; // think in normal order
   console.log(q);
   // pop = poll
-  let f = q.pop(); // grabs last ele in list (first in queue)
+  let f = q.shift(); // grabs last ele in list (first in queue)
+  console.log(f);
+  console.log(q);
+  // unshift = add
+  q.push(4); // Adds to the beginning of list (last in queue)
+  console.log(q);
+  // OR FIFO
+  q = [3, 2, 1]; // think in reverse order
+  console.log(q);
+  // pop = poll
+  f = q.pop(); // grabs last ele in list (first in queue)
   console.log(f);
   console.log(q);
   // unshift = add
@@ -403,28 +413,7 @@ async function throwThing() {
 }
 throwThing().catch(err => console.log(err));
 
-async function main() {
-  console.log('generate range of numbers. 0,1,2,3,4');
-  console.log([...Array(5).keys()]);
-  console.log([...Array(15).keys()].map(fib_mem));
-  // prettier-ignore
-  console.log(true ? 'has ternary op'
-    : 'ya dig?' === undefined ? 'lol'
-    : 'or no?');
-  spreadPrac();
-  objectPrac();
-  setPrac();
-  queuePrac();
-  stackPrac();
-  matrixPrac();
-  listOperations();
-  typeCheckingPrac();
-  stringPrac();
-  forLoopPrac();
-  typeConversionPrac();
-  enumPrac();
-  unionPrac();
-  yieldPrac();
+function miscPrac() {
   // Null coalese
   console.log(null?.x.y());
   console.log(null?.['x'].y());
@@ -459,38 +448,29 @@ async function main() {
   console.log(harvestUoms)
 }
 
-// function waitforme(millisec) {
-//     return new Promise(resolve => {
-//         setTimeout(() => { resolve('') }, millisec);
-//     })
-// }
-  
-// async function printy() {
-//     for (let i = 0; i < 10; ++i) {
-//         await waitforme(1000);
-//         console.log(i);
-//     }
-//     console.log("Loop execution finished!)");
-// }
-// printy();
-
-
-console.log(["u", "yo"].includes(undefined))
-
-
-console.log(Array.from("Harvest Profit").reverse().join(''));
-
-
-console.log(new Date('2011-11-11T06:30:00.000Z'));
-
-console.log(new Date('2011-11-11T06:32:00.000Z') > new Date('2011-11-11T06:31:00.000Z'))
-
-console.log([].some(t => t))
-
-
-console.log(-11 > -10)
-console.log(-11 < -10)
-
-console.log([1,2,3,4,5,6].slice(0,2));
+async function main() {
+  console.log('generate range of numbers. 0,1,2,3,4');
+  console.log([...Array(5).keys()]);
+  console.log([...Array(15).keys()].map(fib_mem));
+  // prettier-ignore
+  console.log(true ? 'has ternary op'
+    : 'ya dig?' === undefined ? 'lol'
+    : 'or no?');
+  spreadPrac();
+  objectPrac();
+  setPrac();
+  queuePrac();
+  stackPrac();
+  matrixPrac();
+  listOperations();
+  typeCheckingPrac();
+  stringPrac();
+  forLoopPrac();
+  typeConversionPrac();
+  enumPrac();
+  unionPrac();
+  yieldPrac();
+  miscPrac();
+}
 
 main();
