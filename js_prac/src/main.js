@@ -369,7 +369,11 @@ function typeConversionPrac() {
   const xs = String(x);
   console.log(xs + 1);
   const y = '1';
-  const yi = Number(y);
+  let yi = Number(y);
+  // OR
+  yi = +y;
+  // OR
+  // yi = parseInt(y);
   console.log(isNaN(yi));
   console.log(yi + 1);
   const sd = '11/11/2021';
@@ -379,6 +383,11 @@ function typeConversionPrac() {
   console.log(isNaN(ds));
   const p = new Person(1, 'bob');
   console.log(p.constructor);
+  let thing = 'a truthy thing!';
+  // to boolean
+  let b = !!b;
+  // OR
+  b = Boolean(b);
 }
 
 function enumPrac() {
