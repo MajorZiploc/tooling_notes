@@ -71,7 +71,7 @@ numbers:
     fourth = int32 & 255
     return f"{first}.{second}.{third}.{fourth}"
   ```
-  gcd
+  gcd - if iterating and doing checks on multiple numbers. alot of times it better to iterate by gcd of the numbers instead of 1
   lcm
 
 data structures:
