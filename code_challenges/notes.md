@@ -74,6 +74,10 @@ numbers:
   gcd
   lcm
 
+data structures:
+  in place mutation is usually faster
+    if your not allowed to alter the input. then its similar to copy the input up front and then mutate the copy
+
 regex:
   consider. greedy vs non-greedy matching
     usually used to match the 'rest'
