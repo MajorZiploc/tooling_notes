@@ -47,7 +47,7 @@ python manage.py test
 python manage.py makemigrations
 python manage.py showmigrations
 python manage.py squashmigrations <appname> <squashfrom> <squashto>
-  NOTE: only wants the lead number of the migration file be default, not the whole name of the migration
+  NOTE: only wants the lead number of the migration file by default, not the whole name of the migration
   ex: squash from init migration to 4th
     python manage.py squashmigrations <appname> 0004
   ex: squash from 2nd migration to 4th
