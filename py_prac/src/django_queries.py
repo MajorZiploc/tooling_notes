@@ -9,7 +9,7 @@ from datetime import date
 from django.db import models
 from django.db.models import F, Q, QuerySet, Avg, Count, Sum, Value, Case, When
 from django.db.models.fields import TextField
-from django.db.models.functions import Coalesce, Lower, Concat
+from django.db.models.functions import Coalesce, Lower, Concat, Substr, StrIndex
 
 # Convert model to dictionary for things like dictionary like access
 from django.forms.models import model_to_dict
@@ -424,6 +424,9 @@ polls_json = list(
         dumb_question=F("question"),
     ).values("dumb_question", "pub_date")
 )
+
+# get the substring before the first occurence of '-'
+Movie.objects.all().annotate(substr=Substr('title', StrIndex('title', Value('-')))).values('title', 'substr')
 
 # annotate is foreach reverse relation aggregation
 # GOTYA: annotate only works well when using 1 arg. it can be wrong with multiple args.
