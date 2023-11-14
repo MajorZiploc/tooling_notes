@@ -82,6 +82,8 @@ docker exec -t devcontainer-pandas_data_analytics_app-1 python /workspace/src/fa
 # Example 2
 docker exec -i -t "$container_name" python manage.py test --pattern "test_application_activity_processor.py"
 
+# find volume to ensure it is presisted between runs. most names will be hash unless you have a name in your docker compose
+docker volume ls
 
 # Prune things
 docker container prune
