@@ -141,6 +141,12 @@ window frame rolling aggregator:
     also use lag to remove entries without preceding rows after work is done
     ex: rolling_average_pgsql in main.pgsql
 
+window frame to get total record count
+  count(*) over ()
+    in some situations, a count(*) wont work.
+        in non grouped query where you need an agged value and in a non agged context
+        OR use a cte and get the total_record_count in a separate query
+
 string_agg(distinct a.product, ',' order by a.product): aggregator to make string list-like
   NOTE: use this to create sudo lists that are actually strings. usually sql flavors have a true array_agg. but its not standard
 
