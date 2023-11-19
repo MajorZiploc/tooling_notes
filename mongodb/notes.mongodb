@@ -587,6 +587,7 @@ db.examinations.insertMany([
 db.examinations.aggregate([
   {
     $group: {
+      // group by multiple fields
       _id: { student_id: "$student_id", subject_name: "$subject_name" },
       attended_exams: { $sum: 1 }
     }
