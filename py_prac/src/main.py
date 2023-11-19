@@ -463,6 +463,11 @@ def list_prac():
     sl = [{'x': 1}, {'x': 5}, {'x': -1}]
     sl.sort(key=lambda ele: ele['x'])
     print(sl)  # [{'x': -1}, {'x': 1}, {'x': 5}]
+    # sorting with then by (multi level sorting); reverse will apply to all tuple values, so you need to unreverse on a key level. converting things to numbers then negate the number is easiliest
+    sl = [('x', 20), ('x', 2), ('z', 2)]
+    # ord()/ascii(): ord(c: char) -> int; ascii(i: int) -> char
+    sl.sort(key=lambda ele: (-ele[1], -ord(ele[0])), reverse=True)
+    print(sl)  # [('x', 2), ('z', 2), ('x', 20)]
     for ele in l:
         print(ele)
     # unpacking lists to merge into 1 list. like spread in js
