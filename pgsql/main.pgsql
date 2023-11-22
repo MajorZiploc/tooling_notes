@@ -509,6 +509,23 @@ where (customer_id, order_date) in (
   group by customer_id
 );
 
+-- TODO: look into this query window filter() and group every()
+-- https://www.codewars.com/kata/642ed28eb8c5c206120581a9/sql
+select
+  customer_id,
+  first_name || ' ' || last_name as customer_name,
+  count(*) filter (where rental_date >= date '2005-04-01' and rental_date < date '2005-08-01') as num_rentals,
+  string_agg(title || ': ' || rental_date::date, ' || ' order by rental_date::date desc, title) filter (where rental_date >= date '2005-04-01' and rental_date < date '2005-08-01') as films_rented
+from customer
+join rental using (customer_id)
+join inventory using (inventory_id)
+join film using (film_id)
+group by customer_id
+having 
+  every(return_date is not null or rental_date::date + rental_duration >= date '2005-08-01') and
+  count(*) filter (where rental_date >= date '2005-04-01' and rental_date < date '2005-08-01') >= 10
+order by num_rentals desc, last_name
+
 
 select '2019-07-27'::date - interval '30' day as day;
 
