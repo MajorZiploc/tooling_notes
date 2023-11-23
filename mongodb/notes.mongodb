@@ -263,6 +263,74 @@ db.collection1.aggregate([
 
 // leetcode sql 50 questions
 
+// https://leetcode.com/problems/recyclable-and-low-fat-products/?envType=study-plan-v2&envId=top-sql-50
+db.createCollection('products');
+
+db.products.deleteMany({})
+db.products.insertMany([
+  {product_id: 0, low_fats: 'Y', recyclable: 'N'},
+  {product_id: 1, low_fats: 'Y', recyclable: 'Y'},
+  {product_id: 2, low_fats: 'N', recyclable: 'Y'},
+  {product_id: 3, low_fats: 'Y', recyclable: 'Y'},
+  {product_id: 4, low_fats: 'N', recyclable: 'N'},
+]);
+
+
+db.products.aggregate([
+  {$match: {
+    $and: [
+      {$expr: {$eq: ['$low_fats', 'Y']}},
+      {$expr: {$eq: ['$recyclable', 'Y']}},
+  ]}},
+  {$project: {
+    _id: 0,
+    product_id: 1,
+  }}
+]);
+
+// select
+//    p.product_id
+// from Products as p
+// where
+//    p.low_fats = 'Y'
+//    and p.recyclable = 'Y'
+// ;
+
+// https://leetcode.com/problems/find-customer-referee/?envType=study-plan-v2&envId=top-sql-50
+db.createCollection('customers');
+
+db.customers.deleteMany({});
+db.customers.insertMany([
+  {id: 1, name: 'Will', referee_id: null},
+  {id: 2, name: 'Jane', referee_id: null},
+  {id: 3, name: 'Alex', referee_id: 2},
+  {id: 4, name: 'Bill', referee_id: null},
+  {id: 5, name: 'Zack', referee_id: 1},
+  {id: 6, name: 'Mark', referee_id: 2},
+]);
+
+db.customers.aggregate([
+  {$match: {
+    $or: [
+      {$expr: {$eq: ['$referee_id', null]}},
+      {$expr: {$ne: ['$referee_id', 2]}},
+    ]
+  }},
+  {$project: {
+    _id: 0,
+    name: 1,
+  }}
+]);
+
+
+// select
+//    c.name
+// from Customer as c
+// where
+//    c.referee_id is null
+//    or c.referee_id <> 2
+// ;
+
 // https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/submissions/?envType=study-plan-v2&envId=top-sql-50
 
 db.createCollection('Teachers');
@@ -716,4 +784,3 @@ db.Activity.aggregate([
     }
   }
 ]);
-
