@@ -316,6 +316,9 @@ function stringPrac() {
   const paddedLeftString = 'z'.repeat(32) + originalString;
   console.log(paddedLeftString);
   const r1 = /st(.{2,})/;
+  // pad string better
+  console.log('a'.padEnd(10, 'z'));
+  console.log('a'.padStart(10, 'z'));
   console.log(s1.replace(r1, 'zz$1zz'));
   const r2 = new RegExp('st(.{2,})');
   console.log(s1.search(r2));
