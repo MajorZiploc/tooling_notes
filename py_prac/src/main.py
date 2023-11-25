@@ -268,6 +268,7 @@ def queue_prac():
     ]
     heapify(emps)
     heappush(emps, (2, {'name', 'jon'}))
+    print('max of queue: ', max(emps, key=lambda e: e[0]))
     for _ in range(0, len(emps)):
       emp = heappop(emps)
       print(emp)
