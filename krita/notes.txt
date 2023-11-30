@@ -133,3 +133,29 @@ F5
   # Configure Krita -> Color Management -> General
     check Assume sRGB
 
+# Colorize Masks
+Good for laying down flats
+https://docs.krita.org/en/reference_manual/tools/colorize_mask.html
+
+NOTE: a solid brush will be best for this process
+NOTE: steps 5 onward benefit from clicking the Update button in the tool_options
+with the paint_layer you want to add colors to selected:
+1. left side bar icons: click Colorize Mask Tool. (brush with light coming out of it in all directions)
+2. click the paint_layer
+3. In tool_options: select Limit to layer bounds
+4. select a color for your brush that you dont want to use for colors in the paint_layer
+5. Use that color to draw bounds around the area you want to add color to
+6. In tool_options: Key Strokes -> select that color and click transparent
+  this will make sure that that color is not colorized
+7. Lock in the colors:
+  once all colors look good in the preview: disable the Edit Key Strokes
+    this is done through in the layer_preview window
+      go to the colorize_mask layer and click the pen icon (second from the right)
+        this will lock in your colors. you can undo it if you dont like it
+8. Convert the mask to a paint_layer
+  right click the layer in the layer_preview window
+    Convert -> Convert to Paint Layer
+9. Split newly generated paint_layer to a layer per color
+  Top menu: Layer -> Split -> Split Layer...
+    defaults should be fine in the window
+
