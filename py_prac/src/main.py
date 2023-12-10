@@ -12,6 +12,8 @@ from queue import LifoQueue
 from collections import defaultdict, deque, OrderedDict, Counter, namedtuple
 # minpriortyqueue # NOTE: can be a maxpriortyqueue if you negate the priorty number
 # or can use tuples if you need to track data along with priorty in the form (priorty_number, data)
+    # NOTE: using a dict only works if the queue times are uniq
+    # recommend using a str (id of the object) as the second arg of the tuple and then mapping the id to the object after the work is done
 # or can use Objects and override __lt__, __eq__, and __gt__ to track more than just the priorty number
 from heapq import heappop, heappush, heapify
 import copy
@@ -261,6 +263,8 @@ def queue_prac():
     print('\nQueue after removing elements')
     print(queue)
     print("minpriortyqueue")
+    # NOTE: using a dict only works if the queue times are uniq
+    # recommend using a str (id of the object) as the second arg of the tuple and then mapping the id to the object after the work is done
     emps = [
       (1, {'name', 'bob'}),
       (3, {'name', 'sara'}),
