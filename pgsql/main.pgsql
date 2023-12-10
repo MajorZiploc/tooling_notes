@@ -468,6 +468,7 @@ order by g.group_name;
 -- rolling_average_pgsql
 -- rolling average/aggregator with preceding and current row
 -- also use lag to remove entries without preceding rows after work is done
+-- https://leetcode.com/problems/restaurant-growth/submissions/?envType=study-plan-v2&envId=top-sql-50
 with DayTotals as (
   select
     c.visited_on
@@ -497,6 +498,31 @@ select
   , r.average_amount
 from Result as r
 where r.range_start is not null
+;
+
+-- optimization of the last query
+with DayTotals as (
+select
+    c.visited_on
+    , sum(c.amount) as total
+from Customer as c
+group by c.visited_on
+order by c.visited_on asc
+)
+, RollingAmounts as (
+select
+    dt.visited_on
+    , sum(dt.total) over (rows between 6 preceding and current row) as amount
+    , lag(dt.visited_on, 6, null) over () as start_of_range
+from DayTotals as dt
+)
+select
+    ra.visited_on
+    , ra.amount
+    , round(ra.amount / 7, 2) as average_amount
+from RollingAmounts as ra
+where
+    ra.start_of_range is not null
 ;
 
 -- tuple used in 'in' check
