@@ -154,6 +154,17 @@ UNION vs UNION ALL
   UNION - removes dups
   UNION ALL - keeps dups
 
+distinct on does NOT filter out rows that do not have unique values. It basically keeps the first match
+  if you need only rows that are unique based on some keys, you need something like:
+with UniqLocs as (
+  select
+    max(i.lat) as lat
+    , max(i.lon) as lon
+  from Insurance as i
+  group by i.lat::text || i.lon::text
+  having count(*) = 1
+)
+
 creating list of records can be done with selects tied together with unions. or you create a temp table and load the temp table
   example:
     SELECT 'Low Salary' AS type
