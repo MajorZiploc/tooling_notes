@@ -20,6 +20,7 @@ common variable names:
   matrix: [cy, cx];
   curI, cache(or memo)/seen, curN, prevI, prevN, nextI, nextN
   idx (index)
+  lst, acc, arr, el, ele, item, row, column, cell
 
 work in the smallest units for your problem
   if the problem wants hours, minutes, seconds, work in seconds as long as possible
@@ -49,6 +50,9 @@ numbers:
   think of equations
     compliment: c = a + b or b = c - a
   bit shifting >>>(>>) and <<<(<<) can be used to iterate through bits like a string or multiply/divide by 2
+    x mod 2 <=> x & 1
+    x // 2 <=> x >> 1
+    x * 2 <=> x << 1
     can pair well with bitwise add to get the bits your interested in and then shift back and forth
     Example:
   ```python
@@ -76,7 +80,7 @@ numbers:
 
 data structures:
   in place mutation is usually faster
-    if your not allowed to alter the input. then its similar to copy the input up front and then mutate the copy
+    if your not allowed to alter the input. then its simpler to copy the input up front and then mutate the copy
 
 regex:
   consider. greedy vs non-greedy matching
@@ -95,7 +99,8 @@ regex:
   non-capture group: (?:<pattern>)
 
 while loop:
-  typical to have to repeat a step after a while loop is done
+  can to have to repeat a step after a while loop is done
+    NOT ALWAYS: alot of times, if this is the case, your end condition for the while loop is wrong
 
 ### Minor things to remember
 
@@ -110,35 +115,40 @@ strings:
 consider if a union of simple queries will solve your problem
 
 when records of 1 table need to do something with other records of the same table. its a self join or window (frame) functions. not a custom agg function
+  NOTE: add agg fn that is used with group by can work in a window frame function context
+  NOTE: if over() used: window frame functions inherit the order and stuff of the parent query (if it isnt working, then make a cte and it will definitely inherit)
 
   window functions:
 
-    lead() to get data from the next row into current row (doesnt remove next row)
+    lead(table_value, num_of_rows, default_value) to get data from the next row into current row (doesnt remove next row)
 
-    lag() does the same but gets data from the prev row. its syntax is the exact same as lead
+    lag(table_value, num_of_rows, default_value) does the same but gets data from the prev row. its syntax is the exact same as lead
 
     row_number(): assigns a unique integer to each row within the result set, based on the specified ordering.
 
     rank(): assigns a unique rank to each row within the result set, with the same rank given to rows with equal values. it leaves gaps in case of ties.
 
-    sum(): accumulates prev rows into a partial sum for each row. the last row will have the total sum
+    sum(table_value): accumulates prev rows into a partial sum for each row. the last row will have the total sum
 
     dense_rank(): similar to rank, but it does not leave gaps in the ranking for tied values.
 
     ntile(n): divides the result set into "n" roughly equal parts and assigns a tile number to each row based on the specified ordering.
 
-    first_value(): returns the value of a specified column for the first row in each window frame.
+    first_value(table_value): returns the value of a specified column for the first row in each window frame.
 
-    last_value(): returns the value of a specified column for the last row in each window frame.
+    last_value(table_value): returns the value of a specified column for the last row in each window frame.
 
-    nth_value(): returns the value of a specified column for the nth row within the window frame.
+    nth_value(table_value): returns the value of a specified column for the nth row within the window frame.
 
     NOTE: the over clause could be blank if the order and groupings of the root query are what you want in the sub window query
       ex: dense_rank() over() as rank
 
+    NOTE: over clause generic elements: dense_rank() over (partition by e.departmentId order by e.salary desc rows between 6 preceding and current row) as dept_rank filter (where rental_date >= date '2005-04-01' and rental_date < date '2005-08-01') as num_rentals
+      NOTE: the filter () section is not supported by all window frame functions
+
 window frame rolling aggregator:
   rolling average/aggregator with preceding and current row
-    also use lag to remove entries without preceding rows after work is done
+    also use lag to remove entries without preceding rows after work is done in a follow up select
     ex: rolling_average_pgsql in main.pgsql
 
 window frame to get total record count
@@ -173,16 +183,16 @@ creating list of records can be done with selects tied together with unions. or 
     UNION
     SELECT 'High Salary'
   OR:
-    CREATE TABLE my_table (
+    CREATE TABLE tmp_table_01 (
       column_name CHAR(1)
     );
-    INSERT INTO my_table (column_name) VALUES ('a');
-    INSERT INTO my_table (column_name) VALUES ('b');
-    INSERT INTO my_table (column_name) VALUES ('c');
+    INSERT INTO tmp_table_01 (column_name) VALUES ('a');
+    INSERT INTO tmp_table_01 (column_name) VALUES ('b');
+    INSERT INTO tmp_table_01 (column_name) VALUES ('c');
 
 cross join when you need all occurences even when they dont exist. cartensian product. use when you want even more partial data than left join
 
-count(1) != count(something) sometimes it does, but if you want to count a thing, its better to think about counting said thing than 1
+count(1) != count(something) sometimes it does, but if you want to count a thing, its better to think about counting said thing instead of 1
 
 find the last usually means find the max
 
@@ -194,15 +204,16 @@ distinct can be used on an individal field in a select clause if a group by is i
 
 round(cast(<expr> as numeric)) -- numeric is key if you have issues
 
-groupby can exist in subquery/cte without being annoy.
+groupby can exist in subquery/cte without being annoying
 
 ctes can be used to precalcuate subqueries given the subquery does not depend on the root query
+  also makes your query less complex
 
 in expr can do checks on lists of tuples
 
 to push nulls to the end: order by field desc nulls last
 
-'partition by' with lag/lead is a group by in that subquery so that you dont need to group by the the whole query
+'partition by' with window frame function is a group by in that subquery so that you dont need to group by the the whole query
   used if you need non agged data that cant be grouped by
 
 if multiple of a field and you expect single for each value of the field, throw a distinct query earlier in the join chain (proly as the first query)
@@ -211,7 +222,7 @@ common complex join order: (left join distinct query or cartensian product query
 
 optimizations:
 
-  sometimes doing multiple simple queries that pass through the same table is faster than using group bys,ctes,joins
+  sometimes doing multiple simple queries that pass through the same table (with union all the results ) is faster than using group bys,ctes,joins
 
 Features to look into:
 
