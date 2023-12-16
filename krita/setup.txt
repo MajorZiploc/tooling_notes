@@ -103,3 +103,19 @@ Useful brushes:
       go to brush settings (F5):
         Check Size -
           make linear with starting at 10%
+
+fav brushes:
+  c) Pencil-2
+    sketching
+  Airbrush pressue
+    sketching
+    soft shading/lighting
+  a) Eraser Soft
+    lightening sketch layers to even out a layer
+  a) Eraser Circle
+    hard erasing
+  Ink brush 25
+    line art
+    hard shading/lighting/color
+  b) Basic - 1
+    hard shading/lighting/color

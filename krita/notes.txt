@@ -114,6 +114,8 @@ F5
   then slam the copy paste on the v layer and merge all the v's together
   done!
 
+# WORKFLOW: simple lighting
+  add a 'overlay' paint layer over your color layers and use white
 
 # dodge tool
   good for adding heavy rays of light on anything
