@@ -276,6 +276,18 @@ def queue_prac():
     for _ in range(0, len(emps)):
       emp = heappop(emps)
       print(emp)
+  # maxpriortyqueue (negate number)
+    emps = [
+      (-1, {'name', 'bob'}),
+      (-3, {'name', 'sara'}),
+      (-2, {'name', 'sam'}),
+    ]
+    heapify(emps)
+    heappush(emps, (-2, {'name', 'jon'}))
+    print('max of queue: ', max(emps, key=lambda e: e[0]))
+    for _ in range(0, len(emps)):
+      emp = heappop(emps)
+      print(emp)
 
 def stack_prac():
     print('stack_prac')
@@ -297,12 +309,6 @@ def stack_prac():
     print('\nStack after elements are popped:')
     print(stack)
 
-def flat_map(f, xs):
-    ys = []
-    for x in xs:
-        ys.extend(f(x))
-    return ys
-
 def groupby2(l: Iterable[Any], key_supplier: Callable):
     def reducer(acc, ele):
         key = key_supplier(ele)
@@ -310,36 +316,6 @@ def groupby2(l: Iterable[Any], key_supplier: Callable):
         acc[key].append(ele)
         return acc
     return ft.reduce(reducer, l, {})
-
-def find(pred, xs):
-    for x in xs:
-        if pred(x):
-            return x
-    return None
-
-def find_index(pred, xs):
-    i = 0
-    found = False
-    for x in xs:
-        i = i + 1
-        if pred(x):
-            found = True
-            break
-    if found:
-        return i
-    return None
-
-def some(pred, xs):
-    for x in xs:
-        if pred(x):
-            return True
-    return False
-
-def every(pred, xs):
-    for x in xs:
-        if not pred(x):
-            return False
-    return True
 
 def type_convert():
     print('type_convert')
@@ -423,7 +399,6 @@ def list_prac():
     # seq.map - seq only differs from list in that it uses () instead of [] for comprehesions
     # seq is known as generator
     print(list((ele * 2 for ele in l)))
-    print(flat_map(lambda ele: [ele * 2, ele * 3], l))
     # flatten nested data 1 level
     print(list(chain.from_iterable([[1], [[2], 99]])))  # [1, [2], 99]
     # nested list comprehesion
@@ -491,6 +466,10 @@ def list_prac():
     print(first, last)
     # reverse list
     print(l[::-1])
+    # OR
+    # l=list(l)
+    # l.reverse()
+    # print(l)
     # slicing
     # start(not-inclusive),end(inclusive),step
     x = list(range(1, 100))
@@ -658,6 +637,9 @@ def string_prac():
     'z' in 'zzz'
     search_res = re.search('shake|soda|coke|hot chocolate|cappacino|a[bc]', s, re.I)
     print(search_res)
+    # OR (re.search and re.match are the same)
+    search_res = re.match('shake|soda|coke|hot chocolate|cappacino|a[bc]', s, re.I)
+    print(search_res)
     s = 'Wendy\'s hot dog'
     food_item = re.sub('Wendy\'s', '', s, flags=re.I) if re.search('Wendy\'s', s, re.I) else s
     # WARNING: strip is more than just a trim. It will remove quite a number of special characters
@@ -668,7 +650,6 @@ def string_prac():
     s2 = 'hi there'.title()
     # string to list by delimiter ' '
     sa: List[str] = s.split(' ')
-    x: list[dict] = [{}]
     # list back to string
     s2 = ' '.join(sa)
     # string_to_list
