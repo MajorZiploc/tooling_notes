@@ -29,11 +29,13 @@ import pickle
 # for abstract classes
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Callable, Iterator, Union, Optional, Any, cast, Mapping, MutableMapping, Sequence, Iterable, Match, AnyStr, IO, TypeVar, List, Set, Dict, Tuple
+from typing import Callable, Generator, Iterator, Union, Optional, Any, cast, Mapping, MutableMapping, Sequence, Iterable, Match, AnyStr, IO, TypeVar, List, Set, Dict, Tuple
 # https://docs.python.org/3/library/asyncio-task.html
 import asyncio
 from collections import OrderedDict
 import uuid
+
+T = TypeVar('T')
 
 # A coroutine is typed like a normal function
 async def countdown_async(tag: str, count: int) -> str:
@@ -373,8 +375,8 @@ def tuple_prac():
     France = flights(1000, 1001)
     print(France.distance)  # 1001
 
-def chunk_list(input_list, chunk_size):
-    return [input_list[i:i + chunk_size] for i in range(0, len(input_list), chunk_size)]
+def chunk_sequence(input_sequence: Sequence[T], chunk_size: int) -> Generator[List[T], None, None]:
+    return (list(input_sequence[i:i + chunk_size]) for i in range(0, len(input_sequence), chunk_size))
 
 # py_linq pip package is a great util for list operations with a c# linq like interface
 def list_prac():
@@ -394,8 +396,8 @@ def list_prac():
     print([ele * 2 for ele in l])
     #list.chunk
     my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    chunked_list = chunk_list(my_list, 3)
-    print(chunk_list)
+    chunked_list = list(chunk_sequence(my_list, 3))
+    print(chunked_list)
     # seq.map - seq only differs from list in that it uses () instead of [] for comprehesions
     # seq is known as generator
     print(list((ele * 2 for ele in l)))
