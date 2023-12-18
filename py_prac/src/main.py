@@ -641,7 +641,8 @@ def string_prac():
     print(search_res)
     # OR (re.search and re.match are the same)
     search_res = re.match('shake|soda|coke|hot chocolate|cappacino|a[bc]', s, re.I)
-    print(search_res)
+    # get match groups. starts at index 1 (for capture group 1)
+    if search_res: print(search_res.groups())
     s = 'Wendy\'s hot dog'
     food_item = re.sub('Wendy\'s', '', s, flags=re.I) if re.search('Wendy\'s', s, re.I) else s
     # WARNING: strip is more than just a trim. It will remove quite a number of special characters
