@@ -119,3 +119,7 @@ fav brushes:
     hard shading/lighting/color
   b) Basic - 1
     hard shading/lighting/color
+  k) Blender Basic
+    smearing
+  v) Sketching-3 Leaky
+    writing
