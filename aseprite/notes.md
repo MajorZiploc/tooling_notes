@@ -9,6 +9,7 @@ NOTE: an easy way to find out where Aseprite is reading palettes from is to just
 
 ## macos downloaded through steam
   cp ~/Downloads/apollo.gpl "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
+  cp /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
   NOTE: should work for png files
     apollo-1x.png should be usable in the same way
 
@@ -53,7 +54,7 @@ File -> Export
     100% for game asset
   Layers
 OR
-Export Sprite Sheet (<ctrl>+e) For converting an animation to a sprite sheet 
+Export Sprite Sheet (<ctrl>+e) For converting an animation to a sprite sheet
 
 color adjustments:
   Edit -> Adjustments -> (anything) ex: Brightness/Contrast
