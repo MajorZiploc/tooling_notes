@@ -123,3 +123,10 @@ fav brushes:
     smearing
   v) Sketching-3 Leaky
     writing
+
+  Color Palettes:
+    Add /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl
+    1. Have Palette Docker open:
+      Settings -> Dockers -> Palette
+    2. Import palette
+      (click 9 small blocks of colors) -> (icon with tooltip) Import a new palette from file (next to trashcan)
