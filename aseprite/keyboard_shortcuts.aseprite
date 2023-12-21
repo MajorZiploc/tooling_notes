@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <keyboard version="1">
     <commands>
+        <key command="Undo" shortcut="`" />
         <key command="Stroke" shortcut="S" removed="true" />
+        <key command="Zoom" shortcut="`" removed="true">
+            <param name="percentage" value="50" />
+        </key>
         <key command="SetInkType" shortcut="D">
             <param name="type" value="simple" />
         </key>
