@@ -6,12 +6,23 @@ https://www.humblebundle.com/downloads?key=dUq2xem2UvbSEZCS
 
 NOTE: an easy way to find out where Aseprite is reading palettes from is to just attempt to import a palette. the default location the file explorer opens to is where the palette needs to go
   Palettes Section -> Presents -> Open Folder
+NOTE: should work for png files
+  apollo-1x.png should be usable in the same way
+
+## macos downloaded directly (managed through /Applications)
+cp /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl /Applications/Aseprite.app/Contents/Resources/data/palettes/
 
 ## macos downloaded through steam
-  cp ~/Downloads/apollo.gpl "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
-  cp /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
-  NOTE: should work for png files
-    apollo-1x.png should be usable in the same way
+cp ~/Downloads/apollo.gpl "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
+cp /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
+
+# Copy over keyboard shortcuts
+
+## macos downloaded directly (managed through /Applications)
+cp ./keyboard_shortcuts.aseprite /Applications/Aseprite.app/Contents/Resources/data/widgets
+
+## macos downloaded through steam
+cp ./keyboard_shortcuts.aseprite "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/widgets"
 
 # General Notes
 select layer a pixel is on (with 'Auto Select Layer' checkbox on) :
