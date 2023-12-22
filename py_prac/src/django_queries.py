@@ -7,7 +7,8 @@ from django.utils.timezone import now
 from django.db.models import F, Sum, Window
 from django.db.models.functions import Lag, Round, Coalesce, Lead, RowNumber, Rank, DenseRank, Ntile, FirstValue, LastValue, NthValue
 from django.db.models import Subquery, OuterRef, Window
-
+from django.db import connection
+from psycopg2.extras import DictCursor
 
 from datetime import date
 from django.db import models
@@ -480,6 +481,103 @@ for i in qs:
     print(i.row, i.a, i.b, i.previous, i.next_val)
 
 # WINDOW FUNCTIONS END
+
+# CURSOR BEGIN
+
+from django.db import connection
+
+# Define the number of rows for the rolling average
+rolling_average_rows = 6
+
+# SQL statement with parameters
+sql_statement = """
+WITH DayTotals AS (
+  SELECT
+    c.visited_on,
+    SUM(c.amount) AS day_amount
+  FROM Customer AS c
+  GROUP BY c.visited_on
+),
+Result AS (
+  SELECT
+    c.visited_on,
+    SUM(c.day_amount)
+      OVER (ORDER BY c.visited_on ROWS BETWEEN %s PRECEDING AND CURRENT ROW) AS amount,
+    ROUND(
+      CAST(
+        AVG(c.day_amount)
+        OVER (ORDER BY c.visited_on ROWS BETWEEN %s PRECEDING AND CURRENT ROW) AS NUMERIC
+      ),
+      2
+    ) AS average_amount,
+    LAG(c.visited_on, %s, NULL) OVER (ORDER BY c.visited_on) AS range_start
+  FROM DayTotals AS c
+  ORDER BY c.visited_on
+)
+SELECT
+  r.visited_on,
+  r.amount,
+  r.average_amount
+FROM Result AS r
+WHERE r.range_start IS NOT NULL
+"""
+
+def f():
+    # qs = Person.objects.annotate(
+    #         w = Window(
+    #            expression=RowNumber(), **{}
+    #          ), 
+    # ).order_by('first')
+    # for i in qs:
+    #     print(i.w, i.first)
+    # Define the number of rows for the rolling average
+    limit = 6
+    # SQL statement with parameters
+    sql_statement = """
+    WITH ctebb AS (
+      SELECT
+          *
+      FROM integrations_person AS p
+      limit %s
+    )
+    select
+        ctebb.first
+        , ctebb.last
+    from ctebb
+    """
+    # Execute the SQL statement with parameters
+    # TUPLES
+    # with connection.cursor() as cursor:
+    #     cursor.execute(sql_statement, [limit])
+    #     # Fetch the results if needed
+    #     results = cursor.fetchall()
+    #     for row in results:
+    #         print(row)
+    # DICTIONARIES
+    with connection.cursor() as cursor:
+        cursor.execute(sql_statement, [limit])
+        columns = [col[0] for col in cursor.description]
+        results = [dict(zip(columns, row)) for row in cursor.fetchall()]
+        for row in results:
+            print(row)
+    # DICTIONARIES 2: FIX THIS: HOW TO USE DictCursor?
+    # with connection.cursor(cursor_factory=DictCursor) as cursor:
+    #     cursor.execute(sql_statement, [limit])
+    #     # Fetch the results if needed
+    #     results = cursor.fetchall()
+    #     for row in results:
+    #         print(row)
+
+# Execute the SQL statement with parameters
+with connection.cursor() as cursor:
+    cursor.execute(sql_statement, [rolling_average_rows, rolling_average_rows, rolling_average_rows])
+
+    # Fetch the results if needed
+    results = cursor.fetchall()
+    for row in results:
+        print(row)
+
+# CURSOR END
 
 # VALUES AND VALUES LIST BEGIN
 
