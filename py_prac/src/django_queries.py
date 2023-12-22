@@ -249,7 +249,7 @@ Employee.objects
   max_salary=Max('salary'),
   avg_salary=Avg('salary')
   )
-  .order_by('department')
+  .order_by('department')[:21]
 # ==
 SELECT "hr_employee"."department_id",
        MIN("hr_employee"."salary") AS "min_salary",
