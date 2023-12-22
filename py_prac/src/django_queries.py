@@ -451,6 +451,16 @@ recs = Poll.objects.annotate(
 
 # CASE STATEMENT END
 
+# SUBQUERY BEGIN
+
+employee_query = Employee.objects.filter(company='Private').only('id').all()
+Person.objects.value('name', 'age').filter(id__in=Subquery(employee_query))
+
+newest = Comment.objects.filter(post=OuterRef('pk')).order_by('-created_at')
+Post.objects.annotate(newest_commenter_email=Subquery(newest.values('email')[:1]))
+
+# SUBQUERY END
+
 # WINDOW FUNCTIONS BEGIN
 
 window = {
