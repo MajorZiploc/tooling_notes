@@ -4,6 +4,10 @@ from django.db import models
 from django.db.models import CASCADE, F, Max, TextField, Value
 from django.db.models.functions import Concat
 from django.utils.timezone import now
+from django.db.models import F, Sum, Window
+from django.db.models.functions import Lag, Round, Coalesce, Lead, RowNumber, Rank, DenseRank, Ntile, FirstValue, LastValue, NthValue
+from django.db.models import Subquery, OuterRef, Window
+
 
 from datetime import date
 from django.db import models
@@ -447,6 +451,26 @@ recs = Poll.objects.annotate(
 
 # CASE STATEMENT END
 
+# WINDOW FUNCTIONS BEGIN
+
+window = {
+  'partition_by': [F('b')],
+  'frame': RowRange(start=None, end=0),
+  'order_by': F('a').asc()
+  }
+qs = Sample.objects.annotate(
+        previous = Window(
+           expression=Lag('a', 1), **window
+         ), 
+  next_val = Window(
+           expression=Lead('a', 1), **window
+        ),     
+).order_by('b')
+for i in qs:
+    print(i.row, i.a, i.b, i.previous, i.next_val)
+
+# WINDOW FUNCTIONS END
+
 # VALUES AND VALUES LIST BEGIN
 
 # .values() returns dictionaries of requested fields
@@ -675,3 +699,58 @@ class Partner(AuditableModel):
     @property
     def update_count(self):
         from partner_integrations.models import MachineDataFileEventLog
+
+
+# advanced queries
+
+# with DayTotals as (
+# select
+#     c.visited_on
+#     , sum(c.amount) as total
+# from Customer as c
+# group by c.visited_on
+# order by c.visited_on asc
+# )
+# , RollingAmounts as (
+# select
+#     dt.visited_on
+#     , sum(dt.total) over (rows between 6 preceding and current row) as amount
+#     , lag(dt.visited_on, 6, null) over () as start_of_range
+# from DayTotals as dt
+# )
+# select
+#     ra.visited_on
+#     , ra.amount
+#     , round(ra.amount / 7, 2) as average_amount
+# from RollingAmounts as ra
+# where
+#     ra.start_of_range is not null
+# ;
+
+# EQ maybe?
+
+# Subquery to get daily totals
+day_totals_subquery = (
+    Customer.objects
+    .values('visited_on')
+    .annotate(total=Sum('amount'))
+    .order_by('visited_on')
+)
+# Main query using Window function and the subquery
+result = (
+    Customer.objects
+    .annotate(
+        amount=Sum('amount') - Lag('amount', 6).over(order_by='visited_on'),
+        start_of_range=Lag('visited_on', 6).over(order_by='visited_on'),
+    )
+    .filter(start_of_range__isnull=False)
+    .annotate(
+        average_amount=Round(
+            Coalesce(
+                Subquery(day_totals_subquery.filter(visited_on__lte=OuterRef('visited_on')).values('total')[:1]),
+                0
+            ) / 7, 2
+        )
+    )
+)
+
