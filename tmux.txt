@@ -12,7 +12,10 @@ man tmux
 ctrl-b - :<command>
 
 # source a tmux file
+# from tmux command mode
 source-file ~/.tmux.conf
+# OR from terminal
+tmux source ~/.tmux.conf
 
 # interesting tmux info
 tmux info
