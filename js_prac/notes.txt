@@ -1,4 +1,4 @@
-# update all dependencies
+# update all dependencies (NOTE: change the devDependencies to dependencies for rest of deps)
 npm outdated --json --long | jq 'to_entries | .[] | select(.value.type == "devDependencies") | .key + "@latest"' | xargs npm install
 yarn install `npm outdated --json --long | jq 'to_entries | .[] | select(.value.type == "devDependencies" || .value.type == "dependencies") | .key + "@latest"'`
 
