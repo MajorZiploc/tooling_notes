@@ -31,6 +31,9 @@ select layer a pixel is on (with 'Auto Select Layer' checkbox on) :
 when in shading mode with colors selected
   reverse shade:
   x
+  color selection process (while in shading mode):
+    dragging for adjacent colors
+    shift click each color for non adjacent colors
 
 eye dropper
   alt/option
