@@ -5,3 +5,7 @@ python ./src/main.rb
 python -c 'print("hi")
 print("there")
 '
+
+# list outdated packages
+. .venv/bin/activate
+pip list -o
