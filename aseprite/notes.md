@@ -56,6 +56,11 @@ rectangle:
 lasso
   Q
 
+## Measure object sizes in canvas
+done manually by counting the background_blocks for height and width
+background_blocks are 16x16 by default
+background_blocks size can be changed in Preferences -> Background
+
 Replace Color (<shift>+r)
 
 Outline (<shift>+o)
