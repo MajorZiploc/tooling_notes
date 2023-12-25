@@ -65,6 +65,17 @@ Replace Color (<shift>+r)
 
 Outline (<shift>+o)
 
+## Making drop shadows
+can use Outline tool
+do twice:
+  dont use the presents
+  Outside style
+  bottom right dot
+
+## Outline whole animation
+can use Outline tool
+  Click 'Selected' to change to 'All'
+
 Export
 File -> Export
   Output File (right size ...) for adv mode. File format is here
