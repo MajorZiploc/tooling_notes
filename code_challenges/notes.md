@@ -38,7 +38,7 @@ stack:
   building basic calculator parser
 
 priority queue:
-  for quick location of either min or max value for mutation
+  for tracking of either min or max value for mutation
     ex: customers queued at a grocery store waiting for a teller to open up
 
 scheduling:
@@ -76,7 +76,7 @@ numbers:
     return f"{first}.{second}.{third}.{fourth}"
   ```
   gcd - if iterating and doing checks on multiple numbers. alot of times it better to iterate by gcd of the numbers instead of 1
-  lcm
+  lcm - similar idea to gcd
 
 data structures:
   in place mutation is usually faster
@@ -115,7 +115,7 @@ strings:
 consider if a union of simple queries will solve your problem
 
 when records of 1 table need to do something with other records of the same table. its a self join or window (frame) functions. not a custom agg function
-  NOTE: add agg fn that is used with group by can work in a window frame function context
+  NOTE: any agg fn that is used with group by can work in a window frame function context
   NOTE: if over() used: window frame functions inherit the order and stuff of the parent query (if it isnt working, then make a cte and it will definitely inherit)
 
   window functions:
@@ -138,12 +138,12 @@ when records of 1 table need to do something with other records of the same tabl
 
     last_value(table_value): returns the value of a specified column for the last row in each window frame.
 
-    nth_value(table_value): returns the value of a specified column for the nth row within the window frame.
+    nth_value(table_value, n): returns the value of a specified column for the nth row within the window frame.
 
     NOTE: the over clause could be blank if the order and groupings of the root query are what you want in the sub window query
       ex: dense_rank() over() as rank
 
-    NOTE: over clause generic elements: dense_rank() over (partition by e.departmentId order by e.salary desc rows between 6 preceding and current row) as dept_rank filter (where rental_date >= date '2005-04-01' and rental_date < date '2005-08-01') as num_rentals
+    NOTE: over clause generic elements: dense_rank() over (partition by e.departmentId order by e.salary desc rows between 6 preceding and current row) filter (where rental_date >= date '2005-04-01' and rental_date < date '2005-08-01') as thing
       NOTE: the filter () section is not supported by all window frame functions
 
 window frame rolling aggregator:
