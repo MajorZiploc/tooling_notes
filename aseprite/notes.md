@@ -44,6 +44,13 @@ fill (paint bucket):
   G
   NOTE: Contiouous option can be useful
 
+## Palette Colors
+cycle back and forth  (previous/next)
+go to previous color
+[
+go to next color
+]
+
 ## Selection (also for Rotation and Scale)
 
 magic wand:
