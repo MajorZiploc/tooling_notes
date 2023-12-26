@@ -44,7 +44,7 @@ fill (paint bucket):
   G
   NOTE: Contiouous option can be useful
 
-## Selection
+## Selection (also for Rotation and Scale)
 
 magic wand:
   W
