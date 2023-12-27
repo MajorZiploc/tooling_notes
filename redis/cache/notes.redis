@@ -19,6 +19,10 @@ $ redis-cli GETRANGE net_services 0 50
 
 # EXAMPLES
 
+# get redis configs
+
+CONFIG GET *
+
 SET key1 value1
 SET key2 2
 
