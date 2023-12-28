@@ -79,6 +79,15 @@ do twice:
   Outside style
   bottom right dot
 
+## Move multiple layers at once
+NOTE: it will NOT look like its moving all the layers until you press esc after the move is done
+
+1. Make a selection around the area where all the layer content exists
+2. shift select all layers in the layers panel
+3. move (NOT with V) the layers
+4. press esc
+
+
 ## Outline whole animation
 can use Outline tool
   Click 'Selected' to change to 'All'
