@@ -213,8 +213,8 @@ in expr can do checks on lists of tuples
 
 to push nulls to the end: order by field desc nulls last
 
-'partition by' with window frame function is a group by in that subquery so that you dont need to group by the the whole query
-  used if you need non agged data that cant be grouped by
+'partition by' with window frame function is a way to segment the records in that subquery
+  it can have similar uses to a group by sometimes. but not always
 
 if multiple of a field and you expect single for each value of the field, throw a distinct query earlier in the join chain (proly as the first query)
 
