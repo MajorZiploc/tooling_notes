@@ -16,7 +16,7 @@ cp /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl /Application
 cp ~/Downloads/apollo.gpl "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
 cp /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
 
-# Copy over keyboard shortcuts
+# Copy over keyboard shortcuts (import process is wonky sometimes. sometimes need the .aseprite or the .aseprite-keys file. sometimes the built in importer works. sometimes you need to do some file copy stuff mentioned below)
 
 ## macos downloaded directly (managed through /Applications)
 cp ./keyboard_shortcuts.aseprite /Applications/Aseprite.app/Contents/Resources/data/widgets
