@@ -127,3 +127,5 @@ operations work on all selected elements
     select a range of colors in your palette
       change the brightness, changes all
 
+# good background size for desktop wallpaper style
+800px width * 540px height
