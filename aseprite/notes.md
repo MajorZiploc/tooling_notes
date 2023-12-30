@@ -80,6 +80,13 @@ do twice:
   bottom right dot
 
 ## Move multiple layers at once
+
+1 press v to get into move tool
+2 shift select layers in layers tab
+3 left click and hold any visible content from any of the select areas and drag
+
+OR
+
 NOTE: it will NOT look like its moving all the layers until you press esc after the move is done
 
 1. Make a selection around the area where all the layer content exists
