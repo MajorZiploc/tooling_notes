@@ -136,3 +136,7 @@ operations work on all selected elements
 
 # good background size for desktop wallpaper style
 800px width * 540px height
+
+# submit/upload works at:
+https://lospec.com/gallery/submit
+https://www.deviantart.com/submit/
