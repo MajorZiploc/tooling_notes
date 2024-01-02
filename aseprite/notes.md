@@ -51,6 +51,8 @@ go to previous color
 go to next color
 ]
 
+if color palette is focused, you can zoom in and out of it
+
 ## Selection (also for Rotation and Scale)
 
 magic wand:
