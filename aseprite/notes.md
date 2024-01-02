@@ -142,3 +142,14 @@ operations work on all selected elements
 # submit/upload works at:
 https://lospec.com/gallery/submit
 https://www.deviantart.com/submit/
+
+# sprite sizes
+
+characters
+6-7 blocks (96x96 to 112x112 pixels)
+  should look into reducing the size
+
+# References
+## Games
+Wizard of Legend
+  good for really small characters that have really good animations and look
