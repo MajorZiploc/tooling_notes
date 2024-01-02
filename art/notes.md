@@ -1,7 +1,11 @@
+# General
+
 sketch lines - a series of small lines that make up the actual line we want. erase the excess
   comes out better than just 1 line
 
 guide lines are simply guide lines, you can go away from them
+
+# People
 
 heads
   circle and shield method works for some angles
@@ -11,7 +15,6 @@ heads
 
 head profile
   face features will jot out. use the front head as a vertical line guide line down and face features should poke up from that line
-  
 
 dont change eye height! only width
 
@@ -25,3 +28,22 @@ hands
 
 hair
   quickly drawn lines are better than slow
+
+
+# Backgrounds
+
+## Trees
+
+### leaf / head area
+tri fun butt stuff
+triangles, funnels, butt plugs
+
+### Trucks
+like a 3d bundle of wires that bend on each side
+random split or stumb parts help
+
+## Rocks
+
+lean heavy on basic shapes
+
+squares,rectangles,triangles,cylinders
