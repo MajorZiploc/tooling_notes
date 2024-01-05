@@ -20,6 +20,14 @@
         <key command="SetInkType" shortcut="S">
             <param name="type" value="shading" />
         </key>
+        <key command="Flip" shortcut="Ctrl+Shift+H">
+            <param name="orientation" value="horizontal" />
+            <param name="target" value="canvas" />
+        </key>
+        <key command="Flip" shortcut="Ctrl+Shift+V">
+            <param name="orientation" value="vertical" />
+            <param name="target" value="canvas" />
+        </key>
     </commands>
     <tools>
         <key tool="contour" shortcut="D" removed="true" />
