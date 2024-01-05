@@ -47,3 +47,18 @@ random split or stumb parts help
 lean heavy on basic shapes
 
 squares,rectangles,triangles,cylinders
+
+## Trees
+
+use 5+1 colors with an extra for outlines a few of the leafs (first highlight color after the base color) to give a pattern of what the leaf shapes would be
+  1 shadow
+  1 base
+  3 highlight (each lighter than the last and within the last)
+  +1 partial outlines around internal leafs
+
+use 4 colors for the trunk
+  1 shadow
+  1 base
+  2 highlight (each lighter than the last and within the last)
+
+then follow up with an outline on the leafs and the trunk
