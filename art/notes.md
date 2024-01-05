@@ -62,3 +62,11 @@ use 4 colors for the trunk
   2 highlight (each lighter than the last and within the last)
 
 then follow up with an outline on the leafs and the trunk
+
+# Color
+
+## Highlights
+should hue shift the base color towards yellow/red/orange (warm colors) slightly
+
+## Shadows
+should hue shift the base color towards blue/purple (cool colors) slightly
