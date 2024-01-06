@@ -10,11 +10,11 @@ NOTE: should work for png files
   apollo-1x.png should be usable in the same way
 
 ## macos downloaded directly (managed through /Applications)
-cp ~/projects/tooling_notes/aseprite/palettes/apollo.gpl /Applications/Aseprite.app/Contents/Resources/data/palettes/
+cp ~/projects/tooling_notes/aseprite/palettes/*.gpl /Applications/Aseprite.app/Contents/Resources/data/palettes/
 
 ## macos downloaded through steam
-cp ~/Downloads/apollo.gpl "$HOME/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
-cp ~/projects/tooling_notes/aseprite/palettes/apollo.gpl "$HOME/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
+cp ~/projects/tooling_notes/aseprite/palettes/*.gpl "$HOME/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
+cp ~/projects/tooling_notes/aseprite/palettes/*.gpl "$HOME/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/palettes"
 
 # Copy over keyboard shortcuts (import process is wonky sometimes. sometimes need the .aseprite or the .aseprite-keys file. sometimes the built in importer works. sometimes you need to do some file copy stuff mentioned below)
 
