@@ -115,6 +115,9 @@ NOTE: it will NOT look like its moving all the layers until you press esc after 
 3. move (NOT with V) the layers
 4. press esc
 
+## Convert any image or layers to the current color palette
+Sprite -> Color Mode -> Indexed
+
 ## Outline whole animation
 can use Outline tool
   Click 'Selected' to change to 'All'
