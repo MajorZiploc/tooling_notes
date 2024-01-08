@@ -24,6 +24,12 @@ cp ./keyboard_shortcuts.aseprite /Applications/Aseprite.app/Contents/Resources/d
 ## macos downloaded through steam
 cp ./keyboard_shortcuts.aseprite "/Users/manyu/Library/Application Support/Steam/steamapps/common/Aseprite/Aseprite.app/Contents/Resources/data/widgets"
 
+# Scripts
+
+potential locations:
+"/Users/manyu/Library/Application\ Support/Aseprite/scripts"
+
+
 # General Notes
 select layer a pixel is on (with 'Auto Select Layer' checkbox on) :
   v 
