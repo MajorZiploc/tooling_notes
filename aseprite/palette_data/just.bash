@@ -1,15 +1,15 @@
-function just_get_color_map {
-  local color_replace_config;color_replace_config="$(cat ./color_replace_config.json)";
-  local color_palette; color_palette="$(echo "$color_replace_config" | jq -r ".color_palette")";
+function just_get_color_ramp_change_map {
+  local color_ramp_change_config;color_ramp_change_config="$(cat ./color_ramp_change_config.json)";
+  local color_palette; color_palette="$(echo "$color_ramp_change_config" | jq -r ".color_palette")";
 
-  local replacement_length; replacement_length="$(echo "$color_replace_config" | jq -r ".replacements | length")"
+  local replacement_length; replacement_length="$(echo "$color_ramp_change_config" | jq -r ".replacements | length")"
   local query;
   local from_color_ramp;
   local to_color_ramp;
   local query_result;
   for ((idx=0; idx<replacement_length; idx++)); do
-    from_color_ramp="$(echo "$color_replace_config" | jq -r ".replacements[$idx].from_color_ramp")";
-    to_color_ramp="$(echo "$color_replace_config" | jq -r ".replacements[$idx].to_color_ramp")";
+    from_color_ramp="$(echo "$color_ramp_change_config" | jq -r ".replacements[$idx].from_color_ramp")";
+    to_color_ramp="$(echo "$color_ramp_change_config" | jq -r ".replacements[$idx].to_color_ramp")";
     query="
     Select
       '{' + f'from=Color({a.r}, {a.g}, {a.b})' + f', to=Color({b.r}, {b.g}, {b.b})' + '},' as color_mapping
