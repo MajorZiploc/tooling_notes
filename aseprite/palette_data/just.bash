@@ -6,12 +6,7 @@ function just_get_color_map {
   local query;
   query="
   Select
-    a.r as from_r
-    , a.g as from_g
-    , a.b as from_b
-    , b.r as to_r
-    , b.g as to_g
-    , b.b as to_b
+    '{' + f'from=Color({a.r}, {a.g}, {a.b})' + '}' + f', to=Color({b.r}, {b.g}, {b.b})' + '},' as color_mapping
   join ./colors.csv on a.color_palette = b.color_palette and a.color_ramp_priority = b.color_ramp_priority
   where
     a.color_palette == '${color_palette}'
@@ -19,5 +14,5 @@ function just_get_color_map {
     and b.color_ramp == '${to_color_ramp}'
   order by a.color_ramp_priority asc
   ";
-  cat ./colors.csv | rbql --with-header --query "$query" --delim ',' --policy quoted_rfc 2> /dev/null;
+  cat ./colors.csv | rbql --with-header --query "$query" --delim ',' --policy quoted_rfc 2> /dev/null | sed -E 's,(^"|"$),,g';
 }
