@@ -58,12 +58,25 @@ if color palette is focused, you can zoom in and out of it
 magic wand:
   W
   NOTE: Contiouous option can be useful
+  NOTE: selecting everything without brush strokes on it is a good strategy to ensure you dont paint over things and only paint on unpainted areas
+    good for pairing with 'Brush out of selection' tip
+
+### Brush out of selection (useful for making tilesets)
+1. make a selection
+2. press b
+3. press <ctrl-b>
+With contextual option: 'Paint aligned to source' selected
 
 rectangle:
   M
+  double clicking a block will select the block
+    good for creating tilesets
 
 lasso
   Q
+
+### Deselecting small pieces of an already selected area
+  contextual tool option: 'Subtract from selection'
 
 ## Measure object sizes in canvas
 done manually by counting the background_blocks for height and width
@@ -95,7 +108,6 @@ NOTE: it will NOT look like its moving all the layers until you press esc after 
 2. shift select all layers in the layers panel
 3. move (NOT with V) the layers
 4. press esc
-
 
 ## Outline whole animation
 can use Outline tool
