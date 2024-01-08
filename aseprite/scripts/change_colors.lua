@@ -15,107 +15,73 @@ end
 -- app.fgColor = Color(122, 72, 65)
 -- 117	36	56	#752438
 -- app.bgColor = Color(117, 36, 56)
---
--- TODO: make a csv of this info and also had a color_ramp and priority field that will let me map each priority from diff color_ramp
--- Apollo Color Palette
--- 23	,32	,56	#172038
--- 37	,58	,94	#253a5e
--- 60	,94	,139	#3c5e8b
--- 79	,143	,186	#4f8fba
--- 115	,190	,211	#73bed3
--- 164	,221	,219	#a4dddb
--- 25	,51	,45	#19332d
--- 37	,86	,46	#25562e
--- 70	,130	,50	#468232
--- 117	,167	,67	#75a743
--- 168	,202	,88	#a8ca58
--- 208	,218	,145	#d0da91
--- 77	,43	,50	#4d2b32
--- 122	,72	,65	#7a4841
--- 173	,119	,87	#ad7757
--- 192	,148	,115	#c09473
--- 215	,181	,148	#d7b594
--- 231	,213	,179	#e7d5b3
--- 52	,28	,39	#341c27
--- 96	,44	,44	#602c2c
--- 136	,75	,43	#884b2b
--- 190	,119	,43	#be772b
--- 222	,158	,65	#de9e41
--- 232	,193	,112	#e8c170
--- 36	,21	,39	#241527
--- 65	,29	,49	#411d31
--- 117	,36	,56	#752438
--- 165	,48	,48	#a53030
--- 207	,87	,60	#cf573c
--- 218	,134	,62	#da863e
--- 30	,29	,57	#1e1d39
--- 64	,39	,81	#402751
--- 122	,54	,123	#7a367b
--- 162	,62	,140	#a23e8c
--- 198	,81	,151	#c65197
--- 223	,132	,165	#df84a5
--- 9	,10	,20	#090a14
--- 16	,20	,31	#10141f
--- 21	,29	,40	#151d28
--- 32	,46	,55	#202e37
--- 57	,74	,80	#394a50
--- 87	,114	,119	#577277
--- 129	,151	,150	#819796
--- 168	,181	,178	#a8b5b2
--- 199	,207	,204	#c7cfcc
--- 235	,237	,233	#ebede9
 
--- 122	72	65	#7a4841
--- 21	,29	,40	#151d28
-app.command.ReplaceColor {
-  ui=false, -- true to debug
-  tolerance=0,
-  from=Color(122, 72, 65),
-  to=Color(21	,29	,40	),
-  -- channels=ColorMode.Indexed,
+local colorPairs = {
+  {from=Color(122, 72, 65), to=Color(21, 29, 40)},
+  {from=Color(173, 119, 87), to=Color(32, 46, 55)}
 }
 
--- 173	,119	,87	#ad7757
--- 32	,46	,55	#202e37
-app.command.ReplaceColor {
-  ui=false, -- true to debug
-  tolerance=0,
-  from=Color(173	,119	,87),
-  to=Color(32	,46	,55	),
-}
+for _, pair in ipairs(colorPairs) do
+  app.command.ReplaceColor {
+    ui=false, -- true to debug
+    tolerance=0,
+    from=pair.from,
+    to=pair.to,
+    -- channels=ColorMode.Indexed,
+  }
+end
 
--- 77	,43	,50	#4d2b32
--- 57	,74	,80	#394a50
-app.command.ReplaceColor {
-  ui=false, -- true to debug
-  tolerance=0,
-  from=Color(77	,43	,50	),
-  to=Color(57	,74	,80),
-}
+-- -- 122	72	65	#7a4841
+-- -- 21	,29	,40	#151d28
+-- app.command.ReplaceColor {
+--   ui=false, -- true to debug
+--   tolerance=0,
+--   from=Color(122, 72, 65),
+--   to=Color(21	,29	,40	),
+--   -- channels=ColorMode.Indexed,
+-- }
 
--- 117	,167	,67	#75a743
--- 223	,132	,165	#df84a5
-app.command.ReplaceColor {
-  ui=false, -- true to debug
-  tolerance=0,
-  from=Color(117	,167	,67),
-  to=Color(165	,48	,48),
-}
+-- -- 173	,119	,87	#ad7757
+-- -- 32	,46	,55	#202e37
+-- app.command.ReplaceColor {
+--   ui=false, -- true to debug
+--   tolerance=0,
+--   from=Color(173	,119	,87),
+--   to=Color(32	,46	,55	),
+-- }
 
--- 37	,86	,46	#25562e
--- 198	,81	,151	#c65197
-app.command.ReplaceColor {
-  ui=false, -- true to debug
-  tolerance=0,
-  from=Color(37	,86	,46	),
-  to=Color(198	,81	,151	),
-}
+-- -- 77	,43	,50	#4d2b32
+-- -- 57	,74	,80	#394a50
+-- app.command.ReplaceColor {
+--   ui=false, -- true to debug
+--   tolerance=0,
+--   from=Color(77	,43	,50	),
+--   to=Color(57	,74	,80),
+-- }
 
--- 25	,51	,45	#19332d
--- 162	,62	,140	#a23e8c
-app.command.ReplaceColor {
-  ui=false, -- true to debug
-  tolerance=0,
-  from=Color(25	,51	,45	),
-  to=Color(162	,62	,140	),
-}
+-- -- 117	,167	,67	#75a743
+-- -- 223	,132	,165	#df84a5
+-- app.command.ReplaceColor {
+--   ui=false, -- true to debug
+--   tolerance=0,
+--   from=Color(117	,167	,67),
+--   to=Color(165	,48	,48),
+-- }
+
+-- -- 37	,86	,46	#25562e
+-- -- 198	,81	,151	#c65197
+-- app.command.ReplaceColor {
+--   ui=false, -- true to debug
+--   tolerance=0,
+--   from=Color(37	,86	,46	),
+--   to=Color(198	,81	,151	),
+-- }
+
+-- -- 25	,51	,45	#19332d
+-- -- 162	,62	,140	#a23e8c
+-- app.command.ReplaceColor {
+--   ui=false, -- true to debug
+--   tolerance=0,
+--   from=Color(25	,51	,45	),
+--   to=Color(162	,62	,140	),
+-- }

@@ -1,0 +1,9 @@
+{
+  "color_palette": "apollo",
+  "from": {
+    "color_ramp": "blue"
+  },
+  "to": {
+    "color_ramp": "purple"
+  }
+}

@@ -27,7 +27,7 @@ cp ./keyboard_shortcuts.aseprite "/Users/manyu/Library/Application Support/Steam
 # Scripts
 
 potential locations:
-"/Users/manyu/Library/Application\ Support/Aseprite/scripts"
+"$HOME/Library/Application Support/Aseprite/scripts"
 
 
 # General Notes
