@@ -1,9 +1,13 @@
 {
   "color_palette": "apollo",
-  "from": {
-    "color_ramp": "blue"
-  },
-  "to": {
-    "color_ramp": "purple"
-  }
+  "replacements": [
+    {
+    "from_color_ramp": "green",
+    "to_color_ramp": "brown"
+    },
+    {
+    "from_color_ramp": "skin",
+    "to_color_ramp": "red"
+    }
+  ]
 }
