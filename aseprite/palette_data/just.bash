@@ -66,7 +66,11 @@ function just_get_color_ramp_shift_map {
     if [[ "${idx}" == "0" ]]; then
       echo "$header";
     fi
-    echo "$query_result";
+    if [[ ${shift_step} -lt 0 ]]; then
+      echo "$query_result" | tac;
+    else
+      echo "$query_result";
+    fi
   done;
 }
 
