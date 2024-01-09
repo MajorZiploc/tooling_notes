@@ -1,0 +1,11 @@
+{
+  "color_palette": "apollo",
+  "replacements": [
+    {
+    "color_ramp": "green"
+    },
+    {
+    "color_ramp": "skin"
+    }
+  ]
+}
