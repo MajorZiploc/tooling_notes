@@ -13,12 +13,12 @@ function just_get_color_ramp_change_map {
     query="
     Select
       '{' + f'from=Color({a.r}, {a.g}, {a.b})' + f', to=Color({b.r}, {b.g}, {b.b})' + '},' as color_mapping
-    join ./colors.csv on a.color_palette = b.color_palette and a.color_ramp_priority = b.color_ramp_priority
+    join ./colors.csv on a.color_palette = b.color_palette and a.color_ramp_idx = b.color_ramp_idx
     where
       a.color_palette == '${color_palette}'
       and a.color_ramp == '${from_color_ramp}'
       and b.color_ramp == '${to_color_ramp}'
-    order by a.color_ramp_priority asc
+    order by a.color_ramp_idx asc
     ";
     query_result="$(cat ./colors.csv | rbql --with-header --query "$query" --delim ',' --policy quoted_rfc 2> /dev/null | sed -E 's,(^"|"$),,g')";
     if [[ "${idx}" == "0" ]]; then
@@ -49,10 +49,10 @@ function just_get_color_ramp_shift_map {
       a.color_palette == '${color_palette}'
       and a.color_ramp == '${color_ramp}'
       and a.color_ramp == b.color_ramp
-      and int(a.color_ramp_priority) >= ${start_idx}
-      and int(a.color_ramp_priority) <= ${end_idx}
-      and int(a.color_ramp_priority) == (int(b.color_ramp_priority) + ${shift_step})
-    order by a.color_ramp_priority asc
+      and int(a.color_ramp_idx) >= ${start_idx}
+      and int(a.color_ramp_idx) <= ${end_idx}
+      and int(a.color_ramp_idx) == (int(b.color_ramp_idx) + ${shift_step})
+    order by a.color_ramp_idx asc
     ";
     query_result="$(cat ./colors.csv | rbql --with-header --query "$query" --delim ',' --policy quoted_rfc 2> /dev/null | sed -E 's,(^"|"$),,g')";
     if [[ "${idx}" == "0" ]]; then

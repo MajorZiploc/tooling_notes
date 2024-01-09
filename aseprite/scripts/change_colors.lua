@@ -7,18 +7,31 @@ if not sprite then
 end
 
 local colorPairs = {
-  {from=Color(25, 51, 45), to=Color(52, 28, 39)},
-{from=Color(37, 86, 46), to=Color(96, 44, 44)},
-{from=Color(70, 130, 50), to=Color(136, 75, 43)},
-{from=Color(117, 167, 67), to=Color(190, 119, 43)},
-{from=Color(168, 202, 88), to=Color(222, 158, 65)},
-{from=Color(208, 218, 145), to=Color(232, 193, 112)},
-{from=Color(77, 43, 50), to=Color(36, 21, 39)},
-{from=Color(122, 72, 65), to=Color(65, 29, 49)},
-{from=Color(173, 119, 87), to=Color(117, 36, 56)},
-{from=Color(192, 148, 115), to=Color(165, 48, 48)},
-{from=Color(215, 181, 148), to=Color(207, 87, 60)},
 {from=Color(231, 213, 179), to=Color(218, 134, 62)},
+{from=Color(215, 181, 148), to=Color(207, 87, 60)},
+{from=Color(192, 148, 115), to=Color(165, 48, 48)},
+{from=Color(173, 119, 87), to=Color(117, 36, 56)},
+{from=Color(122, 72, 65), to=Color(65, 29, 49)},
+{from=Color(77, 43, 50), to=Color(36, 21, 39)},
+{from=Color(208, 218, 145), to=Color(232, 193, 112)},
+{from=Color(168, 202, 88), to=Color(222, 158, 65)},
+{from=Color(117, 167, 67), to=Color(190, 119, 43)},
+{from=Color(70, 130, 50), to=Color(136, 75, 43)},
+{from=Color(37, 86, 46), to=Color(96, 44, 44)},
+  {from=Color(25, 51, 45), to=Color(52, 28, 39)},
+
+
+{from=Color(207, 87, 60), to=Color(218, 134, 62)},
+{from=Color(165, 48, 48), to=Color(207, 87, 60)},
+{from=Color(117, 36, 56), to=Color(165, 48, 48)},
+{from=Color(65, 29, 49), to=Color(117, 36, 56)},
+{from=Color(36, 21, 39), to=Color(65, 29, 49)},
+
+-- {from=Color(222, 158, 65), to=Color(232, 193, 112)},
+-- {from=Color(190, 119, 43), to=Color(222, 158, 65)},
+-- {from=Color(136, 75, 43), to=Color(190, 119, 43)},
+-- {from=Color(96, 44, 44), to=Color(136, 75, 43)},
+-- {from=Color(52, 28, 39), to=Color(96, 44, 44)},
 
 }
 

@@ -1,4 +1,4 @@
-color_palette,r,g,b,hex,idx,color_ramp,color_ramp_priority
+color_palette,r,g,b,hex,idx,color_ramp,color_ramp_idx
 apollo,23,32,56,#172038,0,blue,1
 apollo,37,58,94,#253a5e,1,blue,2
 apollo,60,94,139,#3c5e8b,2,blue,3
