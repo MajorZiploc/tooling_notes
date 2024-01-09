@@ -7,6 +7,7 @@ function just_get_color_ramp_change_map {
   local from_color_ramp;
   local to_color_ramp;
   local query_result;
+  local header;
   for ((idx=0; idx<replacement_length; idx++)); do
     from_color_ramp="$(echo "$config" | jq -r ".replacements[$idx].from_color_ramp")";
     to_color_ramp="$(echo "$config" | jq -r ".replacements[$idx].to_color_ramp")";
@@ -21,11 +22,12 @@ function just_get_color_ramp_change_map {
     order by a.color_ramp_idx asc
     ";
     query_result="$(cat ./colors.csv | rbql --with-header --query "$query" --delim ',' --policy quoted_rfc 2> /dev/null | sed -E 's,(^"|"$),,g')";
+    header="$(echo "$query_result" | head -n 1)";
+    query_result="$(echo "$query_result" | tail -n +2;)";
     if [[ "${idx}" == "0" ]]; then
-      echo "$query_result";
-    else
-      echo "$query_result" | tail -n +2;
+      echo "$header";
     fi
+    echo "$query_result";
   done;
 }
 
@@ -39,6 +41,7 @@ function just_get_color_ramp_shift_map {
   local start_idx;
   local end_idx;
   local query_result;
+  local header;
   for ((idx=0; idx<replacement_length; idx++)); do
     color_ramp="$(echo "$config" | jq -r ".replacements[$idx].color_ramp")";
     shift_step="$(echo "$config" | jq -r ".replacements[$idx].shift_step")";
@@ -58,11 +61,12 @@ function just_get_color_ramp_shift_map {
     order by a.color_ramp_idx asc
     ";
     query_result="$(cat ./colors.csv | rbql --with-header --query "$query" --delim ',' --policy quoted_rfc 2> /dev/null | sed -E 's,(^"|"$),,g')";
+    header="$(echo "$query_result" | head -n 1)";
+    query_result="$(echo "$query_result" | tail -n +2;)";
     if [[ "${idx}" == "0" ]]; then
-      echo "$query_result";
-    else
-      echo "$query_result" | tail -n +2;
+      echo "$header";
     fi
+    echo "$query_result";
   done;
 }
 
@@ -74,6 +78,7 @@ function just_get_color_idx_change {
   local from_idx;
   local to_idx;
   local query_result;
+  local header;
   for ((idx=0; idx<replacement_length; idx++)); do
     from_idx="$(echo "$config" | jq -r ".replacements[$idx].from_idx")";
     to_idx="$(echo "$config" | jq -r ".replacements[$idx].to_idx")";
@@ -88,11 +93,12 @@ function just_get_color_idx_change {
     order by a.idx asc
     ";
     query_result="$(cat ./colors.csv | rbql --with-header --query "$query" --delim ',' --policy quoted_rfc 2> /dev/null | sed -E 's,(^"|"$),,g')";
+    header="$(echo "$query_result" | head -n 1)";
+    query_result="$(echo "$query_result" | tail -n +2;)";
     if [[ "${idx}" == "0" ]]; then
-      echo "$query_result";
-    else
-      echo "$query_result" | tail -n +2;
+      echo "$header";
     fi
+    echo "$query_result";
   done;
 }
 
@@ -148,11 +154,12 @@ function just_get_color_ramp_flip {
     to_mid_step="$(echo "$query_result" | head -n "$half_of_rows" | sed -E "s/(.*)\\)(.*?)/\\1, ${mid_step_alpha_value})\\2/g")";
     rest="$(echo "$query_result" | tail -n +"$(( half_of_rows + 1 ))")";
     from_mid_step="$(echo "$query_result" | head -n "$half_of_rows" | sed -E "s/.*to=(Color.*?)\\).*/{from=\\1, ${mid_step_alpha_value}), to=\\1)},/")";
+    header="$(echo "$to_mid_step" | head -n 1)";
+    to_mid_step="$(echo "$to_mid_step" | tail -n +2;)";
     if [[ "${idx}" == "0" ]]; then
-      echo "$to_mid_step";
-    else
-      echo "$to_mid_step" | tail -n +2;
+      echo "$header";
     fi
+    echo "$to_mid_step";
     echo "$rest";
     echo "$from_mid_step" | tail -n +2;
   done;
