@@ -130,3 +130,8 @@ fav brushes:
       Settings -> Dockers -> Palette
     2. Import palette
       (click 9 small blocks of colors) -> (icon with tooltip) Import a new palette from file (next to trashcan)
+
+Brushes to try:
+  d) Ink-7 Brush Rough
+  k) Blender Rake
+  m) RGBA 06 Rock
