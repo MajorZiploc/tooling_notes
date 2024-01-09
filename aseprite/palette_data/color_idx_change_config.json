@@ -1,0 +1,13 @@
+{
+  "color_palette": "apollo",
+  "replacements": [
+    {
+    "from_idx": 1,
+    "to_idx": 10
+    },
+    {
+    "from_idx": 8,
+    "to_idx": 14
+    }
+  ]
+}
