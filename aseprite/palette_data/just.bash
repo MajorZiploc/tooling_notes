@@ -114,6 +114,8 @@ function just_get_color_ramp_flip {
   local asc_query;
   local desc_query;
   local color_ramp;
+  local start_idx;
+  local end_idx;
   local query_result;
   local agged_csv;
   local num_of_rows;
@@ -124,6 +126,8 @@ function just_get_color_ramp_flip {
   local rest;
   for ((idx=0; idx<replacement_length; idx++)); do
     color_ramp="$(echo "$config" | jq -r ".replacements[$idx].color_ramp")";
+    start_idx="$(echo "$config" | jq -r ".replacements[$idx].start_idx")";
+    end_idx="$(echo "$config" | jq -r ".replacements[$idx].end_idx")";
     asc_query="
     Select
       a.r as ar
@@ -132,6 +136,8 @@ function just_get_color_ramp_flip {
     where
       a.color_palette == '${color_palette}'
       and a.color_ramp == '${color_ramp}'
+      and int(a.color_ramp_idx) >= ${start_idx}
+      and int(a.color_ramp_idx) <= ${end_idx}
     order by a.color_ramp_idx asc
     "
     asc_query_result="$(cat ./colors.csv | rbql --with-header --query "$asc_query" --delim ',' --policy quoted_rfc 2> /dev/null | sed -E 's,(^"|"$),,g')";
@@ -143,6 +149,8 @@ function just_get_color_ramp_flip {
     where
       a.color_palette == '${color_palette}'
       and a.color_ramp == '${color_ramp}'
+      and int(a.color_ramp_idx) >= ${start_idx}
+      and int(a.color_ramp_idx) <= ${end_idx}
     order by a.color_ramp_idx desc
     "
     desc_query_result="$(cat ./colors.csv | rbql --with-header --query "$desc_query" --delim ',' --policy quoted_rfc 2> /dev/null | sed -E 's,(^"|"$),,g')";

@@ -5,7 +5,7 @@
     "color_ramp": "brown",
     "start_idx": 0,
     "end_idx": 7,
-    "shift_step": -1
+    "shift_step": 1
     },
     {
     "color_ramp": "red",

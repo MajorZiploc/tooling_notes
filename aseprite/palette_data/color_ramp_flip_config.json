@@ -2,10 +2,14 @@
   "color_palette": "apollo",
   "replacements": [
     {
-    "color_ramp": "green"
+    "color_ramp": "green",
+    "start_idx": 4,
+    "end_idx": 7
     },
     {
-    "color_ramp": "skin"
+    "color_ramp": "skin",
+    "start_idx": 4,
+    "end_idx": 7
     }
   ]
 }
