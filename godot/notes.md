@@ -4,6 +4,10 @@
 ## Effects like fire, water, wind, fog
 https://godotshaders.com/
 
+## General Render Resources
+GPU Gems book series
+https://developer.nvidia.com/gpugems/gpugems/contributors
+
 ## Color Palettes
 https://lospec.com/
 
