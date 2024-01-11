@@ -12,6 +12,12 @@ linux: ~/.config
 
 mac: ~/Library/Preferences
 
+mac ex:
+  cd ~/Library/Preferences;
+  afind_files_rename_preview "\./krita.*rc.*" "s,(.*),\\1.bak,g" "" "1";
+  cd ~-;
+  cp ./configs/* ~/Library/Preferences;
+
 change these to the proper location
 
 ResourceCacheDbDirectory=C:/Users/LakeM/AppData/Roaming/krita
