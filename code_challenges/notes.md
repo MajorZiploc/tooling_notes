@@ -51,6 +51,7 @@ numbers:
     compliment: c = a + b or b = c - a
   bit shifting >>>(>>) and <<<(<<) can be used to iterate through bits like a string or multiply/divide by 2
     x mod 2 <=> x & 1
+    x * -1 <=> ~x + 1 # works for both int values of x
     x // 2 <=> x >> 1
     x * 2 <=> x << 1
     can pair well with bitwise add to get the bits your interested in and then shift back and forth
