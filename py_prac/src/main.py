@@ -268,28 +268,31 @@ def queue_prac():
     # NOTE: using a dict only works if the queue times are uniq
     # recommend using a str (id of the object) as the second arg of the tuple and then mapping the id to the object after the work is done
     emps = [
-      (1, {'name', 'bob'}),
-      (3, {'name', 'sara'}),
-      (2, {'name', 'sam'}),
+        (1, {'name', 'bob'}),
+        (3, {'name', 'sara'}),
+        (2, {'name', 'sam'}),
     ]
     heapify(emps)
     heappush(emps, (2, {'name', 'jon'}))
     print('max of queue: ', max(emps, key=lambda e: e[0]))
     for _ in range(0, len(emps)):
-      emp = heappop(emps)
-      print(emp)
+        # index 0 to get the min/max value of the heap without removing it
+        emp = emps[0]
+        print(emp)
+        emp = heappop(emps)
+        print(emp)
   # maxpriortyqueue (negate number)
     emps = [
-      (-1, {'name', 'bob'}),
-      (-3, {'name', 'sara'}),
-      (-2, {'name', 'sam'}),
+        (-1, {'name', 'bob'}),
+        (-3, {'name', 'sara'}),
+        (-2, {'name', 'sam'}),
     ]
     heapify(emps)
     heappush(emps, (-2, {'name', 'jon'}))
     print('max of queue: ', max(emps, key=lambda e: e[0]))
     for _ in range(0, len(emps)):
-      emp = heappop(emps)
-      print(emp)
+        emp = heappop(emps)
+        print(emp)
 
 def stack_prac():
     print('stack_prac')
