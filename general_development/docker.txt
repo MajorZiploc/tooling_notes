@@ -120,3 +120,38 @@ docker volume rm $(docker volume ls -q)
 # You will need to add the db user/pass/name into the backend server based on the backend settings file
 # The env vars in the db container are useless once you switch the db host to the actual server url rather than the container name
 
+# remote containers
+https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host
+https://code.visualstudio.com/docs/remote/troubleshooting#_using-rsync-to-maintain-a-local-copy-of-your-source-code
+
+## with remote source code
+
+SSH_USER="user";
+SSH_HOST="hostname";
+
+### rsyncing back and forth remote and local
+pull latest copy
+function rsync_pull {
+  rsync -rlptzv --progress --delete --exclude=.git "${SSH_USER}@${SSH_HOST}:/remote/source/code/path" .;
+}
+push local changes
+function rsync_push {
+  rsync -rlptzv --progress --delete --exclude=.git . "${SSH_USER}@${SSH_HOST}:/remote/source/code/path";
+}
+
+### sshfs like a volume into the remote machine
+-- Make the directory where the remote filesystem will be mounted
+mkdir -p "$HOME/sshfs/${SSH_USER}@${SSH_HOST}";
+-- Mount the remote filesystem
+sshfs "${SSH_USER}@${SSH_HOST}:" "$HOME/sshfs/${SSH_USER}@${SSH_HOST}" -ovolname="${SSH_USER}@${SSH_HOST}" -p 22  \
+    -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C;
+-- This will make your home folder on the remote machine available under the ~/sshfs of your local machine.
+
+-- teardown
+-- When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line:
+umount "$HOME/sshfs/${SSH_USER}@${SSH_HOST}";
+
+### sshing into the machine may be a good approach aswell
+https://learn.umh.app/course/connecting-with-ssh/#:~:text=Open%20a%20terminal%20and%20enter,ssh%20rancher%40192.168.99.118%20.
+ssh "${SSH_USER}@${SSH_HOST}";
+
