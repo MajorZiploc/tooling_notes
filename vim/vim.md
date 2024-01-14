@@ -436,7 +436,7 @@ zO
 " reduce all fold levels by 1 (whole file)
 zr
 " opens all nested folds (whole file)
-zr
+zR
 " fold around a paragraph
 zfap
 " fold around a tag
