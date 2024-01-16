@@ -34,6 +34,10 @@ potential locations:
 select layer a pixel is on (with 'Auto Select Layer' checkbox on) :
   v 
 
+layers tab - show selected layer only
+on the eyeball:
+<alt>+<click>
+
 when in shading mode with colors selected
   reverse shade:
   x
@@ -99,6 +103,14 @@ do twice:
   dont use the presents
   Outside style
   bottom right dot
+
+## Animations
+
+### timeline
+go next frame
+.
+go prev frame
+,
 
 ## Move multiple layers at once
 
@@ -174,3 +186,9 @@ characters
 ## Games
 Wizard of Legend
   good for really small characters that have really good animations and look
+
+# Tags
+
+pixel_art pixel_artwork pixelart girl cape black red boots gloves
+
+pixel_art pixel_artwork pixelart girl brown fight gloves boots

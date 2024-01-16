@@ -1,7 +1,6 @@
 function just_get_color_ramp_change {
   local config; config="$(cat ./color_ramp_change_config.json)";
   local color_palette; color_palette="$(echo "$config" | jq -r ".color_palette")";
-
   local replacement_length; replacement_length="$(echo "$config" | jq -r ".replacements | length")"
   local query;
   local from_color_ramp;
