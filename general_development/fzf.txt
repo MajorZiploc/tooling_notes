@@ -6,3 +6,13 @@ sbtrkt,fuzzy-match,Items that match sbtrkt
 !fire,inverse-exact-match,Items that do not include fire
 !^music,inverse-prefix-exact-match,Items that do not start with music
 !.mp3$,inverse-suffix-exact-match,Items that do not end with .mp3
+
+
+NOTE: works for telescope aswell
+list of choices to clist
+make a search then:
+  to select all items in search
+    ctrl-a 
+  to quit the fzf list and load clist
+    ctrl-q
+  
