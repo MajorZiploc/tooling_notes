@@ -8,6 +8,10 @@ code --uninstall-extension ms-vscode.csharp
 # toggle notifications (bottom right info, warning, error messages)
 <cmd>+<shift>+<p> Noticiations: Toggle Do Not Disturb Mode
 
+# nav to last open file
+<cmd>+p <cmd>+p
+then release
+
 # vim plugin notable supported commands
 
 -- view open buffers and allows for jk motion (like <ctrl>+<tab> on mac but in reverse)
