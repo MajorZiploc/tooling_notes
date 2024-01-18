@@ -155,3 +155,19 @@ umount "$HOME/sshfs/${SSH_USER}@${SSH_HOST}";
 https://learn.umh.app/course/connecting-with-ssh/#:~:text=Open%20a%20terminal%20and%20enter,ssh%20rancher%40192.168.99.118%20.
 ssh "${SSH_USER}@${SSH_HOST}";
 
+
+#### pull in dotfiles
+```bash
+function _dotfiles {
+  local og_dir=`pwd`;
+  mkdir ~/projects;
+  cd ~/projects:
+  git clone https://github.com/MajorZiploc/dotfiles.git;
+  cd dotfiles;
+  ./setup/ubuntu/scripts/install_ssh.sh;
+  ./shared/scripts/vim_shell/set_shells.sh;
+  ./shared/scripts/zsh/install_oh-my-zsh.sh;
+  ./setup/ubuntu/scripts/routine_update.sh;
+  cd "$og_dir";
+}
+```
