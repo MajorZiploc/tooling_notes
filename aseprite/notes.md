@@ -9,7 +9,7 @@ https://www.humblebundle.com/downloads?key=dUq2xem2UvbSEZCS
 Defaults
   Colors: #808080 #c7cfcc
 Preferred
-  Colors: #808080 #4b4b4b
+  Colors: #6f6f6f #515151
 
 # Download Palettes
 
@@ -201,3 +201,5 @@ Wizard of Legend
 pixel_art pixel_artwork pixelart girl cape black red boots gloves
 
 pixel_art pixel_artwork pixelart girl brown fight gloves boots
+
+pixel_art pixel_artwork pixelart girl brown fight punch
