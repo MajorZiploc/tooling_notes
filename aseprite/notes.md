@@ -2,6 +2,15 @@ download links: (not linked to my actual humblebundle account)
 
 https://www.humblebundle.com/downloads?key=dUq2xem2UvbSEZCS
 
+# Settings
+
+## Background
+
+Defaults
+  Colors: #808080 #c7cfcc
+Preferred
+  Colors: #808080 #4b4b4b
+
 # Download Palettes
 
 NOTE: an easy way to find out where Aseprite is reading palettes from is to just attempt to import a palette. the default location the file explorer opens to is where the palette needs to go
