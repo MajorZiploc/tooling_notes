@@ -1,5 +1,9 @@
 vscode cli
 
+# reload (useful for reloading extensions)
+<cmd>+<shift>+<p> Developer: Reload Window
+<cmd>+<shift>+<p> Developer: Reload With Extensions Disabled
+
 # lists installed extensions
 code --list-extensions
 code --install-extension ms-vscode.cpptools
