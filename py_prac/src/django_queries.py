@@ -452,6 +452,14 @@ recs = Poll.objects.annotate(
 
 # CASE STATEMENT END
 
+# UNION BEGIN
+
+queryset = queryset1.union(queryset2) #queryset will contain all unique records of queryset1 + queryset2
+queryset = queryset1.union(queryset2, all=True) #queryset will contain all records of queryset1 + queryset2 including duplicates
+queryset = queryset1.union(queryset2,queryset3) # more than 2 queryset union
+
+# UNION END
+
 # SUBQUERY BEGIN
 
 employee_query = Employee.objects.filter(company='Private').only('id').all()
