@@ -140,16 +140,26 @@ function rsync_push {
 }
 
 ### sshfs like a volume into the remote machine
+
+project_name='project1'
+
 -- Make the directory where the remote filesystem will be mounted
-mkdir -p "$HOME/sshfs/${SSH_USER}@${SSH_HOST}";
+mkdir -p "$HOME/projects-sshfs/${project_name}/w/${SSH_USER}@${SSH_HOST}";
 -- Mount the remote filesystem
-sshfs "${SSH_USER}@${SSH_HOST}:" "$HOME/sshfs/${SSH_USER}@${SSH_HOST}" -ovolname="${SSH_USER}@${SSH_HOST}" -p 22  \
+-- This will make your home folder on the remote machine available under the ~/projects-sshfs/${project_name}/w of your local machine.
+sshfs "${SSH_USER}@${SSH_HOST}:" "$HOME/projects-sshfs/${project_name}/w/${SSH_USER}@${SSH_HOST}" -ovolname="${SSH_USER}@${SSH_HOST}" -p 22  \
     -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C;
--- This will make your home folder on the remote machine available under the ~/sshfs of your local machine.
+-- OPTIONAL if not tracking the .git in the sshfs session: track things locally temporarily
+cd "$HOME/projects-sshfs/${project_name}/;
+git init
+git add .
+git commit -m "init"
 
 -- teardown
 -- When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line:
-umount "$HOME/sshfs/${SSH_USER}@${SSH_HOST}";
+umount "$HOME/projects-sshfs/${project_name}/w/${SSH_USER}@${SSH_HOST}";
+-- OPTIONAL if not tracking the .git in the sshfs session
+rm -rf "$HOME/projects-sshfs/${project_name}/.git;
 
 ### sshing into the machine may be a good approach aswell
 https://learn.umh.app/course/connecting-with-ssh/#:~:text=Open%20a%20terminal%20and%20enter,ssh%20rancher%40192.168.99.118%20.
