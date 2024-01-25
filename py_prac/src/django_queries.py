@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
-from django.db.models import CASCADE, F, Max, TextField, Value
+from django.db.models import CASCADE, F, Max, TextField, Value, RowRange
 from django.db.models.functions import Concat
 from django.utils.timezone import now
 from django.db.models import F, Sum, Window
@@ -66,7 +66,8 @@ class Entry(models.Model):
 # instance.<model_name>_set is a Manager
   # where b: Blog instance. # b.entry_set is a Manager that returns QuerySets.
 
-# USEFUL: .query property of a QuerySet to view the sql query
+# USEFUL: .query.__str__() property of a QuerySet to view the sql query
+User.objects.distinct("age", "name").query.__str__()
 
 # QUERYSETS ARE LAZY
 # the act of creating a QuerySet doesn’t involve any database activity
@@ -144,8 +145,8 @@ __iregex
 # FILTERING __ commands END
 
 # find the earliest year an entry was published, we can issue the query:
-  from django.db.models import Min
-  Entry.objects.aggregate(first_published_year=Min("pub_date__year"))
+from django.db.models import Min
+Entry.objects.aggregate(first_published_year=Min("pub_date__year"))
 
 # LOOKUPS THAT SPAN RELATIONSHIPS BEGIN
 
@@ -225,7 +226,7 @@ entry.save()
 
 # NULL Coalesce BEGIN
 
- author = Author.objects.annotate(screen_name=Coalesce("alias", "goes_by", "name")).get()
+ author = Author.objects.annotate(screen_name=Coalesce("alias", "goes_by", Value("name"))).get()
 
 # NULL Coalesce END
 
@@ -233,10 +234,10 @@ entry.save()
 
 # ascending
 Entry.objects.order_by(Coalesce('summary', 'headline').desc())
-Entry.objects.order_by('sumary')
+Entry.objects.order_by('summary')
 # descending
 Entry.objects.order_by(Coalesce('summary', 'headline').desc())
-Entry.objects.order_by('-sumary')
+Entry.objects.order_by('-summary')
 # random order, can be expensive
 Entry.objects.order_by('?')
 
@@ -269,7 +270,7 @@ SELECT "hr_employee"."department_id",
 # GOTYA: only has an effect on queries with an .order_by()
 my_queryset.reverse()
 
-# distinct
+# distinct: will act as 'distinct on' if you do not only select the values you are distincting on
 # GOTYA: general must match your .order_by()
 Entry.objects.order_by('author', 'pub_date').distinct('author', 'pub_date')
 # GOTYA: must specify full field name. no short cuts in case of relation fields
@@ -277,6 +278,10 @@ Entry.objects.order_by('author', 'pub_date').distinct('author', 'pub_date')
 Entry.objects.order_by('blog').distinct('blog')
 # CORRECT
 Entry.objects.order_by('blog__id').distinct('blog__id')
+# 'distinct on' clause. will still select all data
+User.objects.distinct("age", "name")
+# a distinct. not a 'distinct on'. Requires selecting the data you want
+Team.objects.values('team_id', 'domain_name').distinct()
 
 # QUERYSET CACHEING BEGIN
 
@@ -386,7 +391,6 @@ Entry.objects.filter(pub_date__year=2007).update(headline='Everything is the sam
 # ForeignKey example
 b = Blog.objects.get(pk=1)
 Entry.objects.all().update(blog=b)
-# TODO: unsure if you need to call .save() on each model after doing this
 
 # F EXPRESSIONS
 Entry.objects.all().update(number_of_pingbacks=F('number_of_pingbacks') + 1)
@@ -394,7 +398,7 @@ Entry.objects.all().update(number_of_pingbacks=F('number_of_pingbacks') + 1)
 # This will raise a FieldError
 Entry.objects.update(headline=F('blog__name'))
 
-# UPDATE BEGIN
+# UPDATE END
 
 # REVERSE RELATIONSHIP ACCESS BEGIN
 # For example, a Blog object b has access to a list of all related Entry objects via the entry_set attribute
@@ -472,6 +476,19 @@ Post.objects.annotate(newest_commenter_email=Subquery(newest.values('email')[:1]
 
 # WINDOW FUNCTIONS BEGIN
 
+# validated example:
+q3 = Gen1Team.objects.annotate(
+    prev_team_id=Window(expression=Lag('team_id', offset=1, default=None), partition_by=[F('is_stub')], order_by=[F('team_id')], frame=RowRange(start=-7, end=1))
+).values('team_id', 'prev_team_id')[:5].query.__str__()
+# frame=RowRange(start=-7, end=1)) # for ROWS BETWEEN 7 PRECEDING AND 1 FOLLOWING
+# frame=RowRange(start=-7, end=0)) # for ROWS BETWEEN 7 PRECEDING AND CURRENT ROW
+# frame=RowRange(start=None, end=0)) # for ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+# frame=RowRange(start=0, end=0)) # for ROWS BETWEEN CURRENT ROW AND CURRENT ROW
+# frame=RowRange(start=0, end=1)) # for ROWS BETWEEN CURRENT ROW AND 1 FOLLOWING
+# EQ
+'SELECT "integrations_team"."team_id", LAG("integrations_team"."team_id", 1) OVER (PARTITION BY "integrations_team"."is_stub" ORDER BY "integrations_team"."team_id" ROWS BETWEEN 7 PRECEDING AND 1 FOLLOWING) AS "prev_team_id" FROM "integrations_team" LIMIT 5'
+
+
 window = {
   'partition_by': [F('b')],
   'frame': RowRange(start=None, end=0),
@@ -479,10 +496,10 @@ window = {
   }
 qs = Sample.objects.annotate(
         previous = Window(
-           expression=Lag('a', 1), **window
+           expression=Lag('a', 1, None), **window
          ), 
   next_val = Window(
-           expression=Lead('a', 1), **window
+           expression=Lead('a', 1, None), **window
         ),     
 ).order_by('b')
 for i in qs:
@@ -585,11 +602,59 @@ with connection.cursor() as cursor:
     for row in results:
         print(row)
 
+# sql_statement should be the same as the prev sql_statement: (to remove the CTEs)
+# TODO: confirm this is correct. it was from chat gipidy
+sql_statement = """
+SELECT
+  r.visited_on,
+  SUM(r.day_amount) OVER (ORDER BY r.visited_on ROWS BETWEEN %s PRECEDING AND CURRENT ROW) AS amount,
+  ROUND(
+    CAST(
+      AVG(r.day_amount) OVER (ORDER BY r.visited_on ROWS BETWEEN %s PRECEDING AND CURRENT ROW) AS NUMERIC
+    ),
+    2
+  ) AS average_amount,
+  LAG(r.visited_on, %s, NULL) OVER (ORDER BY r.visited_on) AS range_start
+FROM (
+  SELECT
+    c.visited_on,
+    SUM(c.amount) AS day_amount
+  FROM Customer AS c
+  GROUP BY c.visited_on
+) AS r
+WHERE LAG(r.visited_on, %s, NULL) OVER (ORDER BY r.visited_on) IS NOT NULL
+ORDER BY r.visited_on;
+"""
+
+# then convert to django
+
+# TODO: confirm this is correct. it was from chat gipidy
+queryset = (
+    Customer.objects
+    .values('visited_on')
+    .annotate(
+        day_amount=Sum('amount'),
+        # TODO: Which is right? Window outside? or Sum outside?
+        amount=Window(expression=Sum('amount'), order_by=F('visited_on'), frame=RowRange(start=rolling_average_rows, end=0))),
+        average_amount=Round(Avg('amount', window=Window(order_by=F('visited_on'), frame=RowRange(start=rolling_average_rows, end=0))), 2),
+        # it was rows_between instead of frame here. i think frame is right based on source code
+        # amount=window=Window(expression=Sum('amount'), order_by=F('visited_on'), rows_between=[rolling_average_rows, 0])),
+        # average_amount=Round(Avg('amount', window=Window(order_by=F('visited_on'), rows_between=[rolling_average_rows, 0])), 2),
+        # TODO can Lag be called outside of a Window like this?
+        range_start=Lag('visited_on', offset=rolling_average_rows)
+        # OR is it this? does Window
+        # range_start=Window(expression=Lag('visited_on', offset=rolling_average_rows)),
+    )
+    .filter(range_start__isnull=False)
+    .order_by('visited_on')
+)
+
 # CURSOR END
 
 # VALUES AND VALUES LIST BEGIN
 
 # .values() returns dictionaries of requested fields
+# NOTE: also used to limit what data you are selecting in your sql query
 Article.objects.values('comment_id').distinct()
 
 # .values_list() returns tuples, can flatten if 1 field is requested
