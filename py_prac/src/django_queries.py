@@ -477,7 +477,7 @@ Post.objects.annotate(newest_commenter_email=Subquery(newest.values('email')[:1]
 # WINDOW FUNCTIONS BEGIN
 
 # validated example:
-q3 = Gen1Team.objects.annotate(
+q3 = Team.objects.annotate(
     prev_team_id=Window(expression=Lag('team_id', offset=1, default=None), partition_by=[F('is_stub')], order_by=[F('team_id')], frame=RowRange(start=-7, end=1))
 ).values('team_id', 'prev_team_id')[:5].query.__str__()
 # frame=RowRange(start=-7, end=1)) # for ROWS BETWEEN 7 PRECEDING AND 1 FOLLOWING
