@@ -198,8 +198,12 @@ Wizard of Legend
 
 # Tags
 
-pixel_art pixel_artwork pixelart girl cape black red boots gloves
+pixel_art pixel_artwork pixelart girl cape black red brown boots gloves spear adventurer
 
 pixel_art pixel_artwork pixelart girl brown fight gloves boots
 
 pixel_art pixel_artwork pixelart girl brown fight punch
+
+pixel_art pixel_artwork pixelart girl flag horse charge green gray red
+
+pixel_art pixel_artwork pixelart girl field horizon red yellow brown
