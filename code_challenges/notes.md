@@ -165,6 +165,9 @@ UNION vs UNION ALL
   UNION - removes dups
   UNION ALL - keeps dups
 
+INTERSECT - for data that occurs in both selects
+  used the same as UNION
+
 distinct on does NOT filter out rows that do not have unique values. It basically keeps the first match
   if you need only rows that are unique based on some keys, you need something like:
 with UniqLocs as (
