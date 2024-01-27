@@ -14,6 +14,7 @@ https://lospec.com/
 ## Tilesets and other art assets
 https://itch.io/game-assets/tag-tileset
 https://craftpix.net/?s=pixel
+https://opengameart.org/
 
 # General
 
