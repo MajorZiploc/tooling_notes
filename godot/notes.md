@@ -16,6 +16,9 @@ https://itch.io/game-assets/tag-tileset
 https://craftpix.net/?s=pixel
 https://opengameart.org/
 
+## sound effects
+https://freesound.org/
+
 # General
 
 ## Recoloring
