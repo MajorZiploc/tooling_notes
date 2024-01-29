@@ -1,7 +1,7 @@
 use the python version you want to use
 
 # view installed verions
-pyenv verions
+pyenv versions
 
 # view available verions
 pyenv install -l
