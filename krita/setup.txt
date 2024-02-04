@@ -131,7 +131,9 @@ fav brushes:
     writing
 
   Color Palettes:
-    Add /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl
+    Add .kpl version if it exists since it retains color order. else use .gpl
+      /Users/manyu/projects/tooling_notes/krita/palettes/apollo.kpl
+      /Users/manyu/projects/tooling_notes/aseprite/palettes/apollo.gpl
     1. Have Palette Docker open:
       Settings -> Dockers -> Palette
     2. Import palette
