@@ -71,7 +71,19 @@ services:
       - "7474:7474"
       - "7473:7473"
       - "7687:7687"
+    # networks_tab: use this if proxy needed
+    # networks:
+    #   - proxy_net
     # volumes:
     #   - ./data:/data
     #   - ./logs:/logs
     #   - ./import:/var/lib/neo4j/import
+
+# used to attach to services to a different docker network. along with a networks_tab for each service
+# NOTE: this could also be not needed if you use a host of "host.docker.internal" for your app that hits things outside of its own docker network
+# as long as it has the port, it should be able to map it
+# networks:
+#   proxy_net:
+#     external:
+#       name: <other_docker_network_name>
+
