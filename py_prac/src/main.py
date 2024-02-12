@@ -423,8 +423,12 @@ def list_prac():
     # lazy some/every/forall/forany
     # list.any is above 100
     print(next((True for x in l if x > 100), False))  # False
+    # OR BETTER
+    print(any((x > 100 for x in l)))
     # list.all is above 100
     print(next((False for x in l if not x > 100), True))  # False
+    # OR BETTER
+    print((not x > 100 for x in l))
     any((False, False, True))  # True
     all((True, True, True))  # True
     # greedy some/every/forall/forany
