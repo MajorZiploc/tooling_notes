@@ -2,6 +2,7 @@ Extra snippets:
 
 git log --oneline --all --first-parent --remotes --reflog --author-date-order -- filename # search all branches git commits for commits that change a file
 git rebase -i <rebase_curr_branch_onto_this_branch>
+git merge --squash other_branch # alt approach to using rebase that is easier usually
 git reflog --relative-date
 git log --oneline # show each commit on 1 line
 git log -p --author="<pattern>"
