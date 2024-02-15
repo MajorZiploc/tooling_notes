@@ -243,6 +243,16 @@ Entry.objects.order_by('?')
 
 # ORDEY_BY END
 
+# exists BEGIN
+# instead of checking a count for 0, you can use exists()
+stuff_count = models.Stuff.objects.filter(id=stuff.id).count()
+if stuff_count == 0:
+    pass
+
+if models.Stuff.objects.filter(id=stuff.id).exists():
+    pass
+# exists END
+
 # GROUP BY
 
 # .values and .order_by must have same string
