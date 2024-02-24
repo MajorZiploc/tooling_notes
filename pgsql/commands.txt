@@ -1,5 +1,14 @@
 NOTE: casing can matter in postgres. and sometimes it likes lowercase, sometimes uppercase
 
+determine size of things:
+
+db size:
+select pg_size_pretty( pg_database_size('dbname') );
+
+table size (of current db):
+SELECT pg_size_pretty( pg_total_relation_size('tablename') );
+
+
 get a dump of a database schema:
 ```shell script
 PGPASSWORD=<password> pg_dump -U <user_name> -d <database_name> -h <host_dns_or_ip> -p <port> --schema-only > create_the_tables.sql
