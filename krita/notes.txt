@@ -161,6 +161,11 @@ with the paint_layer you want to add colors to selected:
   Top menu: Layer -> Split -> Split Layer...
     defaults should be fine in the window
 
+# upscaling resizing outline and retain shape sides
+use Lanczos3 scaling algo
+use magic wand selection tool to select whole shape
+use a brush to touch up all of the sides
+
 # automatic outline - basic line art hack
 after silhouetting
   right click layer
