@@ -130,6 +130,14 @@ fav brushes:
   v) Sketching-3 Leaky
     writing
 
+water color brushes:
+  b) Basic-2 Opacity
+    customized and named Basic-2 Opacity Hard
+      brush size: 10px (7px for details)
+      Opacity: 20% to 100%
+      size - pressure: 91% arced to 100% (gets to 100% quickier than linear)
+  b) Basic-5 Size Opacity
+
   Color Palettes:
     Add .kpl version if it exists since it retains color order. else use .gpl
       /Users/manyu/projects/tooling_notes/krita/palettes/apollo.kpl
