@@ -137,6 +137,8 @@ water color brushes:
       Opacity: 20% to 100%
       size - pressure: 91% arced to 100% (gets to 100% quickier than linear)
   b) Basic-5 Size Opacity
+    customized and named Basic-5 Size Opacity Soft
+      Opacity: linear from 23% to 23%
 
   Color Palettes:
     Add .kpl version if it exists since it retains color order. else use .gpl
