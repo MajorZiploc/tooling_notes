@@ -135,7 +135,7 @@ water color brushes:
     customized and named Basic-2 Opacity Hard
       brush size: 10px (7px for details)
       Opacity: 20% to 100%
-      size - pressure: 91% arced to 100% (gets to 100% quickier than linear)
+      size - pressure: 63% to 91%(in second box close to mid line) arced to 100% (gets to 100% quickier than linear)
   b) Basic-5 Size Opacity
     customized and named Basic-5 Size Opacity Soft
       Opacity: linear from 23% to 23%
