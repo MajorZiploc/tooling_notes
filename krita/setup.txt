@@ -130,6 +130,15 @@ fav brushes:
   v) Sketching-3 Leaky
     writing
 
+texture brushes:
+  Bristles hairy
+  f) Bristles-2 Flat Rough
+  f) Bristles-3 Large Smooth
+  g) Dry Bristles
+  h) Charcoal pencil large
+  j) Waterpaint Soft Edges
+  Sketch shade wash
+
 water color brushes:
   b) Basic-2 Opacity
     customized and named Basic-2 Opacity Hard
