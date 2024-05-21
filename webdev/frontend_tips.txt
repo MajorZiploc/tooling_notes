@@ -3,6 +3,10 @@ https://caniuse.com/
 
 # CSS
 
+  https://css-tricks.com/snippets/css/complete-guide-grid/
+
+  https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
   attr() function can pull in data from the html attributes on the element using the css style
   #NOTE: can only be used in the content field of a ::before or ::after css style
 
