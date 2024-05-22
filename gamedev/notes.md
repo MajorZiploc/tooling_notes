@@ -7,6 +7,18 @@
 
 ## sound tracks / music
 check_personal_files
+https://mixkit.co/
+
+### make your own music
+https://terrycavanagh.itch.io/bosca-ceoil
+audacity
+ocenaudio
+https://lmms.io/lsp/
+
+### sound effects
+https://sfbgames.itch.io/chiptone
+https://sfxr.me/
+https://www.bfxr.net/
 
 ## General Render Resources
 GPU Gems book series
@@ -19,6 +31,10 @@ https://lospec.com/
 https://itch.io/game-assets/tag-tileset
 https://craftpix.net/?s=pixel
 https://opengameart.org/
+https://kenney.nl/
+
+### svg icons
+https://www.flaticon.com/
 
 ## sound effects
 https://freesound.org/
