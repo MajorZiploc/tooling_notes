@@ -34,6 +34,7 @@ https://opengameart.org/
 https://kenney.nl/
 
 ### svg icons
+https://www.svgrepo.com
 https://www.flaticon.com/
 
 ## sound effects
