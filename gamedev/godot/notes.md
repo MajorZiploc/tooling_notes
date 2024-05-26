@@ -37,3 +37,10 @@ https://github.com/BenjaTK/Gaea
 draw order of a scene is top down, so last thing will be ontop of previous things
 
 y sort enabled for auto z indexing elements on screen
+
+# Export
+
+## HTML
+  DONT MARK IT AS RUNNABLE (a toggle box in the export)
+    will cause jittering for game time and tweens and such
+    it will be runnable without this ont
