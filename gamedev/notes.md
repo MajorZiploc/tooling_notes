@@ -8,6 +8,7 @@
 ## sound tracks / music
 check_personal_files
 https://mixkit.co/
+https://www.epidemicsound.com/
 
 ### make your own music
 https://terrycavanagh.itch.io/bosca-ceoil
@@ -40,6 +41,9 @@ https://www.flaticon.com/
 ## sound effects
 https://freesound.org/
 artist.io
+
+# textures
+https://www.textures.com/
 
 ## 3d models
 https://www.turbosquid.com/
