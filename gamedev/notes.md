@@ -40,6 +40,10 @@ https://www.flaticon.com/
 ## sound effects
 https://freesound.org/
 
+## 3d models
+https://www.turbosquid.com/
+https://sketchfab.com/3d-models/
+
 ## blender
 https://cgcookie.com/account/orders
 
