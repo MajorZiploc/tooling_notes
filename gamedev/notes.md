@@ -39,6 +39,7 @@ https://www.flaticon.com/
 
 ## sound effects
 https://freesound.org/
+artist.io
 
 ## 3d models
 https://www.turbosquid.com/
