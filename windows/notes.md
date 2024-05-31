@@ -1,4 +1,15 @@
-SLEEP ISSUE:
+# Desktops:
+
+## Nav - back and forth desktops
+
+<ctrl>+<(left|right)_arrow>
+
+## Desktop control panel
+<super>+<tab>
+
+
+
+# SLEEP ISSUE:
   SHORT:  always unplug on laptop before closing the lid
 
   EXPLANATION:
