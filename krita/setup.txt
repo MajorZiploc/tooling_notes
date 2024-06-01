@@ -16,7 +16,7 @@ mac: ~/Library/Preferences
 
 mac ex:
   cd ~/Library/Preferences;
-  afind_files_rename "\./krita.*rc.*" "s,(.*),\\1.bak,g" "" "1";
+  afind_files_rename ".*" "s,(.*),\\1.bak,g" "" "1";
   cd ~-;
   cp ./configs/* ~/Library/Preferences;
 
