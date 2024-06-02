@@ -187,7 +187,7 @@ custom brushes:
   Bristle Tapered
   Bristles hairy
   Brush dotted
-  c) Pencil-d Soft
+  c) Pencil-4 Soft
   d) Ink-7 Brush Rough
   d) Ink-8 Sumi-e
   f) Bristles-2 Flat Rough
