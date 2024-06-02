@@ -4,6 +4,10 @@
 # Open pen settings
 F5
 
+# change size of anything accuratly (brush size or opacity or percentages)
+mac - hold control and click the number
+windows - right click the number
+
 # Misc Brush notes:
 
   / - cycles back and forth between prev and curr brush
