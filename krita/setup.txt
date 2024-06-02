@@ -136,7 +136,9 @@ custom brushes:
     for sketching
     customized and named b) Basic-2 Opacity Hard
       brush size: 5px
-      Opacity: 20% to 100%
+      Opacity:
+        (0%, 20%)
+        (100%, 100%)
       size - pressure
         (0%, 63%)
         (45%, 91%)
@@ -144,7 +146,9 @@ custom brushes:
   b) Basic-5 Size Opacity
     for colors
     customized and named b) Basic-5 Size Basic
-      Opacity: linear from 100% to 100%
+      Opacity:
+        (100%, 100%)
+        (100%, 100%)
         for flats:
           turn down layer opacity to 40%
         for layered paint effect:
