@@ -22,7 +22,7 @@ mac ex:
 
 update these configs with the machines configs:
   cd ~/Library/Preferences;
-  cp `afind_files "\./krita.*rc.*"` /Users/manyu/projects/tooling_notes/krita/configs;
+  cp `afind_files "(\./krita.*rc.*|keyboard\.shortcuts)"` /Users/manyu/projects/tooling_notes/krita/configs;
 
 change these to the proper location
 
