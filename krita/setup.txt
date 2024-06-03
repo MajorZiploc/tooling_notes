@@ -98,11 +98,9 @@ copy the ./templates folder to where it is mentioned in the kritarc.
 
 
 Keyboard shortcuts: (./configs/keyboard.shortcuts)
-  Freehand Selection: ctrl+alt+a
-  Undo Freehand Brush Stroke or called (Menu -> Edit -> Undo <something here>):
-    add Alternate: '`' (the backtick)
-  Similar Color Selection Tool: <ctrl>+w
-  Contiguous Selection Tool: w
+import the custom keys into krita
+if windows, first run this replace script:
+  sed -E 's,selectopaque_add.*,selectopaque_add=Ctrl+Alt+Q,g; s,selectopaque_subtract.*,selectopaque_subtract=Ctrl+Alt+Shift+Q,g'
 
 BrushesAndStuff toolbar:
 Settings -> Configure Toolbars
