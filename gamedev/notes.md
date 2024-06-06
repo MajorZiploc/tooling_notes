@@ -49,6 +49,14 @@ https://www.textures.com/
 https://www.turbosquid.com/
 https://sketchfab.com/3d-models/
 
+## spritesheets and animations
+### change speed of gif
+https://ezgif.com/speed
+### pngs to gif
+https://ezgif.com/maker
+### gif to pngs
+https://ezgif.com/gif-to-sprite
+
 ## blender
 https://cgcookie.com/account/orders
 
