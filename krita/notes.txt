@@ -310,3 +310,7 @@ pixel vs nonpixel art
 ## 3d rotatable refs:
   https://sketchfab.com/3d-models/
   or blender files
+
+# Animation
+  Transformation Mask Layers are key for shifting the animation to where you need it
+    NOTE: its nondestrutable to the original non transformed thing
