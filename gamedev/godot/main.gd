@@ -1,3 +1,6 @@
+# to check if the top level node of scene that the current node is a part of has the method "method_name" on it
+owner.has_method("method_name");
+
 # dictionary .get and unpack(merge but is void)
 Global.app_state["npc"] = Global.app_state.get("npc", {});
 Global.app_state["npc"].merge({"combat_unit_data_type": key}, true);
