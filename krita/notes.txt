@@ -49,6 +49,13 @@ windows - right click the number
   # rotate in 3d space
     hold ctrl and use rotate tool
 
+# resize canvas
+## crop image to selected area
+C
+
+## resize based on menu
+<option>+<cmd>+c
+
 # filters
   https://docs.krita.org/en/reference_manual/filters/adjust.html
 
