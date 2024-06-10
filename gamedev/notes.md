@@ -5,6 +5,9 @@
 
 # Resources
 
+## game metrics (like gross revenue)
+https://vginsights.com/
+
 ## sound tracks / music
 check_personal_files
 https://mixkit.co/
