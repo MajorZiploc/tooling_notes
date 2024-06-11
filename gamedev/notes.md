@@ -81,3 +81,13 @@ https://github.com/PolyglotGamedev
 
 ## ui references
 https://www.gameuidatabase.com/
+
+## steam page tips
+
+good example steam page:
+
+https://store.steampowered.com/app/2681030/Outbound/
+
+under About This Game: first thing you see is a gif of adding the game to the wishlist
+
+https://store.steampowered.com/app/1693710/Operator8/
