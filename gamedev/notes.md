@@ -68,6 +68,9 @@ moho
 https://www.humblebundle.com/home/library
   then search for moho
 
+## voice actors
+https://www.castingcall.club/
+
 ## audio creation options:
 https://www.audacityteam.org/
 https://www.ocenaudio.com/
