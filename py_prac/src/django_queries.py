@@ -57,6 +57,22 @@ class Entry(models.Model):
     objects = models.Manager()  # Default Manager, defined implicitly, defined here just to show it
     entries = EntryManager()    # Custom Manager
 
+    class Meta:
+        ordering = ['-pub_date']
+        indexes = [
+            # standard single column index
+            models.Index(
+                fields=['rating'],
+                name='idx_blog_author'
+            )
+            # composed index
+            models.Index(
+                fields=['blog_id', 'author_id'],
+                name='idx_blog_author'
+            )
+        ]
+
+
     def __str__(self):
         return self.headline
 
