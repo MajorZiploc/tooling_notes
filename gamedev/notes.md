@@ -75,6 +75,10 @@ https://www.castingcall.club/
 https://www.audacityteam.org/
 https://www.ocenaudio.com/
 
+## fonts
+https://blambot.com/
+  (anime ace 3 is good for webtoons)
+
 ## steam info
 https://steamdb.info/
 
