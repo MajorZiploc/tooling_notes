@@ -9,6 +9,6 @@
 
 # text bubble props
 rectangle tool:
-  Fill: Not Filled
+  Fill: Foreground Color
   Round X: 300px
   Round Y: 500px

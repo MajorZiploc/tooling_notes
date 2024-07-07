@@ -99,6 +99,18 @@ regex:
       matches: apple apple
       doesnt match apple banana
   non-capture group: (?:<pattern>)
+  https://regexlicensing.org/
+    A brief summary of typical disasters:
+      Parsing email or IP addresses
+      Replacing build time tokens
+      Rolling your own string interpolations
+      Validating a person’s name
+      Parsing a phone number
+      Validating a street number
+      Enforcing a zip code globally
+      Searching in a database for something in a live query
+      Parsing a date or a time
+      Basically almost always outside of command line or ad-hoc query fu
 
 while loop:
   can to have to repeat a step after a while loop is done
