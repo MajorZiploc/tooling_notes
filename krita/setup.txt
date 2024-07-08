@@ -95,7 +95,8 @@ copy the ./templates folder to where it is mentioned in the kritarc.
   FullTemplateName[$e]=$HOME/Library/Application Support/krita/templates/my/.source/my_sketch.kra
   LastReturnType=Template
 
-
+Mac copy templates to this repo
+  cp -a "$HOME/Library/Application Support/krita/templates/my/." ./templates/templates/my
 
 Keyboard shortcuts: (./configs/keyboard.shortcuts)
 import the custom keys into krita

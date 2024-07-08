@@ -12,3 +12,6 @@ rectangle tool:
   Fill: Foreground Color
   Round X: 300px
   Round Y: 500px
+
+# for cropping pages to prepare for webtoons upload
+https://knicknic.github.io/croppy/
