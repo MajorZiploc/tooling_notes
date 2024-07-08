@@ -3,6 +3,11 @@
 
 `:windo :diffthis`
 
+# normal mode into insert mode
+go to the beginning of a selection of text
+I
+go to the ending of a selection of text
+A
 
 # History
 ## search history of commands run in vim with one of the following:
@@ -145,7 +150,7 @@ Example: `:tabedit ./READEME.md` to open READEME in new tab
 
 ## cycle to prev tab
 
-`gN` in normal mode
+`gN || gT` in normal mode
 
 ## goto to nth tab
 
@@ -571,12 +576,6 @@ example in this repo:
 cd ./vim/scriptin;
 cp input.txt input-dirty.txt; vim ./input-dirty.txt -s ./input.scriptin; cat ./input-dirty.txt; rm ./input-dirty.txt;
 
-# visual mode into insert mode
-go to the beginning of a selection of text
-I
-go to the ending of a selection of text
-A
-
 # text objects
 tag (t)
   good for html like structure
@@ -587,7 +586,6 @@ go to next method
 ]m
 go to prev method
 [m
-
 
 # vim args
 set args list to all python files
@@ -625,9 +623,9 @@ paragraph
 gqp
 
 # upper case whole line
-guu
+gUU
 OR
-Vgu
+VgU
 
 # switch caps of chars
 ~
