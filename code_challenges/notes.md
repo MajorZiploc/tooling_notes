@@ -89,10 +89,10 @@ regex:
     usually used to match the 'rest'
   positive look ahead assertion to check if a pattern is contained in the string
     can be useful to simplify a regex. where you have a general pattern and then extra checks to see if the string contains something
-    ex: does the string contain a digit? where the string containes _'s and s's (or the general pattern)
+    ex: does the string contain a digit? where the string contains _'s and s's (or the general pattern)
       ^(?=.*\d)[_s]*$
   negative look ahead assertion to check if a pattern is NOT contained in the string
-    ex: does the string NOT contain a digit? where the string containes _'s and s's (or the general pattern)
+    ex: does the string NOT contain a digit? where the string contains _'s and s's (or the general pattern)
       ^(?!.*\d)[_s]*$
   back reference: check if the same pattern that was matched earlier occurs again
     ex: ^(\w+)\s+\1$
@@ -275,9 +275,7 @@ There are several less common but highly useful SQL features and techniques that
     1 option: if you need it, just add it to the group by, dont think to hard about it
     2 option: if you cant add the thing to the group by. adding it to the having based on an aggregator and the select based on an aggregator could be it
       example: to get employees with 1 single dept in the table and get the dept value
-        SELECT employee_id, department_id
-        FROM Employee
-        WHERE primary_flag = 'Y'
+        SELECT employee_id, department_id FROM Employee WHERE primary_flag = 'Y'
         UNION
         SELECT employee_id, MAX(department_id) AS department_id
         FROM Employee
