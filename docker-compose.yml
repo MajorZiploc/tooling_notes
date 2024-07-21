@@ -80,18 +80,6 @@ services:
     #   - ./data:/data
     #   - ./logs:/logs
     #   - ./import:/var/lib/neo4j/import
-<<<<<<< Updated upstream
-
-# used to attach to services to a different docker network. along with a networks_tab for each service
-# NOTE: this could also be not needed if you use a host of "host.docker.internal" for your app that hits things outside of its own docker network
-# as long as it has the port, it should be able to map it
-# networks:
-#   proxy_net:
-#     external:
-#       name: <other_docker_network_name>
-
-=======
-    #
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.10.2
@@ -103,4 +91,12 @@ services:
       - "9200:9200"
     # volumes:
     #   - elasticsearch-data:/usr/share/elasticsearch/data
->>>>>>> Stashed changes
+
+# used to attach to services to a different docker network. along with a networks_tab for each service
+# NOTE: this could also be not needed if you use a host of "host.docker.internal" for your app that hits things outside of its own docker network
+# as long as it has the port, it should be able to map it
+# networks:
+#   proxy_net:
+#     external:
+#       name: <other_docker_network_name>
+
