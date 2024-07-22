@@ -68,6 +68,9 @@ moho
 https://www.humblebundle.com/home/library
   then search for moho
 
+## general animation resources
+https://itch.io/game-assets/tag-animation
+
 ## voice actors
 https://www.castingcall.club/
 
