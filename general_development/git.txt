@@ -6,6 +6,7 @@ git merge --squash other_branch # alt approach to using rebase that is easier us
 git reflog --relative-date
 git log --oneline # show each commit on 1 line
 git log -p --author="<pattern>"
+git log --author "user01\|user02"
 git stash drop stash@{n} # delete nth stash
 git stash pop --index <n> # pop/apply the nth stash
 git stash list # show all stashes
