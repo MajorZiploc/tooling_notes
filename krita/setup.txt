@@ -146,7 +146,7 @@ custom brushes:
     for colors
     customized and named b) Basic-5 Size Basic
       Opacity:
-        (100%, 100%)
+        (0%, 100%)
         (100%, 100%)
         for flats:
           turn down layer opacity to 40%
