@@ -186,6 +186,7 @@ custom brushes:
   Bristle Tapered
   Bristles hairy
   Brush dotted
+  Ink brush 25
   c) Pencil-4 Soft
   d) Ink-7 Brush Rough
   d) Ink-8 Sumi-e
@@ -200,11 +201,6 @@ custom brushes:
   u) Pixel Art
   u) Pixel Art Dithering
   u) Pixel Art Fill
-
-3ink brushes:
-  Ink brush 25
-    line art
-    hard shading/lighting/color
 
   Color Palettes:
     Add .kpl version if it exists since it retains color order. else use .gpl
