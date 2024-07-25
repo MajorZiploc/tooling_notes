@@ -93,6 +93,16 @@ Then it will autocomplete module names, etc.
 ## Accept suggestion
 `<ctrl>+y`
 
+## shift page by 1 line up
+in normal mode:
+
+`<ctrl>+y`
+
+## shift page by 1 line down
+in normal mode:
+
+`<ctrl>+e`
+
 # Buffers
 
 ## List open buffers
