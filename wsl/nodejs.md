@@ -39,6 +39,6 @@ start nvim on wsl side but in the windows_side repo
 
 ```bash
 powershell.exe -c 'move-item node_modules -destination "$env:Temp/nm_wsl"'
-powershell.exe -c 'move-item "$env:Temp/nm_ws" -destination nm_ws node_modules'
+powershell.exe -c 'move-item "$env:Temp/nm_ws" -destination node_modules'
 ```
 
