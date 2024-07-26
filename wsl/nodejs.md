@@ -13,6 +13,12 @@ npm i
 mv node_modules /mnt/c/Users/<username>/projects/<projectpath>
 ```
 
+or for moving (EXPERIMENTAL)
+
+```pwsh
+powershell.exe -c move-item '$(pwd_wsl)/node_modules' -destination node_modules"
+```
+
 start nvim on wsl side but in the windows_side repo
 
 then to run from windows_side you need to reinstall the node_modules
@@ -43,3 +49,11 @@ powershell.exe -c 'move-item node_modules -destination "$env:Temp/nm_wsl"'
 powershell.exe -c 'move-item "$env:Temp/nm_ws" -destination node_modules'
 ```
 
+## stop program working with node_modules
+```bash
+powershell.exe -c 'handle.exe node_modules'
+```
+
+```bash
+powershell.exe -c 'stop-process -Id <pid>'
+```
