@@ -2,7 +2,7 @@
 
 ## Nav - back and forth desktops
 
-<ctrl>+<(left|right)_arrow>
+<super>+<ctrl>+<(left|right)_arrow>
 
 ## Desktop control panel
 <super>+<tab>
