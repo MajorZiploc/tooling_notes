@@ -1,3 +1,4 @@
+# NOTE: simpler path for this is to just git clone the deps on the wsl side and browser the code
 
 # Running from windows side but getting lsp support in wsl
 
