@@ -19,7 +19,7 @@ then to run from windows_side you need to reinstall the node_modules
 backup the wsl node_modules
 
 ```bash
-powershell.exe -c 'rename-item node_modules nm_wsl'
+powershell.exe -c 'move-item node_modules -destination "$env:TEMP/nm_wsl"'
 ```
 
 reinstall node_modules on windows side
@@ -31,14 +31,14 @@ npm i
 ## returning setup
 
 ```bash
-powershell.exe -c 'rename-item node_modules nm_ws'
-powershell.exe -c 'rename-item nm_wsl node_modules'
+powershell.exe -c 'move-item node_modules -destination "$env:Temp/nm_ws"'
+powershell.exe -c 'move-item "$env:Temp/nm_wsl" -destination node_modules'
 ```
 
 start nvim on wsl side but in the windows_side repo
 
 ```bash
-powershell.exe -c 'rename-item node_modules nm_wsl'
-powershell.exe -c 'rename-item nm_ws node_modules'
+powershell.exe -c 'move-item node_modules -destination "$env:Temp/nm_wsl"'
+powershell.exe -c 'move-item "$env:Temp/nm_ws" -destination nm_ws node_modules'
 ```
 
