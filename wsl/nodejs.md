@@ -57,3 +57,10 @@ powershell.exe -c 'handle.exe node_modules'
 ```bash
 powershell.exe -c 'stop-process -Id <pid>'
 ```
+
+## cacheing of node_modules libs
+
+tsserver appears to cache the libs. may be useful to learn how to tap into this for types
+
+### Example
+/home/majorziploc/.cache/typescript/5.5/node_modules/@types/react-redux/index.d.ts |326 Col 14| export const connect: Connect;
