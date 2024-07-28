@@ -1,4 +1,4 @@
-# TODO: write a script to copy files from the wsl repo to the ws repo based on the git status to sync files over. this is likely the easiest way to make sure you have an lsp
+# NOTE: copy_to_backup and copy_from_backup are easier ways to ensure you have an lsp on the wsl side but work with the ws repo
 
 # NOTE: simpler path for this is to just git clone the deps on the wsl side and browser the code
 
