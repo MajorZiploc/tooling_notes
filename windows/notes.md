@@ -1,3 +1,10 @@
+# Disable animations
+
+Useful for removing things like the slow switch desktops animations
+
+Settings -> Accessibility -> Visual effects
+Animation: Off
+
 # Desktops:
 
 ## Nav - back and forth desktops
