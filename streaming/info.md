@@ -25,6 +25,9 @@ put your model separated png layer files into:
 on mac:
 "$HOME/Library/Application Support/Godot/app_userdata/PNGTuberPlus"
 
+on windows:
+C:\Users\LakeM\AppData\Roaming\Godot\app_userdata\PNGTuberPlus
+
 for packing animation frames:
   https://www.codeandweb.com/free-sprite-sheet-packer
   use Horizontal and 0 px padding in settings
