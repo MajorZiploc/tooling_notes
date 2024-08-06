@@ -672,3 +672,6 @@ to rerun a macro
 @@
 OR
 <shift><register> --example: Q to use q register
+
+to look at big big files (launch without plugins)
+vim -u NONE <file>
