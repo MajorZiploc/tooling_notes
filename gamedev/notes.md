@@ -93,6 +93,9 @@ https://github.com/PolyglotGamedev
 ## ui references
 https://www.gameuidatabase.com/
 
+## create controller button layout screens with this
+https://www.padcrafter.com/?templates=Controller+Scheme+1
+
 ## steam page tips
 
 good example steam page:
