@@ -3,6 +3,11 @@ preferences are found in different spots per os
 windows: Settings -> Configure Krita
 mac: Krita -> Preferences
 
+Keyboard shortcuts: (./configs/keyboard.shortcuts)
+import the custom keys into krita
+if windows, first run this replace script:
+  sed -E 's,selectopaque_add.*,selectopaque_add=Ctrl+Alt+Q,g; s,selectopaque_subtract.*,selectopaque_subtract=Ctrl+Alt+Shift+Q,g; s,KisToolSelectSimilar.*,KisToolSelectSimilar=Ctrl+Alt+W,g;'
+
 # CONFIG LOCATIONS
 # IMPORTANT: BACK UP ORIGINAL RC FILES BEFORE OVERRIDING THEM IN CASE OF MAJOR ISSUES
 
@@ -97,11 +102,6 @@ copy the ./templates folder to where it is mentioned in the kritarc.
 
 Mac copy templates to this repo
   cp -a "$HOME/Library/Application Support/krita/templates/my/." ./templates/templates/my
-
-Keyboard shortcuts: (./configs/keyboard.shortcuts)
-import the custom keys into krita
-if windows, first run this replace script:
-  sed -E 's,selectopaque_add.*,selectopaque_add=Ctrl+Alt+Q,g; s,selectopaque_subtract.*,selectopaque_subtract=Ctrl+Alt+Shift+Q,g'
 
 BrushesAndStuff toolbar:
 Settings -> Configure Toolbars
