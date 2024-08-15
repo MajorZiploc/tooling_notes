@@ -1,9 +1,26 @@
-short cuts
+# settings
 
+emulate numpad (when you dont have a numpad)
+
+Edit -> Preferences -> Input -> Check Emulate Numpad (top nums will work like numpad)
+
+# workflow
+
+add assets from 1 .blend file to another
+File -> Append
+
+# short cuts
+
+shift - space -- view tools
+
+https://www.youtube.com/watch?v=ywVN__LjuyU&list=PLda3VoSoc_TR7X7wfblBGiRz-bvhKpGkS&index=4
+	t - toggles left window (tools)
+	n - toggles right window (camera lock area)
+	ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
 
 Object mode
 
-shift-A (add new camera)
+shift-A (add item)
 Ctrl- 0NumPad (change active camera)
 
 Toggle user view
@@ -59,11 +76,6 @@ SHIft - f = game like camera movement
 alt - right click ---- makes making faces wayyyyyyy ezer for larger numbers of faces,verts, and edges
 
 
-
-https://www.youtube.com/watch?v=ywVN__LjuyU&list=PLda3VoSoc_TR7X7wfblBGiRz-bvhKpGkS&index=4
-	t - toggles left window (tools)
-	n - toggles right window (camera lock area)
-	ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
 
 
 https://www.youtube.com/watch?v=AMBi1R7KB48
