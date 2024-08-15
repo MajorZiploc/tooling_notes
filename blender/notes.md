@@ -140,6 +140,74 @@ ctrl + (1-5) -- add subdivision surface modifier
 
 ## 3D Viewport -- Edit Mode
 
+### Selection
+
+NOTE: doesnt work with numpad preferences set to top numbers -- need to use top bar next to Edit Mode (3 little icons)
+
+  1 -- vertex select mode
+
+  2 -- edge select mode
+
+  3 -- face select mode
+
+l -- select linked at cursor
+
+ctrl+lmb -- select shortest path
+
+atl+lmb -- select edge loop
+
+ctrl+atl+lmb -- select edge ring
+
+shift+g -- select similar
+
+ctrl++ grow selection
+ctrl+- shrink selection
+
+### Modeling
+
+ctrl+v -- vertex menu
+ctrl+e -- edge menu
+ctrl+f -- face menu
+alt+E -- extrude menu
+alt+n -- normals menu
+
+e -- extrude
+ctrl+RMB -- extrude to cursor
+
+f -- fill face / new edge
+
+j -- vertex connect path
+
+p -- separate
+
+m -- merge
+
+y -- split
+
+v -- rip
+
+ctrl+b -- bevel
+ctrl+shift+b -- vertex bevel
+
+i -- inset
+ii -- inset individual faces
+
+ctrl+r -- loop cut
+ctrl+r,scroll_wheel -- loop cut count
+gg -- loop / vertex slide
+
+k -- knife
+
+alt+s -- shrink / fatten
+
+shift+ctrl+alt+s -- shear
+
+shift+alt+s -- to sphere
+
+shift+n -- recalculate normals
+
+edge create -- while using subdivision surface modifier
+  shift+e
 
 
 
