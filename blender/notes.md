@@ -1,3 +1,7 @@
+# blender cheat sheets (based alot of what i have here on these)
+
+https://docs.google.com/document/d/1dH4r1tCrf2EddWYfjmFc2FTWdHiXYMymI9cVisXd6hg/edit?pli=1#heading=h.vc3zuzjxkz5v
+
 # settings
 
 emulate numpad (when you dont have a numpad)
