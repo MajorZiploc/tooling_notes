@@ -79,18 +79,16 @@ shift+z -- toggle solid / wireframe view
 alt+z -- toggle x-ray view
 
 h -- hide
+alt + h -- unhide all
+shift + h -- hide all except selected
 
 x -- delete
 
 F9 -- adjust last operation
 shift + R -- repeat last action
 
-alt + h -- unhide all
-shift + h -- hide all except selected
-
 shift + d -- duplicate
 alt + d -- duplicate linked
-
 
 shift-A (add item)
 
@@ -109,8 +107,7 @@ Ctrl- 0NumPad (change active camera)
 shift - f = while in cam view, it allows cam to fly, similar to lock cam view
 
 
----- more advanced
-
+## more advanced
 
 while changing values in the N panel or properties window
   select multiple objects
@@ -172,7 +169,7 @@ ctrl+- shrink selection
 ctrl+v -- vertex menu
 ctrl+e -- edge menu
 ctrl+f -- face menu
-alt+E -- extrude menu
+alt+e -- extrude menu
 alt+n -- normals menu
 
 e -- extrude
