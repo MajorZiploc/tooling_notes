@@ -85,12 +85,12 @@ shift + h -- hide all except selected
 x -- delete
 
 F9 -- adjust last operation
-shift + R -- repeat last action
+shift + r -- repeat last action
 
 shift + d -- duplicate
 alt + d -- duplicate linked
 
-shift-A (add item)
+shift-a (add item)
 
 merge menu
 m
