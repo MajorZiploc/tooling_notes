@@ -11,36 +11,159 @@ File -> Append
 
 # short cuts
 
+## High level control
+
 shift - space -- view tools
 
-https://www.youtube.com/watch?v=ywVN__LjuyU&list=PLda3VoSoc_TR7X7wfblBGiRz-bvhKpGkS&index=4
-	t - toggles left window (tools)
-	n - toggles right window (camera lock area)
-	ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
+` -- view all nav tools (View pie menu) `
 
-Object mode
+. -- Pivot point menu
 
-shift-A (add item)
-Ctrl- 0NumPad (change active camera)
+tab -- toggle edit and object mode
+
+t -- toggles left window (tools)
+
+n -- toggles right window (camera lock area) (properties)
+
+ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
+
+search menu (like ctrl-p in vscode)
+F3
+
+home -- show all objects in view
 
 Toggle user view
 5NumPad or View -> Perspective/Orthographic
 
-From wiki blender book
-alt - m = merging.
-shift-s or shift-c helps relocate cursor
+# 3D Viewport
+
+shift + 2finger_swipe -- pane
+
+standard 2 finger pitching -- zoom
+
+2finger_swipe -- rotate view
+
+g -- move
+alt+g -- clear move/location
+
+r -- rotate
+rr -- trackball rotate
+alt+r -- clear rotate
+
+s -- scale
+alt+s -- clear scale
+
+  modifier controls for these
+  ctrl -- while moving mouse will snap to grid (incremental movement / snapping)
+  shift -- micro motions (precise movement)
+  x,y,z to limit to the axis
+  xx,yy,zz to limit to the local axis
+  shift + x,y,z to limit to NOT axis the selected axis
+  ctrl+a -- apply transformation - bakes transformation in and remove clear ability
+  o -- proportional editing
+    scroll whell -- change area of influence
+
+a -- select all
+alt+a -- deselect all
+lmb -- select object
+shift+lmb -- select multiple object
+lmb+drag / b -- box select
+c -- circle select
+ctrl+i -- invert selection
+
+shift+z -- toggle solid / wireframe view
+alt+z -- toggle x-ray view
+
+h -- hide
+
+x -- delete
+
+F9 -- adjust last operation
+shift + R -- repeat last action
+
+alt + h -- unhide all
+shift + h -- hide all except selected
+
+shift + d -- duplicate
+alt + d -- duplicate linked
+
+
+shift-A (add item)
+
+merge menu
+m
+
+alt - m = merging
+
+shift+rmb -- move 3D cursor
+shift-s (snap menu) or shift-c helps relocate cursor
+
+0 - toggle camera view
+
+Ctrl- 0NumPad (change active camera)
+
 shift - f = while in cam view, it allows cam to fly, similar to lock cam view
-lasso select - ctrl - lmb, to select, ctrl - select - lmb to deselect
+
+
+---- more advanced
+
+
+while changing values in the N panel or properties window
+  select multiple objects
+  hold alt (while changing values)
+
+tmp drawing for annotation purposes:
+  hold d + lmb -- draw stuff
+  hold d + rmb -- erase drawings
+
+q - quick favorites
+
+lasso select
+  lmb + drag - to select
+  ctrl + lmb - to deselect
+
+ctrl + j -- join objects
+
+] -- select children
+shift + ] -- extend child selection
+[ -- select parent
+shift + [ -- extend parent selection
+ctrl + p -- parent to active object
+alt + p -- clear parent
+
+F2 -- rename
+ctrl+F2 -- batch rename
+
+m -- move to collection
+
+ctrl + (1-5) -- add subdivision surface modifier
+
+## 3D Viewport -- Edit Mode
+
+
+
+
+
+
+
+
+
+
+---------- TODO: vent the rest of this
+
+
+# Object mode
+
 ctrl while extruding snaps the moves by a blender unit
+
 When some faces dont subdivide Mesh → Vertices → Remove Double
+
 ctrl - n = recalc the normal direction
+
 edit mode - L - selects all parts linked to the par	t that mouse is hovering over!!!
 
---simple hat--
-ctrl +LMB is used to make generatrix shapes
-alt+R is the spin tool
-alt + m is the merge tool
 F6 brings up last done thing
+
 normals in mesh in edit mode can be used to trouble shoot
 
 -- putting hat on person
