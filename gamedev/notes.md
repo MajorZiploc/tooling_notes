@@ -107,3 +107,7 @@ https://store.steampowered.com/app/2681030/Outbound/
 under About This Game: first thing you see is a gif of adding the game to the wishlist
 
 https://store.steampowered.com/app/1693710/Operator8/
+
+## Timed Free Asset Watchers
+posts videos of when things are 100% discounts
+https://www.youtube.com/@gamefromscratch/videos
