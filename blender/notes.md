@@ -5,8 +5,14 @@ https://docs.google.com/document/d/1dH4r1tCrf2EddWYfjmFc2FTWdHiXYMymI9cVisXd6hg/
 # settings
 
 emulate numpad (when you dont have a numpad)
+  Edit -> Preferences -> Input -> Check Emulate Numpad (top nums will work like numpad)
 
-Edit -> Preferences -> Input -> Check Emulate Numpad (top nums will work like numpad)
+emulate 3 button mouse (Emulate middle mouse button) (when you dont have a mouse)
+Edit -> Preferences -> Input -> Check Emulate 3 Button Mouse (alt+lmb)
+
+^ undo stack
+Edit -> Preferences -> System -> Memory & Limits -> Undo Steps: 256
+
 
 # workflow
 
@@ -16,6 +22,11 @@ File -> Append
 # short cuts
 
 ## High level control
+
+General window toggles
+  top left below x2 the blender icon. you will see a grid with a ball on it
+  click it and you will see a bunch of editors and diff views
+  NOTE: the 'Info' option under 'Scripting' is for app logs
 
 shift - space -- view tools
 
