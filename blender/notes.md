@@ -167,6 +167,7 @@ ctrl+- shrink selection
 ### Modeling
 
 ctrl+v -- vertex menu
+rmk (on model with selected vertrices) -- vertex context menu -- NOTE: subdivide is in there
 ctrl+e -- edge menu
 ctrl+f -- face menu
 alt+e -- extrude menu
