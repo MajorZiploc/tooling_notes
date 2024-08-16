@@ -76,7 +76,7 @@ alt+s -- clear scale
   shift + x,y,z to limit to NOT axis the selected axis
   ctrl+a -- apply transformation - bakes transformation in and remove clear ability
   o -- proportional editing
-    scroll whell -- change area of influence
+    scroll wheel -- change area of influence
 
 a -- select all
 alt+a -- deselect all
@@ -103,19 +103,19 @@ alt + d -- duplicate linked
 
 shift-a (add item)
 
-merge menu
+merge menu / OR new collection -- depends on context
 m
 
-alt - m = merging
+alt + m -- merging
 
 shift+rmb -- move 3D cursor
 shift-s (snap menu) or shift-c helps relocate cursor
 
-0 - toggle camera view
+0 -- toggle camera view
 
-Ctrl- 0NumPad (change active camera)
+Ctrl+0NumPad -- change active camera
 
-shift - f = while in cam view, it allows cam to fly, similar to lock cam view
+shift - f -- while in cam view, it allows cam to fly, similar to lock cam view
 
 
 ## more advanced
@@ -178,7 +178,7 @@ ctrl+- shrink selection
 ### Modeling
 
 ctrl+v -- vertex menu
-rmk (on model with selected vertrices) -- vertex context menu -- NOTE: subdivide is in there
+rmb (on model with selected vertrices) -- vertex context menu -- NOTE: subdivide is in there
 ctrl+e -- edge menu
 ctrl+f -- face menu
 alt+e -- extrude menu
