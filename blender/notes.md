@@ -211,6 +211,36 @@ shift+n -- recalculate normals
 edge create -- while using subdivision surface modifier
   shift+e
 
+# getting assets
+
+## unity
+
+### convert to .fbx
+
+To export a Unity asset as an FBX file, you can use the FBX Exporter tool -- install it from:
+Window -> Package Manager (Packages: Unity Registry) -- search for it and install it
+  then you can right click on assets in the bottom content window and select 'Convert to FBX Prefab Variant...'
+    NOTE: you may have to adjust some settings
+
+then just import the .fbx to blender
+
+## unreal engine
+
+### convert to .fbx
+
+you can right click on assets in the bottom content window:
+  Asset Actions -> Export... -> select .fbx
+  FBX compatibility: 2020
+  only checkbox these:
+    Mesh:
+      Vertex Color
+    Static Mesh:
+      Export Source Mesh
+    Skeletal Mesh:
+      Export Morph Targets
+  NOTE: if a dropdown - then set to NONE if not specified above
+
+then just import the .fbx to blender
 
 
 
