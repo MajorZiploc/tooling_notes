@@ -230,6 +230,18 @@ edge create -- while using subdivision surface modifier
 
 # getting assets
 
+## reducing vertex counts for performance and storage considerations
+to right of 3D Viewport to the left the contextual_menu there is a series of colored icons
+click the Wrench -> Generate -> Decimate -> (will change the contextual_menu) Add Modifier -> Collapse -> Ratio less than 1.0
+  Once happy with LOD: Apply changes
+    the dropdown arrow in the contextual_menu next to the camera icon
+      -> Apply
+OR: better
+open the Scripting view and paste the content from this script into the text editor:
+`./scripts/decimate_selected_meshes.py`
+select the meshes you want to reduce the polygon count of
+click the Play icon (Run Script) in the Scripting view
+
 ## unity
 
 ### convert to .fbx
