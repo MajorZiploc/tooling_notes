@@ -13,6 +13,9 @@ Edit -> Preferences -> Input -> Check Emulate 3 Button Mouse (alt+lmb)
 ^ undo stack
 Edit -> Preferences -> System -> Memory & Limits -> Undo Steps: 256
 
+Plugins -- (load your plugins from blendermarket place or where ever):
+Edit -> Preferences -> Add-ons
+  top right dropdown arrow -- Install from Disk...
 
 # workflow
 
@@ -33,6 +36,9 @@ shift - space -- view tools
 ` -- view all nav tools (View pie menu) `
 
 . -- Pivot point menu
+
+z -- render types like wire and solid meshes
+  shift-z -- toggle back and forth between last 2 choices
 
 tab -- toggle edit and object mode
 
