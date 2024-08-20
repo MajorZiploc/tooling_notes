@@ -250,8 +250,16 @@ click the Play icon (Run Script) in the Scripting view
 
 ## unity
 
-### convert to .fbx
+### general keyboard shortcuts of unity
+shift+space -- toggle min/max a window
 
+### delete assets on hard disk
+have to go to where they are stored on your computer. Unity does not have a built in way to do it
+
+#### windows
+~/AppData/Roaming/Unity/Asset\ Store-5.x
+
+### convert to .fbx
 To export a Unity asset as an FBX file, you can use the FBX Exporter tool -- install it from:
 Window -> Package Manager (Packages: Unity Registry) -- search for it and install it
   then you can right click on assets in the bottom content window and select 'Convert to FBX Prefab Variant...'
