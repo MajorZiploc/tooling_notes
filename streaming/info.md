@@ -28,6 +28,9 @@ on mac:
 on windows:
 C:\Users\LakeM\AppData\Roaming\Godot\app_userdata\PNGTuberPlus
 
+bubble tea background color for windows:
+  #876c6c
+
 for packing animation frames:
   https://www.codeandweb.com/free-sprite-sheet-packer
   use Horizontal and 0 px padding in settings
