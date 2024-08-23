@@ -174,7 +174,7 @@ custom brushes:
   k) Blender Basic
     smearing
   v) Distort Move
-  Ink circle 5
+  Ink circle 05
     fine and varied size line art
   t) Shapes Fill
     flats - good for filling in areas with color
