@@ -12,6 +12,7 @@ then in the shell it lauches
   NOTE: Set platform to Windows (if on Linux, for example)
 
   app_update <app_id>
+  app_uninstall <app_id>
     NOTE: app_id is the last number in the url of an apps store page on steam
 
 2 alt. open PlayOnMac
