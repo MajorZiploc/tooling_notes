@@ -42,6 +42,9 @@ in normal mode:
 command history (can also act as a standard vim buffer to work on commands to this execute with <cr>)
 `q:`
 
+search history (can also act as a standard vim buffer to work on commands to this execute with <cr>)
+`q/`
+
 brings up a list of the commands in normal mode and then press enter on the one you want
 
 
