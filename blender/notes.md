@@ -37,7 +37,7 @@ General window toggles
   click it and you will see a bunch of editors and diff views
   NOTE: the 'Info' option under 'Scripting' is for app logs
 
-shift - space -- view tools
+shift + space -- view tools
 
 ` -- view all nav tools (View pie menu) `
 
@@ -121,13 +121,13 @@ m
 alt + m -- merging
 
 shift+rmb -- move 3D cursor
-shift-s (snap menu) or shift-c helps relocate cursor
+shift+s (snap menu) or shift-c helps relocate cursor
 
 0 -- toggle camera view
 
 Ctrl+0NumPad -- change active camera
 
-shift - f -- while in cam view, it allows cam to fly, similar to lock cam view
+shift + f -- while in cam view, it allows cam to fly, similar to lock cam view
 
 
 ## more advanced
