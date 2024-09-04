@@ -29,3 +29,11 @@ Animation: Off
   if laptop is connected to power and you close the lid, it enters s0 network connected sleep
   if laptop is disconnected from power and you close the lid, it enters s0 network disconnected sleep
   if laptop is connected to power and you close the lid and then you unplug the laptop, it enters s0 network connected sleep
+
+# Hanging processes holding on to file or folder:
+
+## use handle to find out what is using it
+handle.exe ./<file_or_folder>
+
+## kill the task
+taskkill /PID pid_number /F
