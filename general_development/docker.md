@@ -1,3 +1,9 @@
+dcompose_file="docker-compose.yml"
+docker compose -f "$dcompose_file" up -d
+docker compose -f "$dcompose_file" down
+docker exec -i -t "$container_name" dotnet run
+docker exec -i -t "$container_name" bash
+
 # list images
 docker images / docker image ls
 
