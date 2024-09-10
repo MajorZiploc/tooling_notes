@@ -1,6 +1,6 @@
 [Desktop Entry]
-Icon=.icon/my_webtoon_small_based_off_walter_ostlie.png
+Icon=.icon/_my_webtoon_small_based_off_walter_ostlie.png
 Name=my_webtoon_small_based_off_walter_ostlie
 Type=Link
-URL[$e]=.source/my_webtoon_small_based_off_walter_ostlie.kra
+URL[$e]=.source/_my_webtoon_small_based_off_walter_ostlie.kra
 X-KDE-Hidden=false
