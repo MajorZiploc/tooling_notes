@@ -9,6 +9,9 @@ I
 go to the ending of a selection of text
 A
 
+# toggle cursor in visual mode to top or bottom of selection
+o
+
 # History
 ## search history of commands run in vim with one of the following:
 
