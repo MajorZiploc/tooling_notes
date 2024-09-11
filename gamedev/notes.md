@@ -5,6 +5,9 @@
 
 # Resources
 
+## limited time free games
+https://steamdb.info/upcoming/free/
+
 ## game metrics (like gross revenue)
 https://vginsights.com/
 
