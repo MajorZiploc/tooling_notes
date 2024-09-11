@@ -623,6 +623,8 @@ settings:
 " show all included/linked files for current buffer
 :checkpath!
 
+# print ascii value of chars selected
+ga
 
 # goes up and down long lines that are soft broken rather than going to next/prev line
 gj
