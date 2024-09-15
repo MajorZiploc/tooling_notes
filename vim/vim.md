@@ -32,6 +32,10 @@ Advanced regex (very magic mode)
 search history
 q/
 
+# quicking pasting of chunks from clipboard
+set paste
+set nopaste
+
 # Search in file
 
 ## Search basic but go 10 lines after the search phrase
