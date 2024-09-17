@@ -16,3 +16,5 @@ make a search then:
   to quit the fzf list and load clist
     ctrl-q
   
+fuzzy search git branches on cli:
+  fzf-git-checkout
