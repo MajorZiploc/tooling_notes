@@ -23,7 +23,7 @@ let recordPrac () =
   p |> PersonR.say |> printfn "%s"
 
 // union type
-type IPAddressFormat = 
+type IPAddressFormat =
   | V4 of (int*int*int*int)
   | V6
 
@@ -34,7 +34,7 @@ module IPAddressFormat =
     | V6 -> printfn "V6"
 
 
-let setPrac () = 
+let setPrac () =
   let l1 = [1; 2; 3]
   let l2 = [2; 3; 4]
   let _s1 = Set.intersectMany [(Set.ofList l1); (Set.ofList l2)]
@@ -52,6 +52,12 @@ let mapPrac () =
   m1 |> Map.iter (printfn "%A -> %A")
   printfn "%A" (m1 |> Map.toList)
 
+let typePrac () =
+  let v1 = ""
+  let variableType = v1.GetType()
+  printfn "The type of myVariable is: %s" (variableType.FullName)
+
+
 // Define a function to construct a message to print
 let from whom =
   sprintf "from %s" whom
@@ -66,6 +72,7 @@ let mainAsync _argv = async {
   setPrac ()
   recordPrac ()
   mapPrac ()
+  typePrac ()
   let message = from "F#" // Call the function
   printfn "Hello world %s" message
   return 0 // return an integer exit code
