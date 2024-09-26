@@ -342,6 +342,17 @@ command! MakeTags !ctags -R .
 only tag python files
 ctags --languages=python
 
+# cscope
+
+## update cscope references db in bash
+cscope -b `gfind_files ".*"`
+
+## update cscope references in vim
+:cs add cscope.out
+
+## find references in vim
+:cs find c <token_name>
+
 ## nav a g] list
 
 - :ts or :tselect shows the list
