@@ -344,14 +344,49 @@ ctags --languages=python
 
 # cscope
 
-## update cscope references db in bash
+## basic usage
+
+### update cscope references db in bash
 cscope -b `gfind_files ".*"`
 
-## update cscope references in vim
+### update cscope references in vim
 :cs add cscope.out
 
-## find references in vim
+### find references in vim
 :cs find c <token_name>
+
+nmap <leader>cs :cs find s <cword><cr>
+nmap <leader>cs :cs find g <cword><cr>
+nmap <leader>cs :cs find c <cword><cr>
+nmap <leader>cs :cs find t <cword><cr>
+nmap <leader>cs :cs find e <cword><cr>
+nmap <leader>cs :cs find f <cword><cr>
+nmap <leader>cs :cs find i <cword><cr>
+nmap <leader>cs :cs find d <cword><cr>
+nmap <leader>cs :cs find a <cword><cr>
+nmap <leader>cs :cs find b <cword><cr>
+
+nmap <leader>cs :call LoadQuickFixList(system('cscope -dL0 ' . expand('<cword>') . ' \| sed -E "s,(.*?) (GetType\|.global.) ([[:digit:]]+) (.*),\1:\3:1: \4,g"'))<CR>
+
+## query the custom cscope.out file in bash
+
+### List files indexed by cscope:
+cscope -L -f cscope.out -d -R
+
+### various searches -- NOTE: instead of cscope nvim plugin, could just make basic wrappers around these functions to load the quickfix list
+
+cscope -dL0 <symbol>
+
+cscope -dL3 <function_name>
+
+  The -L option can be used with the following numeric flags:
+    0: Find symbols
+    1: Find function definitions
+    2: Find function references (calls)
+    3: Find text string
+    4: Find egrep pattern
+    5: Find file
+    6: Find files that include a specific file
 
 ## nav a g] list
 
