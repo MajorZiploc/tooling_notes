@@ -639,6 +639,8 @@ def string_prac():
     # format string using r and f flags. rf and fr are both valid
     x = 1
     print(rf'{x} \nyo') # \n will not print a new line since its a regex string
+    print('ZZZ'.lower())
+    print('zzz'.upper()())
     # starts_with
     'zzz'.startswith('z')
     # ends_with
