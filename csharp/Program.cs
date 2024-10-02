@@ -181,19 +181,13 @@ class Program {
     // Merging dictionaries (similar to **spread in JS)
     var my_first_dict = new Dictionary<string, int> { { "A", 1 }, { "B", 2 }, { "D", 2 } };
     var my_second_dict = new Dictionary<string, int> { { "C", 3 }, { "D", 4 } };
-    // TODO: fix this to work with key conflicts like "D"
+    // NOTE: this path doesnt allow for merging dicts with the same key, will throw an exception
     // var my_merged_dict = my_first_dict.Concat(my_second_dict)
     //                   .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
     // proly something like this: List of tuples to dictionary
-    var td = new List<(string, int)> { ("Sachin", 10), ("MSD", 7), ("Kohli", 18), ("Rohit", 45), ("Sachin", 20000) }
+    var my_merged_dict = new List<(string, int)> { ("Sachin", 10), ("MSD", 7), ("Kohli", 18), ("Rohit", 45), ("Sachin", 20000) }
       .GroupBy(t => t.Item1)
       .ToDictionary(g => g.Key, g => g.Last().Item2); // Keeps the last value for duplicate keys
-    Console.WriteLine(string.Join(", ", td.Select(kvp => $"{kvp.Key}: {kvp.Value}")));
-    // this is the imperative way:
-    var my_merged_dict = new Dictionary<string, int>(my_first_dict);
-    foreach (var kvp in my_second_dict) {
-      my_merged_dict[kvp.Key] = kvp.Value; // this will overwrite if the key already exists
-    }
     Console.WriteLine(string.Join(", ", my_merged_dict.Select(kvp => $"{kvp.Key}: {kvp.Value}")));
     // Dictionary comprehension equivalent
     var l = Enumerable.Range(0, 7);
@@ -219,11 +213,6 @@ class Program {
     // var x1 = new Dictionary<string, object> { { "x", 1 }, { "p", new Person("bob", 26, new List<int> { 1, 2, 3, 4 }) } };
     // var x2 = new Dictionary<string, object> { { "x", 1 }, { "p", new Person("bob", 26, new List<int> { 1, 2, 3, 4 }) } };
     // Console.WriteLine(x1.SequenceEqual(x2)); // False because of object reference comparison
-    // List of tuples to dictionary
-    var td = new List<(string, int)> { ("Sachin", 10), ("MSD", 7), ("Kohli", 18), ("Rohit", 45), ("Sachin", 20000) }
-      .GroupBy(t => t.Item1)
-      .ToDictionary(g => g.Key, g => g.Last().Item2); // Keeps the last value for duplicate keys
-    Console.WriteLine(string.Join(", ", td.Select(kvp => $"{kvp.Key}: {kvp.Value}")));
   }
 
   public static void Main(string[] args) {
