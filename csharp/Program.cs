@@ -184,6 +184,12 @@ class Program {
     // TODO: fix this to work with key conflicts like "D"
     // var my_merged_dict = my_first_dict.Concat(my_second_dict)
     //                   .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+    // proly something like this: List of tuples to dictionary
+    var td = new List<(string, int)> { ("Sachin", 10), ("MSD", 7), ("Kohli", 18), ("Rohit", 45), ("Sachin", 20000) }
+      .GroupBy(t => t.Item1)
+      .ToDictionary(g => g.Key, g => g.Last().Item2); // Keeps the last value for duplicate keys
+    Console.WriteLine(string.Join(", ", td.Select(kvp => $"{kvp.Key}: {kvp.Value}")));
+    // this is the imperative way:
     var my_merged_dict = new Dictionary<string, int>(my_first_dict);
     foreach (var kvp in my_second_dict) {
       my_merged_dict[kvp.Key] = kvp.Value; // this will overwrite if the key already exists
