@@ -488,7 +488,7 @@ async function main() {
 
 main();
 
-const biweekly = 2700;
+const biweekly = 2600;
 // const biweekly_deductions = 1100;
 const biweekly_deductions = 0;
 const weekly_deductions = biweekly_deductions / 2;
