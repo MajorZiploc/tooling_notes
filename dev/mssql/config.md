@@ -8,8 +8,10 @@ let $SQLCMDDBNAME="mssql" |
 let $SQLCMDUSER="mssql" |
 let $SQLCMDPASSWORD="password" |
 
-let vim_code_runner_sql_as_csv="true" |
 let vim_code_runner_container_name="tooling_notes-mssql-1" |
-let vim_code_runner_container_type="docker"
+let vim_code_runner_container_type="docker" |
+
+let vim_code_runner_sql_as_csv="true" |
+let vim_code_runner_should_convert_double_quotes="true" |
 
 ```

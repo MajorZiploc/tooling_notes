@@ -1,4 +1,4 @@
-module fs_prac.data
+module fsharp.data
 
 open Acadian.FSharp
 open Acadian.Dapper.Fs

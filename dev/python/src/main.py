@@ -640,7 +640,7 @@ def string_prac():
     x = 1
     print(rf'{x} \nyo') # \n will not print a new line since its a regex string
     print('ZZZ'.lower())
-    print('zzz'.upper()())
+    print('zzz'.upper())
     # starts_with
     'zzz'.startswith('z')
     # ends_with

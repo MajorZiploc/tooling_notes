@@ -487,3 +487,15 @@ async function main() {
 }
 
 main();
+
+const biweekly = 2700;
+// const biweekly_deductions = 1100;
+const biweekly_deductions = 0;
+const weekly_deductions = biweekly_deductions / 2;
+const weekly = biweekly / 2;
+const weekly_after_deductions = weekly - weekly_deductions;
+const weekly_expenses = 500;
+const weekly_investable = weekly_after_deductions - weekly_expenses;
+const annual_investable = weekly_investable * 56;
+console.log(weekly_investable);
+console.log(annual_investable);

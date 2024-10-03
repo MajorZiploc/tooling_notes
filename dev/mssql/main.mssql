@@ -18,6 +18,16 @@ cross apply (
   from dbo.t2
 ) as ca
 
+select top(1)
+  *
+  , '"'
+  , N'"'
+from table1
+;
+
+  , '' + CHAR(34) + ''
+  , N'' + CHAR(34) + N''
+
 -- PIVOT (like unmelt in pandas) UNPIVOT (like melt in pandas)
 
 -- microsoft docs for mssql
