@@ -215,10 +215,17 @@ class Program {
     // Console.WriteLine(x1.SequenceEqual(x2)); // False because of object reference comparison
   }
 
+  public static void TypePrac() {
+    var v1 = "";
+    var variableType = v1.GetType();
+    Console.WriteLine("The type of myVariable is: " + variableType.FullName);
+  }
+
   public static void Main(string[] args) {
     Program.StringPrac();
     Program.ListPrac();
     Program.DictionaryPrac();
+    Program.TypePrac();
   }
 
 }

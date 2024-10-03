@@ -303,11 +303,6 @@ let typePrac () =
   let variableType = v1.GetType()
   printfn "The type of myVariable is: %s" (variableType.FullName)
 
-
-// Define a function to construct a message to print
-let from whom =
-  sprintf "from %s" whom
-
 let mainAsync _argv = async {
   let a = async { return 1 }
   let xs = [a; a]
