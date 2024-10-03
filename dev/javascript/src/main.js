@@ -500,3 +500,16 @@ const weekly_investable = weekly_after_deductions - weekly_expenses;
 const annual_investable = weekly_investable * 56;
 console.log(weekly_investable);
 console.log(annual_investable);
+
+// Goal for wealth net worth
+const pretax_salary = 120000;
+const age = 31;
+const middle_wealth_line = (pretax_salary * age) / 10;
+const high_wealth_line = middle_wealth_line * 2;
+const low_wealth_line = middle_wealth_line / 2
+console.log('low_wealth_line');
+console.log(low_wealth_line);
+console.log('middle_wealth_line');
+console.log(middle_wealth_line);
+console.log('high_wealth_line');
+console.log(high_wealth_line);
