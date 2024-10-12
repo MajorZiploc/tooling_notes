@@ -1,3 +1,6 @@
+# vtuber models
+https://booth.pm/en/search/live2d
+https://booth.pm/en/search/live2d?in_stock=true&max_price=0&page=4
 
 # vtuber rig
 https://store.steampowered.com/app/1325860/VTube_Studio/
