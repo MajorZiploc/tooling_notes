@@ -419,6 +419,8 @@ psql -c "\l"
 \l
 
 # autocomplete (no plugin)
+-- buffer list pop up -- DEFAULT TO THIS
+<ctrl>x <ctrl>n then <ctrl>x <ctrl>p
 ** -- keywords in complete next
 <ctrl>n
 ** -- keywords in complete previous
