@@ -37,3 +37,16 @@ handle.exe ./<file_or_folder>
 
 ## kill the task
 taskkill /PID pid_number /F
+
+# developer settings
+
+Settings -> System -> For developers
+
+  Enable Developer Mode
+
+  Enable all File Explorer options
+
+  Enable all Powershell options
+
+  Enable sudo option
+    adds sudo command
