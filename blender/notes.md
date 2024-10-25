@@ -1,3 +1,7 @@
+# resources
+https://cgcookie.com/account/orders
+https://blendermarket.com/
+
 # python scripts
 ## installing deps
 pyenv install 3.11
