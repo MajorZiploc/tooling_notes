@@ -70,3 +70,9 @@ should hue shift the base color towards yellow/red/orange (warm colors) slightly
 
 ## Shadows
 should hue shift the base color towards blue/purple (cool colors) slightly
+
+## sell art
+https://gumroad.com/
+https://displate.com/
+https://www.redbubble.com/p/344-redbubble-coupons-deals-promotions?gad_source=1&gclid=CjwKCAiA9IC6BhA3EiwAsbltOJTQBznX25RzKS8MHGnp0wSuZrHcQXaU759b8mDGwJ897wh84RABNxoCaZUQAvD_BwE&gclsrc=aw.ds
+https://www.etsy.com/?ref=lgo
