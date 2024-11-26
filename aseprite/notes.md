@@ -185,6 +185,9 @@ operations work on all selected elements
 https://lospec.com/gallery/submit
 https://www.deviantart.com/submit/
 
+# convert image to fuse bead art
+https://www.pixel-beads.net/
+
 # sprite sizes
 
 characters
