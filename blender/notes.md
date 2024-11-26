@@ -2,6 +2,18 @@
 https://cgcookie.com/account/orders
 https://blendermarket.com/
 
+## 3d printing pipeline
+
+### wide range of .stl files
+https://www.printables.com/
+
+### create cookie / polymer clay .stl files
+https://app.cookiecad.com/
+
+### cookie / polymer clay .stl files (free and priced)
+https://cults3d.com/
+-- NOTE: think about making own and selling here
+
 # python scripts
 ## installing deps
 pyenv install 3.11
