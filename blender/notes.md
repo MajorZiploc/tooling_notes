@@ -180,6 +180,10 @@ NOTE: doesnt work with numpad preferences set to top numbers -- need to use top 
 
 l -- select linked at cursor
 
+f -- fill
+  will try to fill the best it can if left ambiguous
+    best seen if select 1 edge and press f
+
 ctrl+lmb -- select shortest path
 
 atl+lmb -- select edge loop
