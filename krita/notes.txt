@@ -294,6 +294,19 @@ k and l
 convert to gray scale
   cmd+shift+u
 
+# exporting pixel art
+path for upscaling and removing blurryness
+  NOT the path for game engine art
+Image -> Scale Image to New Size
+  Width: 1080px
+  Filter: Nearest Neighbor
+
+path for game art:
+  In export menu (if options are there)
+    Smooth: 0
+    sub sampling: best quality
+    Large to small file slider - put it to 0 or 1 (closest to large file)
+
 Pixel Grid (toggle on and off)
 View -> Show Pixel Grid
 

@@ -24,4 +24,20 @@ Layers and Object tab:
   preview the hovered over path/group/layer
   hover and hold option/alt key
 
+Dropper Tool -  Color Selector (d)
+
 horizontal flip (h)
+
+rotate ([ ])
+
+# Clipping and Masking
+https://inkscape-manuals.readthedocs.io/en/latest/clipping-and-masking.html
+
+Select both objects
+Object -> Clip -> (inverse or standard)
+
+# Preferences
+
+checkerboard background
+File -> Document Properties -> Display
+  Checkboard checkbox
