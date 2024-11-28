@@ -106,3 +106,8 @@ Sigma 1.4 Lens https://amzn.to/47JsTXo
 Elgato Wave 3 USB Microphone https://amzn.to/3MO3GTB
 Elgato Capture Card https://amzn.to/3MO2oZ6
 Elgato Key Light https://amzn.to/40PCVUO
+
+### Some production companys
+
+https://zapcreatives.com/en-us
+https://www.stickermule.com/
