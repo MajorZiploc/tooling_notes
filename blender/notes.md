@@ -103,6 +103,7 @@ alt+s -- clear scale
   xx,yy,zz to limit to the local axis
   shift + x,y,z to limit to NOT axis the selected axis
   ctrl+a -- apply transformation - bakes transformation in and remove clear ability
+    OR to apply specific transformation: (almost top menu) Object -> Apply -> Choose: (scale, location, rotation, etc...)
   o -- proportional editing
     scroll wheel -- change area of influence
 
