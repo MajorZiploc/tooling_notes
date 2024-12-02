@@ -146,6 +146,8 @@ Ctrl+0NumPad -- change active camera
 
 shift + f -- while in cam view, it allows cam to fly, similar to lock cam view
 
+Mirroring object
+ctrl + m -- followed by x,y,z then enter
 
 ## more advanced
 
