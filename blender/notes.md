@@ -152,6 +152,9 @@ ctrl + m -- followed by x,y,z then enter
 Convert things like curves to mesh
 rmb > convert to mesh
 
+move vertexs to median z
+sz0
+
 ## more advanced
 
 while changing values in the N panel or properties window
