@@ -149,6 +149,9 @@ shift + f -- while in cam view, it allows cam to fly, similar to lock cam view
 Mirroring object
 ctrl + m -- followed by x,y,z then enter
 
+Convert things like curves to mesh
+rmb > convert to mesh
+
 ## more advanced
 
 while changing values in the N panel or properties window
