@@ -2,6 +2,9 @@
 https://cgcookie.com/account/orders
 https://blendermarket.com/
 
+### textures and other 3d assets
+https://polyhaven.com/
+
 ## 3d printing pipeline
 
 ### wide range of .stl files
