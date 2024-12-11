@@ -1,3 +1,16 @@
+# toggle scroll bars on canvas
+ctrl + b
+
+# pane view
+<space> + mouse
+
+# convert object to path
+Path -> Object to Path
+
+# add path effects
+Path -> Path Effects...
+  useful for things like bending text (if the text object was converted to a path)
+
 Path and Object top tabs are good for common tasks for modifying objects
   to path for example is often needed
 

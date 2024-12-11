@@ -10,6 +10,9 @@ https://polyhaven.com/
 ### wide range of .stl files
 https://www.printables.com/
 
+### good tool for stl creation - has a good svg converter
+https://www.tinkercad.com/dashboard
+
 ### create cookie / polymer clay .stl files
 https://app.cookiecad.com/
 
