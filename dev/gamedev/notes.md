@@ -33,6 +33,7 @@ https://developer.nvidia.com/gpugems/gpugems/contributors
 
 ## Color Palettes
 https://lospec.com/
+https://coolors.co/
 
 ## Tilesets and other art assets
 https://itch.io/game-assets/tag-tileset

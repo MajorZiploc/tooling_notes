@@ -132,6 +132,9 @@ C
   in canvas:
     <fn>+<shift>+(drag left or right)
 
+# Wrap around mode (check tiling)
+shift + w
+
 # WORKFLOW: Fake Line Art step
   once done with all sketch layers
     step away. copy paste and bunch and review it to make sure you arent missing anything
