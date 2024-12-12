@@ -15,6 +15,9 @@ ctrl
 ## draw shape from center out 
 ctrl + shift
 
+# identify hovered over object in Obect Explorer side bar
+hold ctrl + alt and hover over each element
+it will reduce opacity of all other objects on the canvas
 
 # deep select the path in the layer and group
 <ctrl>+<left_click>
@@ -90,3 +93,7 @@ Object -> Clip -> (inverse or standard)
 checkerboard background
 File -> Document Properties -> Display
   Checkboard checkbox
+
+# Resources
+svg related stuff
+https://www.visioncortex.org/
