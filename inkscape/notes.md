@@ -71,6 +71,9 @@ Selector Tool (s) (like normal mode in vim) many commands expect you to be in th
 Node Tool (n)
 
 Pen Tool (b)
+NOTE: use 'Create Bspline path' option
+  by default it curves lines
+  holding shift lets you draw straight lines
 
 Layers and Object tab:
   preview the hovered over path/group/layer
@@ -87,6 +90,11 @@ https://inkscape-manuals.readthedocs.io/en/latest/clipping-and-masking.html
 
 Select both objects
 Object -> Clip -> (inverse or standard)
+
+# Convert raster to svg
+Path -> Trace Bitmap
+NOTE: its good for generating weighted line art
+  the multi colored option is usually better for thie
 
 # Preferences
 
