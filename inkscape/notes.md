@@ -69,6 +69,10 @@ NOTE:
 Selector Tool (s) (like normal mode in vim) many commands expect you to be in this mode
 
 Node Tool (n)
+NOTE: select or deselect nodes outward from currently selected nodes
+  hover over a selected node and scroll up or down
+    good for proportional editing of a shape
+      select move, select more move, select more move...
 
 Pen Tool (b)
 NOTE: use 'Create Bspline path' option
