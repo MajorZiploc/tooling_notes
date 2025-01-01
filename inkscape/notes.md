@@ -74,6 +74,12 @@ NOTE: select or deselect nodes outward from currently selected nodes
     good for proportional editing of a shape
       select move, select more move, select more move...
 
+  selecting adjacent nodes:
+    using a mouse with a scroll wheel, you can select nodes in a path in inkscape by:
+    Clicking on a node with the path tool.
+    Keep the pointer hovered over the node.
+    Hold down the control key, and wheel the scroll wheel up. Inkscape will select the next nodes in the path
+
 Pen Tool (b)
 NOTE: use 'Create Bspline path' option
   by default it curves lines
