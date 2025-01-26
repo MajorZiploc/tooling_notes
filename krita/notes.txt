@@ -4,6 +4,13 @@
 # Open pen settings
 F5
 
+# canvas controls
+pane view
+<space> + lmd
+
+zoom in and out view
+<space> + lmd
+
 # change size of anything accuratly (brush size or opacity or percentages)
 mac - hold control and click the number
 windows - right click the number
