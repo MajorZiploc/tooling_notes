@@ -10,6 +10,17 @@ Path -> Object to Path
 # zoom to 100%
 1
 
+# scaling
+To scale nodes closer together in Inkscape
+Node Tool
+select nodes
+<shift> + <
+
+To scale nodes apart in Inkscape
+Node Tool
+select nodes
+<shift> + >
+
 # lock aspect ratio when drawing shapes
 ctrl
 ## draw shape from center out 
