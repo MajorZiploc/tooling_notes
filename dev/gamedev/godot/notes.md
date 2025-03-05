@@ -40,7 +40,14 @@ y sort enabled for auto z indexing elements on screen
 
 # Export
 
+Requires getting the Export Templates from the godoto download page
+then go to Editor -> Manage Export Templates...
+  Install from File
+
 ## HTML
   DONT MARK IT AS RUNNABLE (a toggle box in the export)
     will cause jittering for game time and tweens and such
     it will be runnable without this ont
+  right before saving
+    rename to 'index.html'
+    uncheck Export With Debug
