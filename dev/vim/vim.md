@@ -3,6 +3,12 @@
 
 `:windo :diffthis`
 
+# insert to normal mode
+esc
+NOTE: the 2 below are your only choice from firefox console
+<ctrl>+c
+<ctrl>+[
+
 # normal mode into insert mode
 go to the beginning of a selection of text
 I
