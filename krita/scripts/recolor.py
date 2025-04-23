@@ -12,7 +12,7 @@ color_remaps = [
     # ColorRemap(_from='#371603',_to=(62,233,1))
 ]
 def get_rgb_color(color: Union[str, tuple[int, int, int]]) -> tuple[int, int, int]:
-    return color if type(color) is not str else tuple(int(color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
+    return color if type(color) is not str else tuple(int(color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4)) # type: ignore
 color_remaps = [ColorRemap(_from=get_rgb_color(color_remap._from),_to=get_rgb_color(color_remap._to)) for color_remap in color_remaps]
  
 def main():
