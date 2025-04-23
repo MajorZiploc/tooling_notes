@@ -1,4 +1,19 @@
 from krita import Krita, Document, QImage, QByteArray, QColor
+from typing import Union
+from dataclasses import dataclass
+
+@dataclass(frozen=True, eq=True)
+class ColorRemap:
+    _from: Union[str, tuple[int, int, int]]
+    _to: Union[str, tuple[int, int, int]]
+
+color_remaps = [
+    ColorRemap(_from='#371603',_to='#a53030')
+    # ColorRemap(_from='#371603',_to=(62,233,1))
+]
+def get_rgb_color(color: Union[str, tuple[int, int, int]]) -> tuple[int, int, int]:
+    return color if type(color) is not str else tuple(int(color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
+color_remaps = [ColorRemap(_from=get_rgb_color(color_remap._from),_to=get_rgb_color(color_remap._to)) for color_remap in color_remaps]
  
 def main():
 
@@ -7,79 +22,23 @@ def main():
         if layer.name() == "Background": return
         print('layer.name()')
         print(layer.name())
-        r, g, b = 255, 0, 0
         width, height = doc.width(), doc.height()
         data = layer.pixelData(0, 0, width, height)
-        # print(data)
-        # print(data[0])
-        # img1 = QImage()
-        # img1.loadFromData(data)
-        # img1.rgbSwapped()
-        # QImage.Format_RGB32
-        # img1 = QImage(data, doc.width(), doc.height(), QImage.Format_RGBA8888).rgbSwapped()
-        # print('img1')
-        # print(img1)
-        # print('img1.bits()')
-        # print(img1.bits())
-
-        # address the TODO in this python krita plugin code snippet
-        # NOTE: dont worry about undefined vars and such, this is a snippet from a larger code base
-        # img1 = QImage(data, doc.width(), doc.height(), QImage.Format_RGBA32)
-        # ptr = img1.bits()
-        # # TODO: change all (r,g,b) = (55,22,3) to (r,g,b) = (62, 233, 1)
-        # ptr.setsize(img1.byteCount())
-        # layer.setPixelData(QByteArray(ptr.asstring()), 0, 0, img1.width(), img1.height())
-        # doc.refreshProjection()
 
         img1 = QImage(data, doc.width(), doc.height(), QImage.Format_RGBA8888)
         for y in range(img1.height()):
             for x in range(img1.width()):
                 color = QColor(img1.pixel(x, y))
-                # print('------colors BEGIN')
-                # print('color.red()')
-                # print(color.red())
-                # print('color.green()')
-                # print(color.green())
-                # print('color.blue()')
-                # print(color.blue())
-                # print('------colors END')
-                # red is blue and blue is red - someone messed up the api
-                if color.red() == 3 and color.green() == 22 and color.blue() == 55:
-                    img1.setPixelColor(x, y, QColor(62, 233, 1, color.alpha()))
-                    # print('CHANGE!')
-                # break
-            # break
-
+                for color_remap in color_remaps:
+                    r1,g1,b1 = color_remap._from
+                    r2,g2,b2 = color_remap._to
+                    # NOTE: red is blue and blue is red - someone messed up the api
+                    if color.red() == b1 and color.green() == g1 and color.blue() == r1:
+                        img1.setPixelColor(x, y, QColor(b2, g2, r2, color.alpha()))
         ptr = img1.bits()
         ptr.setsize(img1.byteCount())
         layer.setPixelData(QByteArray(ptr.asstring()), 0, 0, img1.width(), img1.height())
         doc.refreshProjection()
-
-
-        #
-        #
-        # width, height = doc.width(), doc.height()
-        # data = layer.pixelData(0, 0, width, height)
-        # print(data)
-        # print(data[0])
-        # for y in range(height):
-        #     for x in range(width):
-        #         index = 4 * (y * width + x)
-        #         data[index] = r
-        #         data[index + 1] = g
-        #         data[index + 2] = b
-        # layer.setPixelData(data, 0, 0, width, height)
-        #
-        #
-        # image_data = layer.getImageData()
-        # Iterate through the pixels
-        # for pixel_index, pixel in enumerate(image_data):
-        #     # Check if the pixel is gray (simplified example)
-        #     # if pixel[0] == pixel[1] and pixel[1] == pixel[2]:
-        #         # Change the pixel to red
-        #     image_data[pixel_index] = (255, 0, 0)  # Red
-        # # Update the layer's image data
-        # layer.setImageData(image_data)
 
     def traverse_layers(node):
         for child in node.childNodes():
