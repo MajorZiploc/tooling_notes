@@ -7,20 +7,20 @@ class ColorRemap:
     _from: Union[str, tuple[int, int, int]]
     _to: Union[str, tuple[int, int, int]]
 
+reverse=False
 color_remaps = [
     # ColorRemap(_from='#371603',_to='#a53030'),
     # ColorRemap(_from='#371603',_to=(62,233,1)),
-    # ColorRemap(_from='#7a367b',_to='#3c5e8b'),
-    # ColorRemap(_from='#c65197',_to='#73bed3'),
-    # ColorRemap(_from='#df84a5',_to='#a4dddb'),
-    ColorRemap(_from='#3c5e8b',_to='#7a367b'),
-    ColorRemap(_from='#73bed3',_to='#c65197'),
-    ColorRemap(_from='#a4dddb',_to='#df84a5'),
+    ColorRemap(_from='#7a367b',_to='#3c5e8b'),
+    ColorRemap(_from='#c65197',_to='#73bed3'),
+    ColorRemap(_from='#df84a5',_to='#a4dddb'),
 ]
 
 def get_rgb_color(color: Union[str, tuple[int, int, int]]) -> tuple[int, int, int]:
     return color if type(color) is not str else tuple(int(color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4)) # type: ignore
 color_remaps = [ColorRemap(_from=get_rgb_color(color_remap._from),_to=get_rgb_color(color_remap._to)) for color_remap in color_remaps]
+if reverse:
+    color_remaps = [ColorRemap(_from=get_rgb_color(color_remap._to),_to=get_rgb_color(color_remap._from)) for color_remap in color_remaps]
  
 def main():
 
