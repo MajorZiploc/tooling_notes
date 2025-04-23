@@ -157,6 +157,7 @@ when records of 1 table need to do something with other records of the same tabl
     NOTE: the over clause could be blank if the order and groupings of the root query are what you want in the sub window query
       ex: dense_rank() over() as rank
 
+    NOTE: over clause can use unbounded preceding instead of 'n' preceding to get all preceding rows
     NOTE: over clause generic elements: dense_rank() over (partition by e.departmentId order by e.salary desc rows between 6 preceding and current row) filter (where rental_date >= date '2005-04-01' and rental_date < date '2005-08-01') as thing
       NOTE: the filter () section is not supported by all window frame functions
 
