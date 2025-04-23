@@ -349,3 +349,11 @@ pixel vs nonpixel art
     To make it destructive, you need to flatten the layer that the Transformation Mask Layer is associated with
       right click on layer you want to flatten/apply the transform to (layer with the sub Transformation Mask Layer associated with it):
         Flatten Layer
+
+## Animation to GIF
+https://docs.krita.org/en/reference_manual/render_animation.html
+File -> Render Animation
+  Export as video
+    # for pixel art
+    Filter: neighbor
+  Render as: gif
