@@ -7,7 +7,7 @@ class ColorRemap:
     _from: Union[str, tuple[int, int, int]]
     _to: Union[str, tuple[int, int, int]]
 
-reverse=False
+reverse = False
 color_remaps = [
     # ColorRemap(_from='#371603',_to='#a53030'),
     # ColorRemap(_from='#371603',_to=(62,233,1)),
@@ -18,6 +18,9 @@ color_remaps = [
     ColorRemap(_from='#a4dddb',_to='#3c5e8b'),
     # ColorRemap(_from='#151d28',_to='#090a14'),
 ]
+def target_node_pred(node):
+    return True
+    # return node.name() == "r"
 
 def get_rgb_color(color: Union[str, tuple[int, int, int]]) -> tuple[int, int, int]:
     return color if type(color) is not str else tuple(int(color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4)) # type: ignore
@@ -34,7 +37,6 @@ def main():
         print(layer.name())
         width, height = doc.width(), doc.height()
         data = layer.pixelData(0, 0, width, height)
-
         img1 = QImage(data, doc.width(), doc.height(), QImage.Format_RGBA8888)
         for y in range(img1.height()):
             for x in range(img1.width()):
@@ -51,10 +53,20 @@ def main():
         doc.refreshProjection()
 
     def traverse_layers(node):
+        if node.type() == "paintlayer":
+            process_layer(node)
+            return
         for child in node.childNodes():
-            process_layer(child)
             if child.type() == "grouplayer":
                 traverse_layers(child)
+            else:
+                process_layer(child)
+
+    def find_target_node(node):
+        if node.type() == "paintlayer" and target_node_pred(node): return node
+        for child in node.childNodes():
+            if target_node_pred(child): return child
+            if child.type() == "grouplayer": return find_target_node(child)
 
     app = Krita.instance()
     doc = app.activeDocument()
@@ -67,7 +79,11 @@ def main():
             print('doc.currentTime()')
             print(doc.currentTime())
             root_node = doc.rootNode()
-            traverse_layers(root_node)
+            target_node = find_target_node(root_node) if target_node_pred else root_node
+            if target_node is None:
+                print("target_node not found")
+                return
+            traverse_layers(target_node)
     else:
         print("No active document found.")
 
