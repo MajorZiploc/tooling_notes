@@ -357,3 +357,8 @@ File -> Render Animation
     # for pixel art
     Filter: neighbor
   Render as: gif
+
+## Animation to Spritesheet (replacement for animation to gif to spritesheet workflow)
+https://github.com/Falano/kritaSpritesheetManager
+  backup in this repo here:
+  ./plugins/kritaSpritesheetManager-master.zip

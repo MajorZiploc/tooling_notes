@@ -11,9 +11,12 @@ reverse=False
 color_remaps = [
     # ColorRemap(_from='#371603',_to='#a53030'),
     # ColorRemap(_from='#371603',_to=(62,233,1)),
-    ColorRemap(_from='#7a367b',_to='#3c5e8b'),
-    ColorRemap(_from='#c65197',_to='#73bed3'),
-    ColorRemap(_from='#df84a5',_to='#a4dddb'),
+    # ColorRemap(_from='#7a367b',_to='#3c5e8b'),
+    # ColorRemap(_from='#c65197',_to='#73bed3'),
+    # ColorRemap(_from='#df84a5',_to='#a4dddb'),
+    ColorRemap(_from='#73bed3',_to='#3c5e8b'),
+    ColorRemap(_from='#a4dddb',_to='#3c5e8b'),
+    # ColorRemap(_from='#151d28',_to='#090a14'),
 ]
 
 def get_rgb_color(color: Union[str, tuple[int, int, int]]) -> tuple[int, int, int]:
