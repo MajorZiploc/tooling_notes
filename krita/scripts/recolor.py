@@ -70,22 +70,22 @@ def main():
 
     app = Krita.instance()
     doc = app.activeDocument()
-    if doc:
-        print(f'Active Document: {doc.fileName()}')
-        print('doc.animationLength()')
-        print(doc.animationLength())
-        root_node = doc.rootNode()
-        target_node = find_target_node(root_node) if target_node_pred else root_node
-        if target_node is None:
-            print("target_node not found")
-            return
-        for time in range(0, doc.animationLength()):
-            doc.setCurrentTime(time)
-            print('doc.currentTime()')
-            print(doc.currentTime())
-            traverse_layers(target_node)
-    else:
+    if not doc:
         print("No active document found.")
+        return
+    print(f'Active Document: {doc.fileName()}')
+    print('doc.animationLength()')
+    print(doc.animationLength())
+    root_node = doc.rootNode()
+    target_node = find_target_node(root_node) if target_node_pred else root_node
+    if target_node is None:
+        print("target_node not found")
+        return
+    for time in range(0, doc.animationLength()):
+        doc.setCurrentTime(time)
+        print('doc.currentTime()')
+        print(doc.currentTime())
+        traverse_layers(target_node)
 
 # krita calls main by default. no need to call it here
 # if __name__ == "__main__":
