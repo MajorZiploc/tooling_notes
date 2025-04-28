@@ -88,6 +88,6 @@ def main():
         print(doc.currentTime())
         traverse_layers(target_node)
 
-# krita calls main by default. no need to call it here
+# NOTE: krita calls main by default. no need to call it here
 # if __name__ == "__main__":
 #     main()
