@@ -63,6 +63,7 @@ def main():
                 process_layer(child)
 
     def find_target_node(node):
+        if not target_node_pred: return
         if node.type() == "paintlayer" and target_node_pred(node): return node
         for child in node.childNodes():
             if target_node_pred(child): return child
