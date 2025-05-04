@@ -18,9 +18,9 @@ color_remaps = [
     ColorRemap(_from='#a4dddb',_to='#3c5e8b'),
     # ColorRemap(_from='#151d28',_to='#090a14'),
 ]
-target_node_pred = None
-# def target_node_pred(node):
-#     return node.name() == "r"
+def target_node_pred(node):
+    return True
+    # return node.name() == "r"
 
 def get_rgb_color(color: Union[str, tuple[int, int, int]]) -> tuple[int, int, int]:
     return color if type(color) is not str else tuple(int(color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4)) # type: ignore
@@ -63,7 +63,6 @@ def main():
                 process_layer(child)
 
     def find_target_node(node):
-        if not target_node_pred: return
         if node.type() == "paintlayer" and target_node_pred(node): return node
         for child in node.childNodes():
             if target_node_pred(child): return child
@@ -78,7 +77,7 @@ def main():
     print('doc.animationLength()')
     print(doc.animationLength())
     root_node = doc.rootNode()
-    target_node = find_target_node(root_node) if target_node_pred else root_node
+    target_node = root_node if target_node_pred(root_node) else find_target_node(root_node)
     if target_node is None:
         print("target_node not found")
         return
