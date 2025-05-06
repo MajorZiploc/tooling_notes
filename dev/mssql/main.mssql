@@ -87,6 +87,34 @@ WHERE ...
 
 -- OUTPUT..INTO EXAMPLES END
 
+-- table_var, exists_check, insert_from_select, update_join_table_var
+
+-- Declare table variable to store the IDs and OS_StartTime of rows to update
+DECLARE @ToUpdate TABLE (
+    ID INT PRIMARY KEY,
+    OS_StartTime DATETIME
+);
+IF exists(select 1 from @ToUpdate)
+BEGIN
+  -- Populate the table variable with the rows that need updating
+  INSERT INTO @ToUpdate (ID, OS_StartTime)
+  SELECT ID, OS_StartTime
+  FROM dbo.Vehicle_OSReason WITH (NOLOCK)
+  WHERE 
+      (DelayTime IS NULL OR LTRIM(RTRIM(DelayTime)) = '')
+      OR (WarningTime IS NULL OR LTRIM(RTRIM(WarningTime)) = '');
+END
+-- Perform the update using the table variable
+UPDATE V
+SET 
+    DelayTime = CONVERT(VARCHAR(23), T.OS_StartTime, 120) + '.000',
+    WarningTime = CONVERT(VARCHAR(23), T.OS_StartTime, 120) + '.000'
+FROM dbo.Vehicle_OSReason V
+INNER JOIN @ToUpdate T ON V.ID = T.ID;
+-- Log the updated IDs
+INSERT INTO dbo.UpdateLog (UpdatedID)
+SELECT ID FROM @ToUpdate;
+
 -- setting a variable and multi variable declaration
 DECLARE @STR NVARCHAR(100), @LEN1 INT, @LEN2 INT;
 SET @STR = N'This is a sentence with spaces in it.';
