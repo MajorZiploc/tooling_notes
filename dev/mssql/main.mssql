@@ -124,6 +124,71 @@ SET @LEN2 = LEN(@STR);
 SELECT N'Number of spaces in the string: ' + CONVERT(NVARCHAR(20), @LEN1 - @LEN2);
 GO
 
+-- complex update - kinda like a for loop -- NOTE: should be tsql
+DECLARE @ProblematicFirstMedic NVARCHAR(100), @ProblematicSecondMedic NVARCHAR(100);
+set @ProblematicFirstMedic = '024949'
+set @ProblematicSecondMedic = '038570'
+WITH ProblemEntries AS (
+  SELECT
+    MAX(id) AS last_id,
+    unit AS the_unit
+  FROM dbo.UnitStatusLog
+  WHERE
+    TimeStamp >= '2025-05-06 06:00:00.000' 
+    AND FirstMedic = @ProblematicFirstMedic
+    AND SecondMedic = @ProblematicSecondMedic
+  GROUP BY unit
+)
+-- , LastInfo AS (
+--   SELECT
+--     usl.unit,
+--     usl.FirstMedic,
+--     usl.SecondMedic
+--   FROM (
+--     SELECT
+--       unit,
+--       FirstMedic,
+--       SecondMedic,
+--       ROW_NUMBER() OVER (PARTITION BY unit ORDER BY id DESC) AS rn
+--     FROM dbo.UnitStatusLog
+--     WHERE
+--       TimeStamp >= '2025-05-06 02:00:00.000'
+--       AND FirstMedic <> @ProblematicFirstMedic
+--       AND SecondMedic <> @ProblematicSecondMedic
+--   ) usl
+--   WHERE usl.rn = 1
+-- )
+-- OR
+, LastInfoIds AS (
+  SELECT
+    max(id) as last_id
+    , usl.unit
+  FROM UnitStatusLog as usl
+  WHERE
+    TimeStamp >= '2025-05-06 02:00:00.000' 
+    AND FirstMedic <> @ProblematicFirstMedic
+    AND SecondMedic <> @ProblematicSecondMedic
+  group by usl.unit
+)
+, LastInfo as (
+  select
+    usl.id
+    , usl.unit
+    , usl.FirstMedic
+    , usl.LastMedic
+  from UnitStatusLog as usl
+  inner join LastInfoIds as lii on lii.last_id = usl.id and lii.unit = usl.unit
+)
+UPDATE usl
+SET
+  usl.FirstMedic = li.FirstMedic,
+  usl.SecondMedic = li.SecondMedic
+FROM dbo.UnitStatusLog usl
+JOIN ProblemEntries pe ON usl.id = pe.last_id
+JOIN LastInfo li ON pe.the_unit = li.unit
+;
+
+
 -- can swap COUNT with any agg function in these examples
 
 -- COUNT and other aggregation functions can take DISTINCT
