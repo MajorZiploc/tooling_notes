@@ -30,6 +30,11 @@ windows - right click the number
   h (in canvas) - shows ring of last used colors - you can clear the ring with the first symbol in it
     after its full it seems to not change
 
+# Smart Patch Tool (left side bar bandaid icon)
+  for quick removal of things in an image and replace with the background
+    type of brush and size of brush used will affect results
+    cant change size of brush while tool is in use - switch to brush mode to change size
+
 # smoothing / stabilizing a pen (this is per brush and likely wont save after closing krita)
   1:
     F5 turn on anti-aliasing checkbox in basic brush settings
