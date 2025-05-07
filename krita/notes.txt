@@ -27,6 +27,9 @@ windows - right click the number
     if on a color palette it cycles the colors in the palette
     if on a color wheel thing, it will go based on that
 
+  h (in canvas) - shows ring of last used colors - you can clear the ring with the first symbol in it
+    after its full it seems to not change
+
 # smoothing / stabilizing a pen (this is per brush and likely wont save after closing krita)
   1:
     F5 turn on anti-aliasing checkbox in basic brush settings
