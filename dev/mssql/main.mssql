@@ -126,8 +126,8 @@ GO
 
 -- complex update - kinda like a for loop -- NOTE: should be tsql
 DECLARE @ProblematicFirstMedic NVARCHAR(100), @ProblematicSecondMedic NVARCHAR(100);
-set @ProblematicFirstMedic = '024949'
-set @ProblematicSecondMedic = '038570'
+set @ProblematicFirstMedic = '024949';
+set @ProblematicSecondMedic = '038570';
 WITH ProblemEntries AS (
   SELECT
     MAX(id) AS last_id,

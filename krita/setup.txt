@@ -201,6 +201,9 @@ custom brushes:
   u) Pixel Art
   u) Pixel Art Dithering
   u) Pixel Art Fill
+  FX glow add
+  l) Adjust Overlay Burn
+  v) Clone Tool
 
   Color Palettes:
     Add .kpl version if it exists since it retains color order. else use .gpl
