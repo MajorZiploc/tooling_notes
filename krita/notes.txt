@@ -8,8 +8,18 @@ F5
 pane view
 <space> + lmd
 
-zoom in and out view
+# zoom in and out view
 <space> + lmd
+
+# (select / set active) layer based on clicking canvas pixel
+  to get to a layer of interest
+shift+r and click canvas pixel
+# what if affects/texture layers exist above the layer you actually want to be on
+1. shift+r and click canvas pixel -- will get you to the affect/texture layer
+2. toggle off layer visibility -- custom_shortcut (shift+v)
+3. shift+r and click canvas pixel -- will get you to the next layer down the stack
+4. repeat 1-3 until at layer you need to be at
+5. undo all visibility toggles -- custom_shortcut (`)
 
 # change size of anything accuratly (brush size or opacity or percentages)
 mac - hold control and click the number
