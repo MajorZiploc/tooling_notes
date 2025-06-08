@@ -42,6 +42,16 @@ def main():
         # blank_layer = doc.createNode(layer.name(), "paintLayer")
         new_layer = layer.clone()
         pixel_data = layer.pixelData(x, y, w, h)
+
+        img_copy = QImage(pixel_data, doc.width(), doc.height(), QImage.Format_RGBA8888)
+        for y in range(img_copy.height()):
+            for x in range(img_copy.width()):
+                color = QColor(img_copy.pixel(x, y))
+                img_copy.setPixelColor(x, y, color)
+        copy_img_ptr = img_copy.bits()
+        copy_img_ptr.setsize(img_copy.byteCount())
+        pixel_data_copy = QByteArray(copy_img_ptr.asstring())
+
         # # new_layer.setPixelData(QByteArray(), x, y, w, h)
         # blank_img = QImage(new_layer.pixelData(0, 0, w, h), doc.width(), doc.height(), QImage.Format_RGBA8888) #.fill(QColor(0,0,0,0))
         # for y in range(blank_img.height()):
@@ -51,7 +61,8 @@ def main():
         #         blank_img.setPixelColor(x, y, QColor(0, 0, 0, 0))
         # blank_img_ptr = blank_img.bits()
         # blank_img_ptr.setsize(blank_img.byteCount())
-        # new_layer.setPixelData(QByteArray(blank_img_ptr.asstring()), 0, 0, blank_img.width(), blank_img.height())
+        # # new_layer.setPixelData(QByteArray(blank_img_ptr.asstring()), 0, 0, blank_img.width(), blank_img.height())
+
         dx = 0
         dy = 0
         for pixel_shift in pixel_shifts:

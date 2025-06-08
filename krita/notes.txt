@@ -56,6 +56,9 @@ windows - right click the number
 
 # transformations (press enter to confirm a transformations)
 
+  for non pixel art: Lanczos3
+  for pixel art: nearest neighbor
+
   # redraw retangle for making various scalings easier
     ex: need to make legs thinner, but they are at an angle
   1. select the area you want to transform
