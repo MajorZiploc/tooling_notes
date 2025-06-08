@@ -116,3 +116,6 @@ https://store.steampowered.com/app/1693710/Operator8/
 ## Timed Free Asset Watchers
 posts videos of when things are 100% discounts
 https://www.youtube.com/@gamefromscratch/videos
+
+## Research:
+look into how https://bitcraftonline.com/ was made with https://spacetimedb.com/home
