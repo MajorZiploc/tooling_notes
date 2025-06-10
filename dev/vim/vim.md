@@ -15,6 +15,11 @@ I
 go to the ending of a selection of text
 A
 
+# go into visal block
+<ctrl>+v
+OR
+<ctrl>+q
+
 # toggle cursor in visual mode to top or bottom of selection
 o
 
