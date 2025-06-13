@@ -1,5 +1,10 @@
 # Resources
 
+## Properties
+
+get the path of the current file within the file itself
+scene_file_path
+
 ## Effects like fire, water, wind, fog
 https://godotshaders.com/
 
