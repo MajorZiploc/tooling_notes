@@ -1,9 +1,32 @@
 # Resources
 
+## Gotches
+
+To save theme changes when editing via the editor. PRESS THE SAVE BUTTON ON THE THEMES TAB
+  other events can trigger a save, but they arent consistent
+
 ## Properties
 
-get the path of the current file within the file itself
+// get the path of the current file within the file itself
 scene_file_path
+
+// pause all pausable nodes
+get_tree().paused = true;
+
+// make a node as not pausable - can also do in tscn under Node -> Process -> Mode: Always
+self.process_mode = Node.PROCESS_MODE_ALWAYS;
+
+## Methods
+
+// call method on each node in a group
+get_tree().call_group("group_name", "method_name", method_param_1);
+
+// easy way to make something face the right direction
+look_at(global_position + direction);
+
+// casting types
+func foo(param1: BaseType):
+  var thing: SubType = param1 as SubType;
 
 ## Effects like fire, water, wind, fog
 https://godotshaders.com/
