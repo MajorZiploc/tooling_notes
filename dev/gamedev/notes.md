@@ -28,6 +28,9 @@ https://sfxr.me/
 https://www.bfxr.net/
 https://www.zapsplat.com/
 
+### shaders
+https://www.shadertoy.com/
+
 ## General Render Resources
 GPU Gems book series
 https://developer.nvidia.com/gpugems/gpugems/contributors
