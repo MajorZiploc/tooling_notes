@@ -35,6 +35,10 @@ https://www.shadertoy.com/
 GPU Gems book series
 https://developer.nvidia.com/gpugems/gpugems/contributors
 
+## texture, specular map, parallax map, occlusion map, normal map creation
+laigter (free and open source)
+https://azagaya.itch.io/laigter
+
 ## Color Palettes
 https://lospec.com/
 https://coolors.co/

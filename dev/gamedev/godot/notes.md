@@ -2,6 +2,8 @@
 
 ## Gotches
 
+Callable - you cant await a .call() it wont error or warn you, but it also definitely wont wait - use signals to workaround this
+
 To save theme changes when editing via the editor. PRESS THE SAVE BUTTON ON THE THEMES TAB
   other events can trigger a save, but they arent consistent
 
