@@ -7,6 +7,15 @@ Callable - you cant await a .call() it wont error or warn you, but it also defin
 To save theme changes when editing via the editor. PRESS THE SAVE BUTTON ON THE THEMES TAB
   other events can trigger a save, but they arent consistent
 
+### Shaders
+
+how to apply multiple shaders (in order) to a single texture
+  applying 1 shader per color rect that is a child of the target texture is 1 approach for this if you
+    did this for applying fog and cross shine to a texture
+  can also dup the texture and apply an effect to 1 of the dups
+    did this for shadows
+  if static shaders then you can use each shader on the texture then write to a new texture and replace the original texture and repeat for all shaders
+
 ## Properties
 
 // get the path of the current file within the file itself
