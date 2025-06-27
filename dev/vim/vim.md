@@ -173,7 +173,7 @@ Example: `:b1` to goto buffer with id of 1
 
 Example: `:tabedit .` to open current directory in new tab
 
-Example: `:tabedit ./READEME.md` to open READEME in new tab
+Example: `:tabedit ./README.md` to open README in new tab
 
 ## cycle to next tab
 
