@@ -16,6 +16,26 @@ how to apply multiple shaders (in order) to a single texture
     did this for shadows
   if static shaders then you can use each shader on the texture then write to a new texture and replace the original texture and repeat for all shaders
 
+https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/canvas_item_shader.html
+
+https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/shading_language.html
+  Shading language
+    Data types
+    Arrays
+    Constants
+    Structs
+    Operators
+    Flow control
+    Discarding
+    Functions
+    Varyings
+    Interpolation qualifiers
+    Uniforms
+    Built-in variables
+    Built-in functions
+
+https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/shader_functions.html
+
 #### Compute Shaders
 
 Forward+ only: https://docs.godotengine.org/en/stable/tutorials/shaders/compute_shaders.html#
