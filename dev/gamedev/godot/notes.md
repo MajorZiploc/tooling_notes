@@ -16,6 +16,18 @@ how to apply multiple shaders (in order) to a single texture
     did this for shadows
   if static shaders then you can use each shader on the texture then write to a new texture and replace the original texture and repeat for all shaders
 
+#### Compute Shaders
+
+Forward+ only: https://docs.godotengine.org/en/stable/tutorials/shaders/compute_shaders.html#
+seems like an interesting way to parallelize work
+write glsl code
+likely limited to basic data types
+1D, 2D, 3D data struct support
+requires you to do memory cleanup on your own
+can result in crashes if a piece of gpu work takes more than 5-10 seconds on some systems
+  this becomes even more complex based on the type of gpu
+  older gpus will reach that time limit quickier
+
 ## Properties
 
 // get the path of the current file within the file itself
