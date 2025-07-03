@@ -56,6 +56,7 @@ the left most x is for removing fill
 # preferences (Edit -> Preferences)
 ## finding a os/system path for things
 System
+^ you will find a listing of directories here (palette directory will be listed)
 ### import color palette
 nav to palette folder and add *.gpl
 NOTE: you can use inkscape to convert *.svg to *.gpl

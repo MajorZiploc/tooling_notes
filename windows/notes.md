@@ -5,6 +5,13 @@ Useful for removing things like the slow switch desktops animations
 Settings -> Accessibility -> Visual effects
 Animation: Off
 
+# Power settings
+
+Settings -> System -> Power & battery
+  Power Mode:
+    Plugged in: Best Performance
+    On battery: Best Power Efficiency
+
 # Desktops:
 
 ## Nav - back and forth desktops
