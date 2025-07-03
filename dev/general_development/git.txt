@@ -1,3 +1,8 @@
+great commands:
+export GIT_COLOR_WORDS="[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+";
+git diff --ignore-space-change --color-words="$GIT_COLOR_WORDS" --staged
+git diff --ignore-space-change --color-words="$GIT_COLOR_WORDS" --
+
 Extra snippets:
 
 git log --oneline --all --first-parent --remotes --reflog --author-date-order -- filename # search all branches git commits for commits that change a file

@@ -13,7 +13,7 @@ if windows, first run this replace script:
 
 swaplocation will likely need to be copied in manually from old rc
 
-windows: %LOCALAPPDATA% -> /mnt/c/Users/LakeM/AppData/Local/krita*rc files not the krita/ dir there
+windows: %LOCALAPPDATA% -> ~/AppData/Local/krita*rc files not the krita/ dir there
 
 linux: ~/.config
 
@@ -156,10 +156,6 @@ custom brushes:
 1wheel brushes:
   a) Eraser Soft
     lightening sketch layers to even out a layer
-  a) Eraser Circle
-    hard erasing
-  Eraser soft
-    soft erasing
   b) Basic - 1 Size (custom)
     hard shading/lighting/color
     line art or sketching
@@ -169,17 +165,21 @@ custom brushes:
     secondary sketching
   b) Basic-5 Size Basic (custom)
     water color / flats / layered colors
-  d) Ink pen (mypaint)
-    writing
   k) Blender Basic
     smearing
+  k) Blender Pixelized
+  PixelArt Round
+  u) Pixel Art
+  PixelArt Dithering
   v) Distort Move
-  Ink circle 05
-    fine and varied size line art
-  t) Shapes Fill
-    flats - good for filling in areas with color
 
 2sidebar brushes:
+  t) Shapes Fill
+    flats - good for filling in areas with color
+  Eraser soft
+    soft erasing
+  Ink circle 05
+    fine and varied size line art
   Airbrush pressure
   Block bristles
   Block textured 1
@@ -198,6 +198,12 @@ custom brushes:
   j) Waterpaint Soft Edges
   m) RGBA 02 Thickpaint
   Sketch shade wash
+  k) Blender Pixelized
+  pixel1
+  PixelArt Dithering
+  PixelArt Round
+  PixelArt Square
+  Tangent normal pixel
   u) Pixel Art
   u) Pixel Art Dithering
   u) Pixel Art Fill
