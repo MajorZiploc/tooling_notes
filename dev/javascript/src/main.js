@@ -513,3 +513,26 @@ console.log('middle_wealth_line');
 console.log(middle_wealth_line);
 console.log('high_wealth_line');
 console.log(high_wealth_line);
+
+
+
+console.log(290728/18318);
+
+console.log(18318/30);
+
+const fileCount = 290728;
+const gbsOfData = (fileCount * 5) / 1000;
+console.log(gbsOfData / 10);
+
+// let ee = 'error: {"error":[{"code":"400","name":"rest call error","description":"statuscode: 400. \"{\"statuscode\":1070,\"message\":\"requested time cannot be in the past.\",\"errordata\":null}\"","data":null}]}';
+
+// let ee = 'error: {"error":[{"code":"400","name":"rest call error","description":"statuscode: 400. \"{\"statuscode\":1070,\"message\":\"requested time cannot be in the past.\",\"errordata\":null}\"","data":"{\"statuscode\":1070,\"message\":\"requested time cannot be in the past.\",\"errordata\":null}"}]}';
+// console.log(ee.replace(/.*message.:\s*("[.*?]"*).*/, '$1'));
+
+let ee = 'error: {"error":[{"code":"400","name":"rest call error","description":"statuscode: 400. \"{\"statuscode\":1070,\"message\":\"requested time cannot be in the past.\",\"errordata\":null}\"","data":"{\"statuscode\":1070,\"message\":\"requested time cannot be in the past.\",\"errordata\":null}"}]}';
+console.log(ee.replace(/.*message.:\s*"(.*?)".*/, '$1'));
+
+console.log(ee.replace(/^error:\s*(.*)/, '$1'));
+console.log(JSON.parse(ee.replace(/^error:\s*(.*)/, '$1')));
+
+console.log(JSON.parse(ee.replace('"', "'").replace(/^error:\s*(.*)/, '$1')));
