@@ -12,6 +12,10 @@ Editor -> Editor Settings -> [(look for 'on save')
   disable what makes sense
 
 ### Windows OS settings for performance
+
+Enable Developer Mode on Windows
+Win Key -> "Developer settings"
+
 Interface -> Editor
 Single Window Mode: true
 
