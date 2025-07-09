@@ -122,3 +122,51 @@ then go to Editor -> Manage Export Templates...
   right before saving
     rename to 'index.html'
     uncheck Export With Debug
+
+## CLI location
+
+### mac
+
+/Applications/Godot.app/Contents/MacOS/Godot
+
+## User data Storage Location
+
+### Mac
+"$HOME/Library/Application Support/Godot/app_userdata/game_02"
+
+### Windows
+"%APPDATA%\Godot\app_userdata\game_02"
+
+### Linux
+"$HOME/.local/share/godot/app_userdata/game_02"
+
+
+## Translations
+
+### run from cli
+$GODOT_CLI --language <lang_code>
+
+## Devtool notes:
+
+### Game Tab (one of the top middle tabs near AssetLib)
+  3 dots has 2 good options
+  the second one allows you to toggle the game window to be in the editor or floating
+
+### various cli flags to debug info about game
+
+#### NOTE: some of these flags may cause your game window to popup in the background rather than the focused window
+
+$GODOT_CLI "$godot_scene" --debug-path --debug-collisions --debug-paths --debug-navigation --debug-avoidance --debug-stringnames --debug-canvas-item-redraw
+
+  --debug-stringnames is very noisy after quiting the run
+
+  can also be done via ui:
+    Debug -> Visible *
+
+### hot reload of code changes is supported if running via the editor
+
+  either
+    change code directly in editor and save
+  OR
+    change code in nvim and save and go to editor. choose to reload changes and then make a blank line change via editor
+
