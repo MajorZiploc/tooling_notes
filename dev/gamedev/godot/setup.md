@@ -10,3 +10,10 @@ Editor -> Editor Settings -> [(look for 'Indent'): (Text Editor -> Behavior)]
 ### disable on save actions
 Editor -> Editor Settings -> [(look for 'on save')
   disable what makes sense
+
+### Windows OS settings for performance
+Interface -> Editor
+Single Window Mode: true
+
+Interface -> Editor
+V-Sync Mode: Disabled
