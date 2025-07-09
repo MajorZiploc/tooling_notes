@@ -21,3 +21,6 @@ Single Window Mode: true
 
 Interface -> Editor
 V-Sync Mode: Disabled
+
+Power In Laptop to power source
+you may have settings on to reduce power draw on battery
