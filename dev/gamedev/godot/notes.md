@@ -170,3 +170,6 @@ $GODOT_CLI "$godot_scene" --debug-path --debug-collisions --debug-paths --debug-
   OR
     change code in nvim and save and go to editor. choose to reload changes and then make a blank line change via editor
 
+## Localization
+valid TranslationServer.set_locale(language); values: (Set 1 column)
+https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
