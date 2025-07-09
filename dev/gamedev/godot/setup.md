@@ -22,5 +22,13 @@ Single Window Mode: true
 Interface -> Editor
 V-Sync Mode: Disabled
 
-Power In Laptop to power source
+Power In Laptop to power source (may require high watt charger)
 you may have settings on to reduce power draw on battery
+  to toggle performance to high:
+  1. Win Key -> "Power, sleep and battery settings"
+    Power Mode:
+      On battery: Best Performance
+  2. Win Key -> "Nvidia Control Panel" -> 3D Settings -> Manager 3D settings
+    Preferred graphics processor: "High-performance NVIDIA processor"
+      Apply
+  3. adjust more settings in Nvidia Control Panel
