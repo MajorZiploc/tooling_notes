@@ -9,6 +9,11 @@ To save theme changes when editing via the editor. PRESS THE SAVE BUTTON ON THE 
 
 ### Shaders
 
+#### instance uniforms
+there is a limit of 16 instance shader params
+  use vec4s and similar to stuff multiple variables into
+  if you have to pass 4 floats, just send 1 vec4
+
 how to apply multiple shaders (in order) to a single texture
   applying 1 shader per color rect that is a child of the target texture is 1 approach for this if you
     did this for applying fog and cross shine to a texture
