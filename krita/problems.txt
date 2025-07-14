@@ -1,3 +1,16 @@
+scale issues:
+if krita UI is to big:
+
+in ./configs/kritadisplayrc
+
+1. try disable HiDPI
+EnableHiDPI=false
+EnableHiDPIFractionalScaling=false
+
+2. try enabling HiDPI with fractional scaling
+EnableHiDPI=true
+EnableHiDPIFractionalScaling=true
+
 xp pen tweaks you need to do:
 
   NOTE: if the pen tip is going crazy, then you should completely remove the driver and redownload the driver and regive permissions for screen recording and accessiblity
