@@ -174,12 +174,8 @@ custom brushes:
   v) Distort Move
 
 2sidebar brushes:
-  t) Shapes Fill
+  a) Eraser Circle
     flats - good for filling in areas with color
-  Eraser soft
-    soft erasing
-  Ink circle 05
-    fine and varied size line art
   Airbrush pressure
   Block bristles
   Block textured 1
@@ -190,25 +186,27 @@ custom brushes:
   c) Pencil-4 Soft
   d) Ink-7 Brush Rough
   d) Ink-8 Sumi-e
+  Eraser soft
+    soft erasing
   f) Bristles-2 Flat Rough
   f) Bristles-3 Large Smooth
   f) Charcoal Rock Soft
+  FX glow add
   g) Dry Bristles
   h) Charcoal pencil large
+  Ink circle 05
+    fine and varied size line art
   j) Waterpaint Soft Edges
+  l) Adjust Overlay Burn
   m) RGBA 02 Thickpaint
   Sketch shade wash
-  k) Blender Pixelized
+  t) Shapes Fill
   pixel1
-  PixelArt Dithering
-  PixelArt Round
   PixelArt Square
   Tangent normal pixel
   u) Pixel Art
   u) Pixel Art Dithering
   u) Pixel Art Fill
-  FX glow add
-  l) Adjust Overlay Burn
   v) Clone Tool
 
   Color Palettes:
