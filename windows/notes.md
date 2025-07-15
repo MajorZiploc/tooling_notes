@@ -57,3 +57,8 @@ Settings -> System -> For developers
 
   Enable sudo option
     adds sudo command
+
+# Autohide Taskbar not working
+
+Task Manager -> Tasks
+Restart 'Windows Explorer' background task
