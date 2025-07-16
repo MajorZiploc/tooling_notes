@@ -6,7 +6,7 @@ mac: Krita -> Preferences
 Keyboard shortcuts: (./configs/keyboard.shortcuts)
 import the custom keys into krita
 if windows, first run this replace script:
-  sed -E 's,selectopaque_add.*,selectopaque_add=Ctrl+Alt+Q,g; s,selectopaque_subtract.*,selectopaque_subtract=Ctrl+Alt+Shift+Q,g; s,KisToolSelectSimilar.*,KisToolSelectSimilar=Ctrl+Alt+W,g;'
+  sed -E 's,selectopaque_add.*,selectopaque_add=Ctrl+Alt+Q,g; s,selectopaque_subtract.*,selectopaque_subtract=Ctrl+Alt+Shift+Q,g; s,KisToolSelectSimilar.*,KisToolSelectSimilar=Ctrl+Alt+W,g; s,toggle_onion_skin.*,toggle_onion_skin=Ctrl+Shift+O,g;'
 
 # CONFIG LOCATIONS
 # IMPORTANT: BACK UP ORIGINAL RC FILES BEFORE OVERRIDING THEM IN CASE OF MAJOR ISSUES
