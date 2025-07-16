@@ -8,7 +8,8 @@ def target_node_pred(node):
     # return node.name() == "r"
 def target_layer_prep(layer, parent):
     if parent is None: return False
-    if parent.name() != "managed_color_flats": return False
+    if parent.name() != "r": return False
+    # if parent.name() != "managed_color_flats": return False
     return True
 hive_std_01_entity_main = {
   "head": [
@@ -59,6 +60,12 @@ gray_color_bases = ['090a14', '10141f', '151d28', '202e37', '394a50', '577277', 
 
 all_base_colors_sorted = blue_color_bases + green_color_bases + skin_color_bases + brown_color_bases + red_color_bases + purple_color_bases + gray_color_bases;
 
+def get_color_map_for_hard_coded() -> dict:
+  color_map = {
+    blue_color_bases[3]: "#000000",
+  };
+  return color_map;
+
 def get_color_map_for_entity_main(entity_palette: dict) -> dict:
   color_map = {
     red_color_bases[2]: entity_palette["head"][0],
@@ -82,7 +89,9 @@ def color_map_to_full_color_map(color_remaps_: dict) -> list[ColorRemap]:
   full_color_map = [ColorRemap(_from=base_color, _to=color_remaps_.get(base_color, base_color)) for base_color in all_base_colors_sorted];
   return full_color_map;
 
-color_map_dict = get_color_map_for_entity_main(hive_std_01_entity_main)
+# color_map_dict = get_color_map_for_entity_main(hive_std_01_entity_main)
+
+color_map_dict = get_color_map_for_hard_coded()
 
 color_remaps = color_map_to_full_color_map(color_map_dict)
 
