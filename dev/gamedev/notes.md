@@ -99,7 +99,7 @@ https://blambot.com/
 
 ### edit or create fonts
 fontforge
-../../fontforge/notes.md
+../../art/fontforge/notes.md
 
 ## steam info
 https://steamdb.info/
