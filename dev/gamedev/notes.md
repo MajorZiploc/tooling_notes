@@ -97,6 +97,10 @@ https://www.ocenaudio.com/
 https://blambot.com/
   (anime ace 3 is good for webtoons)
 
+### edit or create fonts
+fontforge
+../../fontforge/notes.md
+
 ## steam info
 https://steamdb.info/
 
