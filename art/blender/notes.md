@@ -74,10 +74,15 @@ t -- toggles left window (tools)
 
 n -- toggles right window (camera lock area) (properties)
 
-ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
+ctrl + space -- toggles scene collections and big tools
 
+ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
+ 
 search menu (like ctrl-p in vscode)
 F3
+
+Bring up options of last command (only way to bring back the shift-a new shape options)
+F9
 
 home -- show all objects in view
 
@@ -112,6 +117,10 @@ alt+s -- clear scale
     OR to apply specific transformation: (almost top menu) Object -> Apply -> Choose: (scale, location, rotation, etc...)
   o -- proportional editing
     scroll wheel -- change area of influence
+      or pgup and pgdown
+        some keyboards dont have these keys so you need to change the key shortcut under:
+          Preferences -> Keymap
+            search 'page'
 
 a -- select all
 alt+a -- deselect all
@@ -160,6 +169,11 @@ rmb > convert to mesh
 
 move vertexs to median z
 sz0
+
+rename
+select object in Object mode
+F2
+or find object in outliner collection
 
 ## more advanced
 
@@ -213,9 +227,11 @@ f -- fill
 
 ctrl+lmb -- select shortest path
 
-atl+lmb -- select edge loop
+in edge selection mode
 
-ctrl+atl+lmb -- select edge ring
+  alt+lmb -- select edge loop
+
+  ctrl+alt+lmb -- select edge ring
 
 shift+g -- select similar
 
