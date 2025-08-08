@@ -4,6 +4,7 @@ https://blendermarket.com/
 
 ### textures and other 3d assets
 https://polyhaven.com/
+https://www.poliigon.com/
 
 ## 3d printing pipeline
 
@@ -198,6 +199,7 @@ shift + ] -- extend child selection
 [ -- select parent
 shift + [ -- extend parent selection
 ctrl + p -- parent to active object
+  the Keep Transform choice is the most common
 alt + p -- clear parent
 
 F2 -- rename
@@ -237,6 +239,9 @@ shift+g -- select similar
 
 ctrl++ grow selection
 ctrl+- shrink selection
+
+toggle selected object isolated view
+/
 
 ### Modeling
 
@@ -284,6 +289,54 @@ shift+n -- recalculate normals
 
 edge create -- while using subdivision surface modifier
   shift+e
+
+
+### Sculpting
+
+invert current operation
+hold ctrl and paint
+
+changing brush size/strength
+f
+shift-f
+
+isolate to only painting front faces
+Brush -> Front Face Only checkbox
+
+invert a mask
+ctrl-i
+
+smooth tool shortcut
+hold shift
+
+use inflate/deflate brush
+i
+
+use grab brush
+g
+
+use smooth brush
+s
+
+use mask
+m
+
+mask modifiers
+(at top)
+Mask -> modifier
+
+for clearing a mask:
+alt-m
+Mash -> Clear Mask
+
+for smoothing a mask:
+Mask -> Smooth mask
+
+mesh filter
+applies a uniform value to whole mesh (minus mask) by the Filter Type
+drag right = Filter action
+drag left = invert Filter action
+
 
 # getting assets
 
