@@ -51,6 +51,14 @@ Edit -> Preferences -> Add-ons
 add assets from 1 .blend file to another
 File -> Append
 
+## reset movement tools to better respect scale of object you wish to focus/edit on
+
+toggles all other objects and rescales things to work better with current object
+/
+
+doesnt toggle all other objects and rescales things to work better with current object
+` (choose View Selected) `
+
 # short cuts
 
 ## High level control
