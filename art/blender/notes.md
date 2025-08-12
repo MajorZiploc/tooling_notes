@@ -219,6 +219,18 @@ ctrl + (1-5) -- add subdivision surface modifier
 
 ## 3D Viewport -- Edit Mode
 
+ctrl + l -- link menu
+
+with camera selected - video game controls (WASD) (EQ)
+  scroll_wheel to affect the speed of movement
+    NOTE: key shortcuts at bottom nav bar
+  left_click to finalize camera movement and get out
+works without a camera selected aswell
+shift + ` -- fly_mode  `
+
+remap key since windows uses this key chord
+ctrl + atl + ` -- remap for fly_mode `
+
 ### Selection
 
 NOTE: doesnt work with numpad preferences set to top numbers -- need to use top bar next to Edit Mode (3 little icons)
