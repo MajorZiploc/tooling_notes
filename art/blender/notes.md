@@ -184,6 +184,12 @@ select object in Object mode
 F2
 or find object in outliner collection
 
+toggle grid lines
+alt + shift + z
+
+toggle xray
+alt + z
+
 ## more advanced
 
 while changing values in the N panel or properties window
