@@ -4,6 +4,7 @@ https://blendermarket.com/
 
 ### textures and other 3d assets
 https://polyhaven.com/
+https://www.poliigon.com/
 
 ## 3d printing pipeline
 
@@ -50,6 +51,14 @@ Edit -> Preferences -> Add-ons
 add assets from 1 .blend file to another
 File -> Append
 
+## reset movement tools to better respect scale of object you wish to focus/edit on
+
+toggles all other objects and rescales things to work better with current object
+/
+
+doesnt toggle all other objects and rescales things to work better with current object
+` (choose View Selected) `
+
 # short cuts
 
 ## High level control
@@ -74,10 +83,15 @@ t -- toggles left window (tools)
 
 n -- toggles right window (camera lock area) (properties)
 
-ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
+ctrl + space -- toggles scene collections and big tools
 
+ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
+ 
 search menu (like ctrl-p in vscode)
 F3
+
+Bring up options of last command (only way to bring back the shift-a new shape options)
+F9
 
 home -- show all objects in view
 
@@ -112,6 +126,10 @@ alt+s -- clear scale
     OR to apply specific transformation: (almost top menu) Object -> Apply -> Choose: (scale, location, rotation, etc...)
   o -- proportional editing
     scroll wheel -- change area of influence
+      or pgup and pgdown
+        some keyboards dont have these keys so you need to change the key shortcut under:
+          Preferences -> Keymap
+            search 'page'
 
 a -- select all
 alt+a -- deselect all
@@ -161,6 +179,17 @@ rmb > convert to mesh
 move vertexs to median z
 sz0
 
+rename
+select object in Object mode
+F2
+or find object in outliner collection
+
+toggle grid lines
+alt + shift + z
+
+toggle xray
+alt + z
+
 ## more advanced
 
 while changing values in the N panel or properties window
@@ -184,6 +213,7 @@ shift + ] -- extend child selection
 [ -- select parent
 shift + [ -- extend parent selection
 ctrl + p -- parent to active object
+  the Keep Transform choice is the most common
 alt + p -- clear parent
 
 F2 -- rename
@@ -194,6 +224,18 @@ m -- move to collection
 ctrl + (1-5) -- add subdivision surface modifier
 
 ## 3D Viewport -- Edit Mode
+
+ctrl + l -- link menu
+
+with camera selected - video game controls (WASD) (EQ)
+  scroll_wheel to affect the speed of movement
+    NOTE: key shortcuts at bottom nav bar
+  left_click to finalize camera movement and get out
+works without a camera selected aswell
+shift + ` -- fly_mode  `
+
+remap key since windows uses this key chord
+ctrl + atl + ` -- remap for fly_mode `
 
 ### Selection
 
@@ -213,14 +255,19 @@ f -- fill
 
 ctrl+lmb -- select shortest path
 
-atl+lmb -- select edge loop
+in edge selection mode
 
-ctrl+atl+lmb -- select edge ring
+  alt+lmb -- select edge loop
+
+  ctrl+alt+lmb -- select edge ring
 
 shift+g -- select similar
 
 ctrl++ grow selection
 ctrl+- shrink selection
+
+toggle selected object isolated view
+/
 
 ### Modeling
 
@@ -268,6 +315,54 @@ shift+n -- recalculate normals
 
 edge create -- while using subdivision surface modifier
   shift+e
+
+
+### Sculpting
+
+invert current operation
+hold ctrl and paint
+
+changing brush size/strength
+f
+shift-f
+
+isolate to only painting front faces
+Brush -> Front Face Only checkbox
+
+invert a mask
+ctrl-i
+
+smooth tool shortcut
+hold shift
+
+use inflate/deflate brush
+i
+
+use grab brush
+g
+
+use smooth brush
+s
+
+use mask
+m
+
+mask modifiers
+(at top)
+Mask -> modifier
+
+for clearing a mask:
+alt-m
+Mash -> Clear Mask
+
+for smoothing a mask:
+Mask -> Smooth mask
+
+mesh filter
+applies a uniform value to whole mesh (minus mask) by the Filter Type
+drag right = Filter action
+drag left = invert Filter action
+
 
 # getting assets
 
