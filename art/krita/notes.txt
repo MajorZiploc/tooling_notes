@@ -70,6 +70,10 @@ windows - right click the number
   # liquify (useful for moving pieces of a more finished piece)
     on right side in tool options, the water droplet is the liquify tool
 
+# copy paste
+copy to active layer (important for animation keyframes)
+Edit -> Paste into Active Layer
+
 # Darken a sketch layer or multi layers or a group or multi groups (groups is a little weirder)
   1. copy paste the layer as many times as you need for the darkness you want
   2. merge all layers created by the prev process
