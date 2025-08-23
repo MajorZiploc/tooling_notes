@@ -2,7 +2,11 @@
 KisToolSelectContiguous=W
 KisToolSelectOutline=Ctrl+Alt+A
 KisToolSelectSimilar=Meta+W
+add_new_paint_layer=Ctrl+Shift+Del
 edit_undo=Ctrl+Z; `
+insert_hold_frame=Ctrl+Alt+Q
+copy_frames=Ctrl+Alt+E
+paste_frames=Ctrl+Alt+Shift+E
 selectopaque_add=Meta+Q
 selectopaque_subtract=Meta+Shift+Q
 toggle_layer_alpha_lock=A
