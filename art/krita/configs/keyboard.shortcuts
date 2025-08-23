@@ -13,3 +13,4 @@ toggle_layer_alpha_lock=A
 toggle_layer_inherit_alpha=Shift+A
 toggle_layer_visibility=Shift+V
 toggle_onion_skin=Meta+Shift+O
+paste_into=Ctrl+Shift+V

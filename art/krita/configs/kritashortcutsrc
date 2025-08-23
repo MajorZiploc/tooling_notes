@@ -1,8 +1,16 @@
 [Shortcuts]
 KisToolSelectContiguous=W
-KisToolSelectOutline=Ctrl+Alt+A
+KisToolSelectOutline=Ctrl+Meta+A
 KisToolSelectSimilar=Meta+W
+add_new_paint_layer=Ctrl+Shift+Del
 edit_undo=Ctrl+Z; `
+insert_hold_frame=Ctrl+Meta+Q
+copy_frames=Ctrl+Meta+E
+paste_frames=Ctrl+Meta+Shift+E
 selectopaque_add=Meta+Q
 selectopaque_subtract=Meta+Shift+Q
 toggle_layer_alpha_lock=A
+toggle_layer_inherit_alpha=Shift+A
+toggle_layer_visibility=Shift+V
+toggle_onion_skin=Meta+Shift+O
+paste_into=Ctrl+Shift+V

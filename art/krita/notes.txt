@@ -73,6 +73,8 @@ windows - right click the number
 # copy paste
 copy to active layer (important for animation keyframes)
 Edit -> Paste into Active Layer
+or in shortcuts:
+`paste_into=Ctrl+Shift+V`
 
 # Darken a sketch layer or multi layers or a group or multi groups (groups is a little weirder)
   1. copy paste the layer as many times as you need for the darkness you want
