@@ -6,7 +6,21 @@ mac: Krita -> Preferences
 Keyboard shortcuts: (./configs/keyboard.shortcuts)
 import the custom keys into krita
 if windows, first run this replace script:
-  sed -E 's,selectopaque_add.*,selectopaque_add=Ctrl+Alt+Q,g; s,selectopaque_subtract.*,selectopaque_subtract=Ctrl+Alt+Shift+Q,g; s,KisToolSelectSimilar.*,KisToolSelectSimilar=Ctrl+Alt+W,g; s,toggle_onion_skin.*,toggle_onion_skin=Ctrl+Shift+O,g;'
+  sed -E '
+s,KisToolSelectContiguous.*,KisToolSelectContiguous=W,g;
+s,KisToolSelectOutline.*,KisToolSelectOutline=Ctrl+Alt+A,g;
+s,KisToolSelectSimilar.*,KisToolSelectSimilar=Ctrl+Alt+W,g;
+s,add_new_paint_layer.*,add_new_paint_layer=Ctrl+Shift+Del,g;
+s,copy_frames.*,copy_frames=Ctrl+Alt+E,g;
+s,edit_undo.*,edit_undo=Ctrl+Z; `,g;
+s,insert_hold_frame.*,insert_hold_frame=Ctrl+Alt+Q,g;
+s,paste_frames.*,paste_frames=Ctrl+Alt+Shift+E,g;
+s,selectopaque_add.*,selectopaque_add=Ctrl+Alt+Shift+Q,g;
+s,toggle_layer_alpha_lock.*,toggle_layer_alpha_lock=A,g;
+s,toggle_layer_inherit_alpha.*,toggle_layer_inherit_alpha=Shift+A,g;
+s,toggle_layer_visibility.*,toggle_layer_visibility=Shift+V,g;
+s,toggle_onion_skin.*,toggle_onion_skin=Ctrl+Shift+O,g;
+'
 
 # CONFIG LOCATIONS
 # IMPORTANT: BACK UP ORIGINAL RC FILES BEFORE OVERRIDING THEM IN CASE OF MAJOR ISSUES
