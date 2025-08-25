@@ -68,7 +68,7 @@ General window toggles
   click it and you will see a bunch of editors and diff views
   NOTE: the 'Info' option under 'Scripting' is for app logs
 
-shift + space -- view tools
+shift + space -- view tools -- dynamic context menu
 
 ` -- view all nav tools (View pie menu) `
 
@@ -192,6 +192,11 @@ alt + z
 
 ## more advanced
 
+change render settings of an object (useful for making an object wireframe always when using a boolean modifier)
+(right side tools)
+Object -> Viewport Display
+  Display As: Wire
+
 while changing values in the N panel or properties window
   select multiple objects
   hold alt (while changing values)
@@ -238,6 +243,11 @@ remap key since windows uses this key chord
 ctrl + atl + ` -- remap for fly_mode `
 
 ### Selection
+
+ctrl + lmb -- shortest path selection
+l -- link select
+w -- cycle through common selection tools
+  lasso select is one of them
 
 NOTE: doesnt work with numpad preferences set to top numbers -- need to use top bar next to Edit Mode (3 little icons)
 
