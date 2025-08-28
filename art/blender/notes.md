@@ -2,6 +2,9 @@
 https://cgcookie.com/account/orders
 https://blendermarket.com/
 
+## full model references
+https://models.spriters-resource.com/
+
 ### textures and other 3d assets
 https://polyhaven.com/
 https://www.poliigon.com/
@@ -270,6 +273,8 @@ l -- select linked at cursor
 f -- fill
   will try to fill the best it can if left ambiguous
     best seen if select 1 edge and press f
+sometimes you want this instead:
+  ctrl + e -- (fill) bridge edge loop
 
 ctrl+lmb -- select shortest path
 
