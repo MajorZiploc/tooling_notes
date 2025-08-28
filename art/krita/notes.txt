@@ -371,11 +371,17 @@ pixel vs nonpixel art
 # Animation
   Transformation Mask Layers are key for shifting the animation to where you need it
     right click on layer you want to transform:
-      Add -> Add Transformat Mask Layer
+      Add -> Add Transformation Mask Layer
     NOTE: its nondestrutable to the original non transformed thing
     To make it destructive, you need to flatten the layer that the Transformation Mask Layer is associated with
       right click on layer you want to flatten/apply the transform to (layer with the sub Transformation Mask Layer associated with it):
         Flatten Layer
+
+# Animation Curves
+  use bottom scroll bar for zoom in/out and paning
+    zoom in/out by dragging mouse up and down from the bottom scroll bar
+  NOTE: gotcha when doing tweens with 'hold constanst value. No Interpolation'
+    make sure to reset all curves to use this choice, else rest will still be on linear
 
 ## Animation to GIF
 https://docs.krita.org/en/reference_manual/render_animation.html

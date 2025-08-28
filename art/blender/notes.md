@@ -46,6 +46,14 @@ Plugins -- (load your plugins from blendermarket place or where ever):
 Edit -> Preferences -> Add-ons
   top right dropdown arrow -- Install from Disk...
 
+Render options (right_side_menu)
+  to match other software (like game engines):
+    Color Management:
+      View Transform: Standard
+
+  better for low poly game art:
+  Render Engine: EEVEE
+
 # workflow
 
 add assets from 1 .blend file to another
@@ -193,7 +201,7 @@ alt + z
 ## more advanced
 
 change render settings of an object (useful for making an object wireframe always when using a boolean modifier)
-(right side tools)
+(right_side_menu)
 Object -> Viewport Display
   Display As: Wire
 
@@ -373,6 +381,9 @@ applies a uniform value to whole mesh (minus mask) by the Filter Type
 drag right = Filter action
 drag left = invert Filter action
 
+# Reference images
+reduce Opacity (right_side_menu)
+Data -> Opacity
 
 # getting assets
 
