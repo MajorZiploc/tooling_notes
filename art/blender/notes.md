@@ -46,6 +46,14 @@ Plugins -- (load your plugins from blendermarket place or where ever):
 Edit -> Preferences -> Add-ons
   top right dropdown arrow -- Install from Disk...
 
+Render options (right_side_menu)
+  to match other software (like game engines):
+    Color Management:
+      View Transform: Standard
+
+  better for low poly game art:
+  Render Engine: EEVEE
+
 # workflow
 
 add assets from 1 .blend file to another
@@ -68,7 +76,7 @@ General window toggles
   click it and you will see a bunch of editors and diff views
   NOTE: the 'Info' option under 'Scripting' is for app logs
 
-shift + space -- view tools
+shift + space -- view tools -- dynamic context menu
 
 ` -- view all nav tools (View pie menu) `
 
@@ -192,6 +200,11 @@ alt + z
 
 ## more advanced
 
+change render settings of an object (useful for making an object wireframe always when using a boolean modifier)
+(right_side_menu)
+Object -> Viewport Display
+  Display As: Wire
+
 while changing values in the N panel or properties window
   select multiple objects
   hold alt (while changing values)
@@ -238,6 +251,11 @@ remap key since windows uses this key chord
 ctrl + atl + ` -- remap for fly_mode `
 
 ### Selection
+
+ctrl + lmb -- shortest path selection
+l -- link select
+w -- cycle through common selection tools
+  lasso select is one of them
 
 NOTE: doesnt work with numpad preferences set to top numbers -- need to use top bar next to Edit Mode (3 little icons)
 
@@ -363,6 +381,9 @@ applies a uniform value to whole mesh (minus mask) by the Filter Type
 drag right = Filter action
 drag left = invert Filter action
 
+# Reference images
+reduce Opacity (right_side_menu)
+Data -> Opacity
 
 # getting assets
 
