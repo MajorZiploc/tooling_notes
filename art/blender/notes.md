@@ -2,6 +2,9 @@
 https://cgcookie.com/account/orders
 https://blendermarket.com/
 
+## full model references
+https://models.spriters-resource.com/
+
 ### textures and other 3d assets
 https://polyhaven.com/
 https://www.poliigon.com/
@@ -240,6 +243,8 @@ ctrl + (1-5) -- add subdivision surface modifier
 
 ctrl + l -- link menu
 
+p -- with faces selected -- choice selection and it will separate your current selection into a different object
+
 with camera selected - video game controls (WASD) (EQ)
   scroll_wheel to affect the speed of movement
     NOTE: key shortcuts at bottom nav bar
@@ -270,6 +275,8 @@ l -- select linked at cursor
 f -- fill
   will try to fill the best it can if left ambiguous
     best seen if select 1 edge and press f
+sometimes you want this instead:
+  ctrl + e -- (fill) bridge edge loop
 
 ctrl+lmb -- select shortest path
 
@@ -380,6 +387,19 @@ mesh filter
 applies a uniform value to whole mesh (minus mask) by the Filter Type
 drag right = Filter action
 drag left = invert Filter action
+
+### UVs
+
+u -- uv menu
+  'Project from View' option is really good
+
+shift + alt + z -- hide overlays (good for seeing textures without a bunch of noise on your model)
+
+# Misc info
+
+Mirror modifier goes by object origin by default unless using Mirror Object
+  best to use a special object: Empty -> Plain Axes
+    for your Mirror Object
 
 # Reference images
 reduce Opacity (right_side_menu)
