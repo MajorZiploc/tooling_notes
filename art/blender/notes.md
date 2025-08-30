@@ -241,6 +241,12 @@ ctrl + (1-5) -- add subdivision surface modifier
 
 ## 3D Viewport -- Edit Mode
 
+view port overlays options - top right of 3d view point next to 2 circle icon
+  many tools here for customizing what is shown in the 3d viewport
+
+edit mesh more overlay options - top right of 3d view point next to square with 4 verts and 1 of those verts white
+  can find normals facing direction and many other tools here for customizing what is shown in the 3d viewport
+
 ctrl + l -- link menu
 
 p -- with faces selected -- choice selection and it will separate your current selection into a different object
