@@ -386,6 +386,12 @@ applies a uniform value to whole mesh (minus mask) by the Filter Type
 drag right = Filter action
 drag left = invert Filter action
 
+# Misc info
+
+Mirror modifier goes by object origin by default unless using Mirror Object
+  best to use a special object: Empty -> Plain Axes
+    for your Mirror Object
+
 # Reference images
 reduce Opacity (right_side_menu)
 Data -> Opacity
