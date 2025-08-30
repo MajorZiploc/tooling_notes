@@ -243,6 +243,8 @@ ctrl + (1-5) -- add subdivision surface modifier
 
 ctrl + l -- link menu
 
+p -- with faces selected -- choice selection and it will separate your current selection into a different object
+
 with camera selected - video game controls (WASD) (EQ)
   scroll_wheel to affect the speed of movement
     NOTE: key shortcuts at bottom nav bar
@@ -385,6 +387,13 @@ mesh filter
 applies a uniform value to whole mesh (minus mask) by the Filter Type
 drag right = Filter action
 drag left = invert Filter action
+
+### UVs
+
+u -- uv menu
+  'Project from View' option is really good
+
+shift + alt + z -- hide overlays (good for seeing textures without a bunch of noise on your model)
 
 # Misc info
 
