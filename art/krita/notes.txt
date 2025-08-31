@@ -70,6 +70,12 @@ windows - right click the number
   # liquify (useful for moving pieces of a more finished piece)
     on right side in tool options, the water droplet is the liquify tool
 
+for transformation that just shifts
+  t
+
+for transformation that just shifts but to the whole group even if you have a specific paint layer selected
+  shift + t
+
 # copy paste
 copy to active layer (important for animation keyframes)
 Edit -> Paste into Active Layer
