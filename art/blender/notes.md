@@ -49,6 +49,10 @@ Plugins -- (load your plugins from blendermarket place or where ever):
 Edit -> Preferences -> Add-ons
   top right dropdown arrow -- Install from Disk...
 
+Enable these built in plugins:
+  Node Wrangler - good or working with materials (like in the shader editor)
+  Rigify - good for creating characters - gives various rigs in the shift+a menu
+
 Render options (right_side_menu)
   to match other software (like game engines):
     Color Management:
