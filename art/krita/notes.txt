@@ -259,7 +259,7 @@ use a brush to touch up all of the sides
 hold alt to substract next selection
 hold shift to add next selection
 
-# toggle selection lines
+# toggle selection lines -- hide selection
 <cmd>+h
 
 # automatic outline - basic line art hack
