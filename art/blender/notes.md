@@ -138,7 +138,7 @@ alt+s -- clear scale
   xx,yy,zz to limit to the local axis
   shift + x,y,z to limit to NOT axis the selected axis
   ctrl+a -- apply transformation - bakes transformation in and remove clear ability
-    OR to apply specific transformation: (almost top menu) Object -> Apply -> Choose: (scale, location, rotation, etc...)
+    OR to apply specific transformation: (almost_top_menu) Object -> Apply -> Choose: (scale, location, rotation, etc...)
   o -- proportional editing
     scroll wheel -- change area of influence
       or pgup and pgdown
@@ -204,6 +204,9 @@ alt + shift + z
 
 toggle xray
 alt + z
+
+transform pivot point menu (almost_top_menu in middle)
+  good for changing how things are scaled, etc
 
 ## more advanced
 
@@ -357,12 +360,14 @@ edge create -- while using subdivision surface modifier
 invert current operation
 hold ctrl and paint
 
-changing brush size/strength
-f
-shift-f
+changing brush size/strength/weight
+f -- size
+shift-f -- strength
+ctrl-shift-f -- weight
 
 isolate to only painting front faces
 Brush -> Front Face Only checkbox
+  NOTE: xray mode not an option in material preview or rendered modes -- go to solid view instead
 
 invert a mask
 ctrl-i
@@ -383,12 +388,12 @@ use mask
 m
 
 mask modifiers
-(at top)
+(top_menu)
 Mask -> modifier
 
 for clearing a mask:
 alt-m
-Mash -> Clear Mask
+Mask -> Clear Mask
 
 for smoothing a mask:
 Mask -> Smooth mask
@@ -404,6 +409,79 @@ u -- uv menu
   'Project from View' option is really good
 
 shift + alt + z -- hide overlays (good for seeing textures without a bunch of noise on your model)
+
+### Rigging
+
+Rigify plugin is a must
+
+Rigify General workflow to setup a rig on a model from start to finish
+  for simple human rig use shift+a -> armature -> Rigify Meta-Rigs -> Basic -> Basic Human
+  adjust all bones to model
+    NOTE: dont forget to use the symmetry X option at almost_top_menu right
+  with metarig selected go to right_side_menu Data -> Rigify and click Generate Rig
+  a new rig with more info will be created
+  to auto weight paint - select all parts of your model and then select the new rig
+    ctrl-p -> Armature Deform -> With Automatic Weights
+  to refine the auto weight paint:
+  with the mesh you want to paint selected: enter Weight Paint mode
+    Simple toggle between vertex groups visually
+      with rig selected right_side_menu Data -> Bone Collections: press star next to Def (will isolate the bones) (NOTE: click again to reset to prev state)
+      Click on rig, shift click on model (the current mesh you are painting) go to Weight Paint mode
+        bones are not present and represent the vertex groups
+        shift click (or just click seems to work) a bone to go to that bones vertex group
+    General case:
+      go through all Vertex Groups and find the bone with the most weight for the mesh and with Weight: 1.00 and Strength: 1.00 and Gradient tool. give all of the weight to said bone
+      play with it a little to see if you want to share weight between bones
+    NOTE: xray mode not an option in material preview or rendered modes -- go to solid view instead
+      OR: if need to see textures (while in solid view) go to almost_top_menu right
+        Viewport Shading menu:
+          Lighting: Flat (default: Studio)
+          Object Color: Texture (default: Material)
+    use the Vertex groups at almost_top_menu center or right_side_menu in Data
+      each Vertex group corresponds to a bone
+      can arrow through them
+    NOTE: dont forget to use the symmetry X option at almost_top_menu right
+    N (tool) - properties important
+      for low poly models you usually want 0 or 1 painting so set the Brush curve under (Brush Settings -> Falloff menu) to constant (last curve option)
+      Brush Settings -> Advanced: Front Faces only checkbox
+        NOTE: this toggle and the Falloff Shape under (Brush Settings -> Falloff menu) along with xray mode or not can change how weight painting works
+      Options: Auto Normalize -- check it!!! (without it multiple bones can have influences OVER 100% on a model)
+        With it checked, if you add weight to 1 bone, it removes it from the other bones proportionally to the amount of weight you added to the new bone
+      top level paint modes: almost_top_menu left - [Paint Mask, Vertex Selection] -- leave both off for low poly
+  adding new bones to the rig (ex: hair) (useful for secondary motion areas)
+    shift-a in edit mode of rig will create a bone -- place it in the bangs
+    create a group for Hair in right_side_menu Data -> Bone Collections
+      with the new bone selected - click the assign button under Bone Collections
+      optional:
+        color the new bone: right_side_menu Bone -> Viewport Display: Bone Color
+        rename new bone: select bone and in edit mode: F2 (hair_front)
+    weighting to hair mesh:
+      in object mode: click hair, then shift click on new bone
+        ctrl+p: Armature Deform -> With Empty Groups
+        weight paint yourself
+  make new bone a child of the proper bone in the existing rig (ex: hair_front child to head bone)
+    edit mode of rig and click new bone
+    right_side_menu Bone -> Relations -> Parent
+      DEF spine 006 (verify from the weight paint mode as to which Vertex group makes sense for your new bone)
+
+Rigify notes:
+toggle vis of certain rig groups
+  N -> Rig Layers
+FK and IK are 2 different right motion types like an enum so only 1 can be active at a time
+
+ctrl+tab -- toggle pose and object mode
+
+Bones -- head is chunky part - tail is thin part -- have a hierarchy
+(right_side_menu) -- show bone in front of other things -- (on top / render)
+Data -> Viewport Display
+  In Front
+
+ctrl+p -- armature deform (with automatic weights) -- quick weighting
+  NOTE: select mesh then bone before this
+
+alt+p clear parent of a bone
+
+a -> alt+r -- reset pose
 
 # Misc info
 

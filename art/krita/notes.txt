@@ -386,7 +386,7 @@ pixel vs nonpixel art
 # Animation Curves
   use bottom scroll bar for zoom in/out and paning
     zoom in/out by dragging mouse up and down from the bottom scroll bar
-  NOTE: gotcha when doing tweens with 'hold constanst value. No Interpolation'
+  NOTE: gotcha when doing tweens with 'hold constant value. No Interpolation'
     make sure to reset all curves to use this choice, else rest will still be on linear
 
 ## Animation to GIF
