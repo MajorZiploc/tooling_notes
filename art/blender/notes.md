@@ -414,6 +414,9 @@ shift + alt + z -- hide overlays (good for seeing textures without a bunch of no
 
 Rigify plugin is a must
 
+Optional: Display wireframe at all times to make matching skeleton to mesh easier with:
+  almost_top_menu right side Viewport Overlays -> Geometry -> Wireframe
+
 Rigify General workflow to setup a rig on a model from start to finish
   for simple human rig use shift+a -> armature -> Rigify Meta-Rigs -> Basic -> Basic Human
   adjust all bones to model
@@ -467,7 +470,8 @@ Rigify General workflow to setup a rig on a model from start to finish
 Rigify notes:
 toggle vis of certain rig groups
   N -> Rig Layers
-FK and IK are 2 different right motion types like an enum so only 1 can be active at a time
+FK and IK are 2 different right motion types
+  by default Rigify basic human rig only has IK enabled
 
 ctrl+tab -- toggle pose and object mode
 
@@ -497,6 +501,29 @@ Assign the new_texture to the mesh
   Edit Mode
     select the faces from the mesh you want to animate
     right_side_menu Material - select the new_texture and click 'assign'
+
+Node Wrangler in shader editor
+ctrl-t -- when on image_texture node adds texture_coordinate and mapping nodes as input chain
+
+Add bone to a value node for easier editing of value during animation creation by just moving the bone instead of editing the value in the shader editor
+  Add new bone to rig
+  name 'face_control'
+  create new Bone Collection named 'face_controller' -- with bone selected in edit mode in right_side_menu -> Data
+  select face mesh (mesh with shader editor nodes) in Object Mode
+  right click the value property in the value node
+  Add Driver
+    NOTE: if you mouse away you can pull back driver details by right clicking the value property and selecting 'Edit Driver'
+    Type: Z Location
+    Space: Location Space
+  right_side_menu -> Data -> Axes - checkbox to true
+  on face_control bone: N -> Transform -> Roll: 0
+  To change how fast the enum changes values:
+    Edit Driver on face mesh:
+      Expression: var * 15.0
+  To only allow bone to move on z axis (the axis that actually controls the face animation)
+    in Pose Mode: select face_control bone: right_side_menu -> Bone Constraints -> (Transform) Limit Location
+      check the min and max x and y checkboxes
+      Owner: Local Space
 
 # Misc info
 
