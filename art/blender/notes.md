@@ -421,17 +421,18 @@ Rigify General workflow to setup a rig on a model from start to finish
   for simple human rig use shift+a -> armature -> Rigify Meta-Rigs -> Basic -> Basic Human
   adjust all bones to model
     NOTE: dont forget to use the symmetry X option at almost_top_menu right
-  with metarig selected go to right_side_menu Data -> Rigify and click Generate Rig
+  with metarig selected go to right_side_menu Data -> Rigify and lmb Generate Rig
   a new rig with more info will be created
   to auto weight paint - select all parts of your model and then select the new rig
     ctrl-p -> Armature Deform -> With Automatic Weights
   to refine the auto weight paint:
   with the mesh you want to paint selected: enter Weight Paint mode
     Simple toggle between vertex groups visually
-      with rig selected right_side_menu Data -> Bone Collections: press star next to Def (will isolate the bones) (NOTE: click again to reset to prev state)
-      Click on rig, shift click on model (the current mesh you are painting) go to Weight Paint mode
+      with rig selected right_side_menu Data -> Bone Collections: press star next to Def (will isolate the bones) (NOTE: lmb again to reset to prev state)
+      lmb on rig, shift-lmb on model (the current mesh you are painting) go to Weight Paint mode
         bones are now present and represent the vertex groups
-        shift click (or just click seems to work) a bone to go to that bones vertex group
+        with Move tool: shift-lmb (or just lmb seems to work) a bone to go to that bones vertex group
+        OR: alt-lmb
     General case:
       go through all Vertex Groups and find the bone with the most weight for the mesh and with Weight: 1.00 and Strength: 1.00 and Gradient tool. give all of the weight to said bone
       play with it a little to see if you want to share weight between bones
@@ -454,16 +455,16 @@ Rigify General workflow to setup a rig on a model from start to finish
   adding new bones to the rig (ex: hair) (useful for secondary motion areas)
     shift-a in edit mode of rig will create a bone -- place it in the bangs
     create a group for Hair in right_side_menu Data -> Bone Collections
-      with the new bone selected - click the assign button under Bone Collections
+      with the new bone selected - lmb the assign button under Bone Collections
       optional:
         color the new bone: right_side_menu Bone -> Viewport Display: Bone Color
         rename new bone: select bone and in edit mode: F2 (hair_front)
     weighting to hair mesh:
-      in object mode: click hair, then shift click on new bone
+      in object mode: lmb hair, then shift-lmb on new bone
         ctrl+p: Armature Deform -> With Empty Groups
         weight paint yourself
   make new bone a child of the proper bone in the existing rig (ex: hair_front child to head bone)
-    edit mode of rig and click new bone
+    edit mode of rig and lmb new bone
     right_side_menu Bone -> Relations -> Parent
       DEF spine 006 (verify from the weight paint mode as to which Vertex group makes sense for your new bone)
 
@@ -492,15 +493,15 @@ a -> alt+r -- reset pose
 Duplicate/copy a texture hierarchy:
   usually you already have a root texture with some shader editor nodes that you want for the animation texture aswell
   Object Mode: select mesh you want to apply new_texture to
-  go to right_side_menu Material and click '+' next to current material list
+  go to right_side_menu Material and lmb '+' next to current material list
   in dropdown (with circle that is checkerboxed) choose the main texture from the og_texture
-  then click 'New Material' button (the little copy symbol)
+  then lmb 'New Material' button (the little copy symbol)
   copy complete
 
 Assign the new_texture to the mesh
   Edit Mode
     select the faces from the mesh you want to animate
-    right_side_menu Material - select the new_texture and click 'assign'
+    right_side_menu Material - select the new_texture and lmb 'assign'
 
 Node Wrangler in shader editor
 ctrl-t -- when on image_texture node adds texture_coordinate and mapping nodes as input chain
@@ -510,7 +511,7 @@ Add bone to a value node for easier editing of value during animation creation b
   name 'face_control'
   create new Bone Collection named 'face_controller' -- with bone selected in edit mode in right_side_menu -> Data
   select face mesh (mesh with shader editor nodes) in Object Mode
-  right click the value property in the value node
+  rmb the value property in the value node
   Add Driver
     NOTE: if you mouse away you can pull back driver details by right clicking the value property and selecting 'Edit Driver'
     Type: Z Location
