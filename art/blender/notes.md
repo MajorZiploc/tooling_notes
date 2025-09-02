@@ -430,7 +430,7 @@ Rigify General workflow to setup a rig on a model from start to finish
     Simple toggle between vertex groups visually
       with rig selected right_side_menu Data -> Bone Collections: press star next to Def (will isolate the bones) (NOTE: click again to reset to prev state)
       Click on rig, shift click on model (the current mesh you are painting) go to Weight Paint mode
-        bones are not present and represent the vertex groups
+        bones are now present and represent the vertex groups
         shift click (or just click seems to work) a bone to go to that bones vertex group
     General case:
       go through all Vertex Groups and find the bone with the most weight for the mesh and with Weight: 1.00 and Strength: 1.00 and Gradient tool. give all of the weight to said bone
