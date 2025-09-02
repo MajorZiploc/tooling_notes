@@ -483,6 +483,21 @@ alt+p clear parent of a bone
 
 a -> alt+r -- reset pose
 
+# Texture Animation
+
+Duplicate/copy a texture hierarchy:
+  usually you already have a root texture with some shader editor nodes that you want for the animation texture aswell
+  Object Mode: select mesh you want to apply new_texture to
+  go to right_side_menu Material and click '+' next to current material list
+  in dropdown (with circle that is checkerboxed) choose the main texture from the og_texture
+  then click 'New Material' button (the little copy symbol)
+  copy complete
+
+Assign the new_texture to the mesh
+  Edit Mode
+    select the faces from the mesh you want to animate
+    right_side_menu Material - select the new_texture and click 'assign'
+
 # Misc info
 
 Mirror modifier goes by object origin by default unless using Mirror Object
