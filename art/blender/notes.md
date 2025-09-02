@@ -433,6 +433,7 @@ Rigify General workflow to setup a rig on a model from start to finish
         bones are now present and represent the vertex groups
         with Move tool: shift-lmb (or just lmb seems to work) a bone to go to that bones vertex group
         OR: alt-lmb
+        can rotote non def (non deformation) bones with r-g-s
     General case:
       go through all Vertex Groups and find the bone with the most weight for the mesh and with Weight: 1.00 and Strength: 1.00 and Gradient tool. give all of the weight to said bone
       play with it a little to see if you want to share weight between bones
