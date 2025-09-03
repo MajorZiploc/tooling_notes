@@ -410,6 +410,9 @@ u -- uv menu
 
 shift + alt + z -- hide overlays (good for seeing textures without a bunch of noise on your model)
 
+export UV map on texture to make easier to see when creating textures in krita:
+UV Editor -> UV -> Export UV Layout
+
 ### Rigging
 
 Rigify plugin is a must
