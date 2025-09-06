@@ -405,6 +405,8 @@ drag left = invert Filter action
 
 ### UVs
 
+NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
+
 u -- uv menu
   'Project from View' option is really good
 
@@ -412,6 +414,14 @@ shift + alt + z -- hide overlays (good for seeing textures without a bunch of no
 
 export UV map on texture to make easier to see when creating textures in krita:
 UV Editor -> UV -> Export UV Layout
+
+Manual seams approach:
+1. apply scale
+2. project from view (select all faces) - creates a clean slate
+3. mark seams
+  can help select common seams quickier with:
+    Edit Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
+4. unwrap (in UVEditor select all faces; u (unwrap))
 
 ### Rigging
 
