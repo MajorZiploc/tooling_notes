@@ -425,14 +425,19 @@ Manual seams approach:
 
 Quick and Dirty - best for if you plan to paint straight in blender
 smart UV unwrap -- Object Mode: select all meshs -> Edit Mode: deselect then select all -> U -> smart UV unwrap
-UV -> Average Islands Scale
-Pack Islands
-  ensure each island has enough padding around it so that flats dont spill over on different islands
-  and ensure you align faces horizontally or vertically
   good starting point:
   Rotation Method: Axis-aligned (Horizontally)
   Margin Method: Scaled
-  Margin: 0.001
+  Margin: 0.002
+Optional: -- try without, if get weird results during flats, then try this
+  UV -> Average Islands Scale
+  Pack Islands
+    ensure each island has enough padding around it so that flats dont spill over on different islands
+    and ensure you align faces horizontally or vertically
+    good starting point:
+    Rotation Method: Axis-aligned (Horizontally)
+    Margin Method: Scaled
+    Margin: 0.002
 
 ### Texture painting
 
@@ -440,6 +445,9 @@ shift+x -- color picker -- DONT CLICK just hover over color and release keys
 
 paint through mesh to get flats done quick
 texture_paint_mode: with a brush selected: N -> Tool -> Options -> uncheck [Occlude, Backface Culling]
+  reduce bleed to 1px or even 0px depending
+  Optional: first pass use bleed, then do flats pass with 0px bleed
+    -- try without, if get weird results during flats, then try this
 hit it with a 1,3,7 (cam angles) with a big hard brush and that will get everything
 
 ### Rigging
