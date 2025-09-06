@@ -423,6 +423,25 @@ Manual seams approach:
     Edit Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
 4. unwrap (in UVEditor select all faces; u (unwrap))
 
+Quick and Dirty - best for if you plan to paint straight in blender
+smart UV unwrap -- Object Mode: select all meshs -> Edit Mode: deselect then select all -> U -> smart UV unwrap
+UV -> Average Islands Scale
+Pack Islands
+  ensure each island has enough padding around it so that flats dont spill over on different islands
+  and ensure you align faces horizontally or vertically
+  good starting point:
+  Rotation Method: Axis-aligned (Horizontally)
+  Margin Method: Scaled
+  Margin: 0.001
+
+### Texture painting
+
+shift+x -- color picker -- DONT CLICK just hover over color and release keys
+
+paint through mesh to get flats done quick
+texture_paint_mode: with a brush selected: N -> Tool -> Options -> uncheck [Occlude, Backface Culling]
+hit it with a 1,3,7 (cam angles) with a big hard brush and that will get everything
+
 ### Rigging
 
 Rigify plugin is a must
