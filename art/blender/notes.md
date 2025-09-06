@@ -424,6 +424,12 @@ Manual seams approach:
 4. unwrap (in UVEditor select all faces; u (unwrap))
 
 Quick and Dirty - best for if you plan to paint straight in blender
+NOTE:
+  only include meshes you need
+  remember to include any partial geometry you may need
+    ex: under head next to neck should be part of main_texture not face_texture
+  resize any geometry that isnt needed to be smaller and size up any geometry that needs more detail
+    TODO: look into an automatic way of achieving this or something close enough to this
 smart UV unwrap -- Object Mode: select all meshs -> Edit Mode: deselect then select all -> U -> smart UV unwrap
   good starting point:
   Rotation Method: Axis-aligned (Horizontally)
