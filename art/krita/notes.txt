@@ -309,7 +309,7 @@ k and l
     - burn - popping of colors
     - mod - mental instability / deep realizations / breaking
 
-## Filter Layers
+## Filter Layers -- same as using the Filter top_menu
   Posterize (Artistic -> Posterize)
     makes colors nice and sharp - easy pop
   Gradient Map (Map -> Gradient Map)
@@ -333,6 +333,14 @@ k and l
       think floating glowing banana at Acadian
   Mean Removal (Enhance -> Mean Removal)
     gives a sharpness to lines. like an oldschool film effect
+
+### creating an outline/stroke and removing the base color so that you are left with just the stroke
+Map -> Gradient Map
+1. Foreground to Transparent (second preset under Choose Gradient Present)
+the right node should be the stroke color and the left node should be the og color/fill color
+  right node: %100 opacity
+  left node: 0% opacity
+  Create Filter Mask
 
 convert to gray scale
   cmd+shift+u

@@ -166,6 +166,11 @@ custom brushes:
           turn down layer opacity to 40%
         for layered paint effect:
           (NOTE: use the toolbar Opacity to adjust it. usually 23-33% is good)
+  unofficial custom brushes
+  h) Charcoal pencil large
+    opacity: 56%
+    size: 5.00px
+    good for sketching straight in digital
 
 1wheel brushes:
   a) Eraser Soft
