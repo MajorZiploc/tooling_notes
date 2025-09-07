@@ -407,6 +407,9 @@ drag left = invert Filter action
 
 NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
 
+How to select faces in UVEditor and have those faces select in edit_mode 3d viewport (uv sync selection)
+UVEditor -> UV Sync Selection (almost_top_menu top left <2 arrows pointing in opposite directions>)
+
 u -- uv menu
   'Project from View' option is really good
 
@@ -424,6 +427,18 @@ Manual seams approach:
 4. unwrap (in UVEditor select all faces; u (unwrap))
 
 Quick and Dirty - best for if you plan to paint straight in blender
+NOTE:
+  only include meshes you need
+  remember to include any partial geometry you may need
+    ex: under head next to neck should be part of main_texture not face_texture
+  resize any geometry that isnt needed to be smaller and size up any geometry that needs more detail
+    TODO: look into an automatic way of achieving this or something close enough to this
+    GOOD_ENOUGH:
+      deselect faces that need way less pixels before smart uv unwrap
+        NOTE: unwrap all these deselected faces and scale down and off canvas so that its easier to find them after flats to place in proper spots
+          when painting flats its best to keep these faces hidden so that paint doesnt get where it shouldnt be
+      then manual unwrap them
+      this work flow should be limited to a small time box of around 5-15 mins to get the most bang for buck
 smart UV unwrap -- Object Mode: select all meshs -> Edit Mode: deselect then select all -> U -> smart UV unwrap
   good starting point:
   Rotation Method: Axis-aligned (Horizontally)
