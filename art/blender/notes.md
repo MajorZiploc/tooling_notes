@@ -407,6 +407,9 @@ drag left = invert Filter action
 
 NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
 
+How to select faces in UVEditor and have those faces select in edit_mode 3d viewport (uv sync selection)
+UVEditor -> UV Sync Selection (almost_top_menu top left <2 arrows pointing in opposite directions>)
+
 u -- uv menu
   'Project from View' option is really good
 
