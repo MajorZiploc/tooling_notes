@@ -432,6 +432,8 @@ NOTE:
     TODO: look into an automatic way of achieving this or something close enough to this
     GOOD_ENOUGH:
       deselect faces that need way less pixels before smart uv unwrap
+        NOTE: unwrap all these deselected faces and scale down and off canvas so that its easier to find them after flats to place in proper spots
+          when painting flats its best to keep these faces hidden so that paint doesnt get where it shouldnt be
       then manual unwrap them
       this work flow should be limited to a small time box of around 5-15 mins to get the most bang for buck
 smart UV unwrap -- Object Mode: select all meshs -> Edit Mode: deselect then select all -> U -> smart UV unwrap
