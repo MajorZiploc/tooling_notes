@@ -428,6 +428,7 @@ Manual seams approach:
 
 Quick and Dirty - best for if you plan to paint straight in blender
 NOTE:
+  start with a single color texture such as #000000
   only include meshes you need
   remember to include any partial geometry you may need
     ex: under head next to neck should be part of main_texture not face_texture
