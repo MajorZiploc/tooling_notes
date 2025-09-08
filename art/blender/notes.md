@@ -36,6 +36,9 @@ https://docs.google.com/document/d/1dH4r1tCrf2EddWYfjmFc2FTWdHiXYMymI9cVisXd6hg/
 
 # settings
 
+NOTE: save preferences
+  Edit -> Preferences -> bottom_left -> hamburger_menu
+
 emulate numpad (when you dont have a numpad)
   Edit -> Preferences -> Input -> Check Emulate Numpad (top nums will work like numpad)
 
@@ -44,6 +47,9 @@ Edit -> Preferences -> Input -> Check Emulate 3 Button Mouse (alt+lmb)
 
 ^ undo stack
 Edit -> Preferences -> System -> Memory & Limits -> Undo Steps: 256
+
+extra shading stuff
+Edit -> Preferences -> Kepmap -> check: Extra Shading Pie Menu Items
 
 Plugins -- (load your plugins from blendermarket place or where ever):
 Edit -> Preferences -> Add-ons
@@ -267,6 +273,12 @@ shift + ` -- fly_mode  `
 
 remap key since windows uses this key chord
 ctrl + atl + ` -- remap for fly_mode `
+
+merge a bunch of vertex pairs -- by distance
+1. select all pairs you want to merge
+2. M -> Merge by Distance
+3. change the distance based on pair distance
+NOTE: can work in more complex situations that just pairs
 
 ### Selection
 
