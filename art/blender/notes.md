@@ -526,6 +526,19 @@ Rigify General workflow to setup a rig on a model from start to finish
       Options: Auto Normalize -- check it!!! (without it multiple bones can have influences OVER 100% on a model)
         With it checked, if you add weight to 1 bone, it removes it from the other bones proportionally to the amount of weight you added to the new bone
       top level paint modes: almost_top_menu left - [Paint Mask, Vertex Selection] -- leave both off for low poly
+      NOTE: painting styles
+        To paint through mesh
+          weight_paint_mode -> brush tool -> N: tool
+            Advanced -> Front Faces Only: off
+            Falloff ->
+              Falloff shape: Projected
+              Front-Face only: off
+        else default to:
+          weight_paint_mode -> brush tool -> N: tool
+            Advanced -> Front Faces Only: on
+            Falloff ->
+              Falloff shape: Sphere
+              Front-Face only: on
   adding new bones to the rig (ex: hair) (useful for secondary motion areas)
     shift-a in edit mode of rig will create a bone -- place it in the bangs
     create a group for Hair in right_side_menu Data -> Bone Collections
