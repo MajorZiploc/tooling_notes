@@ -440,7 +440,7 @@ Manual seams approach:
 
 Quick and Dirty - best for if you plan to paint straight in blender
 NOTE:
-  start with a single color texture such as #000000
+  start with a single color texture such as #00000000
   only include meshes you need
   remember to include any partial geometry you may need
     ex: under head next to neck should be part of main_texture not face_texture
@@ -452,6 +452,11 @@ NOTE:
           when painting flats its best to keep these faces hidden so that paint doesnt get where it shouldnt be
       then manual unwrap them
       this work flow should be limited to a small time box of around 5-15 mins to get the most bang for buck
+    GOOD_ENOUGH_BETTER:
+    0 a pass of smart uv unwrap of all faces and place it outside of the texture
+    1 a pass where i only select the faces where i want alot of detail and let them take the most image space
+    2 a pass of all faces that need almost no space
+    3 a pass of all faces that need mid space
 smart UV unwrap -- Object Mode: select all meshs -> Edit Mode: deselect then select all -> U -> smart UV unwrap
   good starting point:
   Rotation Method: Axis-aligned (Horizontally)
@@ -521,6 +526,19 @@ Rigify General workflow to setup a rig on a model from start to finish
       Options: Auto Normalize -- check it!!! (without it multiple bones can have influences OVER 100% on a model)
         With it checked, if you add weight to 1 bone, it removes it from the other bones proportionally to the amount of weight you added to the new bone
       top level paint modes: almost_top_menu left - [Paint Mask, Vertex Selection] -- leave both off for low poly
+      NOTE: painting styles
+        To paint through mesh
+          weight_paint_mode -> brush tool -> N: tool
+            Advanced -> Front Faces Only: off
+            Falloff ->
+              Falloff shape: Projected
+              Front-Face only: off
+        else default to:
+          weight_paint_mode -> brush tool -> N: tool
+            Advanced -> Front Faces Only: on
+            Falloff ->
+              Falloff shape: Sphere
+              Front-Face only: on
   adding new bones to the rig (ex: hair) (useful for secondary motion areas)
     shift-a in edit mode of rig will create a bone -- place it in the bangs
     create a group for Hair in right_side_menu Data -> Bone Collections
