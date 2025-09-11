@@ -472,6 +472,18 @@ Optional: -- try without, if get weird results during flats, then try this
     Margin Method: Scaled
     Margin: 0.002
 
+#### UV Textures
+
+Shader Editor:
+  Image Texture Node setting:
+    use Clip instead of Repeat
+
+UVMap.Face -- order extra UVMaps -- UVMap.*
+  every mesh on model needs each UVMap you create
+    if it isnt used on a particular UVMap then you smart uv unwrap it for that UVMap.*
+    move it off of the texture
+      if using Clip on Image Texture Nodes then it will make it not use that texture
+
 ### Texture painting
 
 shift+x -- color picker -- DONT CLICK just hover over color and release keys
