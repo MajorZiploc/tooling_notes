@@ -125,6 +125,9 @@ shift + 2finger_swipe -- pane
 
 standard 2 finger pitching -- zoom
 
+change zoom target:
+alt-mmb -- hovered over area you want to be zoom target
+
 2finger_swipe -- rotate view
 
 g -- move
@@ -369,13 +372,44 @@ edge create -- while using subdivision surface modifier
 
 ### Sculpting
 
-invert current operation
-hold ctrl and paint
+common brushes:
+  grab
+    stretch out areas for large shapes
+  brush
+    inflate and outflate
+      for more detailed shapes
+  smooth
+    average out blocky areas in a big way - relies on remesh voxel size (larger value) to not be overly detailed
+    truely smoothing - relies on remesh voxel size (smaller value)
+  crease
+    high detail
+    small size brush is common
+
+when hover over object, you will see little yellow dots -- the closer they are the more to the center of a shape you are
 
 changing brush size/strength/weight
 f -- size
 shift-f -- strength
 ctrl-shift-f -- weight
+
+invert current brush operation
+hold ctrl and paint
+
+smooth tool shortcut
+hold shift
+
+remesh
+ctrl-r
+
+change voxel size of remesh
+r
+
+basic shaping techniques:
+  1
+    brush to remesh to smooth
+    brush to pull out or push in details followed by remesh then smooth to even out the shape
+  2
+    grab brush
 
 isolate to only painting front faces
 Brush -> Front Face Only checkbox
@@ -383,9 +417,6 @@ Brush -> Front Face Only checkbox
 
 invert a mask
 ctrl-i
-
-smooth tool shortcut
-hold shift
 
 use inflate/deflate brush
 i
@@ -414,6 +445,26 @@ mesh filter
 applies a uniform value to whole mesh (minus mask) by the Filter Type
 drag right = Filter action
 drag left = invert Filter action
+
+select/toggle_to diff mesh/object while in sculpt_mode
+alt-q -- hover over what you want to select
+
+workflow:
+setup for sculpting high_vert_count_model
+  join all objects you plan to sculpt on into 1
+  in sculpt_mode almost_top_menu: Remesh -> Remesh
+    will get rid of internal/overlapping mesh parts
+    gives new verts to work with
+  Dyntopo:
+    Resolution to around 37-42
+    Dyntopo means when you sculpt you are creating new verts
+  optional: turn on mirroring in brush
+converting high_vert_count_model to low_vert_count_model
+object_mode
+snapping tool
+  Face Nearest
+make plane mesh
+  right_side_menu: Object -> Viewport Display -> In Front (checked)
 
 ### UVs
 
