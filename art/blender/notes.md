@@ -125,6 +125,9 @@ shift + 2finger_swipe -- pane
 
 standard 2 finger pitching -- zoom
 
+change zoom target:
+alt-mmb -- hovered over area you want to be zoom target
+
 2finger_swipe -- rotate view
 
 g -- move
@@ -369,13 +372,44 @@ edge create -- while using subdivision surface modifier
 
 ### Sculpting
 
-invert current operation
-hold ctrl and paint
+common brushes:
+  grab
+    stretch out areas for large shapes
+  brush
+    inflate and outflate
+      for more detailed shapes
+  smooth
+    average out blocky areas in a big way - relies on remesh voxel size (larger value) to not be overly detailed
+    truely smoothing - relies on remesh voxel size (smaller value)
+  crease
+    high detail
+    small size brush is common
+
+when hover over object, you will see little yellow dots -- the closer they are the more to the center of a shape you are
 
 changing brush size/strength/weight
 f -- size
 shift-f -- strength
 ctrl-shift-f -- weight
+
+invert current brush operation
+hold ctrl and paint
+
+smooth tool shortcut
+hold shift
+
+remesh
+ctrl-r
+
+change voxel size of remesh
+r
+
+basic shaping techniques:
+  1
+    brush to remesh to smooth
+    brush to pull out or push in details followed by remesh then smooth to even out the shape
+  2
+    grab brush
 
 isolate to only painting front faces
 Brush -> Front Face Only checkbox
@@ -383,9 +417,6 @@ Brush -> Front Face Only checkbox
 
 invert a mask
 ctrl-i
-
-smooth tool shortcut
-hold shift
 
 use inflate/deflate brush
 i
@@ -415,12 +446,35 @@ applies a uniform value to whole mesh (minus mask) by the Filter Type
 drag right = Filter action
 drag left = invert Filter action
 
+select/toggle_to diff mesh/object while in sculpt_mode
+alt-q -- hover over what you want to select
+
+workflow:
+setup for sculpting high_vert_count_model
+  join all objects you plan to sculpt on into 1
+  in sculpt_mode almost_top_menu: Remesh -> Remesh
+    will get rid of internal/overlapping mesh parts
+    gives new verts to work with
+  Dyntopo:
+    Resolution to around 37-42
+    Dyntopo means when you sculpt you are creating new verts
+  optional: turn on mirroring in brush
+converting high_vert_count_model to low_vert_count_model
+object_mode
+snapping tool
+  Face Nearest
+make plane mesh
+  right_side_menu: Object -> Viewport Display -> In Front (checked)
+
 ### UVs
 
 NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
 
-How to select faces in UVEditor and have those faces select in edit_mode 3d viewport (uv sync selection)
+NOTE: start with a single color texture such as #00000000
+
+NOTE: How to select faces in UVEditor and have those faces select in edit_mode 3d viewport (uv sync selection)
 UVEditor -> UV Sync Selection (almost_top_menu top left <2 arrows pointing in opposite directions>)
+makes finding groups of UVs easier since you can select them in the UVEditor
 
 u -- uv menu
   'Project from View' option is really good
@@ -430,6 +484,35 @@ shift + alt + z -- hide overlays (good for seeing textures without a bunch of no
 export UV map on texture to make easier to see when creating textures in krita:
 UV Editor -> UV -> Export UV Layout
 
+Quick and Dirty - best for if you plan to paint straight in blender
+NOTE:
+  only include meshes you need
+  GOOD_ENOUGH_BETTER:
+  0 a pass of smart uv unwrap of all faces and place it outside of the texture
+  1 a pass where only select the faces that need alot of detail and let them take the most image space
+  2 a pass of all faces that need almost no space
+  3 a pass of all faces that need mid space
+  NOTE for 1-3 steps above: for when scaling smart UV unwraps - you will get overlapping faces if you scale down
+    1 scale down
+    2 Pack Islands
+      uncheck Scale at top
+      adjust Margin as needed
+
+Tool setting starting points:
+  smart UV unwrap -- Object Mode: select all meshes -> Edit Mode: deselect then select all -> U -> smart UV unwrap
+    good starting point:
+    Rotation Method: Axis-aligned (Horizontally)
+    Margin Method: Scaled
+    Margin: 0.002
+  Pack Islands
+    ensure each island has enough padding around it so that flats dont spill over on different islands
+    and ensure you align faces horizontally or vertically
+    good starting point:
+    Rotation Method: Axis-aligned (Horizontally)
+    Margin Method: Scaled
+    Margin: 0.002
+  Average Islands Scale
+
 Manual seams approach:
 1. apply scale
 2. project from view (select all faces) - creates a clean slate
@@ -438,39 +521,17 @@ Manual seams approach:
     Edit Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
 4. unwrap (in UVEditor select all faces; u (unwrap))
 
-Quick and Dirty - best for if you plan to paint straight in blender
-NOTE:
-  start with a single color texture such as #00000000
-  only include meshes you need
-  remember to include any partial geometry you may need
-    ex: under head next to neck should be part of main_texture not face_texture
-  resize any geometry that isnt needed to be smaller and size up any geometry that needs more detail
-    TODO: look into an automatic way of achieving this or something close enough to this
-    GOOD_ENOUGH:
-      deselect faces that need way less pixels before smart uv unwrap
-        NOTE: unwrap all these deselected faces and scale down and off canvas so that its easier to find them after flats to place in proper spots
-          when painting flats its best to keep these faces hidden so that paint doesnt get where it shouldnt be
-      then manual unwrap them
-      this work flow should be limited to a small time box of around 5-15 mins to get the most bang for buck
-    GOOD_ENOUGH_BETTER:
-    0 a pass of smart uv unwrap of all faces and place it outside of the texture
-    1 a pass where i only select the faces where i want alot of detail and let them take the most image space
-    2 a pass of all faces that need almost no space
-    3 a pass of all faces that need mid space
-smart UV unwrap -- Object Mode: select all meshs -> Edit Mode: deselect then select all -> U -> smart UV unwrap
-  good starting point:
-  Rotation Method: Axis-aligned (Horizontally)
-  Margin Method: Scaled
-  Margin: 0.002
-Optional: -- try without, if get weird results during flats, then try this
-  UV -> Average Islands Scale
-  Pack Islands
-    ensure each island has enough padding around it so that flats dont spill over on different islands
-    and ensure you align faces horizontally or vertically
-    good starting point:
-    Rotation Method: Axis-aligned (Horizontally)
-    Margin Method: Scaled
-    Margin: 0.002
+#### UV Textures
+
+Shader Editor:
+  Image Texture Node setting:
+    use Clip instead of Repeat
+
+UVMap.Face -- order extra UVMaps -- UVMap.*
+  every mesh on model needs each UVMap you create
+    if it isnt used on a particular UVMap then you smart uv unwrap it for that UVMap.*
+    move it off of the texture
+      if using Clip on Image Texture Nodes then it will make it not use that texture
 
 ### Texture painting
 
