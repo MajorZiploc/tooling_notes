@@ -419,8 +419,11 @@ drag left = invert Filter action
 
 NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
 
-How to select faces in UVEditor and have those faces select in edit_mode 3d viewport (uv sync selection)
+NOTE: start with a single color texture such as #00000000
+
+NOTE: How to select faces in UVEditor and have those faces select in edit_mode 3d viewport (uv sync selection)
 UVEditor -> UV Sync Selection (almost_top_menu top left <2 arrows pointing in opposite directions>)
+makes finding groups of UVs easier since you can select them in the UVEditor
 
 u -- uv menu
   'Project from View' option is really good
@@ -430,40 +433,26 @@ shift + alt + z -- hide overlays (good for seeing textures without a bunch of no
 export UV map on texture to make easier to see when creating textures in krita:
 UV Editor -> UV -> Export UV Layout
 
-Manual seams approach:
-1. apply scale
-2. project from view (select all faces) - creates a clean slate
-3. mark seams
-  can help select common seams quickier with:
-    Edit Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
-4. unwrap (in UVEditor select all faces; u (unwrap))
-
 Quick and Dirty - best for if you plan to paint straight in blender
 NOTE:
-  start with a single color texture such as #00000000
   only include meshes you need
-  remember to include any partial geometry you may need
-    ex: under head next to neck should be part of main_texture not face_texture
-  resize any geometry that isnt needed to be smaller and size up any geometry that needs more detail
-    TODO: look into an automatic way of achieving this or something close enough to this
-    GOOD_ENOUGH:
-      deselect faces that need way less pixels before smart uv unwrap
-        NOTE: unwrap all these deselected faces and scale down and off canvas so that its easier to find them after flats to place in proper spots
-          when painting flats its best to keep these faces hidden so that paint doesnt get where it shouldnt be
-      then manual unwrap them
-      this work flow should be limited to a small time box of around 5-15 mins to get the most bang for buck
-    GOOD_ENOUGH_BETTER:
-    0 a pass of smart uv unwrap of all faces and place it outside of the texture
-    1 a pass where i only select the faces where i want alot of detail and let them take the most image space
-    2 a pass of all faces that need almost no space
-    3 a pass of all faces that need mid space
-smart UV unwrap -- Object Mode: select all meshs -> Edit Mode: deselect then select all -> U -> smart UV unwrap
-  good starting point:
-  Rotation Method: Axis-aligned (Horizontally)
-  Margin Method: Scaled
-  Margin: 0.002
-Optional: -- try without, if get weird results during flats, then try this
-  UV -> Average Islands Scale
+  GOOD_ENOUGH_BETTER:
+  0 a pass of smart uv unwrap of all faces and place it outside of the texture
+  1 a pass where only select the faces that need alot of detail and let them take the most image space
+  2 a pass of all faces that need almost no space
+  3 a pass of all faces that need mid space
+  NOTE for 1-3 steps above: for when scaling smart UV unwraps - you will get overlapping faces if you scale down
+    1 scale down
+    2 Pack Islands
+      uncheck Scale at top
+      adjust Margin as needed
+
+Tool setting starting points:
+  smart UV unwrap -- Object Mode: select all meshes -> Edit Mode: deselect then select all -> U -> smart UV unwrap
+    good starting point:
+    Rotation Method: Axis-aligned (Horizontally)
+    Margin Method: Scaled
+    Margin: 0.002
   Pack Islands
     ensure each island has enough padding around it so that flats dont spill over on different islands
     and ensure you align faces horizontally or vertically
@@ -471,6 +460,15 @@ Optional: -- try without, if get weird results during flats, then try this
     Rotation Method: Axis-aligned (Horizontally)
     Margin Method: Scaled
     Margin: 0.002
+  Average Islands Scale
+
+Manual seams approach:
+1. apply scale
+2. project from view (select all faces) - creates a clean slate
+3. mark seams
+  can help select common seams quickier with:
+    Edit Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
+4. unwrap (in UVEditor select all faces; u (unwrap))
 
 #### UV Textures
 
