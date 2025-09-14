@@ -375,6 +375,8 @@ edge create -- while using subdivision surface modifier
 Viewport Overlays:
   Statistics -- will show vert count and other metrics
 
+. -- hover over area and view will pane to that area
+
 common brushes:
   grab
     stretch out areas for large shapes
