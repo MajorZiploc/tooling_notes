@@ -372,11 +372,14 @@ edge create -- while using subdivision surface modifier
 
 ### Sculpting
 
+Viewport Overlays:
+  Statistics -- will show vert count and other metrics
+
 common brushes:
   grab
     stretch out areas for large shapes
   brush
-    inflate and outflate
+    inflate and enflate
       for more detailed shapes
   smooth
     average out blocky areas in a big way - relies on remesh voxel size (larger value) to not be overly detailed
