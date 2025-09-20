@@ -684,12 +684,6 @@ Add bone to a value node for easier editing of value during animation creation b
       check the min and max x and y checkboxes
       Owner: Local Space
 
-# Misc info
-
-Mirror modifier goes by object origin by default unless using Mirror Object
-  best to use a special object: Empty -> Plain Axes
-    for your Mirror Object
-
 # Reference images
 reduce Opacity (right_side_menu)
 Data -> Opacity
@@ -766,6 +760,7 @@ Snapping can be done with the magnet ORR -- Press G to move vertex and then hold
 
 
 ## generic workflow tips:
+
 spliting a the view into 2 parts that are the same view type can be useful if you need multiple angles of viewing something
 example: 2 3D view ports
   1 top and 1 front view
@@ -774,3 +769,10 @@ example: 2 3D view ports
 
 adding objects while in edit_mode rather than object mode to auto 'join' the objects into 1 object can be much more convenient during modeling/edit_mode changes
 
+Mirror modifier:
+use clipping: on
+  this will make sure you dont have verts cross over the mirror line
+Mirror modifier goes by object origin by default unless using Mirror Object
+  best to use a special object: Empty -> Plain Axes
+    for your Mirror Object
+    decouples need for origin of object to be set for the mirror modifier
