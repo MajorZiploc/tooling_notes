@@ -386,7 +386,7 @@ pixel vs nonpixel art
   Transformation Mask Layers are key for shifting the animation to where you need it
     right click on layer you want to transform:
       Add -> Add Transformation Mask Layer
-    NOTE: its nondestrutable to the original non transformed thing
+    NOTE: its nondestructable to the original non transformed thing
     To make it destructive, you need to flatten the layer that the Transformation Mask Layer is associated with
       right click on layer you want to flatten/apply the transform to (layer with the sub Transformation Mask Layer associated with it):
         Flatten Layer
