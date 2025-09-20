@@ -270,7 +270,7 @@ edit mesh more overlay options - top right of 3d view point next to square with 
 
 ctrl + l -- link menu
 
-p -- with faces selected -- choice selection and it will separate your current selection into a different object
+p -- split selection into another object -- with faces selected -- choice selection and it will separate your current selection into a different object
 
 with camera selected - video game controls (WASD) (EQ)
   scroll_wheel to affect the speed of movement
