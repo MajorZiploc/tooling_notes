@@ -8,3 +8,9 @@ Windows:
   3. On the Enhancements tab, select either the Disable all enhancements or the Disable all sound effects check box (depending on which option you see), and then select OK.
   4. If you don't see the setting there, select the Advanced tab, and look for the setting, Enable audio enhancements.  If the manufacturer located the setting here, uncheck the box to disable audio enhancements.
 
+# reduce .aup3 (project) file size
+Edit -> Preferences -> Audio Settings:
+  Project Sample Rate: choose a lower number
+  tracks can also be converted to a lower sample rate after a track has been created
+Edit -> Preferences -> Quality:
+  reduce Sample Rate Converter dropdowns quality levels
