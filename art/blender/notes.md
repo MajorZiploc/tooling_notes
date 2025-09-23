@@ -481,6 +481,7 @@ make plane mesh
 NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
 
 NOTE: start with a single color texture such as #00000000
+  May need to just use Eraser tool on whole texture
 
 NOTE: How to select faces in UVEditor and have those faces select in edit_mode 3d viewport (uv sync selection)
 UVEditor -> UV Sync Selection (almost_top_menu top left <2 arrows pointing in opposite directions>)
