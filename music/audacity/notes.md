@@ -14,3 +14,7 @@ Edit -> Preferences -> Audio Settings:
   tracks can also be converted to a lower sample rate after a track has been created
 Edit -> Preferences -> Quality:
   reduce Sample Rate Converter dropdowns quality levels
+
+# TODO
+
+look into using voicemeeter for making audio before it hits audacity
