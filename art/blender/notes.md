@@ -508,6 +508,7 @@ NOTE:
     2 Pack Islands
       uncheck Scale at top
       adjust Margin as needed
+    3 can adjust face sizes to make specific faces take more or less texture resolution and then redo 1-2 steps of this subprocess
 
 Tool setting starting points:
   smart UV unwrap -- Object Mode: select all meshes -> Edit Mode: deselect then select all -> U -> smart UV unwrap
