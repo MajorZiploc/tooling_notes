@@ -567,12 +567,14 @@ Rigify General workflow to setup a rig on a model from start to finish
   for simple human rig use shift+a -> armature -> Rigify Meta-Rigs -> Basic -> Basic Human
   adjust all bones to model
     NOTE: dont forget to use the symmetry X option at almost_top_menu right
+  apply transformations to rig -- ctrl+a
   with metarig selected go to right_side_menu Data -> Rigify and lmb Generate Rig
   a new rig with more info will be created
   to auto weight paint - select all parts of your model and then select the new rig
     ctrl-p -> Armature Deform -> With Automatic Weights
   to refine the auto weight paint:
   with the mesh you want to paint selected: enter Weight Paint mode
+    NOTE: can use the riggify controls to pose in texture_paint_mode to see if your painting is fixing issues
     Simple toggle between vertex groups visually
       with rig selected right_side_menu Data -> Bone Collections: press star next to Def (will isolate the bones) (NOTE: lmb again to reset to prev state)
       lmb on rig, shift-lmb on model (the current mesh you are painting) go to Weight Paint mode
