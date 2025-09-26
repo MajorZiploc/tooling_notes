@@ -688,6 +688,60 @@ Add bone to a value node for easier editing of value during animation creation b
       check the min and max x and y checkboxes
       Owner: Local Space
 
+# Animation
+
+## with Mixamo and Rokoko
+
+Mixamo is a site owned by Adobe that has animations you can map unto your char
+
+https://www.mixamo.com/#/
+
+Rokoko is a external blender plugin for retargeting animations from 1 rig to another
+
+### Getting an animation from Mixamo
+
+select an animation
+need to provide site your model
+  select your meshes of the model (not including rig)
+  export to .obj
+    Include: Selection Only checked
+    uncheck Materials
+update to site
+  make sure your character is t posing face you
+download as fbx binary with skin
+import fbx into blender
+  scale it up, its really small
+alt-g to reset position
+in pose_mode of the animated rig
+  a -- select all
+  almost_top_menu: Pose -> Clean Transformation -> All
+  now the new rig should line up with current rig
+
+### Mapping Mixamo rig onto your riggify rig
+
+N: Rokoko -> retargeting
+Source: Armature (the rig from Mixamo)
+Target: rig (your riggify rig)
+
+Click 'Rebuild Bone List'
+it will map wrong so clear the mapping by click the 'x' on the left of 'Rebuild Bone List'
+default to using fk
+  NOTE: can use ik -- but not all fk's have a ik counterpart
+FK: can import this file to get the common mappings for basic human riggify rigs
+  ./animations/fk_mixamo_rokoko_example_mappings.json
+TODO: create a json for IK
+Auto Scale: uncheck
+Use Pose: current
+Click Retarget Animation
+  if you get crazy stretching then the mappings are wrong
+if limbs dont align with Mixamo rig, then you need to change your riggify rig settigs to use FK instead of IK for all limbs if using FK (1.0) else invert this (0.0)
+
+### Fix Timeline for keyframes of animation
+If keyframes dont show up in Timeline
+  insert a new keyframe at the last frame
+  while mouse on viewport - press i to insert keyframe
+  then delete that new keyframe with 'delete' while mouse in Timline
+
 # Reference images
 reduce Opacity (right_side_menu)
 Data -> Opacity
