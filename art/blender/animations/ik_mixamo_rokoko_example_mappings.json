@@ -23,19 +23,19 @@
             "shoulder.l"
         ],
         "leftUpperArm": [
-            "upper_arm_fk.l"
+            "upper_arm_ik.l"
         ],
         "leftLowerArm": [
             "forearm_fk.l"
         ],
         "leftHand": [
-            "hand_fk.l"
+            "hand_ik.l"
         ],
         "rightShoulder": [
             "shoulder.r"
         ],
         "rightUpperArm": [
-            "upper_arm_fk.r"
+            "upper_arm_ik.r"
         ],
         "rightLowerArm": [
             "forearm_fk.r"
@@ -44,22 +44,22 @@
             "hand_fk.r"
         ],
         "leftUpLeg": [
-            "thigh_fk.l"
+            "thigh_ik.l"
         ],
         "leftLeg": [
             "shin_fk.l"
         ],
         "leftFoot": [
-            "foot_fk.l"
+            "foot_ik.l"
         ],
         "rightUpLeg": [
-            "thigh_fk.r"
+            "thigh_ik.r"
         ],
         "rightLeg": [
             "shin_fk.r"
         ],
         "rightFoot": [
-            "foot_fk.r"
+            "foot_ik.r"
         ]
     },
     "shapes": {}

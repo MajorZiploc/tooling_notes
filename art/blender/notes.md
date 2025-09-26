@@ -698,6 +698,8 @@ https://www.mixamo.com/#/
 
 Rokoko is a external blender plugin for retargeting animations from 1 rig to another
 
+NOTE: ensure your rig has all transforms applyed (ctrl-a)
+
 ### Getting an animation from Mixamo
 
 select an animation
@@ -727,6 +729,7 @@ Click 'Rebuild Bone List'
 it will map wrong so clear the mapping by click the 'x' on the left of 'Rebuild Bone List'
 default to using fk
   NOTE: can use ik -- but not all fk's have a ik counterpart
+  NOTE: IK is easier to control but high chance of running into issues
 FK: can import this file to get the common mappings for basic human riggify rigs
   ./animations/fk_mixamo_rokoko_example_mappings.json
 TODO: create a json for IK
@@ -735,8 +738,11 @@ Use Pose: current
 Click Retarget Animation
   if you get crazy stretching then the mappings are wrong
 if limbs dont align with Mixamo rig, then you need to change your riggify rig settigs to use FK instead of IK for all limbs if using FK (1.0) else invert this (0.0)
+  NOTE: to see these controls in N: Tool of pose_mode of your riggify rig
+    a -- select all
 
 ### Fix Timeline for keyframes of animation
+NOTE: you must be in pose_mode of a rig with all bones selected to ensure keyframes show up on Timeline
 If keyframes dont show up in Timeline
   insert a new keyframe at the last frame
   while mouse on viewport - press i to insert keyframe
