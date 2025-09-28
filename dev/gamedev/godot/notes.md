@@ -128,6 +128,65 @@ then go to Editor -> Manage Export Templates...
     rename to 'index.html'
     uncheck Export With Debug
 
+## 3D viewport
+
+click on axis to get top, side, front, etc views
+
+1 unit = 1 metric meter (NOTE: 1 unit = 1 pixel in 2d)
+
+F -- focus selected element
+
+hold rmb -- wasd mode, can also look around with mouse
+  + shift to fly faster
+
+q -- toggle select mode
+
+y -- toggle snapping
+  configure snap:
+    almost_top_menu: Transform -> Configure Snap...
+      Translate Snap: 0.1
+      Rotate Snap (deg): 10
+      Scale Snap (%): 10
+
+Translation Modes:
+hold ctrl to toggle snapping
+t -- toggle local vs global mode
+
+  w -- toggle move mode
+
+  e -- toggle rotate mode
+
+  r -- toggle scale mode
+    scale uniformly by clicking and holding outside of the gizmos rather than on the gizmos
+
+see ./editor/notes.md Keybinds section
+  just like blender using the Begin* keymaps, you can press xyz to limit your transform to a specific axis
+    and add shift to that to NOT transform only on said axis
+
+## 3D Grayboxing
+
+### interiors
+csg nodes
+node_settings: Use Collision: checked
+
+CSGCombiner -- group a bunch of CSGs
+  makes configuring things like Collision easier since its at the group level instead of individual
+
+#### how csg nodes impact each other:
+Operation: [Union, Intersection, Subtraction]
+
+### exteriors
+Terrian3D for Godot 4 extension
+
+## Exporting
+
+export grey box / csg scenes to .gltf to import into blender to use as a base to model the real scene:
+Scene -> Export as...
+  glTF 2.0 Scene
+
+## Importing
+glTF 2.0 is apparaently better or easier to deal with than fbx
+
 ## CLI location
 
 ### mac

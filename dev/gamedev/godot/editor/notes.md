@@ -41,3 +41,8 @@ if you want to use godot v3 and want vim:
 
 coc option
 coc-gdscript addon
+
+# Keybinds
+Begin Rotate Transformation -- shift+r
+Begin Scale Transformation -- shift+t
+Begin Translate Transformation -- shift+t
