@@ -185,7 +185,56 @@ Scene -> Export as...
   glTF 2.0 Scene
 
 ## Importing
+
+normal import settings right of Scene tab top left
+
+double click asset to get advanced import settings
+  NOTE: to get materials extracted to where you can use StandardMaterial3D you need to do this
+
 glTF 2.0 is apparaently better or easier to deal with than fbx
+NOTE: glb is just glTF in binary format to save space
+
+NOTE .blend files are supported. Godot just converts them to glTF under the hood
+  must configure godot to know the path of blender
+
+### Materials
+
+#### StandardMaterial3D
+
+albedo -- base color -- like modulate
+
+shading -- built in shader styles
+can get toon shading by using Toon in Diffuse and Specular mode
+
+Normal -- normal map -- depth for light
+  Godot using OpenGl style normal maps, not DirectX normal maps
+    DirectX maps will appear inverted
+    Invert normal map texture by:
+      go to import window of the normal map texture
+      Process -> Normal Map Invert Y: Check
+    Click: Reimport
+
+Metallic -- like specular -- 1 channel
+  NOTE: specular not supported
+
+Roughness -- the invert of smooth -- 1 channel
+  if you have a smooth map -- invert it in an image editor and import
+
+Ambient Occlusion -- ao map -- how much ambient light reaches the surface -- 1 channel
+  darken parts of the mesh that light should have a hard part reaching
+
+Emission -- RGB
+  manual or use an emission map
+
+#### ORMMaterial3D
+
+can combine with normal StandardMaterial3D's without issue
+
+ORM texture and material
+  combines Ambient (O)cclusion, (R)oughness and (M)etallic,
+  Occlusion -- red channel
+  Roughness -- green channel
+  Metallic -- blue channel
 
 ## CLI location
 
