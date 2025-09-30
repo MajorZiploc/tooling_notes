@@ -221,11 +221,11 @@ transform pivot point menu (almost_top_menu in middle)
 
 change render settings of an object (useful for making an object wireframe always when using a boolean modifier)
 (right_side_menu)
-Object -> Viewport Display
+Object -> Viewport_Display
   Display As: Wire
 
 easier to see edges and such for low poly models
-almost_top_menu Viewport Shadings:
+almost_top_menu Viewport_Shadings:
   Cavity: on
   Shadow: on
 
@@ -260,7 +260,7 @@ m -- move to collection
 
 ctrl + (1-5) -- add subdivision surface modifier
 
-## 3D Viewport -- Edit Mode
+## 3D Viewport -- Edit_Mode
 
 view port overlays options - top right of 3d view point next to 2 circle icon
   many tools here for customizing what is shown in the 3d viewport
@@ -295,7 +295,7 @@ l -- link select
 w -- cycle through common selection tools
   lasso select is one of them
 
-NOTE: doesnt work with numpad preferences set to top numbers -- need to use top bar next to Edit Mode (3 little icons)
+NOTE: doesnt work with numpad preferences set to top numbers -- need to use top bar next to Edit_Mode (3 little icons)
 
   1 -- vertex select mode
 
@@ -474,7 +474,7 @@ object_mode
 snapping tool
   Face Nearest
 make plane mesh
-  right_side_menu: Object -> Viewport Display -> In Front (checked)
+  right_side_menu: Object -> Viewport_Display -> In_Front (checked)
 
 ### UVs
 
@@ -493,7 +493,7 @@ u -- uv menu
 shift + alt + z -- hide overlays (good for seeing textures without a bunch of noise on your model)
 
 export UV map on texture to make easier to see when creating textures in krita:
-UV Editor -> UV -> Export UV Layout
+UV_Editor -> UV -> Export_UV_Layout
 
 Quick and Dirty - best for if you plan to paint straight in blender
 NOTE:
@@ -511,7 +511,7 @@ NOTE:
     3 can adjust face sizes to make specific faces take more or less texture resolution and then redo 1-2 steps of this subprocess
 
 Tool setting starting points:
-  smart UV unwrap -- Object Mode: select all meshes -> Edit Mode: deselect then select all -> U -> smart UV unwrap
+  smart UV unwrap -- Object Mode: select all meshes -> Edit_Mode: deselect then select all -> U -> smart UV unwrap
     good starting point:
     Rotation Method: Axis-aligned (Horizontally)
     Margin Method: Scaled
@@ -530,7 +530,7 @@ Manual seams approach:
 2. project from view (select all faces) - creates a clean slate
 3. mark seams
   can help select common seams quickier with:
-    Edit Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
+    Edit_Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
 4. unwrap (in UVEditor select all faces; u (unwrap))
 
 #### UV Textures
@@ -587,7 +587,7 @@ Rigify General workflow to setup a rig on a model from start to finish
       play with it a little to see if you want to share weight between bones
     NOTE: xray mode not an option in material preview or rendered modes -- go to solid view instead
       OR: if need to see textures (while in solid view) go to almost_top_menu right
-        Viewport Shading menu:
+        Viewport_Shading menu:
           Lighting: Flat (default: Studio)
           Object Color: Texture (default: Material)
     use the Vertex groups at almost_top_menu center or right_side_menu in Data
@@ -615,18 +615,18 @@ Rigify General workflow to setup a rig on a model from start to finish
               Falloff shape: Sphere
               Front-Face only: on
   adding new bones to the rig (ex: hair) (useful for secondary motion areas)
-    shift-a in edit mode of rig will create a bone -- place it in the bangs
+    shift-a in edit_mode of rig will create a bone -- place it in the bangs
     create a group for Hair in right_side_menu Data -> Bone Collections
       with the new bone selected - lmb the assign button under Bone Collections
       optional:
-        color the new bone: right_side_menu Bone -> Viewport Display: Bone Color
-        rename new bone: select bone and in edit mode: F2 (hair_front)
+        color the new bone: right_side_menu Bone -> Viewport_Display: Bone Color
+        rename new bone: select bone and in edit_mode: F2 (hair_front)
     weighting to hair mesh:
       in object mode: lmb hair, then shift-lmb on new bone
         ctrl+p: Armature Deform -> With Empty Groups
         weight paint yourself
   make new bone a child of the proper bone in the existing rig (ex: hair_front child to head bone)
-    edit mode of rig and lmb new bone
+    edit_mode of rig and lmb new bone
     right_side_menu Bone -> Relations -> Parent
       DEF spine 006 (verify from the weight paint mode as to which Vertex group makes sense for your new bone)
 
@@ -640,8 +640,8 @@ ctrl+tab -- toggle pose and object mode
 
 Bones -- head is chunky part - tail is thin part -- have a hierarchy
 (right_side_menu) -- show bone in front of other things -- (on top / render)
-Data -> Viewport Display
-  In Front
+Data -> Viewport_Display
+  In_Front
 
 ctrl+p -- armature deform (with automatic weights) -- quick weighting
   NOTE: select mesh then bone before this
@@ -661,7 +661,7 @@ Duplicate/copy a texture hierarchy:
   copy complete
 
 Assign the new_texture to the mesh
-  Edit Mode
+  Edit_Mode
     select the faces from the mesh you want to animate
     right_side_menu Material - select the new_texture and lmb 'assign'
 
@@ -671,7 +671,7 @@ ctrl-t -- when on image_texture node adds texture_coordinate and mapping nodes a
 Add bone to a value node for easier editing of value during animation creation by just moving the bone instead of editing the value in the shader editor
   Add new bone to rig
   name 'face_control'
-  create new Bone Collection named 'face_controller' -- with bone selected in edit mode in right_side_menu -> Data
+  create new Bone Collection named 'face_controller' -- with bone selected in Edit_mode in right_side_menu -> Data
   select face mesh (mesh with shader editor nodes) in Object Mode
   rmb the value property in the value node
   Add Driver
@@ -699,6 +699,34 @@ https://www.mixamo.com/#/
 Rokoko is a external blender plugin for retargeting animations from 1 rig to another
 
 NOTE: ensure your rig has all transforms applyed (ctrl-a)
+
+## multiple animations
+
+Dope_Sheet (window_type)
+  window_type_dropdown: Action Editor
+
+Nonlinear_Animation (window_type)
+  can reorg animations
+  trigger start and stop editing on animations
+
+### Important settings in .fbx export
+
+Bake Animation -> NLA Strips: check to get Nonlinear_Animation strips
+  else just get Action_Editor animations
+
+# Pose
+
+## important tabs
+Dope_Sheet
+  N has create pose option
+
+Action_Editor -- window_type_dropdown (click the name 'Dope_Sheet' -- its a dropdown and select it)
+
+Asset_Browser
+  where poses will be listed
+  can toggle current file or all
+  the pose_thumbnail is generated by the camera view in your scene
+  NOTE: refresh pose_thumbnail by selecting pose_thumbnail -- press N -- click refresh button under Preview section
 
 ### Getting an animation from Mixamo
 
