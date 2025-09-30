@@ -186,6 +186,18 @@ Scene -> Export as...
 
 ## Importing
 
+NOTE: use nested_scene approach:
+1. create 3D Scene
+2. drag modal into Scene outliner
+
+NOTE: if need to reference something inside the nested_scene
+  right click and make editable (enable Editable Children)
+  do your referencing and if you can remark the nested_scene as non_editable (disable Editable Children)
+    NOTE: can be useful if you need a collision shape that matches the mesh exactly
+      this collision shape is likely going to be very slow performance, so its better to stick to simple collision shapes or model ones in blender and import them
+  if the asset remains editable, it can cause problems with reimport of the asset
+  if you find yourself needing to keep assets editable -- it might be better to split the asset into multiple assets instead
+
 normal import settings right of Scene tab top left
 
 double click asset to get advanced import settings
@@ -235,6 +247,10 @@ ORM texture and material
   Occlusion -- red channel
   Roughness -- green channel
   Metallic -- blue channel
+
+## CollsionShape
+
+NOTE: if you copy and paste, you need to right click the Shape property of the node and make unique
 
 ## CLI location
 
