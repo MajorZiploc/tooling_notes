@@ -868,3 +868,14 @@ Mirror modifier goes by object origin by default unless using Mirror Object
   best to use a special object: Empty -> Plain Axes
     for your Mirror Object
     decouples need for origin of object to be set for the mirror modifier
+
+fix curve of plane
+1. make a generic_circle mesh and tweak it to your shape
+2. turn on face or vertex snapping modes
+3. only have the generic_circle and the plane visible
+4. select vertices of the plan and tap g and it will snap to the circle
+
+remove dupped verts quickly
+1. select all verts
+2. m -> By Distance
+3. usually around 0.001m distance for merge setting
