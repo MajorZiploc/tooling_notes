@@ -221,11 +221,11 @@ transform pivot point menu (almost_top_menu in middle)
 
 change render settings of an object (useful for making an object wireframe always when using a boolean modifier)
 (right_side_menu)
-Object -> Viewport Display
+Object -> Viewport_Display
   Display As: Wire
 
 easier to see edges and such for low poly models
-almost_top_menu Viewport Shadings:
+almost_top_menu Viewport_Shadings:
   Cavity: on
   Shadow: on
 
@@ -260,7 +260,7 @@ m -- move to collection
 
 ctrl + (1-5) -- add subdivision surface modifier
 
-## 3D Viewport -- Edit Mode
+## 3D Viewport -- Edit_Mode
 
 view port overlays options - top right of 3d view point next to 2 circle icon
   many tools here for customizing what is shown in the 3d viewport
@@ -295,7 +295,7 @@ l -- link select
 w -- cycle through common selection tools
   lasso select is one of them
 
-NOTE: doesnt work with numpad preferences set to top numbers -- need to use top bar next to Edit Mode (3 little icons)
+NOTE: doesnt work with numpad preferences set to top numbers -- need to use top bar next to Edit_Mode (3 little icons)
 
   1 -- vertex select mode
 
@@ -474,7 +474,7 @@ object_mode
 snapping tool
   Face Nearest
 make plane mesh
-  right_side_menu: Object -> Viewport Display -> In Front (checked)
+  right_side_menu: Object -> Viewport_Display -> In_Front (checked)
 
 ### UVs
 
@@ -493,7 +493,7 @@ u -- uv menu
 shift + alt + z -- hide overlays (good for seeing textures without a bunch of noise on your model)
 
 export UV map on texture to make easier to see when creating textures in krita:
-UV Editor -> UV -> Export UV Layout
+UV_Editor -> UV -> Export_UV_Layout
 
 Quick and Dirty - best for if you plan to paint straight in blender
 NOTE:
@@ -508,9 +508,10 @@ NOTE:
     2 Pack Islands
       uncheck Scale at top
       adjust Margin as needed
+    3 can adjust face sizes to make specific faces take more or less texture resolution and then redo 1-2 steps of this subprocess
 
 Tool setting starting points:
-  smart UV unwrap -- Object Mode: select all meshes -> Edit Mode: deselect then select all -> U -> smart UV unwrap
+  smart UV unwrap -- Object Mode: select all meshes -> Edit_Mode: deselect then select all -> U -> smart UV unwrap
     good starting point:
     Rotation Method: Axis-aligned (Horizontally)
     Margin Method: Scaled
@@ -529,7 +530,7 @@ Manual seams approach:
 2. project from view (select all faces) - creates a clean slate
 3. mark seams
   can help select common seams quickier with:
-    Edit Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
+    Edit_Mode - Edge mode -- almost_top_menu: Select -> Select Sharp Edges
 4. unwrap (in UVEditor select all faces; u (unwrap))
 
 #### UV Textures
@@ -566,12 +567,14 @@ Rigify General workflow to setup a rig on a model from start to finish
   for simple human rig use shift+a -> armature -> Rigify Meta-Rigs -> Basic -> Basic Human
   adjust all bones to model
     NOTE: dont forget to use the symmetry X option at almost_top_menu right
+  apply transformations to rig -- ctrl+a
   with metarig selected go to right_side_menu Data -> Rigify and lmb Generate Rig
   a new rig with more info will be created
   to auto weight paint - select all parts of your model and then select the new rig
     ctrl-p -> Armature Deform -> With Automatic Weights
   to refine the auto weight paint:
   with the mesh you want to paint selected: enter Weight Paint mode
+    NOTE: can use the riggify controls to pose in texture_paint_mode to see if your painting is fixing issues
     Simple toggle between vertex groups visually
       with rig selected right_side_menu Data -> Bone Collections: press star next to Def (will isolate the bones) (NOTE: lmb again to reset to prev state)
       lmb on rig, shift-lmb on model (the current mesh you are painting) go to Weight Paint mode
@@ -584,7 +587,7 @@ Rigify General workflow to setup a rig on a model from start to finish
       play with it a little to see if you want to share weight between bones
     NOTE: xray mode not an option in material preview or rendered modes -- go to solid view instead
       OR: if need to see textures (while in solid view) go to almost_top_menu right
-        Viewport Shading menu:
+        Viewport_Shading menu:
           Lighting: Flat (default: Studio)
           Object Color: Texture (default: Material)
     use the Vertex groups at almost_top_menu center or right_side_menu in Data
@@ -612,18 +615,18 @@ Rigify General workflow to setup a rig on a model from start to finish
               Falloff shape: Sphere
               Front-Face only: on
   adding new bones to the rig (ex: hair) (useful for secondary motion areas)
-    shift-a in edit mode of rig will create a bone -- place it in the bangs
+    shift-a in edit_mode of rig will create a bone -- place it in the bangs
     create a group for Hair in right_side_menu Data -> Bone Collections
       with the new bone selected - lmb the assign button under Bone Collections
       optional:
-        color the new bone: right_side_menu Bone -> Viewport Display: Bone Color
-        rename new bone: select bone and in edit mode: F2 (hair_front)
+        color the new bone: right_side_menu Bone -> Viewport_Display: Bone Color
+        rename new bone: select bone and in edit_mode: F2 (hair_front)
     weighting to hair mesh:
       in object mode: lmb hair, then shift-lmb on new bone
         ctrl+p: Armature Deform -> With Empty Groups
         weight paint yourself
   make new bone a child of the proper bone in the existing rig (ex: hair_front child to head bone)
-    edit mode of rig and lmb new bone
+    edit_mode of rig and lmb new bone
     right_side_menu Bone -> Relations -> Parent
       DEF spine 006 (verify from the weight paint mode as to which Vertex group makes sense for your new bone)
 
@@ -637,8 +640,8 @@ ctrl+tab -- toggle pose and object mode
 
 Bones -- head is chunky part - tail is thin part -- have a hierarchy
 (right_side_menu) -- show bone in front of other things -- (on top / render)
-Data -> Viewport Display
-  In Front
+Data -> Viewport_Display
+  In_Front
 
 ctrl+p -- armature deform (with automatic weights) -- quick weighting
   NOTE: select mesh then bone before this
@@ -658,7 +661,7 @@ Duplicate/copy a texture hierarchy:
   copy complete
 
 Assign the new_texture to the mesh
-  Edit Mode
+  Edit_Mode
     select the faces from the mesh you want to animate
     right_side_menu Material - select the new_texture and lmb 'assign'
 
@@ -668,7 +671,7 @@ ctrl-t -- when on image_texture node adds texture_coordinate and mapping nodes a
 Add bone to a value node for easier editing of value during animation creation by just moving the bone instead of editing the value in the shader editor
   Add new bone to rig
   name 'face_control'
-  create new Bone Collection named 'face_controller' -- with bone selected in edit mode in right_side_menu -> Data
+  create new Bone Collection named 'face_controller' -- with bone selected in Edit_mode in right_side_menu -> Data
   select face mesh (mesh with shader editor nodes) in Object Mode
   rmb the value property in the value node
   Add Driver
@@ -684,6 +687,94 @@ Add bone to a value node for easier editing of value during animation creation b
     in Pose Mode: select face_control bone: right_side_menu -> Bone Constraints -> (Transform) Limit Location
       check the min and max x and y checkboxes
       Owner: Local Space
+
+# Animation
+
+## with Mixamo and Rokoko
+
+Mixamo is a site owned by Adobe that has animations you can map unto your char
+
+https://www.mixamo.com/#/
+
+Rokoko is a external blender plugin for retargeting animations from 1 rig to another
+
+NOTE: ensure your rig has all transforms applyed (ctrl-a)
+
+## multiple animations
+
+Dope_Sheet (window_type)
+  window_type_dropdown: Action Editor
+
+Nonlinear_Animation (window_type)
+  can reorg animations
+  trigger start and stop editing on animations
+
+### Important settings in .fbx export
+
+Bake Animation -> NLA Strips: check to get Nonlinear_Animation strips
+  else just get Action_Editor animations
+
+# Pose
+
+## important tabs
+Dope_Sheet
+  N has create pose option
+
+Action_Editor -- window_type_dropdown (click the name 'Dope_Sheet' -- its a dropdown and select it)
+
+Asset_Browser
+  where poses will be listed
+  can toggle current file or all
+  the pose_thumbnail is generated by the camera view in your scene
+  NOTE: refresh pose_thumbnail by selecting pose_thumbnail -- press N -- click refresh button under Preview section
+
+### Getting an animation from Mixamo
+
+select an animation
+need to provide site your model
+  select your meshes of the model (not including rig)
+  export to .obj
+    Include: Selection Only checked
+    uncheck Materials
+update to site
+  make sure your character is t posing face you
+download as fbx binary with skin
+import fbx into blender
+  scale it up, its really small
+alt-g to reset position
+in pose_mode of the animated rig
+  a -- select all
+  almost_top_menu: Pose -> Clean Transformation -> All
+  now the new rig should line up with current rig
+
+### Mapping Mixamo rig onto your riggify rig
+
+N: Rokoko -> retargeting
+Source: Armature (the rig from Mixamo)
+Target: rig (your riggify rig)
+
+Click 'Rebuild Bone List'
+it will map wrong so clear the mapping by click the 'x' on the left of 'Rebuild Bone List'
+default to using fk
+  NOTE: can use ik -- but not all fk's have a ik counterpart
+  NOTE: IK is easier to control but high chance of running into issues
+FK: can import this file to get the common mappings for basic human riggify rigs
+  ./animations/fk_mixamo_rokoko_example_mappings.json
+TODO: create a json for IK
+Auto Scale: uncheck
+Use Pose: current
+Click Retarget Animation
+  if you get crazy stretching then the mappings are wrong
+if limbs dont align with Mixamo rig, then you need to change your riggify rig settigs to use FK instead of IK for all limbs if using FK (1.0) else invert this (0.0)
+  NOTE: to see these controls in N: Tool of pose_mode of your riggify rig
+    a -- select all
+
+### Fix Timeline for keyframes of animation
+NOTE: you must be in pose_mode of a rig with all bones selected to ensure keyframes show up on Timeline
+If keyframes dont show up in Timeline
+  insert a new keyframe at the last frame
+  while mouse on viewport - press i to insert keyframe
+  then delete that new keyframe with 'delete' while mouse in Timline
 
 # Reference images
 reduce Opacity (right_side_menu)
@@ -777,3 +868,14 @@ Mirror modifier goes by object origin by default unless using Mirror Object
   best to use a special object: Empty -> Plain Axes
     for your Mirror Object
     decouples need for origin of object to be set for the mirror modifier
+
+fix curve of plane
+1. make a generic_circle mesh and tweak it to your shape
+2. turn on face or vertex snapping modes
+3. only have the generic_circle and the plane visible
+4. select vertices of the plan and tap g and it will snap to the circle
+
+remove dupped verts quickly
+1. select all verts
+2. m -> By Distance
+3. usually around 0.001m distance for merge setting

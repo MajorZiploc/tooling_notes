@@ -1,0 +1,66 @@
+{
+    "rokoko_custom_names": true,
+    "version": 1,
+    "bones": {
+        "hip": [
+            "torso"
+        ],
+        "custom_bone_mixamorig:spine1": [
+            "mixamorig:spine1",
+            "spine_fk.002"
+        ],
+        "custom_bone_mixamorig:spine2": [
+            "mixamorig:spine2",
+            "spine_fk.003"
+        ],
+        "neck": [
+            "neck"
+        ],
+        "head": [
+            "head"
+        ],
+        "leftShoulder": [
+            "shoulder.l"
+        ],
+        "leftUpperArm": [
+            "upper_arm_fk.l"
+        ],
+        "leftLowerArm": [
+            "forearm_fk.l"
+        ],
+        "leftHand": [
+            "hand_fk.l"
+        ],
+        "rightShoulder": [
+            "shoulder.r"
+        ],
+        "rightUpperArm": [
+            "upper_arm_fk.r"
+        ],
+        "rightLowerArm": [
+            "forearm_fk.r"
+        ],
+        "rightHand": [
+            "hand_fk.r"
+        ],
+        "leftUpLeg": [
+            "thigh_fk.l"
+        ],
+        "leftLeg": [
+            "shin_fk.l"
+        ],
+        "leftFoot": [
+            "foot_fk.l"
+        ],
+        "rightUpLeg": [
+            "thigh_fk.r"
+        ],
+        "rightLeg": [
+            "shin_fk.r"
+        ],
+        "rightFoot": [
+            "foot_fk.r"
+        ]
+    },
+    "shapes": {}
+}

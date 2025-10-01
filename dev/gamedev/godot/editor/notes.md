@@ -1,3 +1,27 @@
+# Settings
+
+## Text Editor
+
+Text Editor -> Behavior
+  Indent Section:
+Type: Spaces
+Size: 2
+  Files
+Open Dominant Script on Scene Change: Checked
+
+## 3D navigation
+
+Editors -> 3D
+  Navigation Section:
+Navigation Scheme: Custom
+Emulate 3 Button mouse: check
+  Navigation Feel Section:
+Orbit Sensitivity: 2.2
+Translation Sensitivity: 7.2
+
+
+# Vim
+
 only works in godot v4+
 
 godot-vim
@@ -14,3 +38,11 @@ godot-vim
 if you want to use godot v3 and want vim:
   vscode godot plugin
   will need the project open in godot and vscode so that the lsp is up for vscode1
+
+coc option
+coc-gdscript addon
+
+# Keybinds
+Begin Rotate Transformation -- shift+r
+Begin Scale Transformation -- shift+t
+Begin Translate Transformation -- shift+t

@@ -128,6 +128,130 @@ then go to Editor -> Manage Export Templates...
     rename to 'index.html'
     uncheck Export With Debug
 
+## 3D viewport
+
+click on axis to get top, side, front, etc views
+
+1 unit = 1 metric meter (NOTE: 1 unit = 1 pixel in 2d)
+
+F -- focus selected element
+
+hold rmb -- wasd mode, can also look around with mouse
+  + shift to fly faster
+
+q -- toggle select mode
+
+y -- toggle snapping
+  configure snap:
+    almost_top_menu: Transform -> Configure Snap...
+      Translate Snap: 0.1
+      Rotate Snap (deg): 10
+      Scale Snap (%): 10
+
+Translation Modes:
+hold ctrl to toggle snapping
+t -- toggle local vs global mode
+
+  w -- toggle move mode
+
+  e -- toggle rotate mode
+
+  r -- toggle scale mode
+    scale uniformly by clicking and holding outside of the gizmos rather than on the gizmos
+
+see ./editor/notes.md Keybinds section
+  just like blender using the Begin* keymaps, you can press xyz to limit your transform to a specific axis
+    and add shift to that to NOT transform only on said axis
+
+## 3D Grayboxing
+
+### interiors
+csg nodes
+node_settings: Use Collision: checked
+
+CSGCombiner -- group a bunch of CSGs
+  makes configuring things like Collision easier since its at the group level instead of individual
+
+#### how csg nodes impact each other:
+Operation: [Union, Intersection, Subtraction]
+
+### exteriors
+Terrian3D for Godot 4 extension
+
+## Exporting
+
+export grey box / csg scenes to .gltf to import into blender to use as a base to model the real scene:
+Scene -> Export as...
+  glTF 2.0 Scene
+
+## Importing
+
+NOTE: use nested_scene approach:
+1. create 3D Scene
+2. drag modal into Scene outliner
+
+NOTE: if need to reference something inside the nested_scene
+  right click and make editable (enable Editable Children)
+  do your referencing and if you can remark the nested_scene as non_editable (disable Editable Children)
+    NOTE: can be useful if you need a collision shape that matches the mesh exactly
+      this collision shape is likely going to be very slow performance, so its better to stick to simple collision shapes or model ones in blender and import them
+  if the asset remains editable, it can cause problems with reimport of the asset
+  if you find yourself needing to keep assets editable -- it might be better to split the asset into multiple assets instead
+
+normal import settings right of Scene tab top left
+
+double click asset to get advanced import settings
+  NOTE: to get materials extracted to where you can use StandardMaterial3D you need to do this
+
+glTF 2.0 is apparaently better or easier to deal with than fbx
+NOTE: glb is just glTF in binary format to save space
+
+NOTE .blend files are supported. Godot just converts them to glTF under the hood
+  must configure godot to know the path of blender
+
+### Materials
+
+#### StandardMaterial3D
+
+albedo -- base color -- like modulate
+
+shading -- built in shader styles
+can get toon shading by using Toon in Diffuse and Specular mode
+
+Normal -- normal map -- depth for light
+  Godot using OpenGl style normal maps, not DirectX normal maps
+    DirectX maps will appear inverted
+    Invert normal map texture by:
+      go to import window of the normal map texture
+      Process -> Normal Map Invert Y: Check
+    Click: Reimport
+
+Metallic -- like specular -- 1 channel
+  NOTE: specular not supported
+
+Roughness -- the invert of smooth -- 1 channel
+  if you have a smooth map -- invert it in an image editor and import
+
+Ambient Occlusion -- ao map -- how much ambient light reaches the surface -- 1 channel
+  darken parts of the mesh that light should have a hard part reaching
+
+Emission -- RGB
+  manual or use an emission map
+
+#### ORMMaterial3D
+
+can combine with normal StandardMaterial3D's without issue
+
+ORM texture and material
+  combines Ambient (O)cclusion, (R)oughness and (M)etallic,
+  Occlusion -- red channel
+  Roughness -- green channel
+  Metallic -- blue channel
+
+## CollsionShape
+
+NOTE: if you copy and paste, you need to right click the Shape property of the node and make unique
+
 ## CLI location
 
 ### mac
