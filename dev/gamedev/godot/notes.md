@@ -248,7 +248,7 @@ ORM texture and material
   Roughness -- green channel
   Metallic -- blue channel
 
-## CollsionShape
+## CollisionShape
 
 NOTE: if you copy and paste, you need to right click the Shape property of the node and make unique
 
