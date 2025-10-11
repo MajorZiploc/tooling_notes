@@ -11,6 +11,11 @@ Editor -> Editor Settings -> [(look for 'Indent'): (Text Editor -> Behavior)]
 Editor -> Editor Settings -> [(look for 'on save')
   disable what makes sense
 
+### font size (also ui component size)
+Interface -> Editor
+  Main Font Size: 10
+  Code Font Size: 10
+
 ### Windows OS settings for performance
 
 Enable Developer Mode on Windows
