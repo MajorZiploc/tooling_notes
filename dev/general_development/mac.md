@@ -9,6 +9,8 @@ high refresh rate means the display will have higher fps but it will run into pr
 ^^ use low or default settings to reduce battery consumption
 
 TODO: find a way to scale MAC UI smaller without relying on high resolution
+  MIGHT BE GOOD ENOUGH:
+    Accessibility -> Text -> Text Size (10pt)
 
 # Finder get path of selected file
 <option>-<command>-c
