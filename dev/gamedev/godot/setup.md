@@ -16,16 +16,18 @@ Interface -> Editor
   Main Font Size: 10
   Code Font Size: 10
 
-### Windows OS settings for performance
-
-Enable Developer Mode on Windows
-Win Key -> "Developer settings"
+### for performance
 
 Interface -> Editor
 Single Window Mode: true
 
 Interface -> Editor
 V-Sync Mode: Disabled
+
+### Windows OS settings for performance
+
+Enable Developer Mode on Windows
+Win Key -> "Developer settings"
 
 Power In Laptop to power source (may require high watt charger)
 you may have settings on to reduce power draw on battery
