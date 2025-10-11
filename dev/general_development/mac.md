@@ -1,3 +1,15 @@
+# Settings
+
+## Display
+
+high resolution results in small UI but makes visuals more demanding
+
+high refresh rate means the display will have higher fps but it will run into problems with visuals that demand more
+
+^^ use low or default settings to reduce battery consumption
+
+TODO: find a way to scale MAC UI smaller without relying on high resolution
+
 # Finder get path of selected file
 <option>-<command>-c
 
