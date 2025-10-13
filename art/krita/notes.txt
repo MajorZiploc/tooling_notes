@@ -334,6 +334,16 @@ k and l
   Mean Removal (Enhance -> Mean Removal)
     gives a sharpness to lines. like an oldschool film effect
 
+### Color balance
+  great for changing flats to try out different color palettes very quickly
+
+  for Groups
+  use Add Filter Layer -> Adjust -> Color Balance
+
+  for single layer
+  ctrl-b
+    WORKAROUND for groups: can select creating a filter layer here and put the filter layer on a group
+
 ### creating an outline/stroke and removing the base color so that you are left with just the stroke
 Map -> Gradient Map
 1. Foreground to Transparent (second preset under Choose Gradient Present)
