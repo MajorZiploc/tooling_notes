@@ -1,6 +1,15 @@
-
 # remove elements with 40 or more length (maps so it keeps everything)
 jq '.scripts |= map(select(length >= 40))'
+
+
+# return items that meet conditions with null guards
+jq '.items
+  | map(
+      select(
+        (.Variables | any(.Value? // "" | test("^acadian"; "i"))) and
+        (.Variables | any(.Value? // "" | test("Employees"; "i")))
+      )
+    )'
 
 # get back multiple fields from each ele in list in json format
 jq '.[] | {firstname,lastname}'
