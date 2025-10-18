@@ -909,7 +909,7 @@ select all lights
 shift-t -- cursor to where you want lights to point
 
 fix messed up geometry -- can reform mesh to look more like rest of mesh -- can retopo your mesh
-edit_mode: Face -> Grid Fill
+edit_mode: almost_top_menu: Face -> Grid Fill
 
 remove side_settings tabs -- visible tabs
 top right of side_settings dropdown
@@ -937,6 +937,14 @@ slow blender on big sceens:
 change OpenGL to Vulkan
 Preferences -> System -> Display Graphics
   Backend: Vulkan
+
+slow blender on big sceens:
+side_settings: Render -> Simplify
+  adjust settings as needed
+
+slow render can be sped up by limiting to a specific region that needs to be rendered rather than rendering everything
+3D_Viewport: ctrl-b -- box select a region
+3D_Viewport: ctrl-alt-b to clear region
 
 select collection via an item in the collection in 3D view port -- select by other relations aswell
 object_mode: select item in viewport
@@ -966,3 +974,59 @@ object_mode almost_top_menu: Viewport_Overlays -> Object -> enable Light colors
 
 get 4 views of 3D_Viewport (toggles on and off)
 ctrl-alt-q
+
+free plugins
+extensions.blender.org
+
+multi camera angle in single animation
+Timeline
+create marker: m
+select camera you want to link to the marker
+Timeline: press ctrl-b -- to link to the marker
+
+easier edits to inputs on materials with nodes
+Shader_Editor: select material nodes
+press ctrl-g -- groups them
+should see a Group Input node
+connect any input you want access to in the side_settings Material tab to the Group Input
+
+using presents
+if a tool has the mixer bars icon at the top left of it -- means it has presents
+can also save your own presents here
+
+remove noise from animated renders
+side_settings: Render -> Advanced
+  Seed
+    enable Use Animated Seed (clock icon)
+
+avoid redoing UV unwrap when editing mesh after have a textures and UV unwrap already done -- UVs will auto correct with any changes you make
+Edit_Mode: N: Tool -> Options -> Transform
+  enable Correct Face Attribute
+
+see affect of adding/removing seems on the UVs instanting (live unwrap) -- removes need to manually unwrap after every change that you make
+Edit_Mode: N: Tool -> Options -> UVs
+  enable Live Unwrap
+
+N: Tool can also be accessed on the side_settings with wrench and tool icon
+
+quick particles and effects
+object_mode: almost_top_menu Object -> Quick Effects
+
+change Temperature of a light
+side_settings: Data -> Light
+  enable Temperature -- the Color Temperature Scale will change the color of a light
+
+selective edge beveling with bevel modifier
+Bevel Modifier -> Limit Method: Weight
+edit_mode: select all edges you want to have a bevel
+edit_mode: N -> Item -> Edge Data -> Bevel Weight: 1
+
+build complex cylindrical shapes (like a chess piece or piece of pottery)
+add a curve in front view and build a shape
+add a screw modifier and change the axis to what you need
+now can change the curve and quickly get different shapes
+
+math and coding works in value fields
+can do formulas like 0 + (cos(frame / 8) * 4)
+`#frame (frame count or index) is a good value for when doing animations`
+code functions are called drivers
