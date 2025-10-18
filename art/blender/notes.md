@@ -903,3 +903,41 @@ Checking number of samples needed for a render
   almost_top_menu: Viewport_Shading -> Rendered
     should trigger rending for to show Path Tracing Samples
       if not, google how to render
+
+Lights to Target
+select all lights
+shift-t -- cursor to where you want lights to point
+
+fix messed up geometry -- can reform mesh to look more like rest of mesh -- can retopo your mesh
+edit_mode: Face -> Grid Fill
+
+remove side_settings tabs -- visible tabs
+top right of side_settings dropdown
+
+
+align object to a surface
+enable basepoint snapping
+object_mode: g (while moving object) -> b
+
+reduce geometry on mesh
+side_settings: Data -> Remesh
+Mode: Quad
+Click QuadriFlow Remesh
+tweak settings as needed
+
+cut hole in an object
+sculpt_mode:
+  left_side: Box Trim
+cant find this one: -- seems to not work in 4.5+ -- was an add on
+  object_mode: left_side: carve tools icon
+  array is good for holes that need to be even in spacing
+  https://extensions.blender.org/add-ons/carver/
+
+slow blender on big sceens:
+change OpenGL to Vulkan
+Preferences -> System -> Display Graphics
+  Backend: Vulkan
+
+select collection via an item in the collection in 3D view port -- select by other relations aswell
+object_mode: select item in viewport
+shift-g -- choose Collection
