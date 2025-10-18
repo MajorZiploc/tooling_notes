@@ -62,6 +62,9 @@ artist.io
 # textures
 https://www.textures.com/
 
+## procedural material creation
+https://www.materialmaker.org/
+
 ## 3d models
 https://www.turbosquid.com/
 https://sketchfab.com/3d-models/
