@@ -119,7 +119,7 @@ home -- show all objects in view
 Toggle user view
 5NumPad or View -> Perspective/Orthographic
 
-# 3D Viewport
+# 3D_Viewport
 
 shift + 2finger_swipe -- pane
 
@@ -260,13 +260,13 @@ m -- move to collection
 
 ctrl + (1-5) -- add subdivision surface modifier
 
-## 3D Viewport -- Edit_Mode
+## 3D_Viewport -- Edit_Mode
 
-view port overlays options - top right of 3d view point next to 2 circle icon
-  many tools here for customizing what is shown in the 3d viewport
+Viewport_Overlays options - top right of 3D_Viewport next to 2 circle icon
+  many tools here for customizing what is shown in the 3D_Viewport
 
-edit mesh more overlay options - top right of 3d view point next to square with 4 verts and 1 of those verts white
-  can find normals facing direction and many other tools here for customizing what is shown in the 3d viewport
+edit mesh more overlay options - top right of 3D_Viewport next to square with 4 verts and 1 of those verts white
+  can find normals facing direction and many other tools here for customizing what is shown in the 3D_Viewport
 
 ctrl + l -- link menu
 
@@ -377,7 +377,7 @@ edge create -- while using subdivision surface modifier
 
 ### Sculpting
 
-Viewport Overlays:
+Viewport_Overlays:
   Statistics -- will show vert count and other metrics
 
 . -- hover over area and view will pane to that area
@@ -483,7 +483,7 @@ NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
 NOTE: start with a single color texture such as #00000000
   May need to just use Eraser tool on whole texture
 
-NOTE: How to select faces in UVEditor and have those faces select in edit_mode 3d viewport (uv sync selection)
+NOTE: How to select faces in UVEditor and have those faces select in edit_mode 3D_Viewport (uv sync selection)
 UVEditor -> UV Sync Selection (almost_top_menu top left <2 arrows pointing in opposite directions>)
 makes finding groups of UVs easier since you can select them in the UVEditor
 
@@ -561,7 +561,7 @@ hit it with a 1,3,7 (cam angles) with a big hard brush and that will get everyth
 Rigify plugin is a must
 
 Optional: Display wireframe at all times to make matching skeleton to mesh easier with:
-  almost_top_menu right side Viewport Overlays -> Geometry -> Wireframe
+  almost_top_menu right side Viewport_Overlays -> Geometry -> Wireframe
 
 Rigify General workflow to setup a rig on a model from start to finish
   for simple human rig use shift+a -> armature -> Rigify Meta-Rigs -> Basic -> Basic Human
@@ -783,7 +783,7 @@ Data -> Opacity
 # getting assets
 
 ## reducing vertex counts for performance and storage considerations
-to right of 3D Viewport to the left the contextual_menu there is a series of colored icons
+to right of 3D_Viewport to the left the contextual_menu there is a series of colored icons
 click the Wrench -> Generate -> Decimate -> (will change the contextual_menu) Add Modifier -> Collapse -> Ratio less than 1.0
   Once happy with LOD: Apply changes
     the dropdown arrow in the contextual_menu next to the camera icon
@@ -879,3 +879,90 @@ remove dupped verts quickly
 1. select all verts
 2. m -> By Distance
 3. usually around 0.001m distance for merge setting
+
+getting a vert
+any mesh:
+  edit_mode -> a (select all verts) -> m (merge at center)
+
+better rendering for detailed meshes
+  Viewport_Shading -> Options
+    Cavity: checked
+
+better bevels
+  Meter Outer: Arc
+  NOTE: can use on the bevel modifier aswell
+
+alt for Orthographic views
+  instead of depending on emulate 3 button mouse
+  if you rotate while hold alt, it will snap into the various views
+
+Checking number of samples needed for a render
+  set samples to 0 (unlimited samples) and render and it will give you an estimate on how many samples you need
+    referred to as Path Tracing Samples
+  side_settings Render: Samples -> Viewport: 0
+  almost_top_menu: Viewport_Shading -> Rendered
+    should trigger rending for to show Path Tracing Samples
+      if not, google how to render
+
+Lights to Target
+select all lights
+shift-t -- cursor to where you want lights to point
+
+fix messed up geometry -- can reform mesh to look more like rest of mesh -- can retopo your mesh
+edit_mode: Face -> Grid Fill
+
+remove side_settings tabs -- visible tabs
+top right of side_settings dropdown
+
+
+align object to a surface
+enable basepoint snapping
+object_mode: g (while moving object) -> b
+
+reduce geometry on mesh
+side_settings: Data -> Remesh
+Mode: Quad
+Click QuadriFlow Remesh
+tweak settings as needed
+
+cut hole in an object
+sculpt_mode:
+  left_side: Box Trim
+cant find this one: -- seems to not work in 4.5+ -- was an add on
+  object_mode: left_side: carve tools icon
+  array is good for holes that need to be even in spacing
+  https://extensions.blender.org/add-ons/carver/
+
+slow blender on big sceens:
+change OpenGL to Vulkan
+Preferences -> System -> Display Graphics
+  Backend: Vulkan
+
+select collection via an item in the collection in 3D view port -- select by other relations aswell
+object_mode: select item in viewport
+shift-g -- choose Collection
+
+reduce file sizes by purging unused data
+File -> Clean Up -> Purge Unused Data...
+  will delete unused textures aswell
+  if you want to keep things like this - you need to set them to fake user to prevent them from being deleted
+    (shield icon button)
+      for textures: object_mode: with mesh selected
+        side_settings: Material
+          select a material and click the shield
+
+NOTE: setting seems to not be there or moved in newer blenders
+global material for easy single color on all meshes
+side_settings: View Layer -> Override
+  Material Override
+
+see and control an objects animation path
+object_mode: select keyframed object
+side_settings: Object -> Motion Paths
+  Calculate... (or its called Update Path if already Calcuated before)
+
+how to tell what light does what
+object_mode almost_top_menu: Viewport_Overlays -> Object -> enable Light colors
+
+get 4 views of 3D_Viewport (toggles on and off)
+ctrl-alt-q
