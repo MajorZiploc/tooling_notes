@@ -879,3 +879,27 @@ remove dupped verts quickly
 1. select all verts
 2. m -> By Distance
 3. usually around 0.001m distance for merge setting
+
+getting a vert
+any mesh:
+  edit_mode -> a (select all verts) -> m (merge at center)
+
+better rendering for detailed meshes
+  Viewport_Shading -> Options
+    Cavity: checked
+
+better bevels
+  Meter Outer: Arc
+  NOTE: can use on the bevel modifier aswell
+
+alt for Orthographic views
+  instead of depending on emulate 3 button mouse
+  if you rotate while hold alt, it will snap into the various views
+
+Checking number of samples needed for a render
+  set samples to 0 (unlimited samples) and render and it will give you an estimate on how many samples you need
+    referred to as Path Tracing Samples
+  side_settings Render: Samples -> Viewport: 0
+  almost_top_menu: Viewport_Shading -> Rendered
+    should trigger rending for to show Path Tracing Samples
+      if not, google how to render
