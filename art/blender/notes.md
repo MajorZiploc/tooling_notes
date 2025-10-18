@@ -842,6 +842,8 @@ ALT-S ----- fatten and shrinken tool, gives more natural curves
 
 CTRL-E>edgeslide ----- helps with giving more natural curves
   gg -- seems to be similar or the same
+  gg + e -- edge slide even
+  gg + e + f -- edge slide even (flipped) -- to match the other edge on the other side
 
 SHIFT-ALT-S (0-1) --- helps round out faces
 
