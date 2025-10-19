@@ -177,3 +177,20 @@ math and coding works in value fields
 can do formulas like 0 + (cos(frame / 8) * 4)
 `#frame (frame count or index) is a good value for when doing animations`
 code functions are called drivers
+
+Tissue - easy way to copy a pattern (1 mesh) across faces of another mesh -- tessellate
+can even limit what faces by selecting the faces in edit mode and then tessellate
+https://extensions.blender.org/add-ons/tissue/
+
+stick an object perfecting to another object -- lattice
+object_a = object you want to attach to object_b
+1. shift-a -> Lattice
+2. scale the lattice object to be slightly bigger than object_a
+3. with Lattice object selected: side_settings -> Data
+  specify the resolution that you need -- points of attachment to object_b
+4. select object_a then the Lattice -- ctrl-p to parent -- Object (Keep Transform)
+5. select object_a add Lattice modifier -- set the Lattice as the target
+6. add shrinkwrap modifier to the Lattice -- set object_b as the target
+7. play with shrinkwrap: Wrap Method to see what works best for your usecase
+NOTE: snapping techniques can also achieve this
+NOTE: shrinkwrap modifier can also work in some cases for this
