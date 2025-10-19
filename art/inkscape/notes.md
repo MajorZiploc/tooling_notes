@@ -1,3 +1,22 @@
+# Preferences (Edit -> Preferences)
+checkerboard background
+File -> Document Properties -> Display
+  Checkboard checkbox
+## finding a os/system path for things
+System
+^ you will find a listing of directories here (palette directory will be listed)
+### import color palette
+nav to palette folder and add *.gpl
+NOTE: you can use inkscape to convert *.svg to *.gpl
+
+
+Selector Tool (s) (like normal mode in vim) many commands expect you to be in this mode
+
+# Issues:
+
+where are my stroke and fill???
+  if stroke or fill color doesnt show. check opacity
+
 # toggle scroll bars on canvas
 ctrl + b
 
@@ -48,18 +67,13 @@ click the icon while pressing shift
 ## while moving object
 space
 
+# writing
+Calligraphy Tool (C)
+
 # bottom menu with colors on it
 effects fill or stroke of selected objects
 NOTE: hold shift to apply to stroke instead of fill
 the left most x is for removing fill
-
-# preferences (Edit -> Preferences)
-## finding a os/system path for things
-System
-^ you will find a listing of directories here (palette directory will be listed)
-### import color palette
-nav to palette folder and add *.gpl
-NOTE: you can use inkscape to convert *.svg to *.gpl
 
 # add path effects
 Path -> Path Effects...
@@ -73,12 +87,6 @@ Path top tab
   Union - for joining 2 or more paths into 1 and keep the look the same
   Difference - remove 1 shape from another
   Intersection - only keep the Intersection of 2 shapes
-
-
-NOTE:
-  if stroke or fill color doesnt show. check opacity
-
-Selector Tool (s) (like normal mode in vim) many commands expect you to be in this mode
 
 Node Tool (n)
 NOTE: select or deselect nodes outward from currently selected nodes
@@ -102,10 +110,14 @@ Layers and Object tab:
   hover and hold option/alt key
 
 Dropper Tool -  Color Selector (d)
+NOTE: click and drag to get an average color of an area
 
 horizontal flip (h)
 
 rotate ([ ])
+
+# Gradient
+select a shape and then create the gradient on the object
 
 # Clipping and Masking
 https://inkscape-manuals.readthedocs.io/en/latest/clipping-and-masking.html
@@ -117,12 +129,6 @@ Object -> Clip -> (inverse or standard)
 Path -> Trace Bitmap
 NOTE: its good for generating weighted line art
   the multi colored option is usually better for thie
-
-# Preferences
-
-checkerboard background
-File -> Document Properties -> Display
-  Checkboard checkbox
 
 # Resources
 svg related stuff
