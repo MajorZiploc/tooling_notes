@@ -213,3 +213,13 @@ carver_tools: cant find this one: -- seems to not work in 4.5+ -- was an add on
   array is good for holes that need to be even in spacing
   https://extensions.blender.org/add-ons/carver/
 
+creating hair tuffs -- anime hair
+2 curves - circle (shape of hair tube), path (the length of the hair)
+reduce side_settings: Data -> Resolution Preview U to 3 on both curves
+  reduces the face count
+for changing path
+  ctrl-t -- twist hair
+  alt-s -- scale
+  all else is what you would expect
+path: Data -> Bevel -> Object -> select circle
+when ready convert all hair paths to mesh
