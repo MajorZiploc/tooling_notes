@@ -194,3 +194,21 @@ object_a = object you want to attach to object_b
 7. play with shrinkwrap: Wrap Method to see what works best for your usecase
 NOTE: snapping techniques can also achieve this
 NOTE: shrinkwrap modifier can also work in some cases for this
+
+create stairs pattern with bevel
+make then cube and select the edge you want stairs on
+ctrl-b and confirm
+open Bevel context menu
+  Width Type: Depth
+  Profile Type: Custom
+    Use Steps Preset
+  increase Segments until you get the stairs you want
+  change Width as needed
+need more steps?
+  increase Segments and reset the Preset to Default then Stairs
+
+for creating holes
+  https://extensions.blender.org/add-ons/looptools/
+  in short:
+    edit_mode: select faces; rmb: LoopTools -> [Bridge, Circle]
+  boolean modifer is ok aswell but can create bad geometry
