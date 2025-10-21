@@ -72,14 +72,6 @@ Mode: Quad
 Click QuadriFlow Remesh
 tweak settings as needed
 
-cut hole in an object
-sculpt_mode:
-  left_side: Box Trim
-cant find this one: -- seems to not work in 4.5+ -- was an add on
-  object_mode: left_side: carve tools icon
-  array is good for holes that need to be even in spacing
-  https://extensions.blender.org/add-ons/carver/
-
 slow blender on big sceens:
 change OpenGL to Vulkan
 Preferences -> System -> Display Graphics
@@ -207,8 +199,17 @@ open Bevel context menu
 need more steps?
   increase Segments and reset the Preset to Default then Stairs
 
-for creating holes
+cut hole in an object/for creating holes
+looptools:
   https://extensions.blender.org/add-ons/looptools/
   in short:
     edit_mode: select faces; rmb: LoopTools -> [Bridge, Circle]
-  boolean modifer is ok aswell but can create bad geometry
+boolean modifer:
+  is ok aswell but can create bad geometry
+sculpt_mode:
+  left_side: Box Trim
+carver_tools: cant find this one: -- seems to not work in 4.5+ -- was an add on
+  object_mode: left_side: carve tools icon
+  array is good for holes that need to be even in spacing
+  https://extensions.blender.org/add-ons/carver/
+
