@@ -55,7 +55,7 @@ Lights to Target
 select all lights
 shift-t -- cursor to where you want lights to point
 
-fix messed up geometry -- can reform mesh to look more like rest of mesh -- can retopo your mesh
+fix messed up geometry -- can reform mesh to look more like rest of mesh -- can retopo your mesh -- complete shape -- fill shape
 edit_mode: almost_top_menu: Face -> Grid Fill
 
 remove side_settings tabs -- visible tabs
