@@ -3,6 +3,9 @@ import bpy
 import logging
 # import time
 
+# NOTE: requires you have all selected_objects set to Shade Auto Smooth
+#   this can be done in bulk just by selected all objects and going almost_top_menu Object -> Shade Auto Smooth
+
 radians = 15
 
 logging.basicConfig(level=logging.INFO,
