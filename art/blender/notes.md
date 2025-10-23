@@ -374,6 +374,10 @@ shift+n -- recalculate normals
 edge create -- while using subdivision surface modifier
   shift+e
 
+### Scripting
+
+#### where are my logs/prints?
+Window -> Toggle System Console
 
 ### Sculpting
 
