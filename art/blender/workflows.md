@@ -223,3 +223,6 @@ for changing path
   all else is what you would expect
 path: Data -> Bevel -> Object -> select circle
 when ready convert all hair paths to mesh
+
+round out edge loops
+alt-shift-s -- (to sphere tool)

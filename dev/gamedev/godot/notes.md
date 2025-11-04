@@ -184,6 +184,8 @@ export grey box / csg scenes to .gltf to import into blender to use as a base to
 Scene -> Export as...
   glTF 2.0 Scene
 
+NOTE: if exporting from blender -- remember to back face cull on blender bcuz that setting will carry over to godot
+
 ## Importing
 
 NOTE: use nested_scene approach:
