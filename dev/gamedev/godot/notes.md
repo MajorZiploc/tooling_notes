@@ -198,6 +198,9 @@ reserve UV2 for light baking -- light baking only to be done once game is actual
 fake ambient light by adding omni_or_spot_light in the reverse direction at lower energy to the main omni_or_spot_light
   this is a quick hack to avoid needing ambient lighting which has raises performances needs and also removes need for light baking which takes time to setup well and alot of time to actually bake
 
+## Raycasts
+Efficient Raycasting: If using raycasts, consider performing them less frequently or using force_raycast_update with disabled RayCast2D nodes for on-demand updates, especially with many agents.
+
 ## Importing
 
 NOTE: use nested_scene approach:
