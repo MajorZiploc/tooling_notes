@@ -186,6 +186,18 @@ Scene -> Export as...
 
 NOTE: if exporting from blender -- remember to back face cull on blender bcuz that setting will carry over to godot
 
+## 3D top level design
+
+limit lights to 1 directional, and 8 omni_or_spot_light in camera_fov
+
+use decals to add details to things quickly
+  do this plus color atlas for rest of colors
+
+reserve UV2 for light baking -- light baking only to be done once game is actually done and needs more polish
+
+fake ambient light by adding omni_or_spot_light in the reverse direction at lower energy to the main omni_or_spot_light
+  this is a quick hack to avoid needing ambient lighting which has raises performances needs and also removes need for light baking which takes time to setup well and alot of time to actually bake
+
 ## Importing
 
 NOTE: use nested_scene approach:
@@ -239,6 +251,16 @@ Ambient Occlusion -- ao map -- how much ambient light reaches the surface -- 1 c
 
 Emission -- RGB
   manual or use an emission map
+
+##### Transparency
+
+requires the albedo texture to have reduced alphas on pixels aswell as enabling Transparency
+NOTE: try your best to avoid Alpha_Blending
+  cons of Alpha_Blending:
+    cant have shadows
+    has issues with sorting materials -- z index fighting
+    slow to render -- performance issues
+instead use one of [Alpha_Scissor, Alpha_Hash, Depth_Pre_Pass]
 
 #### ORMMaterial3D
 
