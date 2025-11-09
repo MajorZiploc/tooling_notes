@@ -275,6 +275,13 @@ ORM texture and material
   Roughness -- green channel
   Metallic -- blue channel
 
+#### Mesh Outline -- typically black outline around a toon shaded mesh like borderlands
+
+make .glb temp editable
+select the mesh in the scene and top_menu Mesh -- Select 'Create Outline Mesh...' with a 'Outline Size': around 0.007
+copy paste the new mesh out of the .glb file and close the .glb WITHOUT saving the file
+paste the mesh into your models scene in a Node3D group called 'outlines' for organization and easy select of the outlines
+
 ## CollisionShape
 
 NOTE: if you copy and paste, you need to right click the Shape property of the node and make unique
