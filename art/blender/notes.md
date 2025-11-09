@@ -377,7 +377,12 @@ edge create -- while using subdivision surface modifier
 ### Scripting
 
 #### where are my logs/prints?
+Windows:
 Window -> Toggle System Console
+Mac: Have to lauch Blender from the terminal
+cd "/Users/manyu/Library/Application Support/Steam/steamapps/common/Blender/Blender.app/Contents/MacOS/"; Blender;
+NOTE: Linux is done similar to Mac
+
 
 ### Sculpting
 
