@@ -16,12 +16,20 @@ logger.setLevel(logging.DEBUG)
 def manual_setter(obj, angleDegrees):
     if "Smooth by Angle" in obj.modifiers:
         obj.modifiers["Smooth by Angle"].__setitem__("Input_1",angleDegrees*0.0174533)
+        # TODO: make this set actually work
+        obj.modifiers["Smooth by Angle"]["Ignore Sharpness"] = True
+        # NOTE: FOR HAIR
+        # obj.modifiers["Smooth by Angle"].node_group.nodes["Set Shade Smooth.001"].domain = 'FACE'
     else:
         foo=bpy.context.temp_override(active_object= obj)
         foo.__enter__()
         bpy.ops.object.modifier_add_node_group(asset_library_type='ESSENTIALS', asset_library_identifier="", relative_asset_identifier="geometry_nodes/smooth_by_angle.blend/NodeTree/Smooth by Angle")
         foo.__exit__()
         obj.modifiers["Smooth by Angle"].__setitem__("Input_1",angleDegrees*0.0174533)
+        # TODO: make this set actually work
+        obj.modifiers["Smooth by Angle"]["Ignore Sharpness"] = True
+        # NOTE: FOR HAIR
+        # obj.modifiers["Smooth by Angle"].node_group.nodes["Set Shade Smooth.001"].domain = 'FACE'
         # OG: (lambda obj, angleDegrees=30: (obj.modifiers["Smooth by Angle"].__setitem__("Input_1",angleDegrees*0.0174533) if "Smooth by Angle" in obj.modifiers else (foo:=bpy.context.temp_override(active_object= obj),foo.__enter__(),bpy.ops.object.modifier_add_node_group(asset_library_type='ESSENTIALS', asset_library_identifier="", relative_asset_identifier="geometry_nodes/smooth_by_angle.blend/NodeTree/Smooth by Angle"),foo.__exit__(),obj.modifiers["Smooth by Angle"].__setitem__("Input_1",angleDegrees*0.0174533))))(obj,25)
         # ^ from https://blender.stackexchange.com/questions/316696/attributeerror-mesh-object-has-no-attribute-use-auto-smooth
 
