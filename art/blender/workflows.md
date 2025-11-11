@@ -226,3 +226,10 @@ when ready convert all hair paths to mesh
 
 round out edge loops
 alt-shift-s -- (to sphere tool)
+
+black outline to mesh
+add new Material that is Emission with black color called 'outline'
+add Solidify modifier
+  change the modifier index to the index of the 'outline' Material
+  flip normals
+  adjust settings as you need
