@@ -774,7 +774,7 @@ Auto Scale: uncheck
 Use Pose: current
 Click Retarget Animation
   if you get crazy stretching then the mappings are wrong
-if limbs dont align with Mixamo rig, then you need to change your riggify rig settigs to use FK instead of IK for all limbs if using FK (1.0) else invert this (0.0)
+if limbs dont align with Mixamo rig, then you need to change your riggify rig settings to use FK instead of IK for all limbs if using FK (1.0) else invert this (0.0)
   NOTE: to see these controls in N: Tool of pose_mode of your riggify rig
     a -- select all
 
@@ -784,6 +784,11 @@ If keyframes dont show up in Timeline
   insert a new keyframe at the last frame
   while mouse on viewport - press i to insert keyframe
   then delete that new keyframe with 'delete' while mouse in Timline
+
+# Outliner
+
+top level CRUD everything in your .blend file
+almost_top_menu (Display Mode) -> Blender File
 
 # Reference images
 reduce Opacity (right_side_menu)
