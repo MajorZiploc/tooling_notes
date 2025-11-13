@@ -790,6 +790,9 @@ If keyframes dont show up in Timeline
 top level CRUD everything in your .blend file
 almost_top_menu (Display Mode) -> Blender File
 
+toggle all open/close
+shift
+
 # Reference images
 reduce Opacity (right_side_menu)
 Data -> Opacity
