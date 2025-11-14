@@ -1,4 +1,8 @@
-# Resources
+## Resources
+
+### polished projects to reference
+https://www.gdquest.com/
+https://www.gdquest.com/library/character_movement_3d_platformer/#download-files
 
 ## Gotches
 
