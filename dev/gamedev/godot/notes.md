@@ -1,4 +1,8 @@
-# Resources
+## Resources
+
+### polished projects to reference
+https://www.gdquest.com/
+https://www.gdquest.com/library/character_movement_3d_platformer/#download-files
 
 ## Gotches
 
@@ -198,7 +202,10 @@ reserve UV2 for light baking -- light baking only to be done once game is actual
 fake ambient light by adding omni_or_spot_light in the reverse direction at lower energy to the main omni_or_spot_light
   this is a quick hack to avoid needing ambient lighting which has raises performances needs and also removes need for light baking which takes time to setup well and alot of time to actually bake
 
-## Importing
+## Raycasts
+Efficient Raycasting: If using raycasts, consider performing them less frequently or using force_raycast_update with disabled RayCast2D nodes for on-demand updates, especially with many agents.
+
+## Importing 3D
 
 NOTE: use nested_scene approach:
 1. create 3D Scene
@@ -219,9 +226,20 @@ double click asset to get advanced import settings
 
 glTF 2.0 is apparaently better or easier to deal with than fbx
 NOTE: glb is just glTF in binary format to save space
+### Blender Export Settings for glb changes from defaults
+Include
+  Selected Objects: True
+Mesh
+  Apply Modifiers: True
 
 NOTE .blend files are supported. Godot just converts them to glTF under the hood
   must configure godot to know the path of blender
+
+### 3D model management
+
+set the .glb as editable
+
+temporary openning a .glb and search through the node properties can help when you need to set stuff dynamically through code 
 
 ### Materials
 

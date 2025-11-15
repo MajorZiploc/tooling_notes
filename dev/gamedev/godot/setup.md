@@ -20,9 +20,12 @@ Interface -> Editor
 
 Interface -> Editor
 Single Window Mode: true
-
-Interface -> Editor
 V-Sync Mode: Disabled
+Low Processor Mode Sleep (usec): 33000 # roughly 30 fps
+Update Continuously: false # NOTE: default value is false
+
+Text Editor -> Code Complete Enabled: false
+ctrl+space or cmd+space to trigger code complete manually
 
 ### Windows OS settings for performance
 

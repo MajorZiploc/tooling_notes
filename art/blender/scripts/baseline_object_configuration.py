@@ -3,9 +3,6 @@ import bpy
 import logging
 # import time
 
-# NOTE: requires you have all selected_objects set to Shade Auto Smooth
-#   this can be done in bulk just by selected all objects and going almost_top_menu Object -> Shade Auto Smooth
-
 radians = 15
 
 logging.basicConfig(level=logging.INFO,
@@ -14,6 +11,15 @@ logger = logging.getLogger('blender_id')
 logger.setLevel(logging.DEBUG)
 
 def manual_setter(obj):
+    smooth_(obj)
+    backface_culling_(obj)
+
+def backface_culling_(obj):
+    obj.active_material.use_backface_culling = True
+    obj.active_material.use_backface_culling_shadow = True
+
+# NOTE: requires you to manually set the ignore sharpness and maybe edit geometry node settings like if 'EDGE' or 'FACE'
+def smooth_(obj):
     if "Smooth by Angle" in obj.modifiers:
         obj.modifiers["Smooth by Angle"].__setitem__("Input_1",radians*0.0174533)
         # TODO: make this set actually work
