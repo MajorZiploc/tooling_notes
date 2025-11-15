@@ -11,6 +11,10 @@ Callable - you cant await a .call() it wont error or warn you, but it also defin
 To save theme changes when editing via the editor. PRESS THE SAVE BUTTON ON THE THEMES TAB
   other events can trigger a save, but they arent consistent
 
+.duplicate_deep(Resource.DeepDuplicateMode.DEEP_DUPLICATE_ALL) is the GOAT for copying anything
+can be very useful for materials and shaders to desync them between instances
+sometimes its even better to just load the PackedScene and .duplicate_deep the whole thing rather than trying to target the materials or shaders
+
 ### Shaders
 
 #### instance uniforms
