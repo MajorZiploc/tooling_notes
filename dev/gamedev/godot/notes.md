@@ -240,6 +240,7 @@ NOTE .blend files are supported. Godot just converts them to glTF under the hood
 set the .glb as editable
 
 temporary openning a .glb and search through the node properties can help when you need to set stuff dynamically through code 
+^also the most reliable way to see the results of a .tres shader (ShaderMaterial)
 
 ### Materials
 
