@@ -205,7 +205,7 @@ fake ambient light by adding omni_or_spot_light in the reverse direction at lowe
 ## Raycasts
 Efficient Raycasting: If using raycasts, consider performing them less frequently or using force_raycast_update with disabled RayCast2D nodes for on-demand updates, especially with many agents.
 
-## Importing
+## Importing 3D
 
 NOTE: use nested_scene approach:
 1. create 3D Scene
@@ -234,6 +234,12 @@ Mesh
 
 NOTE .blend files are supported. Godot just converts them to glTF under the hood
   must configure godot to know the path of blender
+
+### 3D model management
+
+set the .glb as editable
+
+temporary openning a .glb and search through the node properties can help when you need to set stuff dynamically through code 
 
 ### Materials
 
