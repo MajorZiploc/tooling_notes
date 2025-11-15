@@ -11,6 +11,10 @@ Callable - you cant await a .call() it wont error or warn you, but it also defin
 To save theme changes when editing via the editor. PRESS THE SAVE BUTTON ON THE THEMES TAB
   other events can trigger a save, but they arent consistent
 
+.duplicate_deep(Resource.DeepDuplicateMode.DEEP_DUPLICATE_ALL) is the GOAT for copying anything
+can be very useful for materials and shaders to desync them between instances
+sometimes its even better to just load the PackedScene and .duplicate_deep the whole thing rather than trying to target the materials or shaders
+
 ### Shaders
 
 #### instance uniforms
@@ -240,6 +244,7 @@ NOTE .blend files are supported. Godot just converts them to glTF under the hood
 set the .glb as editable
 
 temporary openning a .glb and search through the node properties can help when you need to set stuff dynamically through code 
+^also the most reliable way to see the results of a .tres shader (ShaderMaterial)
 
 ### Materials
 
