@@ -19,7 +19,7 @@ def generate_pub_priv_key_pair(
         f.write(key.publickey().export_key())
     print(f"Generated: {private_key_path}, {public_key_path}")
 
-def encrypt(private_key_file, public_key_file, file_to_encrypt):
+def encrypt(public_key_file, file_to_encrypt):
     """
     Encrypt file_to_encrypt using PUBLIC key.
     (private_key_file is unused but included for compatibility)
@@ -42,7 +42,7 @@ def encrypt(private_key_file, public_key_file, file_to_encrypt):
     print(f"Encrypted to {encrypted_path}")
     return encrypted_path
 
-def decrypt(private_key_file, public_key_file, file_to_decrypt):
+def decrypt(private_key_file, file_to_decrypt, output_dir):
     """
     Decrypt file_to_decrypt using PRIVATE key.
     (public_key_file is unused but included for compatibility)
@@ -58,7 +58,7 @@ def decrypt(private_key_file, public_key_file, file_to_decrypt):
         chunk = encrypted_data[i:i + chunk_size]
         decrypted_chunks.append(cipher.decrypt(chunk))
     decrypted_data = b"".join(decrypted_chunks)
-    output_path = file_to_decrypt.replace(".enc", "") + ".dec"
+    output_path = os.path.join(output_dir, os.path.basename(file_to_decrypt.replace(".enc", "") + ".dec")); 
     with open(output_path, "wb") as f:
         f.write(decrypted_data)
     print(f"Decrypted to {output_path}")
@@ -72,6 +72,5 @@ def decrypt(private_key_file, public_key_file, file_to_decrypt):
 
 # generate_pub_priv_key_pair()
 
-# encrypted = encrypt("private_key.pem", "public_key.pem", encrypted)
-# decrypt("private_key.pem", "public_key.pem", encrypted)
-
+# encrypted = encrypt("public_key.pem", "path/to/file.txt")
+# decrypt("private_key.pem", encrypted, "/tmp/")
