@@ -84,6 +84,10 @@ doesnt toggle all other objects and rescales things to work better with current 
 
 ## High level control
 
+numpad(1,3,7) cam_angles goes to front, right, and top respectively
+
+ctrl + numpad(1,3,7) cam_angles goes to back, left, and bottom respectively
+ 
 General window toggles
   top left below x2 the blender icon. you will see a grid with a ball on it
   click it and you will see a bunch of editors and diff views
@@ -106,8 +110,6 @@ n -- toggles right window (camera lock area) (properties)
 
 ctrl + space -- toggles scene collections and big tools
 
-ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
- 
 search menu (like ctrl-p in vscode)
 F3
 
@@ -562,7 +564,7 @@ texture_paint_mode: with a brush selected: N -> Tool -> Options -> uncheck [Occl
   reduce bleed to 1px or even 0px depending
   Optional: first pass use bleed, then do flats pass with 0px bleed
     -- try without, if get weird results during flats, then try this
-hit it with a 1,3,7 (cam angles) with a big hard brush and that will get everything
+hit it with (cam_angles) with a big hard brush and that will get everything
 
 ### Rigging
 
