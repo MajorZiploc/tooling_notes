@@ -235,6 +235,9 @@ add Solidify modifier
   adjust settings as you need
 
 NOTE: incomplete, havnt gotten this to actually work in godot
+WAIT for godot 4.6: https://github.com/godotengine/godot/pull/110120
+this guys plugin may be what i need for this to work. OSIK on the asset store
+https://forum.godotengine.org/t/how-to-implement-foot-leg-ik-in-godot-4-4/112274/7
 IK baking from FK with rigify
 IKs are to allow for feet and hands to adjust to things like the ground they stand on
   makes it look more like character is standing on the uneven ground
@@ -253,6 +256,12 @@ IKs are to allow for feet and hands to adjust to things like the ground they sta
   8. retry step 2 and it should work
 3. Pose_Mode: select the IK you just baked and change IK-FK Switch to 0.0 to indicate that IK controls instead of FK
 TODO: ISSUE LIKELY FROM THIS POINT ONWARD THAT IS MAKING IT NOT WORK IN GODOT
-4. Export. With setting: Animation -> Bake & Merge -> Bake All Object Animations: True; Merge Animations: No Merge
-5. revert step 3 since we edit animations and import animations from mixamo with FK style
-6. godot: reimport the new .glb
+4?. Create Baked verison of all animations
+  Pose_Mode
+  select all bones you want to have keyframes for
+  Pose_Mode: almost_top_menu: Pose -> Animation -> Bake Action
+    check selected bones only
+    play with the other settings to see if it fixes the issue after its imported into godot
+5. Export. With setting: Animation -> Bake & Merge -> Bake All Object Animations: True; Merge Animations: No Merge
+7. revert step 3 since we edit animations and import animations from mixamo with FK style
+9. godot: reimport the new .glb
