@@ -235,7 +235,7 @@ add Solidify modifier
   adjust settings as you need
 
 NOTE: incomplete, havnt gotten this to actually work in godot
-WAIT for godot 4.6: https://github.com/godotengine/godot/pull/110120
+WAIT for godot 4.6: https://github.com/godotengine/godot/pull/110120 mentioned here: https://forum.godotengine.org/t/how-to-implement-foot-leg-ik-in-godot-4-4/112274/5
 this guys plugin may be what i need for this to work. OSIK on the asset store
 https://forum.godotengine.org/t/how-to-implement-foot-leg-ik-in-godot-4-4/112274/7
 IK baking from FK with rigify
