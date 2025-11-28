@@ -233,3 +233,26 @@ add Solidify modifier
   change the modifier index to the index of the 'outline' Material
   flip normals
   adjust settings as you need
+
+NOTE: incomplete, havnt gotten this to actually work in godot
+IK baking from FK with rigify
+IKs are to allow for feet and hands to adjust to things like the ground they stand on
+  makes it look more like character is standing on the uneven ground
+1. select rig: go to Pose_Mode. make sure IKs are visible for feet and hands
+2. select a foot (or other) go to N:Item -> Rig Main Properties. click Action (Snap the IK chain keyframes to the FK result) in the IK -> FK section
+2e1. if you get a script error. go to Scripting section and open the script to try and debug it
+2e2. if you have updated blender since you generated the rig
+  NOTE: make sure you back up your previous state bcuz we are going to go back during these steps
+  1. copy rig_ui.py to a file that is git tracked and stage changes
+  2. delete all the rigify scripts in the script section
+  3. Object_Mode: select metarig and regenerate the rig: side_settings: Data -> Rigify -> Re-Generate Rig
+  4. go to Scripting and copy the generated rig_ui.py
+  5. revert all changes from previous steps
+  6. review changes to rig_ui.py. do not keep any guid changes or selected bone changes. Only functionality changes
+  7. reopen blender and paste the updated rig_ui.py
+  8. retry step 2 and it should work
+3. Pose_Mode: select the IK you just baked and change IK-FK Switch to 0.0 to indicate that IK controls instead of FK
+TODO: ISSUE LIKELY FROM THIS POINT ONWARD THAT IS MAKING IT NOT WORK IN GODOT
+4. Export. With setting: Animation -> Bake & Merge -> Bake All Object Animations: True; Merge Animations: No Merge
+5. revert step 3 since we edit animations and import animations from mixamo with FK style
+6. godot: reimport the new .glb

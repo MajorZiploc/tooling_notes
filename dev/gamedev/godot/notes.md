@@ -231,10 +231,13 @@ double click asset to get advanced import settings
 glTF 2.0 is apparaently better or easier to deal with than fbx
 NOTE: glb is just glTF in binary format to save space
 ### Blender Export Settings for glb changes from defaults
+Remember Export Settings: true
 Include
   Selected Objects: True
 Mesh
   Apply Modifiers: True
+Animation -> Action Filter: True
+  filter out any mixamo junk actions or experimental actions that would just take up space in godot
 
 NOTE .blend files are supported. Godot just converts them to glTF under the hood
   must configure godot to know the path of blender
