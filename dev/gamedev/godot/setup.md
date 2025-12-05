@@ -29,6 +29,13 @@ ctrl+space or cmd+space to trigger code complete manually
 
 ### Windows OS settings for performance
 
+WINDOWS SECURITY - VIRUS AND THREAT PROTECTION RULES ARE VERY IMPORTANT
+need to exclude project path else godot will be extremely slow
+1. Win Key - search 'Virus & Threat Protection'
+2. Go to Subsection named 'Virus & threat protection settings' and click 'Manage setting'
+3. Scroll all th way down to find 'Exclusions' and click 'Add or remove exclusions'
+4. Click 'Add an exclusion' and browse to your project path
+
 Enable Developer Mode on Windows
 Win Key -> "Developer settings"
 
