@@ -198,6 +198,8 @@ custom brushes:
   Airbrush pressure
   Block bristles
   Block textured 1
+  Block textured 2
+    fun sketch brush
   Bristle Tapered
   Bristles hairy
   Brush dotted
