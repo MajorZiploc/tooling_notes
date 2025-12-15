@@ -200,6 +200,7 @@ custom brushes:
   Block textured 1
   Block textured 2
     fun sketch brush
+  Block basic
   Bristle Tapered
   Bristles hairy
   Brush dotted
