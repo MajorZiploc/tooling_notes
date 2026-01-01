@@ -131,7 +131,7 @@ then go to Editor -> Manage Export Templates...
 ## HTML
   DONT MARK IT AS RUNNABLE (a toggle box in the export)
     will cause jittering for game time and tweens and such
-    it will be runnable without this ont
+    it will be runnable without this on
   right before saving
     rename to 'index.html'
     uncheck Export With Debug
@@ -352,3 +352,16 @@ $GODOT_CLI "$godot_scene" --debug-path --debug-collisions --debug-paths --debug-
 ## Localization
 valid TranslationServer.set_locale(language); values: (Set 1 column)
 https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+
+## Inputs
+
+https://forum.godotengine.org/t/split-screen-player-devices/42321/4
+
+keyboard and joypad #1 are both device 0 you can not change the device index
+so keyboard and joypad for local multiple player is not possible
+has to be 2 joypads or 2 keyboards
+
+## Audio
+// NOTE: to test looping of music add the following right after you call new_audio.play():
+var length := new_audio.stream.get_length()
+new_audio.seek(length * 0.95)
