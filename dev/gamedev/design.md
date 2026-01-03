@@ -21,3 +21,7 @@ dont sweat the small details
     for blinking - just squash the texture
     stretching and squashing and rotate with no more than simple tweens is good enough alot of times
 hover over an icon (or being focused on an icon) for a couple seconds brings up a tool tip
+
+## Lessons from Tim Cain
+realism isnt what ppl mean when they say 'this doesnt feel realistic'
+  their problem with the game is that the game isnt self consistent
