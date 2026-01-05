@@ -36,7 +36,7 @@ https://docs.google.com/document/d/1dH4r1tCrf2EddWYfjmFc2FTWdHiXYMymI9cVisXd6hg/
 
 # settings
 
-NOTE: save preferences
+NOTE: save preferences will make sure your preferences carry over to all your new sessions rather than just this file
   Edit -> Preferences -> bottom_left -> hamburger_menu
 
 emulate numpad (when you dont have a numpad)
@@ -47,6 +47,13 @@ Edit -> Preferences -> Input -> Check Emulate 3 Button Mouse (alt+lmb)
 
 ^ undo stack
 Edit -> Preferences -> System -> Memory & Limits -> Undo Steps: 256
+
+usability_setting -- change the scale of the UI
+Interface -> Resolution Scale
+
+faster_rendering_setting
+Edit -> Preferences -> System -> Cycles Render Devices (
+  Cuda -- Nvida (if you have)
 
 extra shading stuff
 Edit -> Preferences -> Kepmap -> check: Extra Shading Pie Menu Items
