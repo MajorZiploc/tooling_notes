@@ -72,6 +72,8 @@ activate krita brush pack 3
   choose: Subwindows
 2. File -> Open
     open your reference image or reference_*.kra file
+    use Window -> Tile (MAC: look otherside of camera)
+       this will make the sub windows take up equal amounts of space and maximize the space usage
 
   ## exit fullscreen of a subwindow
   top right you will see 3 small icons (only if your in fullscreen window mode)
