@@ -504,6 +504,15 @@ NOTE: How to select faces in UVEditor and have those faces select in edit_mode 3
 UVEditor -> UV Sync Selection (almost_top_menu top left <2 arrows pointing in opposite directions>)
 makes finding groups of UVs easier since you can select them in the UVEditor
 
+NOTE: hex_code_image assist during UV unwrapping if doing a proper UV unwrap with actual details
+in UV_Editing
+in the UV_Editor: create a new image, N -> Image -> Type: Color Grid
+  save image as hex_code_color_grid.png
+in 3D_Viewport: use the image as a material on model
+  side_settings: Material -> new material
+    Emissons type
+    click Color and select Image and open the above image
+
 u -- uv menu
   'Project from View' option is really good
 
@@ -572,6 +581,13 @@ texture_paint_mode: with a brush selected: N -> Tool -> Options -> uncheck [Occl
   Optional: first pass use bleed, then do flats pass with 0px bleed
     -- try without, if get weird results during flats, then try this
 hit it with (cam_angles) with a big hard brush and that will get everything
+
+NOTE: fill tool to fill only selected faces with color (works with any brush, not just fill tool)
+  in Texture_Paint mode
+  use paint mask option almost_top_menu next to Texture Paint text find the square icon
+
+NOTE: stabilize option on brushes to help brush nicer lines
+side_settings: Tool -> Brush Settings -> Stoke -> Stabilize Stroke
 
 ### Rigging
 
