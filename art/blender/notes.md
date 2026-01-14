@@ -411,6 +411,10 @@ common brushes:
   crease
     high detail
     small size brush is common
+  pose
+    good for emulating armatures to help change your default model pose
+      NOTE: the size of the brush is very important for this
+      good for adding blends to things like arms for a better neutral A pose
 
 when hover over object, you will see little yellow dots -- the closer they are the more to the center of a shape you are
 
