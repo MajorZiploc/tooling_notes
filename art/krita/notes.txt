@@ -419,3 +419,17 @@ File -> Render Animation
 https://github.com/Falano/kritaSpritesheetManager
   backup in this repo here:
   ./plugins/kritaSpritesheetManager-master.zip
+
+# Lineart workflows
+
+## thin Lineart
+1. do standard chunky lineart
+2. convert to svg with inkscape
+  Trace Bitmap
+    Single Scan
+      Detection mode: Centerline tracing(autotrace)
+3. use KisToolSelectSimilar
+  feathering: 1px
+  Stop growing at the darkest and/or most opaque pixels: on
+  antialias: on
+  grow: 1px
