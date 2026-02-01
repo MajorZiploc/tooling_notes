@@ -432,4 +432,4 @@ https://github.com/Falano/kritaSpritesheetManager
   feathering: 1px
   Stop growing at the darkest and/or most opaque pixels: on
   antialias: on
-  grow: 1px
+  grow: 1px <- increase this value to make the antialias smoother if you are spaming the delete key
