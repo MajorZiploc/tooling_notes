@@ -424,10 +424,13 @@ https://github.com/Falano/kritaSpritesheetManager
 
 ## thin Lineart
 1. do standard chunky lineart
-2. convert to svg with inkscape
+2a. convert to svg with inkscape
   Trace Bitmap
     Single Scan
       Detection mode: Centerline tracing(autotrace)
+2b. (optional) to reduce stroke width
+  Add Path Effect: Power Stroke
+    Width multiplier: 0.0
 3. use KisToolSelectSimilar
   feathering: 1px
   Stop growing at the darkest and/or most opaque pixels: on
