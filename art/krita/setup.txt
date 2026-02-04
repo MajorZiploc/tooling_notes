@@ -209,7 +209,7 @@ custom brushes:
   Ink brush 25
   c) Pencil-4 Soft
   d) Ink-7 Brush Rough
-    good for rough lineart style
+    good for rough lineart style (25px)
   d) Ink-8 Sumi-e
   Eraser soft
     soft erasing
