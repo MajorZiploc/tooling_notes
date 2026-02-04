@@ -15,3 +15,4 @@ toggle_layer_visibility=Shift+V
 toggle_onion_skin=Meta+Shift+O
 paste_into=Ctrl+Shift+V
 toggle_display_selection=Ctrl+H; Alt+H
+toggle_layer_lock=Ctrl+Alt+X
