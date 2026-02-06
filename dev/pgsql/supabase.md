@@ -5,7 +5,7 @@ view logs:
 GET
 
 curl 'https://<project>.supabase.co/rest/v1/logs?order=created_at.desc&limit=5' \
-  -H "apikey: authed_key \
+  -H "apikey: authed_key" \
   -H "Authorization: Bearer authed_key"
 
 POST -- no return value
