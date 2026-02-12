@@ -20,8 +20,8 @@ s,toggle_layer_alpha_lock.*,toggle_layer_alpha_lock=A,g;
 s,toggle_layer_inherit_alpha.*,toggle_layer_inherit_alpha=Shift+A,g;
 s,toggle_layer_visibility.*,toggle_layer_visibility=Shift+V,g;
 s,toggle_onion_skin.*,toggle_onion_skin=Ctrl+Shift+O,g;
-s,toggle_display_selection.*,toggle_display_selection=Ctrl+H; Meta+H,g;
-s,toggle_layer_lock.*,toggle_layer_lock=Ctrl+Meta+X,g;
+s,toggle_display_selection.*,toggle_display_selection=Ctrl+H; Alt+H,g;
+s,toggle_layer_lock.*,toggle_layer_lock=Ctrl+Alt+X,g;
 '
 
 # CONFIG LOCATIONS
