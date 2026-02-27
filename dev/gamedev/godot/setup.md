@@ -29,6 +29,8 @@ ctrl+space or cmd+space to trigger code complete manually
 
 ### Windows OS settings for performance
 
+!!! DO NOT PUT ON WSL SIDE -- will make godot's startup and game startup at dev time extremely slow
+
 WINDOWS SECURITY - VIRUS AND THREAT PROTECTION RULES ARE VERY IMPORTANT
 need to exclude project path else godot will be extremely slow
 1. Win Key - search 'Virus & Threat Protection'
