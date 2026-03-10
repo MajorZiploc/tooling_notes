@@ -74,6 +74,11 @@ Render options (right_side_menu)
   better for low poly game art:
   Render Engine: EEVEE
 
+System -> Network: Allow Online Access (check it) (for blender addons)
+most addons dont ship in Blender v4.2 or later and you have to go to https://extensions.blender.org/add-ons/
+list of add ons to get:
+  https://extensions.blender.org/add-ons/cell-fracture/
+
 # workflow
 
 add assets from 1 .blend file to another

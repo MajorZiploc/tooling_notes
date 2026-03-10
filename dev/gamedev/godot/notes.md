@@ -213,7 +213,7 @@ Efficient Raycasting: If using raycasts, consider performing them less frequentl
 
 NOTE: use nested_scene approach:
 1. create 3D Scene
-2. drag modal into Scene outliner
+2. drag model into Scene outliner
 
 NOTE: if need to reference something inside the nested_scene
   right click and make editable (enable Editable Children)

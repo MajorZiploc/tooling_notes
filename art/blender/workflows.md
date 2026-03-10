@@ -256,7 +256,7 @@ IKs are to allow for feet and hands to adjust to things like the ground they sta
   8. retry step 2 and it should work
 3. Pose_Mode: select the IK you just baked and change IK-FK Switch to 0.0 to indicate that IK controls instead of FK
 TODO: ISSUE LIKELY FROM THIS POINT ONWARD THAT IS MAKING IT NOT WORK IN GODOT
-4?. Create Baked verison of all animations
+4?. Create Baked version of all animations
   Pose_Mode
   select all bones you want to have keyframes for
   Pose_Mode: almost_top_menu: Pose -> Animation -> Bake Action
@@ -265,3 +265,7 @@ TODO: ISSUE LIKELY FROM THIS POINT ONWARD THAT IS MAKING IT NOT WORK IN GODOT
 5. Export. With setting: Animation -> Bake & Merge -> Bake All Object Animations: True; Merge Animations: No Merge
 7. revert step 3 since we edit animations and import animations from mixamo with FK style
 9. godot: reimport the new .glb
+
+destructable version of object
+F3 -> Cell Fraction
+source limit and noise are most important -- have to play with it to get it right
