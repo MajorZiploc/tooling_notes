@@ -365,3 +365,39 @@ has to be 2 joypads or 2 keyboards
 // NOTE: to test looping of music add the following right after you call new_audio.play():
 var length := new_audio.stream.get_length()
 new_audio.seek(length * 0.95)
+
+## Godot Secure
+
+build your own godot engine from source but encrypt via https://github.com/KnifeXRage/Godot-Secure first
+
+example done in WSL zsh:
+
+Follow the readme of https://github.com/KnifeXRage/Godot-Secure while following steps here
+
+0. (once up front) openssl rand -hex 32 > godot.gdkey
+
+^^ keep this godot.gdkey somewhere private! dont place in the godot source code at compile time while building of engine
+
+1. `git clone https://github.com/KnifeXRage/Godot-Secure`
+
+2. `git clone https://github.com/godotengine/godot.git`
+2a. checkout a branch if needed
+
+3. cd Godot-Secure
+
+4. powershell.exe -c "\$env:SCRIPT_AES256_ENCRYPTION_KEY = $env:SCRIPT_AES256_ENCRYPTION_KEY = Get-Content godot.gdkey; python 'Godot Secure AES-256 (Release-v4_v4.6.x - Latest).py' '/path/of/godotengine/godot'"
+
+4a. settings in the script:
+  Using Godot Source Root: C:\Users\LakeM\projects_play\godot
+
+   ⚠   Start Godot Secure Operations on Godot Source Root (y/n)?: y
+
+   ℹ  Use Custom Headers (y/n)?: y
+      Enter Custom Magic Header (e.g. GDPC): GDPC
+      Enter Custom Encrypted Magic Header (e.g. GDEC): GDEC
+
+   ℹ  Use Custom Token (y/n)?: n
+
+   ℹ  Use Advanced Key Derivation (y/n)?: n
+
+5. TODO: document building the godot game engine from source
