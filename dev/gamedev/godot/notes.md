@@ -368,6 +368,15 @@ new_audio.seek(length * 0.95)
 
 ## Godot Secure
 
+### required tools:
+pip install SCons
+
+windows:
+scoop install python mingw
+add your mingw to enviroment variables as:
+MINGW_PREFIX=C:\Users\<USER_NAME>\scoop\apps\mingw\current
+while in godotengine/godot repo: `python misc\scripts\install_d3d12_sdk_windows.py`
+
 build your own godot engine from source but encrypt via https://github.com/KnifeXRage/Godot-Secure first
 
 example done in WSL zsh:
@@ -400,4 +409,19 @@ Follow the readme of https://github.com/KnifeXRage/Godot-Secure while following 
 
    ℹ  Use Advanced Key Derivation (y/n)?: n
 
-5. TODO: document building the godot game engine from source
+5. compile engine and export templates
+
+https://docs.godotengine.org/en/4.4/contributing/development/compiling/index.html
+
+#### For Engine (Must REQUIRED):
+
+scons platform=windows target=editor use_mingw=yes d3d12=yes production=yes # Example for Windows
+scons platform=windows target=editor use_mingw=yes # Example for Windows
+scons platform=linuxbsd target=editor use_mingw=yes # Example for Linux BSD
+scons platform=macos target=editor use_mingw=yes # Example for MacOS
+
+TODO: try export templates
+
+#### For Export Templates (Must REQUIRED):
+scons platform=windows target=template_debug use_mingw=yes
+scons platform=windows target=template_release use_mingw=yes
