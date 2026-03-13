@@ -394,7 +394,8 @@ Follow the readme of https://github.com/KnifeXRage/Godot-Secure while following 
 
 3. cd Godot-Secure
 
-4. powershell.exe -c "\$env:SCRIPT_AES256_ENCRYPTION_KEY = $env:SCRIPT_AES256_ENCRYPTION_KEY = Get-Content godot.gdkey; python 'Godot Secure AES-256 (Release-v4_v4.6.x - Latest).py' '/path/of/godotengine/godot'"
+4. modify godot source
+`powershell.exe -c "\$env:SCRIPT_AES256_ENCRYPTION_KEY = Get-Content godot.gdkey; python 'Godot Secure AES-256 (Release-v4_v4.6.x - Latest).py' '/path/of/godotengine/godot'"`
 
 4a. settings in the script:
   Using Godot Source Root: C:\Users\LakeM\projects_play\godot
@@ -409,7 +410,14 @@ Follow the readme of https://github.com/KnifeXRage/Godot-Secure while following 
 
    ℹ  Use Advanced Key Derivation (y/n)?: n
 
-5. compile engine and export templates
+5. compile game engine source (will be placed in ./bin)
+`powershell.exe -c "scons platform=windows target=editor use_mingw=yes d3d12=yes production=yes"`
+
+6. compile export templates
+`powershell.exe -c "scons platform=windows target=template_debug use_mingw=yes"`
+`powershell.exe -c "scons platform=windows target=template_release use_mingw=yes"`
+
+NOTES: compile engine and export templates
 
 https://docs.godotengine.org/en/4.4/contributing/development/compiling/index.html
 
