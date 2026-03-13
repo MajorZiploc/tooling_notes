@@ -423,8 +423,10 @@ NOTE: win 86x64 exports by default (likely matches the machine that you are runn
 `powershell.exe -c "scons platform=windows target=template_debug use_mingw=yes production=yes"`
 `powershell.exe -c "scons platform=windows target=template_release use_mingw=yes production=yes"`
 NOTE: web build
-`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_debug production=yes'`
-`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_release production=yes'`
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_debug production=yes threads=yes'`
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_release production=yes threads=yes'`
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_debug production=yes threads=no'`
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_release production=yes threads=no'`
 
 6a. move the compiled templates to:
 %APPDATA%\Godot\export_templates\<version>\
