@@ -376,6 +376,11 @@ scoop install python mingw
 add your mingw to enviroment variables as:
 MINGW_PREFIX=C:\Users\<USER_NAME>\scoop\apps\mingw\current
 while in godotengine/godot repo: `python misc\scripts\install_d3d12_sdk_windows.py`
+NOTE: for web builds: https://github.com/emscripten-core/emsdk.git
+  powershell.exe -c "
+  ./emsdk.ps1 install latest
+  ./emsdk.ps1 activate latest
+  "
 
 build your own godot engine from source but encrypt via https://github.com/KnifeXRage/Godot-Secure first
 
@@ -413,9 +418,17 @@ Follow the readme of https://github.com/KnifeXRage/Godot-Secure while following 
 5. compile game engine source (will be placed in ./bin)
 `powershell.exe -c "scons platform=windows target=editor use_mingw=yes d3d12=yes production=yes"`
 
-6. compile export templates
-`powershell.exe -c "scons platform=windows target=template_debug use_mingw=yes"`
-`powershell.exe -c "scons platform=windows target=template_release use_mingw=yes"`
+6. compile export templates (will be placed in ./bin)
+NOTE: win 86x64 exports by default (likely matches the machine that you are running this command on)
+`powershell.exe -c "scons platform=windows target=template_debug use_mingw=yes production=yes"`
+`powershell.exe -c "scons platform=windows target=template_release use_mingw=yes production=yes"`
+NOTE: web build
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_debug production=yes'`
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_release production=yes'`
+
+6a. move the compiled templates to:
+%APPDATA%\Godot\export_templates\<version>\
+NOTE: rename them as the export requires -- when attempting to export something, a warning or error will show at the bottom which shows the name it is looking for
 
 NOTES: compile engine and export templates
 
