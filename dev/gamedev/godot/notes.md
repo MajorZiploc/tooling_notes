@@ -419,14 +419,15 @@ Follow the readme of https://github.com/KnifeXRage/Godot-Secure while following 
 `powershell.exe -c "scons platform=windows target=editor use_mingw=yes d3d12=yes production=yes"`
 
 6. compile export templates (will be placed in ./bin)
-NOTE: win 86x64 exports by default (likely matches the machine that you are running this command on)
+NOTE: win 86x64 exports by default (will be a .exe) (likely matches the machine that you are running this command on)
 `powershell.exe -c "scons platform=windows target=template_debug use_mingw=yes production=yes"`
 `powershell.exe -c "scons platform=windows target=template_release use_mingw=yes production=yes"`
-NOTE: web build
+NOTE: web build -- will look like godot.web.template_debug.wasm32.nothreads.zip and differ based on the once you build
 `powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_debug production=yes threads=yes'`
 `powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_release production=yes threads=yes'`
 `powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_debug production=yes threads=no'`
 `powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_release production=yes threads=no'`
+NOTE: end of compile export templates output likely will tell you the name of the export inside of ./bin
 
 6a. move the compiled templates to:
 %APPDATA%\Godot\export_templates\<version>\
