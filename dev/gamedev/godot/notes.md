@@ -124,6 +124,12 @@ y sort enabled for auto z indexing elements on screen
 
 # Export
 
+WARNING: ALWAYS make sure to encrypt pck
+see the Godot-Secure section layer in this file
+  reduces ability to rip your game
+
+WARNING: ALWAYS disable debug mode if its an option during export
+
 Requires getting the Export Templates from the godoto download page
 then go to Editor -> Manage Export Templates...
   Install from File
@@ -135,6 +141,10 @@ then go to Editor -> Manage Export Templates...
   right before saving
     rename to 'index.html'
     uncheck Export With Debug
+
+## Windows
+  Options -> Embed PCK
+    this makes your game 1 file; being the .exe
 
 ## 3D viewport
 
@@ -436,6 +446,10 @@ NOTE: rename them as the export requires -- when attempting to export something,
 NOTES: compile engine and export templates
 
 https://docs.godotengine.org/en/4.4/contributing/development/compiling/index.html
+
+7. During export of your game to make builds you must use your encryption key generated at the beginning in the Encryption tab
+  Check 'Encrypt Exported PKG'
+  Encryption Key: <your_key_here> as a hex string
 
 #### For Engine (Must REQUIRED):
 
