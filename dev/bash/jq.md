@@ -16,3 +16,6 @@ jq '.[] | {firstname,lastname}'
 
 # get back multiple fields from each ele in list in BASIC csv format with access of first ele of nested list
 jq '.[] | .firstname + "," + .lastname + "," + (.registration_references[0].employee_number)'
+
+# filter json to keys that contain "key_name_part"
+jq 'with_entries(select(.key | test("key_name_part"; "i")))'

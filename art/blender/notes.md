@@ -36,7 +36,7 @@ https://docs.google.com/document/d/1dH4r1tCrf2EddWYfjmFc2FTWdHiXYMymI9cVisXd6hg/
 
 # settings
 
-NOTE: save preferences
+NOTE: save preferences will make sure your preferences carry over to all your new sessions rather than just this file
   Edit -> Preferences -> bottom_left -> hamburger_menu
 
 emulate numpad (when you dont have a numpad)
@@ -47,6 +47,13 @@ Edit -> Preferences -> Input -> Check Emulate 3 Button Mouse (alt+lmb)
 
 ^ undo stack
 Edit -> Preferences -> System -> Memory & Limits -> Undo Steps: 256
+
+usability_setting -- change the scale of the UI
+Interface -> Resolution Scale
+
+faster_rendering_setting
+Edit -> Preferences -> System -> Cycles Render Devices (
+  Cuda -- Nvida (if you have)
 
 extra shading stuff
 Edit -> Preferences -> Kepmap -> check: Extra Shading Pie Menu Items
@@ -67,6 +74,11 @@ Render options (right_side_menu)
   better for low poly game art:
   Render Engine: EEVEE
 
+System -> Network: Allow Online Access (check it) (for blender addons)
+most addons dont ship in Blender v4.2 or later and you have to go to https://extensions.blender.org/add-ons/
+list of add ons to get:
+  https://extensions.blender.org/add-ons/cell-fracture/
+
 # workflow
 
 add assets from 1 .blend file to another
@@ -84,6 +96,10 @@ doesnt toggle all other objects and rescales things to work better with current 
 
 ## High level control
 
+numpad(1,3,7) cam_angles goes to front, right, and top respectively
+
+ctrl + numpad(1,3,7) cam_angles goes to back, left, and bottom respectively
+ 
 General window toggles
   top left below x2 the blender icon. you will see a grid with a ball on it
   click it and you will see a bunch of editors and diff views
@@ -106,8 +122,6 @@ n -- toggles right window (camera lock area) (properties)
 
 ctrl + space -- toggles scene collections and big tools
 
-ctrl +numpad(1,3,7) goes to back, left, and bottom respectively
- 
 search menu (like ctrl-p in vscode)
 F3
 
@@ -402,6 +416,10 @@ common brushes:
   crease
     high detail
     small size brush is common
+  pose
+    good for emulating armatures to help change your default model pose
+      NOTE: the size of the brush is very important for this
+      good for adding blends to things like arms for a better neutral A pose
 
 when hover over object, you will see little yellow dots -- the closer they are the more to the center of a shape you are
 
@@ -495,6 +513,15 @@ NOTE: How to select faces in UVEditor and have those faces select in edit_mode 3
 UVEditor -> UV Sync Selection (almost_top_menu top left <2 arrows pointing in opposite directions>)
 makes finding groups of UVs easier since you can select them in the UVEditor
 
+NOTE: hex_code_image assist during UV unwrapping if doing a proper UV unwrap with actual details
+in UV_Editing
+in the UV_Editor: create a new image, N -> Image -> Type: Color Grid
+  save image as hex_code_color_grid.png
+in 3D_Viewport: use the image as a material on model
+  side_settings: Material -> new material
+    Emissons type
+    click Color and select Image and open the above image
+
 u -- uv menu
   'Project from View' option is really good
 
@@ -562,7 +589,14 @@ texture_paint_mode: with a brush selected: N -> Tool -> Options -> uncheck [Occl
   reduce bleed to 1px or even 0px depending
   Optional: first pass use bleed, then do flats pass with 0px bleed
     -- try without, if get weird results during flats, then try this
-hit it with a 1,3,7 (cam angles) with a big hard brush and that will get everything
+hit it with (cam_angles) with a big hard brush and that will get everything
+
+NOTE: fill tool to fill only selected faces with color (works with any brush, not just fill tool)
+  in Texture_Paint mode
+  use paint mask option almost_top_menu next to Texture Paint text find the square icon
+
+NOTE: stabilize option on brushes to help brush nicer lines
+side_settings: Tool -> Brush Settings -> Stoke -> Stabilize Stroke
 
 ### Rigging
 

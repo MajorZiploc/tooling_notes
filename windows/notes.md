@@ -21,7 +21,11 @@ Settings -> System -> Power & battery
 ## Desktop control panel
 <super>+<tab>
 
-
+# Magnifier
+more fine grain Magnifier steps
+by default it steps by 100% which is insanely high
+Accessibility -> Magnifier or (win+ctrl+m)
+Zoom increment to 5%
 
 # SLEEP ISSUE:
   SHORT:  always unplug on laptop before closing the lid

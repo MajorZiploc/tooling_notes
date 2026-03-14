@@ -124,6 +124,12 @@ y sort enabled for auto z indexing elements on screen
 
 # Export
 
+WARNING: ALWAYS make sure to encrypt pck
+see the Godot-Secure section layer in this file
+  reduces ability to rip your game
+
+WARNING: ALWAYS disable debug mode if its an option during export
+
 Requires getting the Export Templates from the godoto download page
 then go to Editor -> Manage Export Templates...
   Install from File
@@ -131,10 +137,14 @@ then go to Editor -> Manage Export Templates...
 ## HTML
   DONT MARK IT AS RUNNABLE (a toggle box in the export)
     will cause jittering for game time and tweens and such
-    it will be runnable without this ont
+    it will be runnable without this on
   right before saving
     rename to 'index.html'
     uncheck Export With Debug
+
+## Windows
+  Options -> Embed PCK
+    this makes your game 1 file; being the .exe
 
 ## 3D viewport
 
@@ -213,7 +223,7 @@ Efficient Raycasting: If using raycasts, consider performing them less frequentl
 
 NOTE: use nested_scene approach:
 1. create 3D Scene
-2. drag modal into Scene outliner
+2. drag model into Scene outliner
 
 NOTE: if need to reference something inside the nested_scene
   right click and make editable (enable Editable Children)
@@ -231,10 +241,13 @@ double click asset to get advanced import settings
 glTF 2.0 is apparaently better or easier to deal with than fbx
 NOTE: glb is just glTF in binary format to save space
 ### Blender Export Settings for glb changes from defaults
+Remember Export Settings: true
 Include
   Selected Objects: True
 Mesh
   Apply Modifiers: True
+Animation -> Action Filter: True
+  filter out any mixamo junk actions or experimental actions that would just take up space in godot
 
 NOTE .blend files are supported. Godot just converts them to glTF under the hood
   must configure godot to know the path of blender
@@ -349,3 +362,104 @@ $GODOT_CLI "$godot_scene" --debug-path --debug-collisions --debug-paths --debug-
 ## Localization
 valid TranslationServer.set_locale(language); values: (Set 1 column)
 https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+
+## Inputs
+
+https://forum.godotengine.org/t/split-screen-player-devices/42321/4
+
+keyboard and joypad #1 are both device 0 you can not change the device index
+so keyboard and joypad for local multiple player is not possible
+has to be 2 joypads or 2 keyboards
+
+## Audio
+// NOTE: to test looping of music add the following right after you call new_audio.play():
+var length := new_audio.stream.get_length()
+new_audio.seek(length * 0.95)
+
+## Godot Secure
+
+### required tools:
+pip install SCons
+
+windows:
+scoop install python mingw
+add your mingw to enviroment variables as:
+MINGW_PREFIX=C:\Users\<USER_NAME>\scoop\apps\mingw\current
+while in godotengine/godot repo: `python misc\scripts\install_d3d12_sdk_windows.py`
+NOTE: for web builds: https://github.com/emscripten-core/emsdk.git
+  powershell.exe -c "
+  ./emsdk.ps1 install latest
+  ./emsdk.ps1 activate latest
+  "
+
+build your own godot engine from source but encrypt via https://github.com/KnifeXRage/Godot-Secure first
+
+example done in WSL zsh:
+
+Follow the readme of https://github.com/KnifeXRage/Godot-Secure while following steps here
+
+0. (once up front) openssl rand -hex 32 > godot.gdkey
+
+^^ keep this godot.gdkey somewhere private! dont place in the godot source code at compile time while building of engine
+
+1. `git clone https://github.com/KnifeXRage/Godot-Secure`
+
+2. `git clone https://github.com/godotengine/godot.git`
+2a. checkout a branch if needed
+
+3. cd Godot-Secure
+
+4. modify godot source
+`powershell.exe -c "\$env:SCRIPT_AES256_ENCRYPTION_KEY = Get-Content godot.gdkey; python 'Godot Secure AES-256 (Release-v4_v4.6.x - Latest).py' '/path/of/godotengine/godot'"`
+
+4a. settings in the script:
+  Using Godot Source Root: C:\Users\LakeM\projects_play\godot
+
+   ⚠   Start Godot Secure Operations on Godot Source Root (y/n)?: y
+
+   ℹ  Use Custom Headers (y/n)?: y
+      Enter Custom Magic Header (e.g. GDPC): GDPC
+      Enter Custom Encrypted Magic Header (e.g. GDEC): GDEC
+
+   ℹ  Use Custom Token (y/n)?: n
+
+   ℹ  Use Advanced Key Derivation (y/n)?: n
+
+5. compile game engine source (will be placed in ./bin)
+`powershell.exe -c "scons platform=windows target=editor use_mingw=yes d3d12=yes production=yes"`
+
+6. compile export templates (will be placed in ./bin)
+NOTE: win 86x64 exports by default (will be a .exe) (likely matches the machine that you are running this command on)
+`powershell.exe -c "scons platform=windows target=template_debug use_mingw=yes production=yes"`
+`powershell.exe -c "scons platform=windows target=template_release use_mingw=yes production=yes"`
+NOTE: web build -- will look like godot.web.template_debug.wasm32.nothreads.zip and differ based on the once you build
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_debug production=yes threads=yes'`
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_release production=yes threads=yes'`
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_debug production=yes threads=no'`
+`powershell.exe -c 'C:\Users\<USER>\projects_lib\emsdk\emsdk_env.ps1; scons platform=web target=template_release production=yes threads=no'`
+NOTE: end of compile export templates output likely will tell you the name of the export inside of ./bin
+
+6a. move the compiled templates to:
+%APPDATA%\Godot\export_templates\<version>\
+NOTE: rename them as the export requires -- when attempting to export something, a warning or error will show at the bottom which shows the name it is looking for
+
+NOTES: compile engine and export templates
+
+https://docs.godotengine.org/en/4.4/contributing/development/compiling/index.html
+
+7. During export of your game to make builds you must use your encryption key generated at the beginning in the Encryption tab
+  Check 'Encrypt Exported PKG'
+  Encryption Key: <your_key_here> as a hex string
+
+#### For Engine (Must REQUIRED):
+
+scons platform=windows target=editor use_mingw=yes d3d12=yes production=yes # Example for Windows
+scons platform=windows target=editor use_mingw=yes # Example for Windows
+scons platform=linuxbsd target=editor use_mingw=yes # Example for Linux BSD
+scons platform=macos target=editor use_mingw=yes # Example for MacOS
+
+TODO: try export templates
+
+#### For Export Templates (Must REQUIRED):
+scons platform=windows target=template_debug use_mingw=yes
+scons platform=windows target=template_release use_mingw=yes

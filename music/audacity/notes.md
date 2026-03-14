@@ -15,6 +15,18 @@ Edit -> Preferences -> Audio Settings:
 Edit -> Preferences -> Quality:
   reduce Sample Rate Converter dropdowns quality levels
 
+# Selection tool
+(f1)
+
+## trim audio to selection
+Edit -> remove special -> trim audio (ctrl-t)
+
+# Tween audio (fade out)
+Envelope tool (f2)
+
+Click on the audio waveform to create points and drag them down to lower the volume gradually over time, ideal for mixing music and voice. 
+NOTE: the outter band of points have the greatest impact
+
 # TODO
 
 look into using voicemeeter for making audio before it hits audacity

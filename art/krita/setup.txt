@@ -20,6 +20,8 @@ s,toggle_layer_alpha_lock.*,toggle_layer_alpha_lock=A,g;
 s,toggle_layer_inherit_alpha.*,toggle_layer_inherit_alpha=Shift+A,g;
 s,toggle_layer_visibility.*,toggle_layer_visibility=Shift+V,g;
 s,toggle_onion_skin.*,toggle_onion_skin=Ctrl+Shift+O,g;
+s,toggle_display_selection.*,toggle_display_selection=Ctrl+H; Alt+H,g;
+s,toggle_layer_lock.*,toggle_layer_lock=Ctrl+Alt+X,g;
 '
 
 # CONFIG LOCATIONS
@@ -72,6 +74,8 @@ activate krita brush pack 3
   choose: Subwindows
 2. File -> Open
     open your reference image or reference_*.kra file
+    use Window -> Tile (MAC: look otherside of camera)
+       this will make the sub windows take up equal amounts of space and maximize the space usage
 
   ## exit fullscreen of a subwindow
   top right you will see 3 small icons (only if your in fullscreen window mode)
@@ -198,12 +202,16 @@ custom brushes:
   Airbrush pressure
   Block bristles
   Block textured 1
+  Block textured 2
+    fun sketch brush
+  Block basic
   Bristle Tapered
   Bristles hairy
   Brush dotted
   Ink brush 25
   c) Pencil-4 Soft
   d) Ink-7 Brush Rough
+    good for rough lineart style (25px)
   d) Ink-8 Sumi-e
   Eraser soft
     soft erasing
