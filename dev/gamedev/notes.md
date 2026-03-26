@@ -131,5 +131,12 @@ https://store.steampowered.com/app/1693710/Operator8/
 posts videos of when things are 100% discounts
 https://www.youtube.com/@gamefromscratch/videos
 
+# Exporting to platforms
+
+## Itch
+if you want 1 game page to host multiple types of builds of your game, the zip folder needs to have a unique name or it will replace the other builds
+example: web_build_name: '0.0.1' then update win_build_name: '0.0.1' -> the win_build_name replaces the web_build_name
+example: web_build_name: 'web_0.0.1' then update win_build_name: 'win_0.0.1' -> both builds will be available
+
 ## Research:
 look into how https://bitcraftonline.com/ was made with https://spacetimedb.com/home
