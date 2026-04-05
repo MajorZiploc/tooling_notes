@@ -753,6 +753,10 @@ def enum_prac():
     for i in sports.__iter__():
         print(i)
 
+def hex_to_float_alpha(hex_alpha: str) -> float:
+    decimal_alpha = int(hex_alpha, 16)
+    float_alpha = decimal_alpha / 255;
+    return float_alpha
 
 async def main():
     obj_prac()
