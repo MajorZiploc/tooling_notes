@@ -221,7 +221,7 @@ for changing path
   ctrl-t -- twist hair
   alt-s -- scale
   all else is what you would expect
-path: Data -> Bevel -> Object -> select circle
+path: Data -> Geometry -> Bevel -> Object -> select circle
 when ready convert all hair paths to mesh
 
 round out edge loops
