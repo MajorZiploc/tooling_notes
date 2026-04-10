@@ -818,6 +818,12 @@ If keyframes dont show up in Timeline
   while mouse on viewport - press i to insert keyframe
   then delete that new keyframe with 'delete' while mouse in Timline
 
+# Animation Tips
+in Timeline or Dope_Sheet: use Auto_Keyring button to insert any keyframe automatically
+  NOTE: make sure to turn it off when your done
+
+Graph_Editor is amazing for editing multiple frames for a give transformation with ease
+
 # Outliner
 
 top level CRUD everything in your .blend file
