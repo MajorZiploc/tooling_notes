@@ -243,6 +243,15 @@ almost_top_menu Viewport_Shadings:
   Cavity: on
   Shadow: on
 
+default mesh view:
+Viewport_Shading menu:
+  Lighting: Studio
+  Object Color: Material or Object
+
+Viewport_Shading menu:
+  Lighting: Flat (default: Studio)
+  Object Color: Texture (default: Material)
+
 while changing values in the N panel or properties window
   select multiple objects
   hold alt (while changing values)
