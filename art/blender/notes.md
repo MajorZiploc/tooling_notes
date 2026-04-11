@@ -603,9 +603,13 @@ hit it with (cam_angles) with a big hard brush and that will get everything
 NOTE: fill tool to fill only selected faces with color (works with any brush, not just fill tool)
   in Texture_Paint mode
   use paint mask option almost_top_menu next to Texture Paint text find the square icon
+  NOTE: while in Texture_Paint. you can use 'b' to select more faces with box select rather than going back to edit_mode
 
-NOTE: stabilize option on brushes to help brush nicer lines
-side_settings: Tool -> Brush Settings -> Stoke -> Stabilize Stroke
+NOTE: stabilize option on brushes to help brush nicer lines: side_settings: Tool -> Brush Settings -> Stoke -> Stabilize Stroke
+
+NOTE: symmetry painting (mirror): side_settings: Tool -> Symmetry -> Mirror
+
+WARNING: if editing both in krita and blender, using undo in blender during painting after edits in krita can completely undo krita changes to texture. best to restart blender after large krita changes
 
 ### Rigging
 
