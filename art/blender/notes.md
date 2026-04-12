@@ -511,6 +511,15 @@ snapping tool
 make plane mesh
   right_side_menu: Object -> Viewport_Display -> In_Front (checked)
 
+### mesh_cleanup
+
+Go to Edit Mode on your mesh
+Press A -> select all
+M -> By Distance (remove doubles)
+Press Shift + N -> recalculate normals
+Mesh > Clean Up > Delete Loose
+Select mesh -> Ctrl + A -> All Transforms
+
 ### UVs
 
 NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
@@ -627,6 +636,9 @@ Rigify General workflow to setup a rig on a model from start to finish
   a new rig with more info will be created
   to auto weight paint - select all parts of your model and then select the new rig
     ctrl-p -> Armature Deform -> With Automatic Weights
+      WARNING: overlapping meshes will result in the error: Bone Heat Weighting: failed to find solution for one or more bones
+        to resolve you must separate all meshes that overlap with each other
+          after this see mesh_cleanup selection
   to refine the auto weight paint:
   with the mesh you want to paint selected: enter Weight Paint mode
     NOTE: can use the riggify controls to pose in texture_paint_mode to see if your painting is fixing issues
@@ -635,6 +647,7 @@ Rigify General workflow to setup a rig on a model from start to finish
       lmb on rig, shift-lmb on model (the current mesh you are painting) go to Weight Paint mode
         bones are now present and represent the vertex groups
         with Move tool: shift-lmb (or just lmb seems to work) a bone to go to that bones vertex group
+          NOTE: only works without (almost_top_menu) -> icon:two_squares - Paint Mask enabled 
         OR: alt-lmb
         can rotote non def (non deformation) bones with r-g-s
     General case:
