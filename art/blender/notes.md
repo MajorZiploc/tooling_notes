@@ -243,6 +243,15 @@ almost_top_menu Viewport_Shadings:
   Cavity: on
   Shadow: on
 
+default mesh view:
+Viewport_Shading menu:
+  Lighting: Studio
+  Object Color: Material or Object
+
+Viewport_Shading menu:
+  Lighting: Flat (default: Studio)
+  Object Color: Texture (default: Material)
+
 while changing values in the N panel or properties window
   select multiple objects
   hold alt (while changing values)
@@ -502,6 +511,15 @@ snapping tool
 make plane mesh
   right_side_menu: Object -> Viewport_Display -> In_Front (checked)
 
+### mesh_cleanup
+
+Go to Edit Mode on your mesh
+Press A -> select all
+M -> By Distance (remove doubles)
+Press Shift + N -> recalculate normals
+Mesh > Clean Up > Delete Loose
+Select mesh -> Ctrl + A -> All Transforms
+
 ### UVs
 
 NOTE: make sure to apply scale on meshes before hand (vec3(1.0,1.0,1.0))
@@ -594,9 +612,13 @@ hit it with (cam_angles) with a big hard brush and that will get everything
 NOTE: fill tool to fill only selected faces with color (works with any brush, not just fill tool)
   in Texture_Paint mode
   use paint mask option almost_top_menu next to Texture Paint text find the square icon
+  NOTE: while in Texture_Paint. you can use 'b' to select more faces with box select rather than going back to edit_mode
 
-NOTE: stabilize option on brushes to help brush nicer lines
-side_settings: Tool -> Brush Settings -> Stoke -> Stabilize Stroke
+NOTE: stabilize option on brushes to help brush nicer lines: side_settings: Tool -> Brush Settings -> Stoke -> Stabilize Stroke
+
+NOTE: symmetry painting (mirror): side_settings: Tool -> Symmetry -> Mirror
+
+WARNING: if editing both in krita and blender, using undo in blender during painting after edits in krita can completely undo krita changes to texture. best to restart blender after large krita changes
 
 ### Rigging
 
@@ -614,6 +636,9 @@ Rigify General workflow to setup a rig on a model from start to finish
   a new rig with more info will be created
   to auto weight paint - select all parts of your model and then select the new rig
     ctrl-p -> Armature Deform -> With Automatic Weights
+      WARNING: overlapping meshes will result in the error: Bone Heat Weighting: failed to find solution for one or more bones
+        to resolve you must separate all meshes that overlap with each other
+          after this see mesh_cleanup selection
   to refine the auto weight paint:
   with the mesh you want to paint selected: enter Weight Paint mode
     NOTE: can use the riggify controls to pose in texture_paint_mode to see if your painting is fixing issues
@@ -622,6 +647,7 @@ Rigify General workflow to setup a rig on a model from start to finish
       lmb on rig, shift-lmb on model (the current mesh you are painting) go to Weight Paint mode
         bones are now present and represent the vertex groups
         with Move tool: shift-lmb (or just lmb seems to work) a bone to go to that bones vertex group
+          NOTE: only works without (almost_top_menu) -> icon:two_squares - Paint Mask enabled 
         OR: alt-lmb
         can rotote non def (non deformation) bones with r-g-s
     General case:
@@ -817,6 +843,12 @@ If keyframes dont show up in Timeline
   insert a new keyframe at the last frame
   while mouse on viewport - press i to insert keyframe
   then delete that new keyframe with 'delete' while mouse in Timline
+
+# Animation Tips
+in Timeline or Dope_Sheet: use Auto_Keyring button to insert any keyframe automatically
+  NOTE: make sure to turn it off when your done
+
+Graph_Editor is amazing for editing multiple frames for a give transformation with ease
 
 # Outliner
 
