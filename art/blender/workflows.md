@@ -269,3 +269,10 @@ TODO: ISSUE LIKELY FROM THIS POINT ONWARD THAT IS MAKING IT NOT WORK IN GODOT
 destructable version of object
 F3 -> Cell Fraction
 source limit and noise are most important -- have to play with it to get it right
+
+easy low poly faces using png image planes
+Method 1: Import Images as Planes (Easiest for 2D Eyes) 
+Import PNG: Press Shift+A in the viewport, then select Image > Mesh Plane... Choose your eye PNG.
+Position: Move, rotate, and scale the plane over your character's eye socket.
+Fix Transparency: Ensure you are in Material Preview or Rendered view to see the transparent background. If it appears black, ensure the Alpha output of the Image Texture node is plugged into the Factor of a Mix Shader or Principled BSDF
+add geometry to plane as needed
