@@ -635,6 +635,8 @@ Rigify General workflow to setup a rig on a model from start to finish
   with metarig selected go to right_side_menu Data -> Rigify and lmb Generate Rig
   a new rig with more info will be created
   to auto weight paint - select all parts of your model and then select the new rig
+    WARNING: nested (child) meshes usually dont get the vertex groups from this process
+      denest (clear parent) the meshes with alt+p
     ctrl-p -> Armature Deform -> With Automatic Weights
       WARNING: overlapping meshes will result in the error: Bone Heat Weighting: failed to find solution for one or more bones
         to resolve you must separate all meshes that overlap with each other
