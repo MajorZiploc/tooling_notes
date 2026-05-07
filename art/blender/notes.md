@@ -637,6 +637,8 @@ Rigify General workflow to setup a rig on a model from start to finish
   to auto weight paint - select all parts of your model and then select the new rig
     WARNING: nested (child) meshes usually dont get the vertex groups from this process
       denest (clear parent) the meshes with alt+p
+    WARNING: paint to vertex to DEF vertex groups - make sure you arent creating new groups -- it likely will appear to not doing anything
+      example: you paint to a ORG bone and it creates a ORG vertex group -- it will not change how that mesh reacts at all
     ctrl-p -> Armature Deform -> With Automatic Weights
       WARNING: overlapping meshes will result in the error: Bone Heat Weighting: failed to find solution for one or more bones
         to resolve you must separate all meshes that overlap with each other
