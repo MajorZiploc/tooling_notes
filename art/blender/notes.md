@@ -812,6 +812,9 @@ update to site
   make sure your character is t posing face you
 download as fbx binary with skin
 import fbx into blender
+  Options:
+    Armature ->
+      Automative Bone Orentation: checked
   scale it up, its really small
 alt-g to reset position
 in pose_mode of the animated rig
@@ -833,8 +836,13 @@ default to using fk
 FK: can import this file to get the common mappings for basic human riggify rigs
   ./animations/fk_mixamo_rokoko_example_mappings.json
 TODO: create a json for IK
-Auto Scale: uncheck
-Use Pose: current
+to fix mappings:
+  to view both armatures in pose mode to see bone names
+    Edit -> Lock Object Modes: Unchecked
+Auto Scale: check if the armatures have different sizes
+Use Pose: use rest if both are in t-pose
+  right_side_menu -> Data -> Skeleton: Rest Position
+make both armatures overlap so that the target armature will stay at the current position
 Click Retarget Animation
   if you get crazy stretching then the mappings are wrong
 if limbs dont align with Mixamo rig, then you need to change your riggify rig settings to use FK instead of IK for all limbs if using FK (1.0) else invert this (0.0)
