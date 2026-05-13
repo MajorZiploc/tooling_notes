@@ -772,6 +772,13 @@ Rokoko is a external blender plugin for retargeting animations from 1 rig to ano
 
 NOTE: ensure your rig has all transforms applyed (ctrl-a)
 
+### Mixamo gotchas
+WARNING: use t pose for your character design
+WARNING: make sure there are not gaps in the arms or legs - you need to either overlap geometry or join geometry
+  mixamo will fail to import your rig if you dont do this
+WARNING: separate your mesh so that you can import the bare minimum meshes that mixamo needs to recognize your human form
+  if you import more, it can deform the skeleton it generates making it unusable
+
 ## multiple animations
 
 Dope_Sheet (window_type)
