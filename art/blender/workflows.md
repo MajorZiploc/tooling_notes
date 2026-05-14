@@ -1,6 +1,6 @@
 ## character design
 ### Mixamo gotchas
-WARNING: use t pose for your character design
+WARNING: use t pose for your character design -- not a pose or neutral a pose
 WARNING: make sure there are not gaps in the arms or legs - you need to either overlap geometry or join geometry
   mixamo will fail to import your rig if you dont do this
 WARNING: separate your mesh so that you can import the bare minimum meshes that mixamo needs to recognize your human form
