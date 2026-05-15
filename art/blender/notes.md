@@ -831,6 +831,13 @@ in pose_mode of the animated rig
 
 ### Mapping Mixamo rig onto your riggify rig
 
+#### WARNING: reasons to NOT use Mixamo and just do the animations via referencing
+1. they move -- a run cycle shouldnt actually move the character, the game engine code does that
+2. the animations are not unit -- they mix multiple ideas into 1 -- game engines can compose multiple animations to create the end result animation, reduces rework
+3. they dont have enough animations -- meaning you need to create animations yourself anyways. and if you cant create animations up to par with mixamo animations, it will look jarring -- mix in quality is never good
+4. the animations are a complete mess, to edit them is a nightmare because every frame is a keyframe. usually when you make 3d animations, you let blender poly fill inbetween frames, much cleaner to edit
+5. makes a creative problem a technical problem -- i havnt put a ton of time to it, but all of my game dev time that i had for a week as gone to debugging this issue rather than getting things done -- and you have to deal with drift in versions between mixamo, rokoko, and blender. recently blender updated to v5 which did break a few things, and i have a feeling this is one of them
+
 N: Rokoko -> retargeting
 Source: Armature (the rig from Mixamo)
 Target: rig (your riggify rig)
