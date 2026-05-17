@@ -140,3 +140,24 @@ example: web_build_name: 'web_0.0.1' then update win_build_name: 'win_0.0.1' -> 
 
 ## Research:
 look into how https://bitcraftonline.com/ was made with https://spacetimedb.com/home
+
+# Steam tips
+
+## when to release a game
+NOT during one of the big 4 sales
+  tons of games on sale and the steam store layout changes and doesnt focus on new games at all
+at the beginning of the month
+  ppl that depend on the income from steam release at the very end of the month bcuz the check will come in a month sooner
+  if you release at the beginning of the month, you wait longer for a check, but dont compete with ppl that depend on the game income
+NOT on a weekend
+  there is no steam support on the weekend
+on a monday
+  you will be on upcoming list for days instead of hours
+on a friday
+  you will be on popular new games for longer since no one released on weekends
+release very early on the day -- chronological ordering by time of release
+release at hours when your wishlist audience is up -- fast conversion on sales matter to steam
+
+### pro tips
+?during next fest -- steam says its a good idea, but seems risky
+  more ppl on steam, but steam is pushing demos at this time

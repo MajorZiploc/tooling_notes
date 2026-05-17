@@ -635,6 +635,10 @@ Rigify General workflow to setup a rig on a model from start to finish
   with metarig selected go to right_side_menu Data -> Rigify and lmb Generate Rig
   a new rig with more info will be created
   to auto weight paint - select all parts of your model and then select the new rig
+    WARNING: nested (child) meshes usually dont get the vertex groups from this process
+      denest (clear parent) the meshes with alt+p
+    WARNING: paint to vertex to DEF vertex groups - make sure you arent creating new groups -- it likely will appear to not doing anything
+      example: you paint to a ORG bone and it creates a ORG vertex group -- it will not change how that mesh reacts at all
     ctrl-p -> Armature Deform -> With Automatic Weights
       WARNING: overlapping meshes will result in the error: Bone Heat Weighting: failed to find solution for one or more bones
         to resolve you must separate all meshes that overlap with each other
@@ -760,6 +764,13 @@ Add bone to a value node for easier editing of value during animation creation b
 
 ## with Mixamo and Rokoko
 
+#### WARNING: reasons to NOT use Mixamo and just do the animations via referencing
+1. they move -- a run cycle shouldnt actually move the character, the game engine code does that
+2. the animations are not unit -- they mix multiple ideas into 1 -- game engines can compose multiple animations to create the end result animation, reduces rework
+3. they dont have enough animations -- meaning you need to create animations yourself anyways. and if you cant create animations up to par with mixamo animations, it will look jarring -- mix in quality is never good
+4. the animations are a complete mess, to edit them is a nightmare because every frame is a keyframe. usually when you make 3d animations, you let blender poly fill inbetween frames, much cleaner to edit
+5. makes a creative problem a technical problem -- i havnt put a ton of time to it, but all of my game dev time that i had for a week as gone to debugging this issue rather than getting things done -- and you have to deal with drift in versions between mixamo, rokoko, and blender. recently blender updated to v5 which did break a few things, and i have a feeling this is one of them
+
 Mixamo is a site owned by Adobe that has animations you can map unto your char
 
 https://www.mixamo.com/#/
@@ -767,6 +778,13 @@ https://www.mixamo.com/#/
 Rokoko is a external blender plugin for retargeting animations from 1 rig to another
 
 NOTE: ensure your rig has all transforms applyed (ctrl-a)
+
+### Mixamo gotchas
+WARNING: use t pose for your character design -- not a pose or neutral a pose
+WARNING: make sure there are not gaps in the arms or legs - you need to either overlap geometry or join geometry
+  mixamo will fail to import your rig if you dont do this
+WARNING: separate your mesh so that you can import the bare minimum meshes that mixamo needs to recognize your human form
+  if you import more, it can deform the skeleton it generates making it unusable
 
 ## multiple animations
 
@@ -808,6 +826,9 @@ update to site
   make sure your character is t posing face you
 download as fbx binary with skin
 import fbx into blender
+  Options:
+    Armature ->
+      Automative Bone Orentation: checked
   scale it up, its really small
 alt-g to reset position
 in pose_mode of the animated rig
@@ -829,8 +850,13 @@ default to using fk
 FK: can import this file to get the common mappings for basic human riggify rigs
   ./animations/fk_mixamo_rokoko_example_mappings.json
 TODO: create a json for IK
-Auto Scale: uncheck
-Use Pose: current
+to fix mappings:
+  to view both armatures in pose mode to see bone names
+    Edit -> Lock Object Modes: Unchecked
+Auto Scale: check if the armatures have different sizes
+Use Pose: use rest if both are in t-pose
+  right_side_menu -> Data -> Skeleton: Rest Position
+make both armatures overlap so that the target armature will stay at the current position
 Click Retarget Animation
   if you get crazy stretching then the mappings are wrong
 if limbs dont align with Mixamo rig, then you need to change your riggify rig settings to use FK instead of IK for all limbs if using FK (1.0) else invert this (0.0)
