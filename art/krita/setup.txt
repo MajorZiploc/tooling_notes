@@ -64,6 +64,21 @@ OR you may just have to remove these 2 lines. play around with it until krita la
 
 if there are some things missing you may need to do more configuration
 
+Display -> Canvas Decorations:
+  Selection Overlay:
+  Overlay color: #000000
+  Overlay Opacity: 0.10
+
+Popup Palette:
+  Maximum Number of Brush Presets: 12
+
+Performance -> General:
+  RAM -> Memory Limit: adjust as needed - try 70%
+
+Author: add yourself
+
+Python Plugin Manager: enable all plugins
+
 activate krita brush pack 3
   Settings -> Manage Resource Libraries
     youll find it there
