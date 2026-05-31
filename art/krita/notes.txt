@@ -114,7 +114,10 @@ C
 
 # Rotating Canvas
   4,5,6
+  OR
   popup_brush_pane -> circle around the brushes has a white dot you can drag
+  OR
+  shift+space+lmb_drag
 
 # Fill the background color
   paint bucket tries to be smart
