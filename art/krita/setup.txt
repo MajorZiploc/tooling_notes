@@ -251,6 +251,58 @@ custom brushes:
   u) Pixel Art Fill
   v) Clone Tool
 
+Assumes only Krita 4 brushes -- no Krita 3
+3wheel brushes:
+  a) Eraser Circle
+  a) Eraser Soft
+  b) Basic-1
+  b) Basic-2 Opacity
+  b) Basic-5 Size
+  b) Basic-5 Size Opacity
+  c) Pencil-4 Soft
+  d) Ink-7 Brush Rough
+  f) Bristles-1 Details
+  i) Wet Bristles
+  i) Wet Circle
+  t) Shapes Fill
+  v) Distort Move
+
+Assumes only Krita 4 brushes -- no Krita 3
+4sidebar brushes:
+  b) Airbrush Soft
+  b) Basic-3 Flow
+  b) Basic-4 Flow Opacity
+  d) Ink pen (mypaint)
+  d) Ink-8 Sumi-e
+  e) Marker Chisel Smooth
+  e) Marker Details
+  f) Bristles-5 Flat
+  f) Charcoal Rock Soft
+  h) Chalk Grainy
+  i) Wet Smear
+  j) WaterC Special Slats
+  j) Watercolor Texture
+  k) Blender Basic
+  k) Blender Rake
+  l) Adjust Dodge
+  l) Adjust Lighten
+  l) Adjust Overlay Burn
+  m) RGBA 02 Thickpaint
+  m) RGBA 05 Impasto-details
+  m) RGBA 06 Rock
+  t) Shapes Square
+  u) Pixel Art
+  u) Pixel Art Dithering
+  u) Pixel Art Fill
+  v) Clone Tool
+  v) Distort Grow
+  v) Distort Move
+  v) Sketching-3 Leaky
+  v) Texture Impressionism
+  v) Texture Pointillism
+  y) Texture Big
+  y) Texture Crackles
+
   Color Palettes:
     Add .kpl version if it exists since it retains color order. else use .gpl
       /Users/manyu/projects/tooling_notes/krita/palettes/apollo.kpl
