@@ -265,7 +265,6 @@ Assumes only Krita 4 brushes -- no Krita 3
   i) Wet Bristles
   i) Wet Circle
   t) Shapes Fill
-  v) Distort Move
 
 Assumes only Krita 4 brushes -- no Krita 3
 4sidebar brushes:
