@@ -1,3 +1,9 @@
+## On Project Start
+
+pick a resolution
+pick a scaling type
+  nearest neighbor or not
+
 ## Resources
 
 ### polished projects to reference
