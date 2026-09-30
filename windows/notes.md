@@ -1,3 +1,8 @@
+# Delete temp windows dmg files
+
+can take up almost 100gb, found at: `C:\Windows\ServiceProfiles\LocalService\AppData\Local\Temp`
+NOTE: you may have to manually walk the path to open that location rather than going directly, it will lie to you and say the area doesnt exist
+
 # Disable animations
 
 Useful for removing things like the slow switch desktops animations
