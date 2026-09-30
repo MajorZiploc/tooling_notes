@@ -1,3 +1,5 @@
+https://app.notion.com/p/marnixwyns/Steam-Demo-Checklist-38fc5591ef1a803ca510f20ff3d9b1f7
+
 # Steam Demo Checklist
 
 Planning on launching your Steam demo? Here’s everything you should check before you hit that release button. 
