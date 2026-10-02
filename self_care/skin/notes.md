@@ -8,3 +8,5 @@ When introducing the retinoid, your night routine should look like this:
 4. Apply Retinoid: Smooth a pea-sized amount of the 0.1% adapalene gel across your entire forehead.
 5. Lock It In: Apply one more light layer of your Aveeno moisturizer to lock everything in for the night.
 
+## DO NOT USE RED LIGHT THERAPY AFTER DOING THIS ROUTINE
+do red light therapy before
