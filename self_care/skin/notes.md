@@ -10,3 +10,4 @@ When introducing the retinoid, your night routine should look like this:
 
 ## DO NOT USE RED LIGHT THERAPY AFTER DOING THIS ROUTINE
 do red light therapy before
+cover your forehead with your hand or a rag to avoid red light from hitting the forehead
