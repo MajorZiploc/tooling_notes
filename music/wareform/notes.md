@@ -6,7 +6,7 @@ space -- toggle play
 fn + <left_arrow> -- back to beginning
 l -- toggle looping -- based on beginning and ending market of loops
 gain -- to make a track louder or quieter -- in Action Panel to left
-volume -- adjust in left panel or in right sub panel of track_viewport
+volume -- adjust in left_panel or in right sub panel of track_viewport
 
 (bottom right of track_viewport)
 n -- zoom to fit screen
@@ -26,11 +26,13 @@ delete clips by selecting and pressing delete
 trim clip -- the hollow arrows on both sides of header of a clip
 slip -- the full arrows on both sides of header of a clip
 fade -- right below trim clip hollow arrows
-  left panel has options to control the tween style (or right click the fade handle)
+  left_panel has options to control the tween style (or right click the fade handle)
 pitch_fade -- right click the fade handle
 
 reverse a clip -- right click the clip and select reverse -- doesnt work on midi clips. you have to mirror
 mirror -- TOOD: takes notes on midi mirroring once you get to midi editing video
+
+complete piece level (dbs) at bottom right
 
 loop tool -- header of clip -- makes hollow arrow for trim clip actually repeat the track instead as you drag it out
 
@@ -38,7 +40,7 @@ loop tool -- header of clip -- makes hollow arrow for trim clip actually repeat 
 
 order matters -- you can drag them to change the order
 
-f -- toggle enabled when plugin is selected -- in left panel bar aswell
+f -- toggle enabled when plugin is selected -- in left_panel bar aswell
 
 ### add Plugin
 drag the gray '+' button at the top rightish to your track and select step clip next to the red '+' button
@@ -85,6 +87,19 @@ right click in track and select step clip
   NOTE: OR drag the red '+' button at the top rightish to your track and select step clip
 double clip the step clip and fill in the matrix the notes you want and where
 adjust velocity of notes by clicking the 'V' at the top left of the step clip
+
+# Exporting
+(top_bar) File -> Export
+
+Useful Settings:
+Source
+  Range: Marked Region -- begin and end markers
+
+Export can be found in right_panel: Files -> Project Files(in square_with_cut_icon)
+
+# right_panel: Files -> Project Files(in square with cut icon)
+
+can bookmark folder (favorite): nav to folder, click square_with_cut_icon, click 'Bookmark current folder'
 
 # Sounds - instrument plugins
 
