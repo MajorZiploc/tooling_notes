@@ -7,6 +7,7 @@ fn + <left_arrow> -- back to beginning
 l -- toggle looping -- based on beginning and ending market of loops
 gain -- to make a track louder or quieter -- in Action Panel to left
 volume -- adjust in left_panel or in right sub panel of track_viewport
+r -- record
 
 (bottom right of track_viewport)
 n -- zoom to fit screen
@@ -35,6 +36,8 @@ mirror -- TOOD: takes notes on midi mirroring once you get to midi editing video
 complete piece level (dbs) at bottom right
 
 loop tool -- header of clip -- makes hollow arrow for trim clip actually repeat the track instead as you drag it out
+
+name track -- left_panel
 
 ## Plugin / Effects (instruments as well)
 
@@ -101,9 +104,28 @@ Export can be found in right_panel: Files -> Project Files(in square_with_cut_ic
 
 can bookmark folder (favorite): nav to folder, click square_with_cut_icon, click 'Bookmark current folder'
 
-# Sounds - instrument plugins
+# Midi
 
-## C major Pro 54
+## recording tips
+action: merge mode -- will merge recordings together as you progressively build up the track
+  to break the piece for a single instrument down into pieces to make easier to play
+
+### quantise -- prior to play (input quantise)
+left_panel -- will quantise notes after playing -- can be useful for making drum beats or tight rhythm
+  can remove awkward empty space
+
+### quantise -- after the fact
+useful for bulk editing notes to do things like fix timing of notes to land on the closest beat
+  select the notes you want to do the action on
+
+## Sounds - instrument plugins
+
+### Attracktive -- main waveform / tracktion plugin that has tons of sounds
+-- can also get a good deal on first register of waveform for a given email for $10
+
+Boorish Bass: playing a note immediately cuts off the last note
+
+### C major Pro 54
 
 horror/omnious
   Clangorous Bells
