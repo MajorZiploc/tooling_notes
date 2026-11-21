@@ -26,13 +26,25 @@ delete clips by selecting and pressing delete
 trim clip -- the hollow arrows on both sides of header of a clip
 slip -- the full arrows on both sides of header of a clip
 fade -- right below trim clip hollow arrows
-  right panel has options to control the tween style (or right click the fade handle)
+  left panel has options to control the tween style (or right click the fade handle)
 pitch_fade -- right click the fade handle
 
 reverse a clip -- right click the clip and select reverse -- doesnt work on midi clips. you have to mirror
 mirror -- TOOD: takes notes on midi mirroring once you get to midi editing video
 
 loop tool -- header of clip -- makes hollow arrow for trim clip actually repeat the track instead as you drag it out
+
+## Plugin / Effects (instruments as well)
+
+order matters -- you can drag them to change the order
+
+f -- toggle enabled when plugin is selected -- in left panel bar aswell
+
+### add Plugin
+drag the gray '+' button at the top rightish to your track and select step clip next to the red '+' button
+
+### delete Plugin
+select by clicking plugin and press delete
 
 ## Loops
 
@@ -56,6 +68,23 @@ changing BPM changes the BPM of all tracks so it will slow or speed up things (i
 
 top of bar snap
 Snap to Grid - Q -- toggles
+
+# Step Sequencing
+
+## use micro sampler -- on a track (multi sampler) -- waveform plugin
+
+### create your custom keyboard sounds mapped to keys
+
+drag another clips with the file tool in the middle of top bar ontop the microsampler
+in the microsampler
+  right click each clip and quick zone it
+    NOTE: you can also manually zone or edit the quick zone in the zones tab
+
+### create the step clip
+right click in track and select step clip
+  NOTE: OR drag the red '+' button at the top rightish to your track and select step clip
+double clip the step clip and fill in the matrix the notes you want and where
+adjust velocity of notes by clicking the 'V' at the top left of the step clip
 
 # Sounds - instrument plugins
 
