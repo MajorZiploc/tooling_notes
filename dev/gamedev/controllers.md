@@ -129,3 +129,22 @@ GameSir G8 Plus (with software support)
 Some Xbox Elite-compatible solutions on PC
 
 Since I remember you're planning to use GameHub to stream and play Steam games on Android, I can also recommend which mobile controllers actually provide the most flexible remapping for that specific setup.
+
+# Steam Controller (2015)
+https://help.steampowered.com/en/faqs/view/1796-5FC3-88B3-C85F?utm_source=chatgpt.com
+its a pain in the ass to get working now days
+NOTE: you need a usb cable that can do data transfer -- not all of them can
+might even have to start steam in legacy ui mode with flags `-vgui`
+
+  Firmware recovery
+  1. Download Valve's official Steam Controller Firmware Update Tool.
+  2. Extract it.
+  3. Exit Steam completely.
+  4. Connect the controller to the PC by micro-USB.
+  5. Run ble.bat and let it finish.
+  6. Then run prod.bat and let it finish.
+  7. Disconnect the controller and unplug the receiver.
+  8. Plug the receiver back in and open Steam.
+  The important part is running both ble.bat and prod.bat, not just BLE.
+
+  If the current Steam interface still won't pair it, the documented workaround is to launch Steam with the older interface using the -vgui launch option, then pair it there.
