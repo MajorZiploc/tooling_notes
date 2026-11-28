@@ -73,6 +73,7 @@ changing BPM changes the BPM of all tracks so it will slow or speed up things (i
 
 top of bar snap
 Snap to Grid - Q -- toggles
+NOTE: the more zoomed in the more fine grain the snap increment is
 
 # Step Sequencing
 
@@ -117,6 +118,37 @@ left_panel -- will quantise notes after playing -- can be useful for making drum
 ### quantise -- after the fact
 useful for bulk editing notes to do things like fix timing of notes to land on the closest beat
   select the notes you want to do the action on
+
+## misc
+can mute notes while selecting/dragging them -- click the volume icon in the midi toolbar top of the clip
+
+grab end of a note and move it to change the length of the note
+
+to select all of a specific note (say C4) -- hold down command and click C4 on the keyboard left of the clip
+
+can adjust attack and such of notes by selecting the note and adjusting in the left_panel things like: Pitch, Velocity, Start Time, End Time, etc...
+
+## Midi Editor -- very good for editing complex pieces with many midi tracks
+double click the top bar of the midi clip to open the midi editor
+it can do all the same stuff as not using it
+big diffs are:
+  can make it its own window
+  can edit multiple midi clips overlapping on different tracks at the same time
+    select which you want to edit on the right side
+  toolbar goes to the bottom instead of the top
+
+## pencil tool -- drawing in midi notes
+click and drag left and right adjusts note length respecting snapping
+click and drag up and down adjusts velocity
+
+## eraser tool -- deleting midi notes
+click a midi note or click and drag to delete notes your cursor goes over
+
+## line tool
+can be used to draw in a step series of notes
+
+## color groups
+notes can be color coated so that the job of notes is easier to understand -- just select the notes you want to recolor and set the color
 
 ## Sounds - instrument plugins
 
